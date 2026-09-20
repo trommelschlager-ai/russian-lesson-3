@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Русский для китайцев — Урок 3</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#fff7ed,#eff6ff);color:#172033}
+.wrap{max-width:900px;margin:auto;padding:28px 18px 50px}
+h1{text-align:center;margin:8px 0 8px;font-size:34px}
+.sub{text-align:center;color:#667085;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:white;border-radius:22px;padding:22px;text-align:center;box-shadow:0 8px 24px #00000012}
+.ru{font-size:42px;font-weight:800;margin:4px}
+.lat{font-size:20px;color:#667085;margin:8px}
+.zh{font-size:24px;font-weight:700;margin:10px}
+button{border:0;border-radius:50%;width:54px;height:54px;background:#2563eb;color:white;font-size:23px;cursor:pointer}
+button:active{transform:scale(.94)}
+.note{margin-top:25px;background:#fff;border-radius:18px;padding:18px;text-align:center;color:#475467}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>第3课 · 人称代词</h1>
+<div class="sub">俄罗斯语人称代词 — Русские местоимения</div>
+<div class="grid">
+  <div class="card"><div class="ru">Я</div><div class="lat">ya</div><div class="zh">我</div><button onclick="speak('Я')">▶</button></div>
+  <div class="card"><div class="ru">Ты</div><div class="lat">ty</div><div class="zh">你</div><button onclick="speak('Ты')">▶</button></div>
+  <div class="card"><div class="ru">Он</div><div class="lat">on</div><div class="zh">他</div><button onclick="speak('Он')">▶</button></div>
+  <div class="card"><div class="ru">Она</div><div class="lat">ona</div><div class="zh">她</div><button onclick="speak('Она')">▶</button></div>
+  <div class="card"><div class="ru">Мы</div><div class="lat">my</div><div class="zh">我们</div><button onclick="speak('Мы')">▶</button></div>
+  <div class="card"><div class="ru">Вы</div><div class="lat">vy</div><div class="zh">你们 / 您</div><button onclick="speak('Вы')">▶</button></div>
+  <div class="card"><div class="ru">Они</div><div class="lat">oni</div><div class="zh">他们</div><button onclick="speak('Они')">▶</button></div>
+</div>
+<div class="note">Нажми ▶, чтобы услышать русское произношение.</div>
+</div>
+<script>
+function speak(text){
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='ru-RU';
+  u.rate=0.85;
+  u.pitch=1;
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

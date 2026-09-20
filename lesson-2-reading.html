@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Русский для китайцев — Урок 2: чтение</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; background: linear-gradient(135deg, #fff7ed, #eff6ff); color: #172033; }
+    .wrap { max-width: 980px; margin: auto; padding: 28px 18px 52px; }
+    h1 { margin: 8px 0; text-align: center; font-size: clamp(28px, 5vw, 38px); }
+    .sub { margin: 0 0 28px; text-align: center; color: #667085; font-size: 18px; }
+    .section { margin-top: 20px; background: #fff; border-radius: 22px; padding: 22px; box-shadow: 0 8px 24px #00000012; }
+    h2 { margin: 0 0 14px; font-size: 23px; }
+    .hint { color: #667085; margin: 0 0 16px; }
+    .letters { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 12px; }
+    .letter { padding: 16px; border: 2px solid #e5e7eb; border-radius: 16px; text-align: center; background: #fafcff; }
+    .ru { font-size: 38px; font-weight: 800; }
+    .sound { margin: 6px 0; font-size: 18px; color: #2563eb; font-weight: 700; }
+    .zh { color: #475467; }
+    button { border: 0; border-radius: 12px; padding: 10px 14px; background: #2563eb; color: #fff; font-size: 16px; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+    button:active { transform: scale(.97); }
+    .word-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+    .word { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border-radius: 14px; background: #f8fafc; }
+    .word strong { font-size: 25px; }
+    .word small { display: block; margin-top: 4px; color: #667085; font-size: 15px; }
+    .quiz-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+    .option { width: 100%; background: #fff; color: #172033; border: 2px solid #dbe3ef; }
+    .option.correct { background: #dcfce7; border-color: #22c55e; color: #166534; }
+    .option.wrong { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
+    #result { min-height: 24px; margin: 14px 0 0; font-weight: 700; }
+    .next { margin-top: 16px; background: #0f766e; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>第2课 · 俄语阅读入门</h1>
+    <p class="sub">Урок 2 · Учимся читать по-русски</p>
+
+    <section class="section">
+      <h2>1. Буквы, похожие на английские</h2>
+      <p class="hint">这些字母的外形熟悉，但要按俄语发音读。点击播放。</p>
+      <div class="letters">
+        <article class="letter"><div class="ru">А а</div><div class="sound">[а]</div><div class="zh">像“啊”</div><br><button onclick="speak('а')">▶ 听</button></article>
+        <article class="letter"><div class="ru">О о</div><div class="sound">[о]</div><div class="zh">像“哦”</div><br><button onclick="speak('о')">▶ 听</button></article>
+        <article class="letter"><div class="ru">М м</div><div class="sound">[м]</div><div class="zh">像 m</div><br><button onclick="speak('м')">▶ 听</button></article>
+        <article class="letter"><div class="ru">Т т</div><div class="sound">[т]</div><div class="zh">像 t</div><br><button onclick="speak('т')">▶ 听</button></article>
+        <article class="letter"><div class="ru">К к</div><div class="sound">[к]</div><div class="zh">像 k</div><br><button onclick="speak('к')">▶ 听</button></article>
+        <article class="letter"><div class="ru">С с</div><div class="sound">[с]</div><div class="zh">像 s</div><br><button onclick="speak('с')">▶ 听</button></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>2. Читаем первые слова</h2>
+      <p class="hint">先看俄语单词，再点击听发音。</p>
+      <div class="word-list">
+        <div class="word"><span><strong>мама</strong><small>мáма · 妈妈</small></span><button onclick="speak('мама')">▶</button></div>
+        <div class="word"><span><strong>папа</strong><small>пáпа · 爸爸</small></span><button onclick="speak('папа')">▶</button></div>
+        <div class="word"><span><strong>том</strong><small>том · 一本书</small></span><button onclick="speak('том')">▶</button></div>
+        <div class="word"><span><strong>кот</strong><small>кот · 猫</small></span><button onclick="speak('кот')">▶</button></div>
+        <div class="word"><span><strong>мак</strong><small>мак · 罂粟花</small></span><button onclick="speak('мак')">▶</button></div>
+        <div class="word"><span><strong>сам</strong><small>сам · 自己（男性）</small></span><button onclick="speak('сам')">▶</button></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>3. Мини-викторина</h2>
+      <p id="question" class="hint"></p>
+      <div id="options" class="quiz-options"></div>
+      <p id="result" aria-live="polite"></p>
+      <button class="next" onclick="nextQuestion()">Следующий вопрос →</button>
+    </section>
+  </main>
+
+  <script>
+    function speak(text) {
+      speechSynthesis.cancel();
+      const voice = new SpeechSynthesisUtterance(text);
+      voice.lang = 'ru-RU';
+      voice.rate = 0.8;
+      speechSynthesis.speak(voice);
+    }
+
+    const questions = [
+      { q: '“мама” 的意思是什么？', a: '妈妈', choices: ['妈妈', '爸爸', '猫'] },
+      { q: '哪个俄语词表示“猫”？', a: 'кот', choices: ['кот', 'том', 'мак'] },
+      { q: '字母 “М” 的发音接近哪个拉丁字母？', a: 'm', choices: ['m', 't', 's'] }
+    ];
+    let current = 0;
+
+    function showQuestion() {
+      const item = questions[current];
+      document.getElementById('question').textContent = item.q;
+      document.getElementById('result').textContent = '';
+      const options = document.getElementById('options');
+      options.innerHTML = '';
+      item.choices.forEach(choice => {
+        const button = document.createElement('button');
+        button.className = 'option';
+        button.textContent = choice;
+        button.onclick = () => answer(button, choice === item.a);
+        options.appendChild(button);
+      });
+    }
+
+    function answer(button, isCorrect) {
+      document.querySelectorAll('.option').forEach(item => item.disabled = true);
+      button.classList.add(isCorrect ? 'correct' : 'wrong');
+      document.getElementById('result').textContent = isCorrect ? '正确！Отлично! 🎉' : '再试一次，答案已标出。';
+      if (!isCorrect) {
+        [...document.querySelectorAll('.option')].find(item => item.textContent === questions[current].a).classList.add('correct');
+      }
+    }
+
+    function nextQuestion() {
+      current = (current + 1) % questions.length;
+      showQuestion();
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>
