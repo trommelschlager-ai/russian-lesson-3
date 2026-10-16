@@ -1,0 +1,22 @@
+{
+  "lesson_2": {
+    "word_cards": 8,
+    "reading_combinations": 40,
+    "quiz_questions": 20,
+    "browser_qa": "20/20 correct; reset works; recorded muка playback; no missing images or horizontal overflow"
+  },
+  "lesson_3": {
+    "pronouns": 8,
+    "dialogues": 10,
+    "quiz_questions": 12,
+    "corrections": [
+      "female: Да, я готова.",
+      "male to female: Привет! Ты свободна сегодня?",
+      "female: Да, свободна.",
+      "Mne pora idti. uses Latin letters throughout",
+      "Russian transliteration is distinguished from Chinese pinyin"
+    ],
+    "audio": "same-origin Dmitry and Svetlana MP3s; synchronous first play and one media element per sequence",
+    "browser_qa": "both voice previews decoded; incorrect-answer feedback; 11/12 score; reset works"
+  }
+}

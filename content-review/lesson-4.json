@@ -1,0 +1,45 @@
+{
+  "zh": "日常问候",
+  "ru": "Приветствия",
+  "lat": "Privetstviya",
+  "intro": "学习问候、道谢和道别。",
+  "heading": "常用问候",
+  "kind": "greetings",
+  "cards": [
+    [
+      "Доброе утро!",
+      "Dobroye utro!",
+      "早上好！"
+    ],
+    [
+      "Добрый день!",
+      "Dobryy den'!",
+      "日安！"
+    ],
+    [
+      "Добрый вечер!",
+      "Dobryy vecher!",
+      "晚上好！"
+    ],
+    [
+      "Спокойной ночи!",
+      "Spokoynoy nochi!",
+      "晚安！"
+    ]
+  ],
+  "dialogue_heading": "和朋友打招呼",
+  "dialogue": [
+    [
+      "Привет! Как дела?",
+      "Privet! Kak dela?",
+      "你好！你怎么样？",
+      "male"
+    ],
+    [
+      "Хорошо, спасибо!",
+      "Khorosho, spasibo!",
+      "很好，谢谢！",
+      "female"
+    ]
+  ]
+}
