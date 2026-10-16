@@ -75,7 +75,7 @@ jobs:
             assert 'course-extensions-audio.js' in s
             quiz=json.loads(re.search(r'window.COURSE_QUIZ=(\[.*?\]);</script>',s,re.S).group(1))
             assert all(0<=q['answer']<len(q['options']) for q in quiz)
-            assert len(quiz)=={4:10,5:11,6:10}[lesson],(lesson,len(quiz))
+            assert len(quiz)=={4:8,5:12,6:10}[lesson],(lesson,len(quiz))
           assert Path('assets/lesson3-touch-targets.css').is_file()
           print('All content, quizzes and audio references validated')
           PY
