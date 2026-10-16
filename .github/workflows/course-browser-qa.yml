@@ -43,3 +43,5 @@ jobs:
           if-no-files-found: warn
 
 # QA rerun for neural alphabet audio and completed lesson 7 dialogue (2026-10-17).
+
+# Rerun after synchronizing the visual cover of lesson 2 with the course homepage.
