@@ -41,7 +41,16 @@ try {
     if(!response||![200,304].includes(response.status()))throw Error('Page response '+response?.status());
     if(check.sourceCount!==cardCount)throw Error('Cards '+check.sourceCount+' expected '+cardCount);
     if(check.dialogueCount!==dialogueCount)throw Error('Dialogue '+check.dialogueCount+' expected '+dialogueCount);
-    if(n==='5'){const times=await page.$eval('#extra-times-5',el=>el.querySelectorAll('.extra-time-card').length);if(times!==5)throw Error('Extra time cards '+times+' expected 5');}
+    if(n==='5'){
+      const times=await page.$eval('#extra-times-5',el=>el.querySelectorAll('.extra-time-card').length);
+      if(times!==5)throw Error('Extra time cards '+times+' expected 5');
+      const correctOrder=await page.evaluate(()=>{
+        const ids=['vocabulary','extra-vocab-5','time-words','extra-times-5','dialogue-mobile','extra-dialogue-5'];
+        const nodes=ids.map(id=>document.getElementById(id));
+        return nodes.every((n,i)=>n&&(i===nodes.length-1||Boolean(n.compareDocumentPosition(nodes[i+1])&Node.DOCUMENT_POSITION_FOLLOWING)));
+      });
+      if(!correctOrder)throw Error('Lesson 5 numbers must precede the time/dialogue sections');
+    }
     if(check.quizCount!==expectedQuiz)throw Error('Questions '+check.quizCount+' expected '+expectedQuiz);
     if(check.overflow>3)throw Error('Horizontal overflow '+check.overflow);
     if(check.missingAudio.length)throw Error('Missing audio '+check.missingAudio.join(','));
