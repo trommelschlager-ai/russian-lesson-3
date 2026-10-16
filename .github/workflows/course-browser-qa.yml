@@ -1,0 +1,38 @@
+name: Verify course lessons in mobile browser
+on:
+  push:
+    branches:
+      - course-recovery-2026-10-16
+    paths:
+      - .github/workflows/course-browser-qa.yml
+      - tools/browser-qa.mjs
+      - lesson-*.html
+      - russian_lesson_*.html
+      - assets/**
+      - audio/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mobile-and-desktop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test-only browser driver
+        run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24.22.3
+      - name: Confirm Chrome installation
+        run: |
+          command -v google-chrome
+          google-chrome --version
+      - name: Exercise all seven lessons at phone and desktop sizes
+        run: node tools/browser-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lesson-browser-qa-screenshots
+          path: qa-browser-shots/
+          if-no-files-found: warn
