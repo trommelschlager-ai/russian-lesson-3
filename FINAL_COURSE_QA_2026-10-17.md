@@ -36,3 +36,9 @@
 - Test page `ALPHABET_VOICE_COMPARISON.html` now lets the user compare four new MP3 clips with one previously approved clip from lesson 4, using a commit-hash URL to rule out cached copies.
 - `raw.githack.com` branch URLs are temporarily cached and can serve stale page content; use an immutable commit URL for this check. **Query string changes do not invalidate raw.githack CDN cache.**
 - Do not replace all 165 recordings again without identifying a substantially better voice by listening first. Original main/index and lesson 7 remain untouched.
+
+## User acceptance — sample voice comparison
+- User listened to the dedicated lesson 1 comparison page and explicitly confirmed: «Да бро голоса отличные».
+- This **approves the sampled audio voices**, not automatically every one of the 165 recordings or the audio playback on the full lesson page.
+- Next acceptance test: open the full lesson 1 with an immutable commit link; play multiple letters and words on the actual phone, including Ы and a multisyllable example. If it matches the approved samples, lesson 1 audio can be signed off.
+- Do not redo lesson 7 or alter `index.html` or merge draft PR pending full-lesson acceptance.
