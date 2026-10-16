@@ -191,19 +191,8 @@ function speak(text){
     activeAudio.play().catch(()=>{document.getElementById('lesson-audio-status').textContent='音频未能播放，请再次点击。';});
     return;
   }
-  if (!('speechSynthesis' in window)) {
-    alert('Озвучка не поддерживается этим браузером.');
-    return;
-  }
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(String(text));
-  utterance.lang = 'ru-RU';
-  utterance.rate = 0.78;
-  utterance.pitch = 1;
-  const voices = window.speechSynthesis.getVoices();
-  const russianVoice = voices.find(v => /^ru(-|_)/i.test(v.lang));
-  if (russianVoice) utterance.voice = russianVoice;
-  window.speechSynthesis.speak(utterance);
+  document.getElementById('lesson-audio-status').textContent='没有现成的录音，请检查音频文件。';
+  return;
 }
 function makeHotspots(){
 const h=document.getElementById('hotspots');
