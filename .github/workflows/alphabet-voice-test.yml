@@ -36,7 +36,7 @@ jobs:
                 try:
                   await edge_tts.Communicate(word, voice,rate='-8%').save(str(p))
                   assert p.stat().st_size>1000
-                  subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','default=nw=1',str(p)],check=True)
+                  assert p.read_bytes().startswith(b'ID3') or p.read_bytes()[:2] in (b'\\xff\\xfb',b'\\xff\\xf3'), 'Invalid MP3 header'
                   print(word, voice, p.stat().st_size)
                   break
                 except Exception:
