@@ -1,0 +1,1 @@
+Disable speechSynthesis fallback in alphabet lesson only. Preserve all MP3. No main branch edits.
