@@ -1,0 +1,60 @@
+name: Align lesson 2 cover with home card
+on:
+  push:
+    branches: [course-recovery-2026-10-16]
+    paths: [.github/workflows/align-lesson2-cover.yml]
+permissions:
+  contents: write
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check pillow
+      - name: Reuse the exact illustrated book from the course homepage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image,ImageEnhance,ImageFilter
+          from io import BytesIO
+          import base64,re,hashlib
+          preview=Path('COURSE_HOME_PREVIEW.html').read_text(encoding='utf-8')
+          m=re.search(r'<img src="data:image/jpeg;base64,([A-Za-z0-9+/=]+)"',preview)
+          assert m,'Homepage artwork not found'
+          art=Image.open(BytesIO(base64.b64decode(m.group(1)))).convert('RGB')
+          print('Course cover dimensions',art.size)
+          assert art.size == (1024,1536),'Unexpected cover art dimensions'
+          # This rectangular detail is the illustrated open book on home card 2.
+          # Exclude its header and button. Preserve the exact original Russian words.
+          crop=art.crop((348,605,680,827))
+          crop=crop.resize((996,666),Image.Resampling.LANCZOS)
+          target=Path('assets/images/lesson2-home-card-book.jpg')
+          assert not target.exists(),'Do not overwrite a pre-existing design image'
+          crop.save(target,quality=90,optimize=True,subsampling=0)
+          htmlfile=Path('russian_lesson_2_reading.html')
+          page=htmlfile.read_text(encoding='utf-8')
+          old='<img class="" src="assets/images/18021ca3967ac3cd61.jpg" alt="温暖的俄语学习桌面" loading="lazy">'
+          new='<img class="home-matched-book" src="assets/images/lesson2-home-card-book.jpg" alt="与课程首页一致的第2课插图：翻开的书，俄语单词 мама、дом、кошка、чай、мир、друг、город" loading="eager">'
+          assert page.count(old)==1,'Lesson 2 hero changed or missing'
+          assert page.count('</style>')==1
+          page=page.replace(old,new,1)
+          page=page.replace('</style>','\n/* Show the same illustration as course card #2 without cutting away the book. */\n.hero-art img.home-matched-book{object-fit:contain;object-position:center;background:#f7edd9}\n</style>',1)
+          assert page.count('lesson2-home-card-book.jpg')==1
+          assert page.count('id="quiz-section"')==1
+          assert 'const quizData=' in page
+          htmlfile.write_text(page,encoding='utf-8')
+          print('Reused source cover, asset bytes',target.stat().st_size)
+          PY
+      - name: Save only the cover correction in the recovery branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add russian_lesson_2_reading.html assets/images/lesson2-home-card-book.jpg
+          git diff --cached --exit-code -- index.html
+          git diff --cached --exit-code -- COURSE_HOME_PREVIEW.html
+          git commit -m "Match lesson 2 hero art to its illustrated homepage card"
+          git push
