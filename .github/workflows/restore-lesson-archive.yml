@@ -1,0 +1,54 @@
+name: Restore verified lesson archive to staging
+on:
+  push:
+    branches:
+      - course-recovery-2026-10-16
+    paths:
+      - russian-lessons-1-7-alphabet-images-fixed.zip
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verify and unpack course files
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib, json, zipfile
+          archive = Path('russian-lessons-1-7-alphabet-images-fixed.zip')
+          expected_archive_sha = 'bb2d73d51b8956d01d5ad2074d3356b3c856c0dc1eb4fb14769084542d8b7d95'
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == expected_archive_sha, 'Archive SHA mismatch'
+          with zipfile.ZipFile(archive) as z:
+              entries = {i.filename: i for i in z.infolist() if not i.is_dir()}
+              assert z.testzip() is None, 'Corrupt ZIP entry'
+              manifest = json.loads(z.read('SAVED_FILES.json'))
+              assert len(manifest) == 540, 'Unexpected file count'
+              assert set(entries) == {e['file'] for e in manifest} | {'SAVED_FILES.json', 'SAVE_STATUS.txt'}, 'Unexpected archive contents'
+              for name in entries:
+                  p = PurePosixPath(name)
+                  assert not p.is_absolute() and '..' not in p.parts and not name.startswith(('.git/', '.github/')), 'Unsafe path'
+                  assert name != 'index.html', 'Homepage cannot be overwritten'
+              for entry in manifest:
+                  data = z.read(entry['file'])
+                  assert len(data) == entry['bytes'], 'Size mismatch: ' + entry['file']
+                  assert hashlib.sha256(data).hexdigest() == entry['sha256'], 'Checksum mismatch: ' + entry['file']
+              for name in entries:
+                  target = Path(name)
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(z.read(name))
+          archive.unlink()
+          print('Verified and restored', len(entries), 'archive entries; homepage unchanged')
+          PY
+      - name: Commit restored files to recovery branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "Restore verified Russian lessons 1-7 and assets from backup ZIP"
+            git push
+          fi
