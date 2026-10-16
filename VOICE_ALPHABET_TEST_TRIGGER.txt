@@ -1,5 +1,0 @@
-Generate temporary Edge neural Russian speech previews on this branch only.
-
-Retry after removing ffprobe dependency.
-
-Retry with MP3 frame validation fixed.
