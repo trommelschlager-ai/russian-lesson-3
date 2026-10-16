@@ -84,7 +84,7 @@ try {
           await page.waitForFunction(()=>{
             const iframe=document.querySelector('#combinedLesson2Frame');
             const d=iframe?.contentDocument;
-            return d?.body?.innerText?.includes('学习拼读音节');
+            return d?.body?.innerText?.includes('第一部分｜读音节');
           },{timeout:20000});
           await sleep(800);
           const reading=await page.$eval('#combinedLesson2Frame',frame=>({
@@ -93,7 +93,7 @@ try {
             heading:frame.contentDocument?.querySelector('h2')?.textContent || '',
             contentHeight:frame.contentDocument?.documentElement?.scrollHeight || 0,
             height:Math.round(frame.getBoundingClientRect().height),
-            quiz:!!frame.contentDocument?.querySelector('#startTest'),
+            quiz:!!frame.contentDocument?.querySelector('#reset'),
           }));
           console.log('READING_CONTINUATION '+mode.label+' '+JSON.stringify(reading));
           if (!reading.source?.includes('russian_lesson_2_reading.html') || reading.text<1500 || !reading.quiz) throw Error('Missing actual reading exercises in alphabet continuation');
