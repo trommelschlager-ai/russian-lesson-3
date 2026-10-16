@@ -1,0 +1,11 @@
+
+@media(pointer:coarse){
+  .card-audio,.example-audio,.inline-audio,.q-audio,
+  .speaker,.play-all,.action,.quiz-listen,
+  .pronouns button[data-say],.pronoun-card button[data-say]{
+    min-width:44px!important;
+    min-height:44px!important;
+    display:inline-flex;align-items:center;justify-content:center;
+    touch-action:manipulation;
+  }
+}
