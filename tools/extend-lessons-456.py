@@ -78,7 +78,7 @@ def item_card(word,lat,zh,role,illustration):
 
 def dialogue_line(word,lat,zh,role,lesson):
     speaker="Светлана" if role=="female" else "Дмитрий"
-    picture=f'assets/illustrated/{speaker.lower()}-{lesson if lesson != 6 else 5}.jpg'
+    picture=f'assets/illustrated/{'female':'svetlana','male':'dmitry'}[role]-{lesson if lesson != 6 else 5}.jpg'
     assert Path(picture).exists(),picture
     return f'<article class="extra-dialogue-line"><img src="{picture}" alt="{speaker}" class="extra-character"><div><div class="extra-speaker">{speaker}</div><div class="ru" lang="ru">{escape(word)}</div><div class="latin">{escape(lat)}</div><div class="zh" lang="zh-CN">{escape(zh)}</div>{play_button(word,role)}</div></article>'
 
