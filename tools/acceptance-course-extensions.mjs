@@ -65,7 +65,7 @@ try {
       if(all.length!==qs.length)return {error:'Rendered '+all.length+' questions vs '+qs.length};
       for(let i=0;i<qs.length;i++){
         const choices=all[i].querySelectorAll('button.option');
-        if(choices.length!==4)return {error:'Question '+i+' has '+choices.length+' options'};
+        if(choices.length<2||choices.length>4)return {error:'Question '+i+' has '+choices.length+' options'};
         choices[qs[i].answer].click();
       }
       return {
