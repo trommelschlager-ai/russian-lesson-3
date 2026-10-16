@@ -1,0 +1,1 @@
+Restore the embedded original hero image in lesson 1 without touching homepage or layout.
