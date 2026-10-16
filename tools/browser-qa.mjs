@@ -77,6 +77,29 @@ try {
           }
         }
         if (mode.label==='mobile') await page.screenshot({path:'qa-browser-shots/'+path.replace('.html','')+'.png'});
+        if (path==='russian_lesson_1_COMPLETE.html') {
+          // The alphabet has a reading continuation far below the fold.
+          // Scrolling is essential when iframe loading=lazy.
+          await page.$eval('#combinedLesson2Frame', el=>el.scrollIntoView({block:'center'}));
+          await page.waitForFunction(()=>{
+            const iframe=document.querySelector('#combinedLesson2Frame');
+            const d=iframe?.contentDocument;
+            return d?.body?.innerText?.includes('学习拼读音节');
+          },{timeout:20000});
+          await sleep(800);
+          const reading=await page.$eval('#combinedLesson2Frame',frame=>({
+            source:frame.getAttribute('src'),
+            text:frame.contentDocument?.body?.innerText?.length || 0,
+            heading:frame.contentDocument?.querySelector('h2')?.textContent || '',
+            contentHeight:frame.contentDocument?.documentElement?.scrollHeight || 0,
+            height:Math.round(frame.getBoundingClientRect().height),
+            quiz:!!frame.contentDocument?.querySelector('#startTest'),
+          }));
+          console.log('READING_CONTINUATION '+mode.label+' '+JSON.stringify(reading));
+          if (!reading.source?.includes('russian_lesson_2_reading.html') || reading.text<1500 || !reading.quiz) throw Error('Missing actual reading exercises in alphabet continuation');
+          if (reading.height<900) throw Error('Reading iframe collapsed');
+          if (mode.label==='mobile')await page.screenshot({path:'qa-browser-shots/alphabet-reading-continuation-mobile.png'});
+        }
         const errors = [];
         if (!response || ![200,304].includes(response.status())) errors.push('Page HTTP status '+(response?.status() ?? 'none'));
         if (jsErrors.length) errors.push('JavaScript: '+jsErrors.join('; '));
