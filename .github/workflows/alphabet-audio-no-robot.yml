@@ -1,0 +1,46 @@
+name: Disable robotic fallback in lesson 1 (staging only)
+on:
+  push:
+    branches: [course-recovery-2026-10-16]
+    paths: [ALPHABET_AUDIO_NO_ROBOT_REQUEST.txt]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Disable browser speech synthesis, preserve recorded audio
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, json
+          p=Path('russian_lesson_1_COMPLETE.html')
+          html=p.read_text(encoding='utf-8')
+          old="""  if (!('speechSynthesis' in window)) {
+              alert('Озвучка не поддерживается этим браузером.');
+              return;
+            }"""
+          # The exact block below must match source: abort on unexpected structure
+          import re
+          pattern=r"  if \(!\('speechSynthesis' in window\)\) \{\s*alert\('Озвучка не поддерживается этим браузером\.'\);\s*return;\s*\}\s*window\.speechSynthesis\.cancel\(\);\s*const utterance = new SpeechSynthesisUtterance\(String\(text\)\);\s*utterance\.lang = 'ru-RU';\s*utterance\.rate = 0\.78;\s*utterance\.pitch = 1;\s*const voices = window\.speechSynthesis\.getVoices\(\);\s*const russianVoice = voices\.find\(v => /\^ru\(-\|_\)/i\.test\(v\.lang\)\);\s*if \(russianVoice\) utterance\.voice = russianVoice;\s*window\.speechSynthesis\.speak\(utterance\);"
+          count=len(re.findall(pattern,html))
+          assert count==1, f"Expected exactly one robotic fallback, got {count}"
+          m=re.search(r'const DATA=(\[.*?\]);\s*const COLORS=',html,re.S)
+          assert m, "Alphabet audio data missing"
+          rows=json.loads(m.group(1))
+          assert len(rows)==33, "Unexpected alphabet size"
+          recordings=[record for row in rows for record in [row['letterAudio'],row['wordAudio']]+[ex['audio'] for ex in row['examples']]]
+          assert len(recordings)==165 and all(x and x.startswith('data:audio/') for x in recordings), "Embedded audio check failed"
+          html=re.sub(pattern,"  document.getElementById('lesson-audio-status').textContent='没有现成的录音，请检查音频文件。';\n  return;",html,count=1)
+          assert 'new SpeechSynthesisUtterance' not in html
+          p.write_text(html,encoding='utf-8')
+          PY
+      - name: Commit only alphabet HTML
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add russian_lesson_1_COMPLETE.html
+          git diff --cached --exit-code -- index.html
+          git commit -m "Disable browser robotic audio fallback in alphabet; preserve recordings"
+          git push
