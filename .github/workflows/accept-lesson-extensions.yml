@@ -1,0 +1,32 @@
+name: Accept lesson extensions and phone controls
+on:
+  push:
+    branches: [course-recovery-2026-10-16]
+    paths:
+      - .github/workflows/accept-lesson-extensions.yml
+      - tools/acceptance-course-extensions.mjs
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser and Chinese fonts
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24.22.3
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk
+      - name: Check real MP3, design, links, quiz scoring and touch targets
+        run: node tools/acceptance-course-extensions.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lesson-extensions-mobile-screenshots
+          path: qa-extension-shots/
+          if-no-files-found: warn
