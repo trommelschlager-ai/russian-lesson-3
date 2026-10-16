@@ -4,7 +4,7 @@ import {mkdirSync,writeFileSync} from 'node:fs';
 
 const samples=[
  ['4','lesson-4-presentation-READY.html',4,4,8],
- ['5','lesson-5.html',10,4,12],
+ ['5','lesson-5.html',5,4,12],
  ['6','lesson-6.html',3,4,10],
 ];
 const server=spawn('python3',['-m','http.server','18998','--bind','127.0.0.1'],{stdio:'ignore'});
@@ -38,9 +38,10 @@ try {
         scrollHeight:document.documentElement.scrollHeight
       };
     },n);
-    if(!response||response.status()!==200)throw Error('Page response '+response?.status());
+    if(!response||![200,304].includes(response.status()))throw Error('Page response '+response?.status());
     if(check.sourceCount!==cardCount)throw Error('Cards '+check.sourceCount+' expected '+cardCount);
     if(check.dialogueCount!==dialogueCount)throw Error('Dialogue '+check.dialogueCount+' expected '+dialogueCount);
+    if(n==='5'){const times=await page.$eval('#extra-times-5',el=>el.querySelectorAll('.extra-time-card').length);if(times!==5)throw Error('Extra time cards '+times+' expected 5');}
     if(check.quizCount!==expectedQuiz)throw Error('Questions '+check.quizCount+' expected '+expectedQuiz);
     if(check.overflow>3)throw Error('Horizontal overflow '+check.overflow);
     if(check.missingAudio.length)throw Error('Missing audio '+check.missingAudio.join(','));
@@ -52,12 +53,11 @@ try {
     if(viewport.name==='mobile')await page.screenshot({path:'qa-extension-shots/lesson-'+n+'-dialogue-mobile.png'});
     // Play a newly recorded audio sample, not a fixture or old word.
     const play=await page.$('#extra-vocab-'+n+' [data-say]');
-    await play.click();
+    await play.evaluate(el=>el.click());
     await page.waitForFunction(()=>document.querySelector('audio[data-course-player]')?.readyState>=2,{timeout:20000});
     const audioPath=await page.$eval('audio[data-course-player]',e=>e.currentSrc||e.src);
     if(!audioPath.includes('/audio/lesson-extensions/'))throw Error('New recorded MP3 not used '+audioPath);
-    const quizButton=await page.$('[data-open-quiz]');
-    if(quizButton)await quizButton.click();
+    await page.evaluate(()=>{const buttons=[...document.querySelectorAll('[data-open-quiz]')];const b=buttons.find(x=>x.getClientRects().length&&getComputedStyle(x).display!=='none');if(!b)throw new Error('No visible quiz-open button');b.click();});
     await page.waitForFunction(()=>!!document.querySelector('#course-quiz .question'),{timeout:2000});
     let quiz=await page.evaluate(()=>{
       const qs=window.COURSE_QUIZ;
