@@ -41,3 +41,5 @@ jobs:
           name: lesson-browser-qa-screenshots
           path: qa-browser-shots/
           if-no-files-found: warn
+
+# QA rerun for neural alphabet audio and completed lesson 7 dialogue (2026-10-17).
