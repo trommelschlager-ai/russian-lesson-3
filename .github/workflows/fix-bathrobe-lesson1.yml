@@ -1,0 +1,40 @@
+name: Fix bathrobe picture without redesign
+on:
+  push:
+    branches: [course-recovery-2026-10-16]
+    paths: [BATHROBE_REPAIR_REQUEST.txt]
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update only the Халат image in alphabet data
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, json
+          asset=Path("assets/illustrated/bathrobe-white.webp")
+          assert asset.is_file() and asset.stat().st_size>2000, "Missing generated bathrobe artwork"
+          with asset.open("rb") as f: assert f.read(4)==b"RIFF"
+          path=Path("russian_lesson_1_COMPLETE.html")
+          text=path.read_text(encoding="utf-8")
+          anchor='"emoji":"🥋","word":"Халат","lat":"Khalat","zh":"浴袍","photo":"'
+          assert text.count(anchor)==1,"Target not unique"
+          old=r'("emoji":"🥋","word":"Халат","lat":"Khalat","zh":"浴袍","photo":")data:image/jpeg;base64,[^"]+'
+          new=r'\g<1>assets/illustrated/bathrobe-white.webp'
+          updated,count=re.subn(old,new,text)
+          assert count==1,"Expected one image replacement"
+          assert updated.count('"word":"Халат"')==1
+          path.write_text(updated,encoding="utf-8")
+          print("Fixed photo for Халат; no changes to layout or translation.")
+          PY
+      - name: Commit the one corrected lesson file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add russian_lesson_1_COMPLETE.html
+          git diff --cached --exit-code -- index.html
+          git commit -m "Fix bathrobe image meaning in alphabet lesson"
+          git push
