@@ -1,0 +1,32 @@
+name: Final Course UX Visual Audit
+on:
+  push:
+    branches: [course-recovery-2026-10-16]
+    paths:
+      - tools/final-course-audit.mjs
+      - .github/workflows/final-course-ux-audit.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser driver and Chinese glyphs
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24.22.3
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk
+      - name: Visually inspect all seven lessons including quizzes
+        run: node tools/final-course-audit.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-course-ux-screenshots-and-report
+          path: audit-visuals/
+          if-no-files-found: warn
