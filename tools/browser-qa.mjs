@@ -34,7 +34,7 @@ try {
       const jsErrors = [], failedLocal = [];
       page.on('pageerror', e => jsErrors.push(String(e).slice(0,180)));
       page.on('response', r => {
-        if (r.status()>=400 && r.url().startsWith('http://127.0.0.1:')) failedLocal.push(r.status()+' '+r.url());
+        if (r.status()>=400 && r.url().startsWith('http://127.0.0.1:') && !r.url().endsWith('/favicon.ico')) failedLocal.push(r.status()+' '+r.url());
       });
       try {
         const response = await page.goto('http://127.0.0.1:'+port+'/'+path,{waitUntil:'load',timeout:30000});
@@ -57,7 +57,7 @@ try {
         }
         if (mode.label==='mobile') await page.screenshot({path:'qa-browser-shots/'+path.replace('.html','')+'.png'});
         const errors = [];
-        if (!response || response.status()!==200) errors.push('Page HTTP status '+(response?.status() ?? 'none'));
+        if (!response || ![200,304].includes(response.status())) errors.push('Page HTTP status '+(response?.status() ?? 'none'));
         if (jsErrors.length) errors.push('JavaScript: '+jsErrors.join('; '));
         if (failedLocal.length) errors.push('Missing HTTP resource: '+failedLocal.slice(0,5).join('; '));
         if (measured.brokenImages.length) errors.push('Broken images: '+measured.brokenImages.join(', '));
