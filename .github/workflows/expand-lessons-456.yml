@@ -1,0 +1,92 @@
+name: Expand core lessons 4 5 6 safely
+on:
+  push:
+    branches: [course-recovery-2026-10-16]
+    paths:
+      - .github/workflows/expand-lessons-456.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  enhance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check edge-tts mutagen
+      - name: Add bilingual lessons and touch targets
+        run: python tools/extend-lessons-456.py
+      - name: Record each new word and dialogue turn
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import asyncio,hashlib,json
+          from mutagen.mp3 import MP3
+          import edge_tts
+          data=json.loads(Path('assets/lesson-extensions-required-audio.json').read_text(encoding='utf-8'))
+          out=Path('audio/lesson-extensions')
+          out.mkdir(parents=True,exist_ok=True)
+          mapped={}
+          sem=asyncio.Semaphore(3)
+          async def one(item):
+            role=item['role']
+            spoken=item['text']
+            voice='ru-RU-DmitryNeural' if role=='male' else 'ru-RU-SvetlanaNeural'
+            filename=role+'-'+hashlib.sha256((voice+'|'+spoken).encode('utf-8')).hexdigest()[:18]+'.mp3'
+            target=out/filename
+            async with sem:
+              for attempt in range(5):
+                try:
+                  if not target.exists():
+                    await edge_tts.Communicate(spoken,voice,rate='-8%').save(str(target))
+                  assert target.stat().st_size>1200,(spoken,'empty')
+                  duration=MP3(str(target)).info.length
+                  assert 0.25<duration<40,(spoken,duration)
+                  mapped[role+'|'+spoken]=target.as_posix()
+                  return
+                except Exception:
+                  target.unlink(missing_ok=True)
+                  if attempt==4:raise
+                  await asyncio.sleep(1.5*(attempt+1))
+          async def go():await asyncio.gather(*(one(item) for item in data))
+          asyncio.run(go())
+          assert len(mapped)==len(data),f'{len(mapped)}/{len(data)}'
+          src="window.COURSE_AUDIO=window.COURSE_AUDIO||{};Object.assign(window.COURSE_AUDIO,"+json.dumps(mapped,ensure_ascii=False,separators=(',',':'))+");\n"
+          Path('assets/course-extensions-audio.js').write_text(src,encoding='utf-8')
+          print('New verified audio keys:',len(mapped),flush=True)
+          PY
+      - name: Verify all enhanced HTML and preservation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,re
+          src=Path('assets/course-extensions-audio.js').read_text(encoding='utf-8')
+          required=json.loads(Path('assets/lesson-extensions-required-audio.json').read_text(encoding='utf-8'))
+          for obj in required:
+            assert json.dumps(obj['role']+'|'+obj['text'],ensure_ascii=False) in src,obj
+          for lesson in (4,5,6):
+            name='lesson-4-presentation-READY.html' if lesson==4 else f'lesson-{lesson}.html'
+            s=Path(name).read_text(encoding='utf-8')
+            assert f'id="extra-vocab-{lesson}"' in s
+            assert f'id="extra-dialogue-{lesson}"' in s
+            assert 'course-extensions-audio.js' in s
+            quiz=json.loads(re.search(r'window.COURSE_QUIZ=(\[.*?\]);</script>',s,re.S).group(1))
+            assert all(0<=q['answer']<len(q['options']) for q in quiz)
+            assert len(quiz)=={4:10,5:11,6:10}[lesson],(lesson,len(quiz))
+          assert Path('assets/lesson3-touch-targets.css').is_file()
+          print('All content, quizzes and audio references validated')
+          PY
+      - name: Publish changes only to staging branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add lesson-4-presentation-READY.html lesson-5.html lesson-6.html lesson-3-pronouns-basic.html content-review/lesson-4.json content-review/lesson-5.json content-review/lesson-6.json assets/course-extensions.css assets/course-extensions-audio.js assets/lesson3-touch-targets.css assets/lesson-extensions-required-audio.json audio/lesson-extensions/
+          git diff --cached --exit-code -- index.html
+          git diff --cached --exit-code -- lesson-7.html
+          if ! git diff --cached --quiet; then
+            git commit -m 'Expand lessons 4 to 6 with illustrated drills, quizzes and recorded dialogues; improve lesson 3 touch targets'
+            git push
+          fi
