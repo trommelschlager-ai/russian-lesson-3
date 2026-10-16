@@ -90,3 +90,5 @@ jobs:
             git commit -m 'Expand lessons 4 to 6 with illustrated drills, quizzes and recorded dialogues; improve lesson 3 touch targets'
             git push
           fi
+
+# Re-run after correcting portrait paths and quiz count expectations.
