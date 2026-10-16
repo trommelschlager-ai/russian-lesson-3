@@ -27,3 +27,12 @@
 - Для **платного курса** проверить право на коммерческое использование синтезированных Microsoft Edge Neural Voice аудиозаписей: `edge-tts` — неофициальный доступ к голосовому сервису, поэтому технический успех генерации **не является лицензией** на продажу аудио.
 - Главная страница пока содержит ссылки только на уроки 1–4; чтобы уроки 5–7 появились в меню, потребуется отдельно согласованное изменение ссылок в `index.html` либо иной способ навигации.
 - Не объединять PR в `main` до финального ручного просмотра и согласования публикации.
+
+## Complaint: alphabet narration still sounds robotic — follow-up 17 October 2026
+
+- The learner reports that lesson 1 still **sounds like the same robotic voice**. The earlier "fixed" claim was therefore not a satisfactory user-acceptance result.
+- Verified repository branch has 165 new MP3 recordings in `audio/alphabet-natural/` generated with Microsoft Edge neural TTS (Dmitry/Svetlana); changing to these voices does **not guarantee naturalness**.
+- GitHub Actions browser test https://github.com/trommelschlager-ai/russian-lesson-3/actions/runs/38974821445 passed. Under mobile and desktop Chrome, clicking `А` and `Арбуз` actually loads the newly generated MP3 files; no browser speech synthesis is used. This proves file routing, not pleasant sounding speech.
+- Test page `ALPHABET_VOICE_COMPARISON.html` now lets the user compare four new MP3 clips with one previously approved clip from lesson 4, using a commit-hash URL to rule out cached copies.
+- `raw.githack.com` branch URLs are temporarily cached and can serve stale page content; use an immutable commit URL for this check. **Query string changes do not invalidate raw.githack CDN cache.**
+- Do not replace all 165 recordings again without identifying a substantially better voice by listening first. Original main/index and lesson 7 remain untouched.
