@@ -76,7 +76,7 @@ async def generate():
         index="male|"+key
         assert index in data,index
         assert data[index].startswith("audio/course/"),(index,data[index])
-        data[index]=(ROOT/("flour" if key=="мука" else {"ла":"la","по":"po","до":"do","ко":"ko","бу":"bu","во":"vo"}[key])+".mp3").as_posix()
+        data[index]=(ROOT/(("flour" if key=="мука" else {"ла":"la","по":"po","до":"do","ко":"ko","бу":"bu","во":"vo"}[key])+".mp3")).as_posix()
     assert set(data)==before_keys
     path.write_text(source[:m.start(1)]+json.dumps(data,ensure_ascii=False,separators=(',',':'))+source[m.end(1):],encoding="utf-8")
 
