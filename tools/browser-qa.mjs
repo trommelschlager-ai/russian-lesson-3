@@ -47,7 +47,7 @@ try {
           if (p==='lesson-3-pronouns-basic.html') {
             return document.querySelectorAll('.lesson-nav').length!==1 ? 'lesson 3 bottom navigation changed' : null;
           }
-          if (/^lesson-[4567]\\.html$/.test(p) || p==='lesson-4-presentation-READY.html') {
+          if (['lesson-4-presentation-READY.html','lesson-5.html','lesson-6.html','lesson-7.html'].includes(p)) {
             return document.querySelector('.page-nav') ? 'page-nav still visible' : (!document.querySelector('.page-bottom') ? 'bottom course navigation missing' : null);
           }
           return null;
