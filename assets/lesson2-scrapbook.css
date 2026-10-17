@@ -269,3 +269,41 @@ body.lesson2-scrapbook{
   .lesson2-scrapbook .syllable .lat{font-size:16px!important}
 }
 @media(prefers-reduced-motion:reduce){.lesson2-scrapbook .scrap-quicknav a{transition:none}}
+/* Reference-led revision: compact illustrated opening and unobstructed controls. */
+.lesson2-scrapbook{--ink:#443222;--paper:#fff9ed;--paper2:#fffcf5;padding-bottom:0}
+.lesson2-scrapbook .wrap:before{display:none}
+.lesson2-scrapbook .course-nav{margin:8px auto;width:min(1092px,calc(100% - 20px));padding:4px 10px;font-size:12px}
+.lesson2-scrapbook .reference-hero{position:relative;width:100%;aspect-ratio:864/560;overflow:hidden;border-radius:16px 16px 5px 5px;margin:0;background:#785030}
+.lesson2-scrapbook .reference-hero>img{display:block;width:100%;height:auto;max-width:none}
+.lesson2-scrapbook .reference-back{position:absolute;left:2%;top:3%;width:28%;height:13%;border-radius:40px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.lesson2-scrapbook .scrap-quicknav{margin:0 0 20px;padding:10px;background:#fff6e5;border-radius:0 0 15px 15px;gap:10px}
+.lesson2-scrapbook .scrap-quicknav a{min-height:65px;border-width:2px;border-radius:15px}
+.lesson2-scrapbook .word-card{display:flex;flex-direction:column;min-height:0;text-align:center}
+.lesson2-scrapbook .word-card img{width:100%;height:180px;min-height:0;max-height:none;object-fit:contain;border:0}
+.lesson2-scrapbook .word-info{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-content:start;align-items:center;gap:5px 8px;width:100%;min-height:0;background:#fffcf3;padding:12px;color:#493222}
+.lesson2-scrapbook .word-info .ru{grid-column:1;grid-row:1;overflow-wrap:anywhere;line-height:1.3}
+.lesson2-scrapbook .word-info .audio{position:static!important;grid-column:2;grid-row:1;width:44px;height:44px;margin:0}
+.lesson2-scrapbook .word-info .lat{grid-column:1;grid-row:2;overflow-wrap:anywhere}
+.lesson2-scrapbook .word-info .zh{grid-column:1/-1;padding:6px;margin:6px 0 0}
+.lesson2-scrapbook .word-note{grid-column:1/-1;color:#795a41;border-top:1px solid #ebd4b3;font-size:14px;text-align:left;line-height:1.65;padding-top:8px;margin-top:7px}
+.lesson2-scrapbook .audio-dock{position:static;inset:auto;transform:none;width:min(1092px,calc(100% - 20px));margin:12px auto 20px;border:2px solid #e1c59b;border-radius:14px;background:#fff8e9;box-shadow:none;flex-wrap:nowrap;padding:10px 14px}
+.lesson2-scrapbook .audio-dock span{max-height:none}
+.lesson2-scrapbook .audio-dock button{background:#f6e3c4;color:#684527;border-color:#dbc095}
+.lesson2-scrapbook .teaching-card,.lesson2-scrapbook .build-card,.lesson2-scrapbook .practice-step,.lesson2-scrapbook .example,.lesson2-scrapbook .formula,.lesson2-scrapbook .sentence-text{background:#fff7e7;color:#4c3425;border-color:#e2c69e}
+.lesson2-scrapbook .teaching-card h3,.lesson2-scrapbook .sentence-text h3,.lesson2-scrapbook .example .ru{color:#23265b}
+.lesson2-scrapbook .teaching-card p,.lesson2-scrapbook .sentence-text p,.lesson2-scrapbook .practice-step p{color:#72513c}
+.lesson2-scrapbook .option{background:#fff8ec;color:#523c2c;border-color:#dfc8a4}
+.lesson2-scrapbook .quiz-result{color:#744e2a}
+@media(max-width:750px){
+.lesson2-scrapbook .wrap{padding:0 8px 8px}
+.lesson2-scrapbook .reference-hero{border-radius:10px 10px 0 0}
+.lesson2-scrapbook .scrap-quicknav{padding:7px;gap:6px;margin-bottom:17px}
+.lesson2-scrapbook .scrap-quicknav a{font-size:14px;min-height:51px;gap:4px;padding:8px 3px;border-radius:10px}
+.lesson2-scrapbook .scrap-quicknav .nav-emoji{font-size:17px}
+.lesson2-scrapbook .word-card img{height:145px;min-height:0}
+.lesson2-scrapbook .word-info{padding:10px 8px;gap:4px}
+.lesson2-scrapbook .word-info .ru{font-size:23px}
+.lesson2-scrapbook .word-note{font-size:12px}
+.lesson2-scrapbook .section-head .hint{padding-left:0;margin:0}
+}
