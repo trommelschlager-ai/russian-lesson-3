@@ -1,0 +1,73 @@
+name: Remove duplicate top navigation from lessons
+on:
+  push:
+    branches: [course-recovery-2026-10-16]
+    paths: [.github/workflows/remove-duplicate-top-nav.yml]
+permissions:
+  contents: write
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove only the upper nav on each lesson (never the lesson content)
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, json
+          files=[
+            "russian_lesson_1_COMPLETE.html",
+            "russian_lesson_2_reading.html",
+            "lesson-3-pronouns-basic.html",
+            "lesson-4-presentation-READY.html",
+            "lesson-5.html",
+            "lesson-6.html",
+            "lesson-7.html",
+          ]
+          pat=re.compile(r'<nav\b(?=[^>]*\bclass="(?:course-nav|lesson-nav|page-nav)")[^>]*>[\s\S]*?</nav>',re.I)
+          report={}
+          changed=[]
+          for name in files:
+            path=Path(name)
+            before=path.read_text(encoding="utf-8")
+            matches=list(pat.finditer(before))
+            if name.endswith("lesson-3-pronouns-basic.html"):
+              assert len(matches)==2, (name, len(matches))
+              remove=[matches[0]]
+            elif name.endswith("russian_lesson_1_COMPLETE.html"):
+              # Not every lesson has the redundant bar. Never remove any
+              # section-internal navigation by accident.
+              remove=[m for m in matches if m.start()<before.find('<main') and m.start()<before.find('<header')][:1] if matches and '<main' in before and '<header' in before else []
+            else:
+              assert len(matches)==1,(name,len(matches))
+              remove=matches
+            after=before
+            for m in reversed(remove):
+              after=after[:m.start()]+after[m.end():]
+            assert after.count('data-say=')==before.count('data-say='),(name,'audio controls changed')
+            assert after.count('id="quiz-section"')==before.count('id="quiz-section"'),(name,'quiz changed')
+            assert after.count('<section')==before.count('<section'),(name,'sections changed')
+            assert len(re.findall(r'<h1\b',after))==len(re.findall(r'<h1\b',before)),(name,'title changed')
+            if name.endswith('lesson-3-pronouns-basic.html'):
+              assert after.count('class="lesson-nav"')==1,('lesson 3 bottom nav lost')
+            if name.endswith('russian_lesson_2_reading.html'):
+              assert 'class="scrap-quicknav"' in after and 'class="course-bottom"' in after and ('class="back"' in after or 'class="reference-back"' in after)
+            if name.startswith('lesson-') and name!='lesson-3-pronouns-basic.html':
+              assert 'class="page-bottom"' in after,(name,'bottom nav lost')
+            if remove:
+              path.write_text(after,encoding='utf-8')
+              changed.append(name)
+            report[name]={'removed':len(remove),'beforeBytes':len(before),'afterBytes':len(after)}
+          assert set(changed)==set(files[1:]),("Unexpected changes",changed)
+          print("TOP_NAV_REMOVAL "+json.dumps(report,ensure_ascii=False),flush=True)
+          PY
+      - name: Save in recovery branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add russian_lesson_2_reading.html lesson-3-pronouns-basic.html lesson-4-presentation-READY.html lesson-5.html lesson-6.html lesson-7.html
+          git diff --cached --exit-code -- index.html
+          git diff --cached --exit-code -- russian_lesson_1_COMPLETE.html
+          git commit -m "Remove redundant top navigation bars from lessons 2 through 7"
+          git push

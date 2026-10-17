@@ -1,0 +1,20 @@
+[
+  {
+    "text": "Доброе утро!",
+    "voice": "ru-RU-DmitryNeural",
+    "rate": "-12%",
+    "path": "audio/corrections/d3cb94e96df9d75f.mp3"
+  },
+  {
+    "text": "сын",
+    "voice": "ru-RU-DmitryNeural",
+    "rate": "-12%",
+    "path": "audio/corrections/9b8c21d0d46f7ac5.mp3"
+  },
+  {
+    "text": "день",
+    "voice": "ru-RU-DmitryNeural",
+    "rate": "-12%",
+    "path": "audio/corrections/c508bb06d2d40569.mp3"
+  }
+]

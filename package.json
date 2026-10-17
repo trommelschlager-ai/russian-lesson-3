@@ -1,0 +1,1 @@
+{"name":"russian-for-chinese-course","private":true,"type":"module","scripts":{"dev":"node tools/serve.mjs"}}

@@ -1,0 +1,24 @@
+/* Scoped dialogue addition to approved lesson 7 layout. */
+.day-dialogue-section{padding:20px 27px 26px}
+.day-dialogue-heading{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}
+.day-dialogue-heading h2{margin:0;font-size:clamp(23px,3vw,34px);color:#172b68}
+.day-dialogue-play-all{background:#f2e6fa;border:2px solid #9c69d3;border-radius:14px;padding:12px 15px;color:#5b297c;font-size:17px;font-weight:700}
+.day-dialogue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.day-dialogue-card{display:grid;grid-template-columns:124px minmax(0,1fr);align-items:center;gap:14px;background:#fffdf8;border:2px solid #f0d0d5;border-radius:18px;padding:14px;min-width:0}
+.day-dialogue-character{display:block;width:124px;height:140px;object-fit:cover;border-radius:14px}
+.day-dialogue-speaker{font-weight:700;color:#a62c67;font-size:19px;margin-bottom:5px}
+.day-dialogue-card .ru{font-size:clamp(20px,2vw,27px);font-weight:700;line-height:1.28;overflow-wrap:anywhere}
+.day-dialogue-card .latin{font-size:17px;color:#53627d;margin-top:6px;line-height:1.4}
+.day-dialogue-card .zh{font-size:18px;color:#2f4e68;margin-top:6px;line-height:1.4}
+.day-dialogue-card button{margin-top:8px;border:0;background:none;padding:0}
+.day-dialogue-card button img{width:94px;height:auto}
+@media(max-width:760px){
+  .day-dialogue-section{padding:14px 12px 20px}
+  .day-dialogue-grid{grid-template-columns:1fr;gap:12px}
+  .day-dialogue-card{grid-template-columns:100px minmax(0,1fr);gap:11px;padding:9px}
+  .day-dialogue-character{width:100px;height:126px}
+  .day-dialogue-card .ru{font-size:22px}
+  .day-dialogue-card .latin{font-size:17px}
+  .day-dialogue-card .zh{font-size:18px}
+}
+@media(max-width:360px){.day-dialogue-card{grid-template-columns:78px minmax(0,1fr)}.day-dialogue-character{width:78px;height:112px}}

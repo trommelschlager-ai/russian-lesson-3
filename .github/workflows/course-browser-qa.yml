@@ -1,0 +1,47 @@
+name: Verify course lessons in mobile browser
+on:
+  push:
+    branches:
+      - course-recovery-2026-10-16
+    paths:
+      - .github/workflows/course-browser-qa.yml
+      - tools/browser-qa.mjs
+      - lesson-*.html
+      - russian_lesson_*.html
+      - assets/**
+      - audio/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mobile-and-desktop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test-only browser driver
+        run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24.22.3
+      - name: Install Chinese fonts for accurate visual checks
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk
+          fc-list :lang=zh family | head -n 4
+      - name: Confirm Chrome installation
+        run: |
+          command -v google-chrome
+          google-chrome --version
+      - name: Exercise all seven lessons at phone and desktop sizes
+        run: node tools/browser-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lesson-browser-qa-screenshots
+          path: qa-browser-shots/
+          if-no-files-found: warn
+
+# QA rerun for neural alphabet audio and completed lesson 7 dialogue (2026-10-17).
+
+# Rerun after synchronizing the visual cover of lesson 2 with the course homepage.
