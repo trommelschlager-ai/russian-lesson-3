@@ -39,6 +39,25 @@ try {
       try {
         const response = await page.goto('http://127.0.0.1:'+port+'/'+path,{waitUntil:'load',timeout:30000});
         await sleep(350);
+        if (path === 'russian_lesson_2_reading.html') {
+          if (mode.label==='mobile') await page.screenshot({path:'qa-browser-shots/lesson2-new-design-hero.png'});
+          const check = await page.evaluate(()=>{
+            const book=document.querySelector('.hero-art img.home-matched-book');
+            const quiz=window.quizData || [];
+            return {
+              theme:document.body.classList.contains('lesson2-scrapbook'),
+              syllables:document.querySelectorAll('.syllable').length,
+              wordCards:document.querySelectorAll('.word-card').length,
+              questions:quiz.length,
+              imageReady:!!book&&book.complete&&book.naturalWidth>0,
+              links:[...document.querySelectorAll('.scrap-quicknav a')].map(a=>a.hash),
+              width:document.documentElement.scrollWidth,
+              viewport:window.innerWidth
+            };
+          });
+          console.log('LESSON2_SCRAPBOOK '+mode.label+' '+JSON.stringify(check));
+          if(!check.theme || check.syllables!==40 || check.wordCards!==8 || check.questions!==20 || !check.imageReady || check.links.join(',')!=='#syllables,#words,#quiz-section' || check.width>check.viewport+2) throw Error('Lesson 2 visual/data test failed: '+JSON.stringify(check));
+        }
         const measured = await page.evaluate(() => ({
           title:document.title,
           viewport:window.innerWidth,
