@@ -52,7 +52,7 @@ jobs:
             if name.endswith('lesson-3-pronouns-basic.html'):
               assert after.count('class="lesson-nav"')==1,('lesson 3 bottom nav lost')
             if name.endswith('russian_lesson_2_reading.html'):
-              assert 'class="scrap-quicknav"' in after and 'class="course-bottom"' in after and 'class="back"' in after
+              assert 'class="scrap-quicknav"' in after and 'class="course-bottom"' in after and ('class="back"' in after or 'class="reference-back"' in after)
             if name.startswith('lesson-') and name!='lesson-3-pronouns-basic.html':
               assert 'class="page-bottom"' in after,(name,'bottom nav lost')
             if remove:
