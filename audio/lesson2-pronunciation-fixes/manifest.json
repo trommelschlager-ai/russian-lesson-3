@@ -1,0 +1,14 @@
+{
+  "voice": "Дмитрий · ru-RU-DmitryNeural",
+  "method": "Stressed in context, cropped using word-boundary timings",
+  "stress": "мука́ = flour / 面粉, NOT му́ка = suffering",
+  "sounds": {
+    "ла": "audio/lesson2-pronunciation-fixes/la.mp3",
+    "по": "audio/lesson2-pronunciation-fixes/po.mp3",
+    "до": "audio/lesson2-pronunciation-fixes/do.mp3",
+    "ко": "audio/lesson2-pronunciation-fixes/ko.mp3",
+    "бу": "audio/lesson2-pronunciation-fixes/bu.mp3",
+    "во": "audio/lesson2-pronunciation-fixes/vo.mp3",
+    "мука": "audio/lesson2-pronunciation-fixes/flour.mp3"
+  }
+}
