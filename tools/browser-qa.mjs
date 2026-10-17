@@ -43,7 +43,7 @@ try {
           if (mode.label==='mobile') await page.screenshot({path:'qa-browser-shots/lesson2-new-design-hero.png'});
           const check = await page.evaluate(()=>{
             const book=document.querySelector('.hero-art img.home-matched-book');
-            const quiz=window.quizData || [];
+            const quiz=(typeof quizData !== 'undefined' ? quizData : []);
             return {
               theme:document.body.classList.contains('lesson2-scrapbook'),
               syllables:document.querySelectorAll('.syllable').length,
