@@ -2,7 +2,7 @@ name: Correct seven lesson 2 syllables and flour stress
 on:
   push:
     branches: [course-recovery-2026-10-16]
-    paths: [.github/workflows/correct-lesson2-pronunciation.yml]
+    paths: [.github/workflows/correct-lesson2-pronunciation.yml, tools/correct-lesson2-pronunciation.py]
 permissions:
   contents: write
 jobs:
