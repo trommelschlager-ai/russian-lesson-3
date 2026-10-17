@@ -39,10 +39,24 @@ try {
       try {
         const response = await page.goto('http://127.0.0.1:'+port+'/'+path,{waitUntil:'load',timeout:30000});
         await sleep(350);
+        // User-marked duplicate top bar must be absent. In-page tabs and bottom navigation remain.
+        const badBar = await page.evaluate((p) => {
+          if (p==='russian_lesson_2_reading.html') {
+            return document.querySelectorAll('.course-nav').length ? 'course-nav still visible' : (!document.querySelector('.scrap-quicknav') ? 'lesson 2 section tabs missing' : null);
+          }
+          if (p==='lesson-3-pronouns-basic.html') {
+            return document.querySelectorAll('.lesson-nav').length!==1 ? 'lesson 3 bottom navigation changed' : null;
+          }
+          if (/^lesson-[4567]\\.html$/.test(p) || p==='lesson-4-presentation-READY.html') {
+            return document.querySelector('.page-nav') ? 'page-nav still visible' : (!document.querySelector('.page-bottom') ? 'bottom course navigation missing' : null);
+          }
+          return null;
+        },path);
+        if (badBar) throw Error('Duplicate top navigation check failed: '+badBar);
         if (path === 'russian_lesson_2_reading.html') {
           if (mode.label==='mobile') await page.screenshot({path:'qa-browser-shots/lesson2-new-design-hero.png'});
           const check = await page.evaluate(()=>{
-            const book=document.querySelector('.hero-art img.home-matched-book');
+            const book=document.querySelector('.reference-hero img')||document.querySelector('.hero-art img.home-matched-book');
             const quiz=(typeof quizData !== 'undefined' ? quizData : []);
             return {
               theme:document.body.classList.contains('lesson2-scrapbook'),
