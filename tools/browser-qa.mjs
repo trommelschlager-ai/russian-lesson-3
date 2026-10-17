@@ -72,6 +72,28 @@ try {
           console.log('LESSON2_SCRAPBOOK '+mode.label+' '+JSON.stringify(check));
           if(!check.theme || check.syllables!==40 || check.wordCards!==8 || check.questions!==20 || !check.imageReady || check.links.join(',')!=='#syllables,#words,#quiz-section' || check.width>check.viewport+2) throw Error('Lesson 2 visual/data test failed: '+JSON.stringify(check));
         }
+        if (path === 'russian_lesson_2_reading.html') {
+          const words = ['ла','по','до','ко','бу','во','мука'];
+          for(const word of words){
+            const check=await page.evaluate((w)=>{
+              const control=[...document.querySelectorAll('[data-say]')].find(b=>b.dataset.say===w);
+              if(!control) return {error:'Missing button '+w};
+              const linked=window.COURSE_AUDIO?.['male|'+w];
+              if(!linked || !linked.includes('audio/lesson2-pronunciation-fixes/')) return {error:'Old audio source '+w+': '+linked};
+              control.click();
+              const player=document.querySelector('audio[data-course-player]');
+              return {src:player?.getAttribute('src'),linked};
+            },word);
+            if(check.error||!check.src?.includes('audio/lesson2-pronunciation-fixes/')) throw Error('Lesson 2 audio '+word+': '+JSON.stringify(check));
+            await page.waitForFunction((expected)=>{
+              const p=document.querySelector('audio[data-course-player]');
+              return p && p.currentSrc.includes(expected) && p.readyState>=2 && !p.error;
+            },{timeout:12000},check.linked);
+            console.log('LESSON2_AUDIO_FIX '+mode.label+' '+word+' '+check.linked);
+          }
+          const flourLabel=await page.$eval('[data-say="мука"] .ru',el=>el.textContent.trim());
+          if(flourLabel!=='мука́')throw Error('Missing flour stress mark: '+flourLabel);
+        }
         const measured = await page.evaluate(() => ({
           title:document.title,
           viewport:window.innerWidth,
