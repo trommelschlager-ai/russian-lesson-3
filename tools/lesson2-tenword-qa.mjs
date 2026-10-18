@@ -78,8 +78,9 @@ try{
    [response]=await Promise.all([page.waitForResponse(r=>r.url().includes('svetlana-2ccfed8bd93ea3ac.mp3'),{timeout:15000}),page.click('.word-card:first-child .action.slow')]);
    assert.equal(response.status(),200,'Slowed MP3 should load');
    assert.equal(await page.$eval('#player',x=>x.playbackRate),.8);
-   await page.click('.word-card:nth-child(9) .action.listen');
-   assert.ok((await page.$eval('#player',x=>x.currentSrc)).includes('svetlana-76455a1de03b74f0.mp3'),'Milk MP3 should play when scrolling to word nine');
+   [response]=await Promise.all([page.waitForResponse(r=>r.url().includes('svetlana-76455a1de03b74f0.mp3'),{timeout:15000}),page.click('.word-card:nth-child(9) .action.listen')]);
+   assert.equal(response.status(),200,'Milk MP3 should load from ninth card');
+   await page.waitForFunction(()=>document.querySelector('#player').currentSrc.includes('svetlana-76455a1de03b74f0.mp3'),{timeout:10000});
    assert.deepEqual(errors,[],'Uncaught JavaScript errors');
    assert.deepEqual(failedResources,[],'Missing local resources');
    await writeFile('qa-lesson2-vertical/lesson2-'+width+'.json',JSON.stringify(view,null,2));
