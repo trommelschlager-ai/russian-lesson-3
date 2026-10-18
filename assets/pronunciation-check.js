@@ -69,35 +69,49 @@
       '.rc-fab{position:fixed;right:16px;bottom:16px;z-index:2147480000;border:0;border-radius:999px;',
       'background:linear-gradient(135deg,#ff3980,#df1759);color:#fff;padding:14px 18px;',
       'box-shadow:0 6px 24px #48122c66;font:700 15px/1.3 system-ui,sans-serif;cursor:pointer}',
-      '.rc-shade{position:fixed;inset:0;z-index:2147480001;background:#170c1eb8;',
-      'display:none;align-items:center;justify-content:center;padding:12px;font-family:system-ui,"Microsoft YaHei",sans-serif}',
+      '.rc-shade{position:fixed;inset:0;z-index:2147480001;background:#170c1eb8;overflow:auto;',
+      'display:none;align-items:center;justify-content:center;padding:8px;font-family:system-ui,"Microsoft YaHei",sans-serif}',
       '.rc-shade.rc-visible{display:flex}',
-      '.rc-panel{width:min(480px,100%);max-height:min(90dvh,760px);overflow-y:auto;',
+      '.rc-panel{width:min(480px,100%);max-height:min(94dvh,760px);overflow-y:auto;overscroll-behavior:contain;',
       'background:#fffaf1;border:3px solid #eecb91;border-radius:23px;',
-      'box-shadow:0 14px 55px #1b0b187a;color:#282045;padding:20px}',
+      'box-shadow:0 14px 55px #1b0b187a;color:#282045;padding:15px}',
       '.rc-header{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}',
-      '.rc-header h2{font-size:22px;line-height:1.25;margin:0;color:#24215f}',
+      '.rc-header h2{font-size:21px;line-height:1.2;margin:0;color:#24215f}',
       '.rc-x{border:0;background:#f3e6e7;border-radius:50%;width:38px;height:38px;',
       'font-size:21px;color:#503c4d;cursor:pointer}',
-      '.rc-note{color:#605c70;font-size:13px;line-height:1.5;margin:10px 0 15px}',
-      '.rc-label{display:block;font-weight:700;font-size:14px;margin:12px 0 5px}',
+      '.rc-note{color:#605c70;font-size:13px;line-height:1.4;margin:6px 0 8px}',
+      '.rc-label{display:block;font-weight:700;font-size:13px;margin:8px 0 4px}',
       '.rc-select{display:block;width:100%;border:1px solid #b8b8d7;border-radius:12px;',
-      'padding:12px;background:#fff;color:#292345;font:600 16px system-ui,sans-serif}',
-      '.rc-word{margin:15px 0 6px;background:#fff;border:2px solid #e8def6;border-radius:16px;',
-      'padding:15px;text-align:center}',
-      '.rc-word-ru{font:800 28px/1.3 system-ui,sans-serif;color:#263579;overflow-wrap:anywhere}',
+      'padding:9px 11px;min-height:44px;background:#fff;color:#292345;font:600 16px system-ui,sans-serif}',
+      '.rc-word{margin:9px 0 5px;background:#fff;border:2px solid #e8def6;border-radius:16px;',
+      'padding:10px 12px;text-align:center}',
+      '.rc-word-ru{font:800 27px/1.25 system-ui,sans-serif;color:#263579;overflow-wrap:anywhere}',
       '.rc-word-zh{font-size:16px;color:#665978;margin-top:5px}',
-      '.rc-controls{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}',
-      '.rc-btn{min-height:49px;border:0;border-radius:12px;color:#fff;background:#2779da;',
+      '.rc-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}',
+      '.rc-btn{min-height:46px;border:0;border-radius:12px;color:#fff;background:#2779da;',
       'font:700 15px system-ui,sans-serif;cursor:pointer;padding:10px}',
       '.rc-btn.rc-mic{background:#ec3675}',
       '.rc-btn:disabled{opacity:.5;cursor:not-allowed}',
-      '.rc-result{background:#f3f1ff;border-radius:13px;padding:12px;',
-      'margin-top:15px;min-height:67px;font-size:15px;line-height:1.6;white-space:pre-line}',
-      '.rc-warning{font-size:12px;line-height:1.5;color:#79637b;margin:12px 0 0}',
-      '.rc-link{display:inline-block;color:#1c61b8;font-weight:700;margin-top:12px}',
-      '@media(max-width:420px){.rc-panel{padding:16px}.rc-word-ru{font-size:25px}',
-      '.rc-fab{right:9px;bottom:10px;padding:12px 15px}}'
+      '.rc-result{background:#f3f1ff;border:2px solid transparent;border-radius:13px;padding:10px;',
+      'margin-top:10px;min-height:64px;font-size:14px;line-height:1.35}',
+      '.rc-result[data-state="success"]{background:#e7f8eb;border-color:#a0dfad}',
+      '.rc-result[data-state="mismatch"]{background:#fff0ed;border-color:#f3a4a1}',
+      '.rc-result[data-state="warning"]{background:#fff2d9;border-color:#edc981}',
+      '.rc-result[data-state="listening"]{background:#fff0f6;border-color:#f3bfd3}',
+      '.rc-result-head{display:flex;gap:10px;align-items:center}',
+      '.rc-result-icon{font-size:32px;line-height:1;flex:0 0 38px;text-align:center}',
+      '.rc-result-title{display:block;font-size:17px;line-height:1.3;color:#24215f}',
+      '.rc-result-message{font-size:13px;color:#635576;line-height:1.4;margin-top:3px}',
+      '.rc-result-details{border-top:1px solid #0001;margin:7px 0 0;padding-top:7px;display:grid;gap:3px;overflow-wrap:anywhere}',
+      '.rc-result-details b{color:#35336e}',
+      '.rc-privacy{margin:8px 0 0;color:#79637b;font-size:12px;line-height:1.45}',
+      '.rc-privacy summary{cursor:pointer;min-height:26px;padding:3px 0}',
+      '.rc-privacy p{margin:3px 0}',
+      '.rc-link{display:inline-block;color:#1c61b8;font-weight:700;margin-top:8px}',
+      '@media(max-width:420px){.rc-panel{padding:12px;border-radius:19px}.rc-word-ru{font-size:25px}',
+      '.rc-fab{right:9px;bottom:10px;padding:12px 15px}}',
+      '@media(max-height:680px){.rc-shade{align-items:flex-start}.rc-panel{max-height:calc(100dvh - 12px)}',
+      '.rc-header h2{font-size:20px}.rc-word{padding:8px}.rc-note{margin:4px 0}}'
     ].join('');
     document.head.appendChild(css);
 
@@ -113,7 +127,7 @@
       '<section class="rc-panel" role="dialog" aria-modal="true" aria-labelledby="rc-title">' +
       '<div class="rc-header"><h2 id="rc-title">🎤 俄语跟读练习</h2>' +
       '<button type="button" class="rc-x" aria-label="关闭">×</button></div>' +
-      '<p class="rc-note">先听原声，再点击麦克风说俄语。这里检查浏览器识别出的词，不代表口音或发音完全标准。</p>' +
+      '<p class="rc-note">🔊 先听 → 🎤 跟读。只比较识别的文字，不进行口音评分。</p>' +
       '<div class="rc-lessons"><label class="rc-label" for="rc-lesson">选择课程</label>' +
       '<select class="rc-select" id="rc-lesson"></select></div>' +
       '<label class="rc-label" for="rc-word-choice">选择单词或句子</label>' +
@@ -122,9 +136,9 @@
       '<div class="rc-word-zh" lang="zh-CN"></div></div>' +
       '<div class="rc-controls"><button type="button" class="rc-btn rc-listen">🔊 听原音</button>' +
       '<button type="button" class="rc-btn rc-mic">🎤 开始说话</button></div>' +
-      '<div class="rc-result" role="status" aria-live="polite">请选择一个词，然后点击 🎤。</div>' +
+      '<div class="rc-result" data-state="info" role="status" aria-live="polite"></div>' +
       '<a class="rc-link" href="#">📖 返回相应课程</a>' +
-      '<p class="rc-warning">需允许麦克风，并可能需要网络。某些浏览器会把录音发送到语音识别服务处理；本课程不会保存你的录音。单个字母和短音节可能识别不准。</p>' +
+      '<details class="rc-privacy"><summary>🔒 麦克风、隐私与评分说明</summary><p>需允许麦克风，并可能需要网络。某些浏览器会把音频发送到其语音识别服务处理；本课程不会保存你的录音。识别文字一致不代表口音、重音或每个音都正确。单个字母和短音节也可能识别不准。</p></details>' +
       '</section>';
     document.body.appendChild(trigger);
     document.body.appendChild(shade);
@@ -138,6 +152,45 @@
     var mic = shade.querySelector('.rc-mic');
     var listen = shade.querySelector('.rc-listen');
     var link = shade.querySelector('.rc-link');
+    // Prominent status and text-only details. Recognition transcripts are never inserted as HTML.
+    function feedback(kind, title, message, target, heard) {
+      var icons = {success:'✅',mismatch:'❌',warning:'⚠️',listening:'🎙️',info:'💡'};
+      result.dataset.state=kind;
+      result.replaceChildren();
+      var header=document.createElement('div');
+      header.className='rc-result-head';
+      var badge=document.createElement('span');
+      badge.className='rc-result-icon';
+      badge.setAttribute('aria-hidden','true');
+      badge.textContent=icons[kind]||'💡';
+      var text=document.createElement('div');
+      var heading=document.createElement('strong');
+      heading.className='rc-result-title';
+      heading.textContent=title;
+      text.appendChild(heading);
+      if(message){
+        var sub=document.createElement('div');
+        sub.className='rc-result-message';
+        sub.textContent=message;
+        text.appendChild(sub);
+      }
+      header.append(badge,text);
+      result.append(header);
+      if(target!==undefined && target!==null){
+        var details=document.createElement('div');
+        details.className='rc-result-details';
+        function detail(label,value){
+          var div=document.createElement('div');
+          var bold=document.createElement('b');
+          bold.textContent=label+'：';
+          div.append(bold,document.createTextNode(value));
+          details.append(div);
+        }
+        detail('目标',target);
+        if(heard!==undefined)detail('识别到',heard||'（无）');
+        result.append(details);
+      }
+    }
     var pages = {
       1:'russian_lesson_1_COMPLETE.html', 2:'russian_lesson_2_reading.html',
       3:'lesson-3-pronouns-basic.html', 4:'lesson-4-presentation-READY.html',
@@ -155,7 +208,7 @@
     }
     if (!SpeechAPI || !window.isSecureContext) {
       mic.disabled=true;
-      result.textContent='此浏览器不支持语音识别，或当前网页不是安全 HTTPS。请使用最新版 Chrome 打开 HTTPS 课程页面。';
+      feedback('warning','当前无法使用麦克风','请使用支持语音识别的 Chrome 和 HTTPS 网页。');
     }
 
     function showWord() {
@@ -164,8 +217,7 @@
       var item=currentList[selected] || {text:'',zh:'',role:'male'};
       ru.textContent=item.text;
       zh.textContent=item.zh;
-      result.textContent='请先听原音，然后点击 🎤 跟读。';
-      result.style.background='#f3f1ff';
+      feedback('info','准备好了','先听原音，再点击 🎤 开始说话。');
       link.href=pages[lesson];
     }
     function refreshWords() {
@@ -180,7 +232,7 @@
       selected=0;
       wordSelect.value='0';
       showWord();
-      if (!currentList.length) result.textContent='本课暂时没有可练习的词。';
+      if (!currentList.length) feedback('warning','暂无可练习内容','请打开其他课程。');
     }
     function open(n) {
       lastFocus=document.activeElement;
@@ -215,15 +267,15 @@
       if(!manifest[role+'|'+item.text] && manifest['female|'+item.text])role='female';
       if (manifest[role+'|'+item.text] && window.CourseAudio) {
         window.CourseAudio.play([{text:item.text,role:role}]);
-        result.textContent='正在播放课程原音。听完后点击 🎤。';
+        feedback('info','正在播放原音','听完后点击 🎤 跟读。');
       } else {
-        result.textContent='本词未找到单独的音频。请点击下方“返回相应课程”，在课程卡片中先听 🔊 原音。';
+        feedback('warning','没有找到单独的音频','请返回相应课程，先听卡片中的 🔊 原音。');
       }
     });
 
     mic.addEventListener('click',function(){
       if (!SpeechAPI || !window.isSecureContext || !currentList.length) return;
-      if(recognition){stopListening();mic.textContent='🎤 开始说话';result.textContent='已停止，点击麦克风可重试。';return;}
+      if(recognition){stopListening();mic.textContent='🎤 开始说话';feedback('info','已停止','点击麦克风可重新练习。');return;}
       if(window.CourseAudio)window.CourseAudio.stop(true);
       var item=currentList[selected];
       var attempt=new SpeechAPI();
@@ -236,8 +288,7 @@
       attempt.onstart=function(){
         if(recognition!==attempt)return;
         mic.textContent='■ 停止录音';
-        result.textContent='🎙️ 正在听……请说：'+item.text;
-        result.style.background='#fff0f5';
+        feedback('listening','正在聆听…','请清楚地说出目标词：'+item.text);
       };
       attempt.onresult=function(event){
         if(recognition!==attempt)return;
@@ -245,10 +296,8 @@
           event.results[0][0].transcript.trim() : '';
         hasAnswer=true;
         var match=clean(heard)===clean(item.text);
-        result.textContent=(match?'✅ 识别结果与目标文字一致。':'🔁 识别结果与目标文字不同，请再试一次。')+
-          '\n目标：'+item.text+'\n识别到：'+(heard||'（无）')+
-          '\n注意：这不是对俄语口音、重音或每个音的专业评分。';
-        result.style.background=match?'#e6f7eb':'#fff2dc';
+        feedback(match?'success':'mismatch',match?'识别文字一致 ✅':'识别文字不同 ❌',
+          match?'浏览器听懂了目标词，继续练习！':'未识别为目标词，请再试一次。',item.text,heard);
       };
       attempt.onerror=function(event){
         if(recognition!==attempt)return;
@@ -262,18 +311,17 @@
           'language-not-supported':'当前设备无法使用俄语语音识别。',
           'aborted':'识别已取消。'
         };
-        result.textContent=messages[event.error]||('语音识别失败：'+event.error);
-        result.style.background='#fff2dc';
+        feedback('warning','识别未完成',messages[event.error]||('语音识别失败：'+event.error));
       };
       attempt.onend=function(){
         if(recognition!==attempt)return;
         recognition=null;
         mic.textContent='🎤 再试一次';
-        if(!hasAnswer)result.textContent='没有识别结果。请点击麦克风再试一次。';
+        if(!hasAnswer)feedback('warning','没有识别结果','请点击麦克风再试一次。');
       };
       try{attempt.start();}catch(e){
         recognition=null;mic.textContent='🎤 再试一次';
-        result.textContent='麦克风启动失败，请重试或检查浏览器权限。';
+        feedback('warning','麦克风启动失败','请检查浏览器权限后再试一次。');
       }
     });
 
