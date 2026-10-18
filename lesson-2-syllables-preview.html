@@ -3,197 +3,193 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#6a402b">
-<title>第2课 · 简单俄语单词拼读 | Учимся читать</title>
+<meta name="theme-color" content="#f8f7f3">
+<meta name="description" content="第2课：10个简单俄语单词。按音节阅读、听自然速度或慢速录音，并练习跟读。">
+<title>第2课 · 简单俄语单词 | Русский по слогам</title>
 <style>
-:root{--ink:#392c2d;--navy:#273c66;--paper:#fffbf2;--cream:#ffedd0;--orange:#d77833;--wood:#754e35;--muted:#806f6b;--pink:#e65d89}
+:root{--ink:#203247;--muted:#677584;--red:#d85552;--blue:#315b88;--beige:#faf5ec;--line:#e6e3dc;--green:#237956}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;background:#6b422c}
-body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;background:radial-gradient(circle at 12% 5%,#bd9067,#8d6345 30%,#633f2b 100%);min-height:100vh}
-button,select{font:inherit}
-button{cursor:pointer}
-a{color:inherit}
-.page{max-width:1170px;margin:0 auto;padding:16px clamp(10px,2.5vw,25px) 54px}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:15px}
-.navlink{display:inline-flex;text-decoration:none;gap:7px;align-items:center;background:#4a3025;color:#fff7e9;padding:11px 16px;border-radius:24px;font-weight:750;border:1px solid #d9ab77}
-.version{font-size:12px;font-weight:850;letter-spacing:.03em;background:#fff6e5;color:#6b432c;padding:8px 12px;border-radius:50px}
-.hero{background:linear-gradient(120deg,#fffaf0 0%,#fff1d6 70%,#f8cba9 100%);border:5px solid #e7b982;box-shadow:0 8px 0 #4a2a1f,0 14px 25px #321c1977;border-radius:26px;overflow:hidden;position:relative;padding:clamp(20px,3.5vw,36px);margin-bottom:24px}
-.hero:after{content:"✦";position:absolute;right:2%;top:-30px;font-size:200px;color:#f3b36533;pointer-events:none}
-.eyebrow{font-size:14px;font-weight:850;color:#a65332}
-h1{font-size:clamp(29px,5vw,48px);line-height:1.2;color:#283963;margin:7px 0 8px;position:relative;z-index:1}
-.subtitle{font-size:clamp(18px,2.3vw,24px);font-weight:850;color:#a94f45;margin-bottom:10px}
-.intro{font-size:15px;color:#745548;line-height:1.65;max-width:760px;margin:8px 0 15px}
-.metrics{display:flex;gap:8px;flex-wrap:wrap}
-.metric{background:#fff;border:1px solid #e8d7bb;border-radius:12px;padding:8px 13px;color:#64503c;font-size:14px;font-weight:800}
-.progress-panel{background:#fffaf0;border:2px solid #f4d69f;padding:13px 16px;border-radius:16px;margin:15px 0 22px;display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:center}
-.progress-panel strong{color:#253a64;font-size:15px}
-.progress-track{height:10px;background:#ecdfd1;border-radius:99px;overflow:hidden}
-.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#eeac51,#de587f);transition:width .3s;border-radius:99px}
-.level{display:flex;align-items:center;gap:10px;margin:0 0 14px;color:#fff8e8}
-.level h2{font-size:clamp(18px,3vw,23px);margin:0}
-.level small{font-weight:500;opacity:.85}
-.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.word-card{--accent:#dd7853;position:relative;background:var(--paper);border:3px solid #edcfaf;box-shadow:0 6px 0 #482d24,0 9px 18px #30191555;border-radius:20px;padding:16px;display:grid;grid-template-columns:120px 1fr;gap:13px;align-content:start;scroll-margin-top:15px}
-.word-card:focus-within{border-color:var(--accent)}
-.art{width:120px;min-height:142px;display:grid;place-items:center;font-size:67px;background:radial-gradient(circle at 30% 20%,#fff,#f4dfc9);border:2px solid #f0d6b9;border-radius:17px;box-shadow:inset 0 0 0 6px #ffffff50}
-.card-main{min-width:0}
-.card-number{font-size:12px;color:#8d786a;font-weight:900;letter-spacing:.06em;display:flex;justify-content:space-between;gap:8px}
-.card-number .tag{color:#b25251}
-.ru-word{font-size:clamp(25px,3vw,34px);font-weight:950;letter-spacing:.01em;line-height:1.22;color:#273c66;overflow-wrap:anywhere;margin:5px 0}
-.translit{color:#8f5d4c;font-size:14px;font-weight:700}
-.zh{font-weight:800;font-size:17px;margin-top:5px;color:#473956}
-.syl-label{grid-column:1/-1;font-size:13px;font-weight:800;color:#7f5942;line-height:1.5}
-.syllables{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:-5px}
-.syl{position:relative;min-width:63px;flex:1;min-height:53px;padding:9px;border:2px solid #d9d5dd;background:#fff;color:#293b66;border-radius:13px;font-size:24px;line-height:1;font-weight:950;transition:background .15s,transform .15s}
-.syl[data-stressed="true"]{border-color:#e8a34a;background:#fff0d2;color:#a14c20}
-.syl[data-active="true"]{outline:3px solid #dc5b90;outline-offset:1px;background:#fbe1ee;transform:translateY(-2px)}
-.syl small{font-size:11px;font-weight:800;display:block;margin-top:6px;color:#815a65}
-.hyphen{color:#c8a78a;font-size:20px}
-.actions{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.action{min-height:48px;border:0;padding:10px 5px;border-radius:12px;color:white;font-size:13px;line-height:1.3;font-weight:850;box-shadow:0 3px #281d2330}
-.action.listen{background:#3273c9}
-.action.slow{background:#d68a32}
-.action.mic{background:#db4b7a}
-.action:disabled{opacity:.55;cursor:not-allowed}
-.action:focus-visible,.syl:focus-visible,.navlink:focus-visible{outline:3px solid #2b7ef2;outline-offset:2px}
-.feedback{grid-column:1/-1;background:#f5f0ff;color:#514463;border-radius:12px;padding:10px 12px;line-height:1.5;font-size:13px;min-height:44px;overflow-wrap:anywhere}
-.feedback[data-kind="good"]{background:#ddf5e8;color:#186543;border:1px solid #81d7ac}
-.feedback[data-kind="retry"]{background:#fff1e1;color:#935026;border:1px solid #efc17d}
-.feedback[data-kind="error"]{background:#ffe9eb;color:#9e3043}
-.noteblock{background:#fff7e8;border-left:5px solid #f1b04c;border-radius:13px;padding:12px 16px;margin:23px 0;color:#685349;font-size:14px;line-height:1.6}
-.footer{color:#fff3df;font-size:14px;line-height:1.8;text-align:center;margin:24px 0 0}
-.footer a{color:#fff}
-@media(max-width:790px){.cards{grid-template-columns:1fr}}
-@media(max-width:460px){.page{padding:12px 10px 48px}.hero{padding:18px;border-width:3px}.word-card{grid-template-columns:92px 1fr;gap:10px;padding:12px}.art{width:92px;min-height:121px;font-size:52px}.ru-word{font-size:26px}.syllables{gap:5px}.syl{min-width:50px;padding:8px 4px;font-size:21px}.actions{gap:6px}.action{font-size:12px;min-height:54px}.progress-panel{grid-template-columns:1fr auto}.progress-track{grid-column:1/-1;grid-row:2}.level{flex-wrap:wrap}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+html{background:#f8f7f3}
+body{margin:0;color:var(--ink);background:#f8f7f3;font-family:system-ui,-apple-system,"Noto Sans CJK SC","Microsoft YaHei",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:3px solid #217ad5;outline-offset:3px}
+.shell{max-width:1050px;margin:0 auto;padding:0 clamp(16px,4vw,32px) 50px}
+.top{display:flex;align-items:center;gap:18px;justify-content:space-between;border-bottom:1px solid #e5e3df;padding:17px 0 18px}
+.brand{display:flex;gap:11px;align-items:center;text-decoration:none;color:#24344a;font-weight:800;font-size:15px}
+.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#e8edee;color:#285f7e;font-size:20px}
+.back{font-size:13px;text-decoration:none;color:#647283;font-weight:700;padding:10px}
+.head{padding:32px 0 22px;display:flex;align-items:end;justify-content:space-between;gap:22px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#b75351;text-transform:uppercase;font-size:12px;font-weight:850;letter-spacing:.09em}
+h1{font-size:clamp(29px,4.3vw,44px);line-height:1.2;letter-spacing:-.018em;margin:8px 0;color:#243a52}
+.lead{margin:0;color:#697584;line-height:1.65;font-size:15px;max-width:670px}
+.head-note{flex:none;max-width:185px;background:#f1ece3;border-radius:16px;padding:14px 18px;color:#626c75;font-size:13px;line-height:1.7}
+.head-note strong{display:block;color:#a9534f;font-size:21px}
+.progress{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:0 0 20px}
+.progress p{margin:0;flex:none;font-size:13px;color:#687586;font-weight:650}
+.progress p strong{font-size:15px;color:#263e59}
+.track{height:6px;background:#e9e7e2;border-radius:50px;flex:1;overflow:hidden}
+.fill{height:100%;width:0;background:#d77261;border-radius:50px;transition:width .25s}
+.card{background:white;border:1px solid #e9e6e1;border-radius:22px;box-shadow:0 9px 31px rgba(47,57,61,.07);overflow:hidden}
+.card-inner{display:grid;grid-template-columns:290px minmax(0,1fr)}
+.visual{background:linear-gradient(145deg,#f2eee6,#efe9df);min-height:374px;padding:25px;display:flex;flex-direction:column;justify-content:space-between;align-items:center}
+.illustration{width:100%;max-width:255px;min-height:200px;display:grid;place-items:center}
+.illustration svg{width:100%;max-width:244px;height:auto;max-height:218px;filter:drop-shadow(0 7px 13px #9c8e7c24)}
+.visual-foot{font-size:12px;letter-spacing:.04em;color:#907f6c;font-weight:750}
+.lesson{padding:clamp(20px,3.5vw,35px) clamp(20px,4vw,42px);min-width:0}
+.kicker{color:#ba6658;font-size:12px;font-weight:850;letter-spacing:.1em}
+.word{font-size:clamp(39px,5vw,62px);color:#293f60;font-weight:850;letter-spacing:.02em;line-height:1.18;margin:13px 0 5px}
+.meta{display:flex;align-items:center;gap:9px;font-size:16px;color:#6c7481;flex-wrap:wrap}
+.meta .cn{font-weight:750;color:#3b5163}
+.meta .dot{color:#c2c7c9}
+.sep{height:1px;background:#ede9e4;margin:25px 0 20px}
+.title-small{font-size:12px;color:#84909b;letter-spacing:.055em;font-weight:760;margin:0 0 11px}
+.syllables{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap}
+.syl{min-width:78px;padding:14px 18px;border-radius:11px;border:1px solid #d7e0e8;color:#2d567e;background:#f6f9fc;font-size:clamp(24px,3vw,34px);font-weight:850;letter-spacing:.045em;line-height:1.1;min-height:67px}
+.syl[data-stressed="true"]{background:#fff0e9;border-color:#ecb49e;color:#b6564f}
+.syl[aria-pressed="true"]{box-shadow:0 0 0 3px #6b8cad75}
+.syl:hover{filter:brightness(.97)}
+.helper{color:#77818d;font-size:13px;line-height:1.65;margin:13px 0 0}
+.helper b{color:#b85850}
+.controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:26px}
+.control{display:flex;flex-direction:column;gap:4px;justify-content:center;align-items:center;min-height:78px;border-radius:13px;border:1px solid #e5e9eb;background:#f7f9fb;color:#355572;padding:9px}
+.control strong{font-size:14px}.control small{font-size:11px;color:#8794a1}
+.control .ico{font-size:22px}
+.control.primary{background:#315e91;border-color:#315e91;color:#fff}
+.control.primary small{color:#d6e4f1}
+.control.mic{background:#fff3f0;border-color:#f3d9d1;color:#aa5655}
+.control:disabled{opacity:.5;cursor:not-allowed}
+.feedback{background:#f5f7fa;border-radius:11px;padding:13px 16px;color:#677789;font-size:13px;line-height:1.55;margin-top:13px;min-height:44px}
+.feedback[data-kind="good"]{background:#e9f6ee;color:#176746}
+.feedback[data-kind="retry"]{background:#fff2e6;color:#9d5628}
+.feedback[data-kind="error"]{background:#ffeded;color:#9e3439}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px clamp(18px,4vw,38px);background:#fcfcfb;border-top:1px solid #e9e6e1}
+.nav-btn{background:#fff;border:1px solid #e3e6e9;color:#31516c;border-radius:10px;min-height:47px;padding:10px 15px;font-weight:750;font-size:14px;white-space:nowrap}
+.nav-btn.next{background:#315e91;color:white;border-color:#315e91}
+.nav-btn:disabled{opacity:.37;cursor:not-allowed}
+.step-wrap{display:flex;align-items:center;justify-content:center;gap:5px;flex-wrap:wrap;max-width:440px}
+.step{font-size:11px;border:0;background:#e5e9ec;border-radius:999px;width:18px;height:9px;padding:0}
+.step[aria-current="step"]{width:29px;background:#c46058}
+.step[data-done="true"]{background:#72ab8b}
+.help{font-size:13px;color:#65727b;line-height:1.75;margin:20px auto;max-width:850px;text-align:center}
+.help strong{color:#b45e4e}
+.copyright{font-size:12px;color:#9a9d9d;text-align:center}
+@media(max-width:800px){.card-inner{grid-template-columns:235px minmax(0,1fr)}.visual{min-height:335px}.lesson{padding:24px}.head-note{display:none}}
+@media(max-width:650px){.head{padding:24px 0 20px}.card-inner{grid-template-columns:1fr}.visual{min-height:160px;padding:10px 17px 8px}.illustration{min-height:120px;max-width:170px}.illustration svg{max-height:145px}.visual-foot{display:none}.lesson{padding:19px}.word{font-size:42px;margin:7px 0}.sep{margin:18px 0 16px}.controls{margin-top:19px;gap:7px}.control{min-height:77px}.control strong{font-size:13px}.nav{padding:13px 15px}.nav-btn{padding:10px;min-height:42px;font-size:12px}.step{width:12px}.step[aria-current="step"]{width:21px}}
+@media(max-width:360px){.syl{min-width:65px;padding:12px;font-size:24px}.control{padding:7px 3px}.control strong{font-size:12px}.control small{font-size:10px}.nav-btn{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="page">
-  <div class="topbar">
-    <a class="navlink" href="russian_lesson_1_COMPLETE.html">← 第1课 · Алфавит</a>
-    <span class="version">第2课 · 10词试用版 / ПРОБНИК 10 СЛОВ</span>
-  </div>
-  <header class="hero">
-    <div class="eyebrow">🔠 从音节到单词 · Первый шаг к чтению</div>
-    <h1>轻松读俄语单词！</h1>
-    <div class="subtitle">УЧИМСЯ ЧИТАТЬ ПО СЛОГАМ</div>
-    <p class="intro">读音节 → 听完整单词 → 跟着读。先学10个简单词，慢慢读，不着急！带有金色标记的音节是重读音节。<br>Разбиваем простые слова на слоги, учим ударение и тренируем речь.</p>
-    <div class="metrics"><span class="metric">📚 10 / 100 单词</span><span class="metric">✨ 2–3 个音节</span><span class="metric">🎤 俄语跟读</span></div>
-  </header>
-  <div class="progress-panel" aria-live="polite">
-    <strong id="progress-label">已练习 0 / 10</strong>
-    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-    <span>🌟</span>
-  </div>
-  <div class="level"><h2>第一组 · 简单的日常单词 <small>Первые десять слов</small></h2></div>
-  <main class="cards" id="cards"></main>
-  <div class="noteblock">
-    💡 <strong>发音提示：</strong>点击彩色音节可逐个练习，完整词语 🔊 使用课程已有的俄语录音。音节播放使用设备的俄语语音合成，可能不够自然；请以完整单词的录音为准。<strong>麦克风只比较识别出的文字，不能检查每个音节、口音或重音。</strong>某些浏览器会将音频发送到识别服务处理。
-  </div>
-  <footer class="footer">这是全新第2课的前10个词预览。现有第1课和正式第2课没有修改。<br><a href="russian_lesson_1_COMPLETE.html">← 返回第1课</a></footer>
+<div class="shell">
+  <header class="top"><a class="brand" href="russian_lesson_1_COMPLETE.html"><span class="mark">Я</span><span>俄语轻松学 <span style="color:#8995a1;font-weight:500">/ Русский язык</span></span></a><a href="russian_lesson_1_COMPLETE.html" class="back">← 返回第1课</a></header>
+  <section class="head">
+    <div><span class="eyebrow">02 / 课程二 · 第一个单词</span><h1>学会读俄语单词</h1><p class="lead">每次学习一个单词。先看音节和重音，再听真实的完整发音，最后自己开口练习。</p></div>
+    <div class="head-note"><strong>10 个单词</strong>试听版 · Демо<br>从简单单词开始</div>
+  </section>
+  <section class="progress" aria-label="学习进度"><p>练习进度 <strong id="progress-label">0 / 10</strong></p><div class="track"><div class="fill" id="progress-fill"></div></div></section>
+  <main class="card" id="card">
+    <div class="card-inner">
+      <section class="visual"><div class="illustration" id="illustration" role="img" aria-label=""></div><div class="visual-foot">СЛУШАЙ · ЧИТАЙ · ПОВТОРЯЙ</div></section>
+      <section class="lesson">
+        <div class="kicker" id="counter">СЛОВО 01 / 10</div>
+        <div class="word" id="word" lang="ru">МА́МА</div>
+        <div class="meta"><span id="translit">mama</span><span class="dot">•</span><span class="cn" id="cn">妈妈</span></div>
+        <div class="sep"></div>
+        <p class="title-small">ПО СЛОГАМ · 按音节阅读</p>
+        <div class="syllables" id="syllables"></div>
+        <p class="helper" id="helper">橙色标出<b>重读音节</b>。点击音节可高亮，跟着完整录音练习。</p>
+        <div class="controls">
+          <button type="button" class="control primary listen" id="listen"><span class="ico">◖))</span><strong>听原音</strong><small>正常速度</small></button>
+          <button type="button" class="control slow" id="slow"><span class="ico">◷</span><strong>慢速听</strong><small>完整录音 ×0.8</small></button>
+          <button type="button" class="control mic" id="mic"><span class="ico">🎙</span><strong>我来读</strong><small>麦克风</small></button>
+        </div>
+        <div class="feedback" id="feedback" data-kind="info" role="status" aria-live="polite">点击「听原音」，再跟读完整单词。</div>
+      </section>
+    </div>
+    <nav class="nav" aria-label="单词导航">
+      <button type="button" class="nav-btn" id="prev">← 上一个</button>
+      <div class="step-wrap" id="steps" aria-label="选择单词"></div>
+      <button type="button" class="nav-btn next" id="next">下一个 →</button>
+    </nav>
+  </main>
+  <p class="help"><strong>学习提示：</strong>为避免机器人读错短音节，已取消音节的浏览器合成声音。使用完整单词的录音学习，慢速播放保留原录音。麦克风只核对识别出的文字，不评估具体音素和重音。</p>
+  <p class="copyright">DEMO · 10 / 100 · 第2课预览版。第1课和现有正式课程没有修改。</p>
 </div>
+<audio id="player" preload="none" hidden></audio>
 <script>
 (function(){
 'use strict';
 const WORDS=[
-  {word:'Мама',parts:['МА','МА'],stress:0,latin:'mama',zh:'妈妈',emoji:'👩',color:'#d76580',audio:'assets/audio/1ba336d42a62d39b66.mp3'},
-  {word:'Папа',parts:['ПА','ПА'],stress:0,latin:'papa',zh:'爸爸',emoji:'👨',color:'#3d86ae',audio:'assets/audio/c578cb4d692a996dcb.mp3'},
-  {word:'Вода',parts:['ВО','ДА'],stress:1,latin:'voda',zh:'水',emoji:'💧',color:'#268db9',audio:'assets/audio/299b37806f53c170b4.mp3'},
-  {word:'Рука',parts:['РУ','КА'],stress:1,latin:'ruka',zh:'手',emoji:'✋',color:'#8a68c4',audio:'assets/audio/16072e22629ea0eb55.mp3'},
-  {word:'Нога',parts:['НО','ГА'],stress:1,latin:'noga',zh:'腿',emoji:'🦵',color:'#d77d40',audio:'assets/audio/c7163bcb04a6b03b61.mp3'},
-  {word:'Привет',parts:['ПРИ','ВЕТ'],stress:1,latin:'privet',zh:'你好！',emoji:'👋',color:'#d15c9c',audio:'audio/lesson-3/male-b2b11afc89e6.mp3'},
-  {word:'Банан',parts:['БА','НАН'],stress:1,latin:'banan',zh:'香蕉',emoji:'🍌',color:'#d2952a',audio:'assets/audio/da517d2f9d58388906.mp3'},
-  {word:'Арбуз',parts:['АР','БУЗ'],stress:1,latin:'arbuz',zh:'西瓜',emoji:'🍉',color:'#54a76b',audio:'assets/audio/7db1ae3757e64e10e4.mp3'},
-  {word:'Молоко',parts:['МО','ЛО','КО'],stress:2,latin:'moloko',zh:'牛奶',emoji:'🥛',color:'#558ac9',audio:'assets/audio/4ea22be4cac9681f94.mp3'},
-  {word:'Машина',parts:['МА','ШИ','НА'],stress:1,latin:'mashina',zh:'汽车',emoji:'🚗',color:'#e07856',audio:'assets/audio/cf8b63089e1d99197f.mp3'}
+  {word:'Мама',parts:['МА','МА'],stress:0,latin:'mama',zh:'妈妈',art:'mom',audio:'audio/alphabet-natural/svetlana-2ccfed8bd93ea3ac.mp3'},
+  {word:'Папа',parts:['ПА','ПА'],stress:0,latin:'papa',zh:'爸爸',art:'dad',audio:'audio/alphabet-natural/svetlana-a0db4873b559279f.mp3'},
+  {word:'Вода',parts:['ВО','ДА'],stress:1,latin:'voda',zh:'水',art:'water',audio:'audio/alphabet-natural/svetlana-a8cd0937ee62e1f6.mp3'},
+  {word:'Рука',parts:['РУ','КА'],stress:1,latin:'ruka',zh:'手',art:'hand',audio:'audio/alphabet-natural/svetlana-63b1a2505193fb92.mp3'},
+  {word:'Нога',parts:['НО','ГА'],stress:1,latin:'noga',zh:'腿',art:'leg',audio:'audio/alphabet-natural/dmitry-f066c32651c7eeb1.mp3'},
+  {word:'Привет',parts:['ПРИ','ВЕТ'],stress:1,latin:'privet',zh:'你好',art:'hello',audio:'audio/lesson-3/male-b2b11afc89e6.mp3'},
+  {word:'Банан',parts:['БА','НАН'],stress:1,latin:'banan',zh:'香蕉',art:'banana',audio:'audio/alphabet-natural/svetlana-f29141a7ba0c7fc9.mp3'},
+  {word:'Арбуз',parts:['АР','БУЗ'],stress:1,latin:'arbuz',zh:'西瓜',art:'melon',audio:'audio/alphabet-natural/svetlana-ba263f664be9d1a5.mp3'},
+  {word:'Молоко',parts:['МО','ЛО','КО'],stress:2,latin:'moloko',zh:'牛奶',art:'milk',audio:'audio/alphabet-natural/svetlana-76455a1de03b74f0.mp3'},
+  {word:'Машина',parts:['МА','ШИ','НА'],stress:1,latin:'mashina',zh:'汽车',art:'car',audio:'audio/alphabet-natural/dmitry-fc28f3046acb5b33.mp3'}
 ];
-const SpeechAPI=window.SpeechRecognition||window.webkitSpeechRecognition;
-const cards=document.getElementById('cards');
-const progressLabel=document.getElementById('progress-label');
-const progressFill=document.getElementById('progress-fill');
-const completed=new Set();
-let currentAudio=null,currentRecognition=null,ttsGeneration=0;
-function norm(x){return String(x||'').toLocaleLowerCase('ru-RU').replace(/ё/g,'е').replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');}
-function stressSyllable(s){return s.replace(/([АЕЁИОУЫЭЮЯ])([^АЕЁИОУЫЭЮЯ]*)$/i, '$1\u0301$2');}
-function spacedParts(w){return w.parts.map((p,i)=>i===w.stress?stressSyllable(p):p).join(' — ');}
-function setStatus(card,type,txt){let el=card.querySelector('.feedback');el.dataset.kind=type;el.textContent=txt;}
-function updateProgress(){progressLabel.textContent='已练习 '+completed.size+' / '+WORDS.length;progressFill.style.width=(completed.size/WORDS.length*100)+'%';}
-function stopAll(){ttsGeneration++;try{speechSynthesis.cancel();}catch(_){}if(currentAudio){currentAudio.pause();currentAudio=null;}if(currentRecognition){try{currentRecognition.abort();}catch(_){}currentRecognition=null;}document.querySelectorAll('.syl[data-active]').forEach(x=>delete x.dataset.active);document.querySelectorAll('.action.mic').forEach(x=>x.textContent='🎤 跟读');}
-function markDone(i){completed.add(i);updateProgress();}
-function russianVoice(){if(!('speechSynthesis' in window))return null;let v=speechSynthesis.getVoices();return v.find(x=>/^ru[-_]/i.test(x.lang))||v.find(x=>x.lang.toLowerCase()==='ru')||null;}
-function playSyllables(card,word,indexOnly){
-  stopAll();const syllables=[...card.querySelectorAll('.syl')];const order=indexOnly===undefined?word.parts.map((_,i)=>i):[indexOnly];const token=ttsGeneration;
-  if(!('speechSynthesis' in window)){setStatus(card,'error','本设备不支持音节朗读，请使用完整单词的录音。');return;}
-  let voice=russianVoice();
-  let pointer=0;
-  function next(){
-    if(ttsGeneration!==token)return;
-    syllables.forEach(el=>delete el.dataset.active);
-    if(pointer>=order.length){setStatus(card,'','跟读音节后，点击 🔊 听完整单词。');return;}
-    let partIndex=order[pointer++];syllables[partIndex].dataset.active='true';
-    let utterance=new SpeechSynthesisUtterance(word.parts[partIndex].toLowerCase());
-    utterance.lang='ru-RU';if(voice)utterance.voice=voice;
-    utterance.rate=.72;utterance.pitch=1;
-    utterance.onend=function(){if(ttsGeneration===token)setTimeout(next,200);};
-    utterance.onerror=function(){if(ttsGeneration===token){syllables.forEach(el=>delete el.dataset.active);setStatus(card,'error','浏览器音节合成失败，请听完整单词。');}};
-    speechSynthesis.speak(utterance);
-  }
-  setStatus(card,'','🎶 跟着念：'+spacedParts(word));next();
-}
-function playWhole(card,word){
-  stopAll();const a=new Audio(word.audio);currentAudio=a;a.preload='auto';
-  setStatus(card,'','🔊 正在播放完整单词：'+word.word);
-  a.onended=function(){if(currentAudio===a){currentAudio=null;setStatus(card,'','听完了吗？现在试着跟读 🎤');}};
-  a.onerror=function(){if(currentAudio===a){currentAudio=null;setStatus(card,'error','音频暂时无法加载，请检查网络。');}};
-  a.play().catch(function(){setStatus(card,'error','浏览器阻止播放，请再次点击 🔊 或检查声音设置。');});
-}
-function speak(card,word,i){
-  stopAll();
-  if(!window.isSecureContext||!SpeechAPI){setStatus(card,'error','此浏览器不支持语音识别。请通过 HTTPS 在 Chrome 中打开。');return;}
-  const rec=new SpeechAPI();currentRecognition=rec;rec.lang='ru-RU';rec.interimResults=false;rec.continuous=false;rec.maxAlternatives=1;
-  let answered=false;const btn=card.querySelector('.action.mic');
-  rec.onstart=function(){if(currentRecognition!==rec)return;btn.textContent='🎙️ 正在听';setStatus(card,'','🎙️ 请说完整单词：'+word.word);};
-  rec.onresult=function(e){if(currentRecognition!==rec)return;answered=true;const heard=e.results?.[0]?.[0]?.transcript?.trim()||'';const good=norm(heard)===norm(word.word);
-    if(good){markDone(i);setStatus(card,'good','✅ 识别一致！目标：'+word.word+'；识别到：'+heard+'。继续练习！');}
-    else setStatus(card,'retry','❌ 未识别为目标词。目标：'+word.word+'；识别到：'+(heard||'（无）')+'。再试一次！');
-  };
-  rec.onerror=function(e){if(currentRecognition!==rec)return;answered=true;let msg={'not-allowed':'请允许麦克风权限。','no-speech':'没有听到声音，请再试。','network':'语音识别网络连接失败。','audio-capture':'麦克风不可用。'}[e.error]||'语音识别失败：'+e.error;setStatus(card,'error',msg);};
-  rec.onend=function(){if(currentRecognition!==rec)return;currentRecognition=null;btn.textContent='🎤 跟读';if(!answered)setStatus(card,'retry','未收到识别结果，请再试。');};
-  try{rec.start();}catch(e){currentRecognition=null;btn.textContent='🎤 跟读';setStatus(card,'error','无法启动麦克风。');}
-}
-function create(word,i){
-  let el=document.createElement('article');el.className='word-card';el.style.setProperty('--accent',word.color);
-  el.innerHTML=
-    '<div class="art" aria-hidden="true"></div>'+
-    '<div class="card-main"><div class="card-number"><span>第 '+String(i+1).padStart(2,'0')+' 个词</span><span class="tag">'+(word.parts.length===2?'2 音节':'3 音节')+'</span></div>'+
-    '<div class="ru-word" lang="ru"></div><div class="translit"></div><div class="zh" lang="zh-CN"></div></div>'+
-    '<div class="syl-label">👆 点击音节，金色代表重读音节</div><div class="syllables"></div>'+
-    '<div class="actions"><button type="button" class="action slow">🎼 分音节听</button>'+
-    '<button type="button" class="action listen">🔊 听完整词</button>'+
-    '<button type="button" class="action mic">🎤 跟读</button></div>'+
-    '<div class="feedback" role="status" aria-live="polite">先按音节读，再听完整单词。</div>';
-  el.querySelector('.art').textContent=word.emoji;
-  const renderStress=word.parts.map((x,j)=>j===word.stress?stressSyllable(x):x).join('');
-  el.querySelector('.ru-word').textContent=renderStress;
-  el.querySelector('.translit').textContent=word.latin;
-  el.querySelector('.zh').textContent=word.zh;
-  word.parts.forEach((part,j)=>{
-    let b=document.createElement('button');b.type='button';b.className='syl';b.dataset.stressed=String(j===word.stress);
-    b.setAttribute('aria-label','听音节 '+part);
-    b.textContent=j===word.stress?stressSyllable(part):part;
-    let small=document.createElement('small');small.textContent=j===word.stress?'重音 ↗':'音节';b.append(small);
-    b.addEventListener('click',()=>playSyllables(el,word,j));el.querySelector('.syllables').append(b);
-    if(j<word.parts.length-1){let dash=document.createElement('span');dash.className='hyphen';dash.textContent='—';el.querySelector('.syllables').append(dash);}
+const SVG={
+mom:'<path d="M72 151v-44c0-37 21-63 50-63s50 26 50 63v44" fill="#624a3d"/><ellipse cx="122" cy="98" rx="40" ry="46" fill="#efba92"/><path d="M83 86q0-44 40-43 42 0 41 46-8-12-13-27-27 23-68 24Z" fill="#624a3d"/><path d="M50 204c4-55 33-70 72-70s69 15 72 70" fill="#d67c76"/><path d="M114 119q8 7 17-1" fill="none" stroke="#ae6759" stroke-width="3" stroke-linecap="round"/><circle cx="106" cy="98" r="2.8" fill="#393e44"/><circle cx="138" cy="98" r="2.8" fill="#393e44"/>',
+dad:'<path d="M51 204q7-68 71-68t71 68" fill="#557a91"/><ellipse cx="122" cy="100" rx="41" ry="47" fill="#e7b78e"/><path d="M83 99q-18-57 24-59 36-18 55 18 8 16 1 32-8-10-11-29-36 24-69 20Z" fill="#3e4b50"/><path d="M112 119q9 6 20 0" stroke="#9b6951" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="106" cy="101" r="3" fill="#313b43"/><circle cx="138" cy="101" r="3" fill="#313b43"/>',
+water:'<path d="M122 21C105 56 66 105 66 142a56 56 0 0 0 112 0c0-37-39-86-56-121Z" fill="#74b8d9"/><path d="M88 139q-1 27 25 35" fill="none" stroke="#d2f6ff" stroke-width="12" stroke-linecap="round"/><circle cx="150" cy="130" r="7" fill="#d7f3ff"/>',
+hand:'<path d="M105 199 70 151l-13-32q-3-15 11-18t20 15l17 16V51q0-15 13-15t13 14v48-43q1-14 13-13t11 16v43-28q1-14 13-12t10 16v33-19q3-12 14-8t8 17v54q-4 41-38 49Z" fill="#e6ae88" stroke="#b97b63" stroke-width="5" stroke-linejoin="round"/>',
+leg:'<path d="M93 33h70l-12 89-17 38 31 9q18 5 23 23H98l-8-25 13-40Z" fill="#87a4b3"/><path d="m95 155 33 4 42 15q19 6 18 18H92Z" fill="#516878"/><path d="M91 30h76l-6 38H97Z" fill="#3d647d"/>',
+hello:'<path d="M80 193c8-36 34-58 68-58s60 22 68 58" fill="#87acba"/><ellipse cx="148" cy="88" rx="34" ry="39" fill="#eabd99"/><path d="M117 76q0-36 34-36 33 0 30 37-15-16-30-16-14 19-34 15" fill="#474c58"/><path d="M35 148q-8-25-12-54-1-12 9-15 11-2 13 13l5 19-5-60q-1-12 9-12 10 0 12 11l8 45-1-44q1-11 11-10 10 2 9 13v46l5-28q2-10 11-8 10 3 7 13l-8 54-14 45Z" fill="#eabd99" stroke="#bd8f76" stroke-width="3"/><path d="M117 12q7 8 6 19M94 13q-8 7-9 18M132 36q9 3 14 11" fill="none" stroke="#d18a62" stroke-width="5" stroke-linecap="round"/>',
+banana:'<path d="M47 88q27 92 110 82 45-6 57-57-35 35-76 23-36-10-64-57Z" fill="#f4c850" stroke="#d7a543" stroke-width="5"/><path d="M57 82q27 110 119 76" fill="none" stroke="#fee68c" stroke-width="13" stroke-linecap="round"/><path d="M48 81q10-7 16 0" stroke="#6b875d" stroke-width="8" stroke-linecap="round"/><circle cx="210" cy="114" r="4" fill="#94694a"/>',
+melon:'<path d="M45 163a79 79 0 0 1 158 0Z" fill="#ee6e75"/><path d="M45 163h158" stroke="#397a5a" stroke-width="21" stroke-linecap="round"/><path d="M45 161h158" stroke="#b6dca5" stroke-width="9"/><path d="M92 122v12M135 101l-5 15M158 124l-4 12" stroke="#653e47" stroke-width="8" stroke-linecap="round"/>',
+milk:'<path d="M85 41h76v140q-1 12-12 12H90q-11 0-11-12V58Z" fill="#e8f3f8" stroke="#799caf" stroke-width="4"/><path d="M79 58h82l-28-29H100Z" fill="#bddbe8" stroke="#799caf" stroke-width="4"/><path d="M90 83h61v77H90Z" fill="#fff"/><path d="M109 115q11-13 22 1" fill="none" stroke="#8fc4da" stroke-width="9" stroke-linecap="round"/><path d="M110 134q13-13 27-1" fill="none" stroke="#8fc4da" stroke-width="7" stroke-linecap="round"/><path d="M142 29v28" stroke="#799caf" stroke-width="5"/>',
+car:'<path d="M38 136 53 96q5-16 21-18h93q15 2 21 18l15 40 11 12v30H29v-30Z" fill="#de7c69"/><path d="m71 98 12-19h75l13 19 9 26H62Z" fill="#d7e7e9"/><rect x="41" y="134" width="160" height="35" rx="10" fill="#c96258"/><circle cx="75" cy="176" r="17" fill="#394653"/><circle cx="168" cy="176" r="17" fill="#394653"/><circle cx="75" cy="176" r="7" fill="#d2d9dd"/><circle cx="168" cy="176" r="7" fill="#d2d9dd"/><rect x="43" y="143" width="30" height="10" rx="4" fill="#feecc7"/><rect x="174" y="143" width="30" height="10" rx="4" fill="#feecc7"/>'
+};
+let current=0,rec=null;const completed=new Set();const player=document.getElementById('player');const SpeechAPI=window.SpeechRecognition||window.webkitSpeechRecognition;
+const byId=id=>document.getElementById(id);
+function stress(s){return s.replace(/([АЕЁИОУЫЭЮЯ])([^АЕЁИОУЫЭЮЯ]*)$/i,'$1\u0301$2');}
+function norm(s){return String(s||'').toLocaleLowerCase('ru-RU').replace(/ё/g,'е').replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');}
+function stop(){player.pause();player.removeAttribute('src');player.load();player.onended=null;player.onerror=null;if(rec){const old=rec;rec=null;try{old.abort();}catch(_){} }byId('mic').querySelector('strong').textContent='我来读';}
+function status(kind,message){const el=byId('feedback');el.dataset.kind=kind;el.textContent=message;}
+function render(){
+  stop();const w=WORDS[current];byId('counter').textContent='СЛОВО '+String(current+1).padStart(2,'0')+' / 10';
+  byId('word').textContent=w.parts.map((x,i)=>i===w.stress?stress(x):x).join('');
+  byId('translit').textContent=w.latin;
+  byId('cn').textContent=w.zh;
+  byId('illustration').setAttribute('aria-label',w.word+' · '+w.zh);
+  byId('illustration').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244 210" aria-hidden="true">'+SVG[w.art]+'</svg>';
+  const group=byId('syllables');group.replaceChildren();
+  w.parts.forEach((p,i)=>{
+    const chip=document.createElement('button');chip.type='button';chip.className='syl';chip.dataset.stressed=String(i===w.stress);chip.textContent=i===w.stress?stress(p):p;chip.setAttribute('aria-pressed','false');chip.setAttribute('aria-label',p+' · '+(i===w.stress?'重读音节':'音节'));
+    chip.addEventListener('click',()=>{group.querySelectorAll('.syl').forEach(b=>b.setAttribute('aria-pressed','false'));chip.setAttribute('aria-pressed','true');status('info','现在读这个音节：'+chip.textContent+'。点击「听原音」可以听完整单词。');});group.append(chip);
   });
-  el.querySelector('.slow').addEventListener('click',()=>playSyllables(el,word));
-  el.querySelector('.listen').addEventListener('click',()=>playWhole(el,word));
-  el.querySelector('.mic').addEventListener('click',()=>speak(el,word,i));
-  return el;
+  byId('prev').disabled=current===0;byId('next').disabled=current===WORDS.length-1;
+  const steps=byId('steps');steps.replaceChildren();WORDS.forEach((it,i)=>{const step=document.createElement('button');step.type='button';step.className='step';step.dataset.done=String(completed.has(i));step.setAttribute('aria-label','第'+(i+1)+'个词 '+it.word);if(i===current)step.setAttribute('aria-current','step');step.addEventListener('click',()=>{current=i;render();});steps.append(step);});
+  updateProgress();status('info','先听完整单词，然后点击麦克风跟读。');
 }
-WORDS.forEach((word,i)=>cards.append(create(word,i)));
-window.addEventListener('pagehide',stopAll);
-document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAll();});
+function updateProgress(){byId('progress-label').textContent=completed.size+' / '+WORDS.length;byId('progress-fill').style.width=(completed.size/WORDS.length*100)+'%';}
+function play(rate){
+  stop();const w=WORDS[current];player.src=w.audio;player.preservesPitch=true;player.playbackRate=rate;const slow=rate<1;
+  status('info',slow?'◷ 正在慢速播放完整单词…':'◖)) 正在播放完整单词…');
+  player.onended=()=>status('info','听完了吗？现在试着朗读：'+w.word);
+  player.onerror=()=>status('error','录音加载失败，请检查网络后重试。');
+  player.play().catch(()=>status('error','无法播放声音。请再次点击，或检查浏览器的声音设置。'));
+}
+function speak(){
+  stop();if(!SpeechAPI||!window.isSecureContext){status('error','当前浏览器无法使用俄语语音识别。请通过 HTTPS 在 Chrome 中打开。');return;}
+  const index=current,w=WORDS[index],attempt=new SpeechAPI();rec=attempt;
+  attempt.lang='ru-RU';attempt.continuous=false;attempt.interimResults=false;attempt.maxAlternatives=1;
+  let answered=false;
+  attempt.onstart=()=>{if(rec!==attempt)return;byId('mic').querySelector('strong').textContent='正在聆听';status('info','🎙️ 请说出完整单词：'+w.word);};
+  attempt.onresult=e=>{if(rec!==attempt)return;answered=true;const heard=e.results?.[0]?.[0]?.transcript?.trim()||'';
+    if(norm(heard)===norm(w.word)){completed.add(index);updateProgress();const selected=byId('steps').children[index];if(selected)selected.dataset.done='true';status('good','✅ 识别文字一致！听到：「'+heard+'」。继续加油！');}
+    else status('retry','❌ 识别文字不同。目标：「'+w.word+'」，听到：「'+(heard||'（无）')+'」。再试一次。');
+  };
+  attempt.onerror=e=>{if(rec!==attempt)return;answered=true;const messages={'not-allowed':'请允许麦克风权限。','no-speech':'没有听到声音，请重新说。','network':'识别服务网络连接失败。','audio-capture':'无法使用麦克风。','service-not-allowed':'此浏览器未提供语音识别服务。'};status('error',messages[e.error]||'语音识别失败：'+e.error);};
+  attempt.onend=()=>{if(rec!==attempt)return;rec=null;byId('mic').querySelector('strong').textContent='我来读';if(!answered)status('retry','未识别出语音，请再试。');};
+  try{attempt.start();}catch{rec=null;byId('mic').querySelector('strong').textContent='我来读';status('error','无法启动麦克风。');}
+}
+byId('listen').addEventListener('click',()=>play(1));byId('slow').addEventListener('click',()=>play(.8));
+byId('mic').addEventListener('click',speak);byId('prev').addEventListener('click',()=>{if(current>0){current--;render();}});
+byId('next').addEventListener('click',()=>{if(current<WORDS.length-1){current++;render();}});
+window.addEventListener('pagehide',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});render();
 })();
 </script>
 </body>
