@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>俄语跟读练习 · Русский для китайцев</title>
+<meta name="description" content="免费的俄语跟读练习，七课词汇和日常短句。用麦克风检查浏览器是否听懂你的俄语。">
+<style>
+*{box-sizing:border-box}
+html{background:#573421}
+body{margin:0;color:#382821;background:repeating-linear-gradient(96deg,#714429 0,#805234 90px,#704228 180px);font-family:system-ui,"Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{width:min(1050px,100%);margin:auto;padding:14px}
+.back{display:inline-flex;text-decoration:none;border:1px solid #e5c69a;color:#fff5e6;background:#442918;border-radius:99px;padding:11px 17px;font-weight:800;margin:3px 0 12px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(110deg,#fff7e9,#ffe0b5);border:5px solid #d3a679;border-radius:22px;box-shadow:0 8px 0 #3e2016;margin-bottom:20px}
+.hero:before{content:"";position:absolute;right:-45px;top:-35px;width:270px;height:270px;background:radial-gradient(circle,#f8bb65 3px,transparent 5px);background-size:22px 22px;opacity:.2;transform:rotate(14deg)}
+.hero-copy{position:relative;padding:26px clamp(16px,4vw,42px);max-width:700px}
+.stamp{display:inline-block;border-radius:12px;background:#db305d;color:white;font-weight:800;padding:8px 14px;box-shadow:0 3px #a31435}
+h1{font-size:clamp(30px,5vw,52px);line-height:1.18;color:#192653;margin:14px 0 5px}
+.subtitle{font-size:clamp(18px,3vw,26px);font-weight:800;color:#a6383e;margin:0 0 12px}
+.hero p{max-width:640px;font-size:16px;line-height:1.7;color:#674536}
+.hero button{margin:12px 0 4px;background:#f43772;color:#fff;border:0;border-radius:999px;padding:16px 26px;font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 4px 0 #ad2555}
+.notice{background:#fff9eb;border-left:6px solid #f4b643;border-radius:14px;padding:12px 16px;line-height:1.7;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.lesson{background:#fffaf1;border:3px solid var(--color,#e89c74);border-radius:19px;box-shadow:0 6px 0 #3e261854;overflow:hidden;display:flex;flex-direction:column}
+.lesson-heading{background:color-mix(in srgb,var(--color) 16%,white);padding:15px 16px;border-bottom:1px solid #edddca}
+.lesson-heading h2{font-size:21px;margin:0 0 3px;color:#252353;line-height:1.35}
+.lesson-heading strong{display:inline-flex;align-items:center;justify-content:center;background:var(--color);color:#fff;border-radius:50%;width:37px;height:37px;margin-right:9px}
+.lesson-heading p{margin:0;color:#785b59;font-size:14px}
+.example{font-size:15px;line-height:1.6;margin:13px 16px 0;padding:12px;background:#fff1d9;border-radius:11px;color:#402f39;flex:1}
+.lesson button{align-self:stretch;margin:15px;border:0;border-radius:14px;padding:14px 10px;background:var(--color);color:white;font-size:16px;font-weight:900;cursor:pointer;box-shadow:0 3px #0002}
+.lesson button:focus-visible,.hero button:focus-visible{outline:3px solid #1144ef;outline-offset:3px}
+.footer{font-size:13px;color:#fff0d5;text-align:center;line-height:1.6;margin:28px auto 80px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:530px){.grid{grid-template-columns:1fr}.page{padding:10px}.hero-copy{padding:20px}.lesson-heading h2{font-size:20px}}
+</style>
+<script>
+window.RUSSIAN_SPEECH_LESSONS={
+  1:[
+    ['мама','妈妈'],['папа','爸爸'],['дом','房子'],['кот','猫'],
+    ['вода','水'],['кошка','猫'],['рука','手'],['ёлка','圣诞树'],
+    ['яблоко','苹果'],['школа','学校'],['книга','书']
+  ],
+  2:[
+    ['мама','妈妈'],['папа','爸爸'],['рама','框架'],['лапа','爪子'],
+    ['вода','水'],['мука','面粉（重音在最后一个音节）'],['такси','出租车'],
+    ['нос','鼻子'],['шапка','帽子'],['шар','球'],['дом','房子'],
+    ['Это мама.','这是妈妈。'],['Это вода.','这是水。'],['Это дом.','这是房子。'],
+    ['ма','音节 ма'],['му','音节 му'],['ла','音节 ла'],['по','音节 по']
+  ],
+  3:[
+    ['Я','我'],['Ты','你'],['Он','他'],['Она','她'],['Оно','它'],
+    ['Мы','我们'],['Вы','您 / 你们'],['Они','他们'],
+    ['Я студент.','我是学生。'],['Это окно.','这是窗户。'],
+    ['Мы друзья.','我们是朋友。'],['Вы студенты.','你们是学生。']
+  ],
+  4:[
+    ['Привет!','你好！'],['Здравствуйте!','您好！'],
+    ['Доброе утро!','早上好！'],['Добрый день!','下午好！'],
+    ['Добрый вечер!','晚上好！'],['Спокойной ночи!','晚安！'],
+    ['Как дела?','最近怎么样？'],['Хорошо, спасибо!','很好，谢谢！'],
+    ['Спасибо!','谢谢！'],['Пожалуйста!','不客气 / 请'],
+    ['До свидания!','再见！']
+  ],
+  5:[
+    ['один','一'],['два','二'],['три','三'],['четыре','四'],
+    ['пять','五'],['шесть','六'],['семь','七'],
+    ['восемь','八'],['девять','九'],['десять','十'],
+    ['Который час?','现在几点？'],['один час','一点'],
+    ['два часа','两点'],['пять часов','五点'],
+    ['Во сколько встретимся?','我们几点见面？']
+  ],
+  6:[
+    ['мама','妈妈'],['папа','爸爸'],['сын','儿子'],['дочь','女儿'],
+    ['бабушка','奶奶 / 外婆'],['дедушка','爷爷 / 外公'],
+    ['брат','兄弟'],['сестра','姐妹'],['семья','家庭'],
+    ['Это моя семья.','这是我的家人。'],['У меня есть сын.','我有儿子。']
+  ],
+  7:[
+    ['утро','早晨'],['день','白天'],['вечер','晚上'],['ночь','夜晚'],
+    ['Я встаю.','我起床。'],['Я завтракаю.','我吃早餐。'],
+    ['Я учу русский язык.','我学习俄语。'],['Я гуляю.','我散步。'],
+    ['Что ты делаешь утром?','你早上做什么？'],
+    ['Утром я встаю и завтракаю.','早上我起床吃早饭。']
+  ]
+};
+</script>
+</head>
+<body>
+<main class="page">
+<a class="back" href="index.html">← 返回课程首页 · На главную</a>
+<header class="hero">
+  <div class="hero-copy">
+    <span class="stamp">🎙️ 免费练习 · БЕСПЛАТНО</span>
+    <h1>俄语跟读练习</h1>
+    <div class="subtitle">Тренировка русской речи · 7 уроков</div>
+    <p>听原音、按下麦克风、说俄语！我们显示浏览器听到的文字，帮助你练习。无需注册，不需要付费。</p>
+    <button type="button" data-sp-lesson="4">🎤 试一试：Привет!</button>
+  </div>
+</header>
+<div class="notice">💡 <strong>使用方法：</strong>选择课程 → 选择俄语单词 → 听课程原音 🔊 → 点击麦克风 🎤 → 查看识别结果。这里只核对语音识别出的文字，<strong>不能精确判断口音、音素或重音</strong>。</div>
+<section class="grid" aria-label="选择课程">
+  <article class="lesson" style="--color:#e84070"><div class="lesson-heading"><h2><strong>1</strong>俄语字母表</h2><p>Русский алфавит</p></div><p class="example">мама · папа · дом · вода · яблоко</p><button type="button" data-sp-lesson="1">🎤 练习第1课</button></article>
+  <article class="lesson" style="--color:#e9a023"><div class="lesson-heading"><h2><strong>2</strong>阅读与发音</h2><p>Чтение и произношение</p></div><p class="example">мама · вода · мука · такси · ма</p><button type="button" data-sp-lesson="2">🎤 练习第2课</button></article>
+  <article class="lesson" style="--color:#3e83ea"><div class="lesson-heading"><h2><strong>3</strong>人称代词</h2><p>Личные местоимения</p></div><p class="example">Я · Ты · Он · Она · Мы · Они</p><button type="button" data-sp-lesson="3">🎤 练习第3课</button></article>
+  <article class="lesson" style="--color:#2eb875"><div class="lesson-heading"><h2><strong>4</strong>日常问候</h2><p>Приветствия</p></div><p class="example">Привет! · Здравствуйте! · Спасибо!</p><button type="button" data-sp-lesson="4">🎤 练习第4课</button></article>
+  <article class="lesson" style="--color:#9052d8"><div class="lesson-heading"><h2><strong>5</strong>数字与时间</h2><p>Числа и время</p></div><p class="example">один · два · три · Который час?</p><button type="button" data-sp-lesson="5">🎤 练习第5课</button></article>
+  <article class="lesson" style="--color:#ef782b"><div class="lesson-heading"><h2><strong>6</strong>我的家人</h2><p>Моя семья</p></div><p class="example">мама · папа · сын · дочь · семья</p><button type="button" data-sp-lesson="6">🎤 练习第6课</button></article>
+  <article class="lesson" style="--color:#d83887"><div class="lesson-heading"><h2><strong>7</strong>我的一天</h2><p>Мой день</p></div><p class="example">утро · день · вечер · Я встаю.</p><button type="button" data-sp-lesson="7">🎤 练习第7课</button></article>
+</section>
+<p class="footer">语音识别需 HTTPS、浏览器麦克风权限及可能的网络连接。某些浏览器会将音频发送到其语音服务处理；本课程不会保存录音。<br>© Русский для китайцев · Учимся говорить по-русски</p>
+</main>
+<script src="assets/audio-manifest.js"></script>
+<script src="assets/course-extensions-audio.js"></script>
+<script src="assets/course.js"></script>
+</body>
+</html>
