@@ -44,10 +44,57 @@ try{
   assert.equal(ru,'Привет!');
   await page.click('.rc-mic');
   await page.waitForFunction(()=>document.querySelector('.rc-result').textContent.includes('一致'));
+  let state=await page.$eval('.rc-result', el=>({
+    kind:el.dataset.state,
+    icon:el.querySelector('.rc-result-icon')?.textContent,
+    details:el.querySelector('.rc-result-details')?.textContent
+  }));
+  assert.equal(state.kind,'success');
+  assert.equal(state.icon,'✅');
+  assert.match(state.details,/Привет!/);
+
   await page.evaluate(()=>{window.__mockSpeech='Пока';});
   await page.click('.rc-mic');
   await page.waitForFunction(()=>document.querySelector('.rc-result').textContent.includes('不同'));
+  state=await page.$eval('.rc-result', el=>({
+    kind:el.dataset.state,
+    icon:el.querySelector('.rc-result-icon')?.textContent,
+    details:el.querySelector('.rc-result-details')?.textContent
+  }));
+  assert.equal(state.kind,'mismatch');
+  assert.equal(state.icon,'❌');
+  assert.match(state.details,/отлич|Пока/i);
+
+  const dimensions=await page.evaluate(()=>{
+    const panel=document.querySelector('.rc-panel');
+    const result=document.querySelector('.rc-result');
+    const mic=document.querySelector('.rc-mic');
+    const p=panel.getBoundingClientRect();
+    return {
+      panelLeft:p.left, panelRight:p.right, panelBottom:p.bottom,
+      resultBottom:result.getBoundingClientRect().bottom,
+      micBottom:mic.getBoundingClientRect().bottom,
+      viewportWidth:innerWidth,viewportHeight:innerHeight,
+      scrollHeight:panel.scrollHeight,clientHeight:panel.clientHeight
+    };
+  });
+  assert.ok(dimensions.panelLeft>=0 && dimensions.panelRight<=dimensions.viewportWidth+1,
+    'Dialog overflows mobile width: '+JSON.stringify(dimensions));
+  assert.ok(dimensions.micBottom<dimensions.viewportHeight,
+    'Mic button not visible: '+JSON.stringify(dimensions));
+  assert.ok(dimensions.resultBottom<=dimensions.viewportHeight+1,
+    'Feedback not visible at 390x844: '+JSON.stringify(dimensions));
+  console.log('PASS: clear ✅/❌ and visible feedback at 390x844', dimensions);
+
+  await page.setViewport({width:360,height:700,isMobile:true,deviceScaleFactor:1});
+  const narrow=await page.evaluate(()=>{
+    const r=document.querySelector('.rc-panel').getBoundingClientRect();
+    return {left:r.left,right:r.right,viewportWidth:innerWidth};
+  });
+  assert.ok(narrow.left>=0 && narrow.right<=narrow.viewportWidth+1,
+    'Narrow mobile width overflow: '+JSON.stringify(narrow));
   await page.click('.rc-x');
+  await page.setViewport({width:390,height:844,isMobile:true,deviceScaleFactor:1});
   for(let n=1;n<=7;n++){
     await page.click('[data-sp-lesson="'+n+'"]');
     const shown=await page.$eval('.rc-word-ru',e=>e.textContent);
