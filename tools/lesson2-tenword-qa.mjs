@@ -26,7 +26,7 @@ try{
  for(const width of [320,390,768,1280]){
    const page=await browser.newPage();const errors=[],failedResources=[];
    page.on('pageerror',e=>errors.push(String(e)));
-   page.on('response',r=>{if(r.url().startsWith('http://127.0.0.1:') && r.status()>=400)failedResources.push(r.status()+' '+r.url());});
+   page.on('response',r=>{if(r.url().startsWith('http://127.0.0.1:') && r.status()>=400 && !r.url().endsWith('/favicon.ico'))failedResources.push(r.status()+' '+r.url());});
    await page.setViewport({width,height:844,isMobile:width<700,hasTouch:width<700,deviceScaleFactor:1});
    await page.evaluateOnNewDocument(()=>{
      class FakeSpeech{
