@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 const html=await fs.readFile('russian_lesson_1_COMPLETE.html','utf8');
 const checks={
   bytes:Buffer.byteLength(html),
-  hasChineseLanguage:/lang=["']zh/i.test(html),
+  hasChineseText:/[\u3400-\u9fff]/u.test(html),
   hasRussianWords:/[А-Яа-яЁё]{2,}/.test(html),
   mp3DataUrls:(html.match(/data:audio\/(?:mpeg|mp3);base64,/gi)||[]).length,
   embeddedMpeg:(html.match(/audio\/mpeg/gi)||[]).length,
@@ -20,4 +20,4 @@ const checks={
   ]
 };
 console.log(JSON.stringify(checks,null,2));
-if(checks.bytes<2000000 || !checks.hasChineseLanguage || !checks.hasRussianWords)process.exitCode=1;
+if(checks.bytes<2000000 || !checks.hasChineseText || !checks.hasRussianWords)process.exitCode=1;
