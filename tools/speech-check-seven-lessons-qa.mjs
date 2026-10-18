@@ -74,12 +74,17 @@ try{
        assert.ok(failure.includes('❌'),'Mismatch glyph missing');
        await page.click('.rc-listen');
        if(name.startsWith('1.')){
-         // The first lesson must keep its own original recorded player.
-         const source=await page.evaluate(()=>{
-           const player=document.querySelector('audio[data-lesson-player]');
-           return player?.getAttribute('src')||player?.currentSrc||'';
-         });
-         assert.ok(source.includes('alphabet-natural/'),'Lesson 1 MP3 source not used: '+source);
+         // Verify every alphabet word offered in this speaking practice uses natural MP3.
+         for(let k=0;k<options;k++){
+           await page.select('#rc-word-choice',String(k));
+           await page.click('.rc-listen');
+           const source=await page.evaluate(()=>{
+             const player=document.querySelector('audio[data-lesson-player]');
+             return player?.getAttribute('src')||player?.currentSrc||'';
+           });
+           const word=await page.$eval('.rc-word-ru',el=>el.textContent.trim());
+           assert.ok(source.includes('alphabet-natural/'),'Missing alphabet MP3 for '+word+': '+source);
+         }
        }else{
          const src=await page.evaluate(()=>{
            const player=document.querySelector('audio[data-course-player]');
