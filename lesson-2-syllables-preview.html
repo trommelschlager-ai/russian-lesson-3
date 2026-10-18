@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#6a402b">
+<title>第2课 · 简单俄语单词拼读 | Учимся читать</title>
+<style>
+:root{--ink:#392c2d;--navy:#273c66;--paper:#fffbf2;--cream:#ffedd0;--orange:#d77833;--wood:#754e35;--muted:#806f6b;--pink:#e65d89}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#6b422c}
+body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;background:radial-gradient(circle at 12% 5%,#bd9067,#8d6345 30%,#633f2b 100%);min-height:100vh}
+button,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+.page{max-width:1170px;margin:0 auto;padding:16px clamp(10px,2.5vw,25px) 54px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.navlink{display:inline-flex;text-decoration:none;gap:7px;align-items:center;background:#4a3025;color:#fff7e9;padding:11px 16px;border-radius:24px;font-weight:750;border:1px solid #d9ab77}
+.version{font-size:12px;font-weight:850;letter-spacing:.03em;background:#fff6e5;color:#6b432c;padding:8px 12px;border-radius:50px}
+.hero{background:linear-gradient(120deg,#fffaf0 0%,#fff1d6 70%,#f8cba9 100%);border:5px solid #e7b982;box-shadow:0 8px 0 #4a2a1f,0 14px 25px #321c1977;border-radius:26px;overflow:hidden;position:relative;padding:clamp(20px,3.5vw,36px);margin-bottom:24px}
+.hero:after{content:"✦";position:absolute;right:2%;top:-30px;font-size:200px;color:#f3b36533;pointer-events:none}
+.eyebrow{font-size:14px;font-weight:850;color:#a65332}
+h1{font-size:clamp(29px,5vw,48px);line-height:1.2;color:#283963;margin:7px 0 8px;position:relative;z-index:1}
+.subtitle{font-size:clamp(18px,2.3vw,24px);font-weight:850;color:#a94f45;margin-bottom:10px}
+.intro{font-size:15px;color:#745548;line-height:1.65;max-width:760px;margin:8px 0 15px}
+.metrics{display:flex;gap:8px;flex-wrap:wrap}
+.metric{background:#fff;border:1px solid #e8d7bb;border-radius:12px;padding:8px 13px;color:#64503c;font-size:14px;font-weight:800}
+.progress-panel{background:#fffaf0;border:2px solid #f4d69f;padding:13px 16px;border-radius:16px;margin:15px 0 22px;display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:center}
+.progress-panel strong{color:#253a64;font-size:15px}
+.progress-track{height:10px;background:#ecdfd1;border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#eeac51,#de587f);transition:width .3s;border-radius:99px}
+.level{display:flex;align-items:center;gap:10px;margin:0 0 14px;color:#fff8e8}
+.level h2{font-size:clamp(18px,3vw,23px);margin:0}
+.level small{font-weight:500;opacity:.85}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.word-card{--accent:#dd7853;position:relative;background:var(--paper);border:3px solid #edcfaf;box-shadow:0 6px 0 #482d24,0 9px 18px #30191555;border-radius:20px;padding:16px;display:grid;grid-template-columns:120px 1fr;gap:13px;align-content:start;scroll-margin-top:15px}
+.word-card:focus-within{border-color:var(--accent)}
+.art{width:120px;min-height:142px;display:grid;place-items:center;font-size:67px;background:radial-gradient(circle at 30% 20%,#fff,#f4dfc9);border:2px solid #f0d6b9;border-radius:17px;box-shadow:inset 0 0 0 6px #ffffff50}
+.card-main{min-width:0}
+.card-number{font-size:12px;color:#8d786a;font-weight:900;letter-spacing:.06em;display:flex;justify-content:space-between;gap:8px}
+.card-number .tag{color:#b25251}
+.ru-word{font-size:clamp(25px,3vw,34px);font-weight:950;letter-spacing:.01em;line-height:1.22;color:#273c66;overflow-wrap:anywhere;margin:5px 0}
+.translit{color:#8f5d4c;font-size:14px;font-weight:700}
+.zh{font-weight:800;font-size:17px;margin-top:5px;color:#473956}
+.syl-label{grid-column:1/-1;font-size:13px;font-weight:800;color:#7f5942;line-height:1.5}
+.syllables{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:-5px}
+.syl{position:relative;min-width:63px;flex:1;min-height:53px;padding:9px;border:2px solid #d9d5dd;background:#fff;color:#293b66;border-radius:13px;font-size:24px;line-height:1;font-weight:950;transition:background .15s,transform .15s}
+.syl[data-stressed="true"]{border-color:#e8a34a;background:#fff0d2;color:#a14c20}
+.syl[data-active="true"]{outline:3px solid #dc5b90;outline-offset:1px;background:#fbe1ee;transform:translateY(-2px)}
+.syl small{font-size:11px;font-weight:800;display:block;margin-top:6px;color:#815a65}
+.hyphen{color:#c8a78a;font-size:20px}
+.actions{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.action{min-height:48px;border:0;padding:10px 5px;border-radius:12px;color:white;font-size:13px;line-height:1.3;font-weight:850;box-shadow:0 3px #281d2330}
+.action.listen{background:#3273c9}
+.action.slow{background:#d68a32}
+.action.mic{background:#db4b7a}
+.action:disabled{opacity:.55;cursor:not-allowed}
+.action:focus-visible,.syl:focus-visible,.navlink:focus-visible{outline:3px solid #2b7ef2;outline-offset:2px}
+.feedback{grid-column:1/-1;background:#f5f0ff;color:#514463;border-radius:12px;padding:10px 12px;line-height:1.5;font-size:13px;min-height:44px;overflow-wrap:anywhere}
+.feedback[data-kind="good"]{background:#ddf5e8;color:#186543;border:1px solid #81d7ac}
+.feedback[data-kind="retry"]{background:#fff1e1;color:#935026;border:1px solid #efc17d}
+.feedback[data-kind="error"]{background:#ffe9eb;color:#9e3043}
+.noteblock{background:#fff7e8;border-left:5px solid #f1b04c;border-radius:13px;padding:12px 16px;margin:23px 0;color:#685349;font-size:14px;line-height:1.6}
+.footer{color:#fff3df;font-size:14px;line-height:1.8;text-align:center;margin:24px 0 0}
+.footer a{color:#fff}
+@media(max-width:790px){.cards{grid-template-columns:1fr}}
+@media(max-width:460px){.page{padding:12px 10px 48px}.hero{padding:18px;border-width:3px}.word-card{grid-template-columns:92px 1fr;gap:10px;padding:12px}.art{width:92px;min-height:121px;font-size:52px}.ru-word{font-size:26px}.syllables{gap:5px}.syl{min-width:50px;padding:8px 4px;font-size:21px}.actions{gap:6px}.action{font-size:12px;min-height:54px}.progress-panel{grid-template-columns:1fr auto}.progress-track{grid-column:1/-1;grid-row:2}.level{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a class="navlink" href="russian_lesson_1_COMPLETE.html">← 第1课 · Алфавит</a>
+    <span class="version">第2课 · 10词试用版 / ПРОБНИК 10 СЛОВ</span>
+  </div>
+  <header class="hero">
+    <div class="eyebrow">🔠 从音节到单词 · Первый шаг к чтению</div>
+    <h1>轻松读俄语单词！</h1>
+    <div class="subtitle">УЧИМСЯ ЧИТАТЬ ПО СЛОГАМ</div>
+    <p class="intro">读音节 → 听完整单词 → 跟着读。先学10个简单词，慢慢读，不着急！带有金色标记的音节是重读音节。<br>Разбиваем простые слова на слоги, учим ударение и тренируем речь.</p>
+    <div class="metrics"><span class="metric">📚 10 / 100 单词</span><span class="metric">✨ 2–3 个音节</span><span class="metric">🎤 俄语跟读</span></div>
+  </header>
+  <div class="progress-panel" aria-live="polite">
+    <strong id="progress-label">已练习 0 / 10</strong>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <span>🌟</span>
+  </div>
+  <div class="level"><h2>第一组 · 简单的日常单词 <small>Первые десять слов</small></h2></div>
+  <main class="cards" id="cards"></main>
+  <div class="noteblock">
+    💡 <strong>发音提示：</strong>点击彩色音节可逐个练习，完整词语 🔊 使用课程已有的俄语录音。音节播放使用设备的俄语语音合成，可能不够自然；请以完整单词的录音为准。<strong>麦克风只比较识别出的文字，不能检查每个音节、口音或重音。</strong>某些浏览器会将音频发送到识别服务处理。
+  </div>
+  <footer class="footer">这是全新第2课的前10个词预览。现有第1课和正式第2课没有修改。<br><a href="russian_lesson_1_COMPLETE.html">← 返回第1课</a></footer>
+</div>
+<script>
+(function(){
+'use strict';
+const WORDS=[
+  {word:'Мама',parts:['МА','МА'],stress:0,latin:'mama',zh:'妈妈',emoji:'👩',color:'#d76580',audio:'assets/audio/1ba336d42a62d39b66.mp3'},
+  {word:'Папа',parts:['ПА','ПА'],stress:0,latin:'papa',zh:'爸爸',emoji:'👨',color:'#3d86ae',audio:'assets/audio/c578cb4d692a996dcb.mp3'},
+  {word:'Вода',parts:['ВО','ДА'],stress:1,latin:'voda',zh:'水',emoji:'💧',color:'#268db9',audio:'assets/audio/299b37806f53c170b4.mp3'},
+  {word:'Рука',parts:['РУ','КА'],stress:1,latin:'ruka',zh:'手',emoji:'✋',color:'#8a68c4',audio:'assets/audio/16072e22629ea0eb55.mp3'},
+  {word:'Нога',parts:['НО','ГА'],stress:1,latin:'noga',zh:'腿',emoji:'🦵',color:'#d77d40',audio:'assets/audio/c7163bcb04a6b03b61.mp3'},
+  {word:'Привет',parts:['ПРИ','ВЕТ'],stress:1,latin:'privet',zh:'你好！',emoji:'👋',color:'#d15c9c',audio:'audio/lesson-3/male-b2b11afc89e6.mp3'},
+  {word:'Банан',parts:['БА','НАН'],stress:1,latin:'banan',zh:'香蕉',emoji:'🍌',color:'#d2952a',audio:'assets/audio/da517d2f9d58388906.mp3'},
+  {word:'Арбуз',parts:['АР','БУЗ'],stress:1,latin:'arbuz',zh:'西瓜',emoji:'🍉',color:'#54a76b',audio:'assets/audio/7db1ae3757e64e10e4.mp3'},
+  {word:'Молоко',parts:['МО','ЛО','КО'],stress:2,latin:'moloko',zh:'牛奶',emoji:'🥛',color:'#558ac9',audio:'assets/audio/4ea22be4cac9681f94.mp3'},
+  {word:'Машина',parts:['МА','ШИ','НА'],stress:1,latin:'mashina',zh:'汽车',emoji:'🚗',color:'#e07856',audio:'assets/audio/cf8b63089e1d99197f.mp3'}
+];
+const SpeechAPI=window.SpeechRecognition||window.webkitSpeechRecognition;
+const cards=document.getElementById('cards');
+const progressLabel=document.getElementById('progress-label');
+const progressFill=document.getElementById('progress-fill');
+const completed=new Set();
+let currentAudio=null,currentRecognition=null,ttsGeneration=0;
+function norm(x){return String(x||'').toLocaleLowerCase('ru-RU').replace(/ё/g,'е').replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');}
+function stressSyllable(s){return s.replace(/([АЕЁИОУЫЭЮЯ])([^АЕЁИОУЫЭЮЯ]*)$/i, '$1\u0301$2');}
+function spacedParts(w){return w.parts.map((p,i)=>i===w.stress?stressSyllable(p):p).join(' — ');}
+function setStatus(card,type,txt){let el=card.querySelector('.feedback');el.dataset.kind=type;el.textContent=txt;}
+function updateProgress(){progressLabel.textContent='已练习 '+completed.size+' / '+WORDS.length;progressFill.style.width=(completed.size/WORDS.length*100)+'%';}
+function stopAll(){ttsGeneration++;try{speechSynthesis.cancel();}catch(_){}if(currentAudio){currentAudio.pause();currentAudio=null;}if(currentRecognition){try{currentRecognition.abort();}catch(_){}currentRecognition=null;}document.querySelectorAll('.syl[data-active]').forEach(x=>delete x.dataset.active);document.querySelectorAll('.action.mic').forEach(x=>x.textContent='🎤 跟读');}
+function markDone(i){completed.add(i);updateProgress();}
+function russianVoice(){if(!('speechSynthesis' in window))return null;let v=speechSynthesis.getVoices();return v.find(x=>/^ru[-_]/i.test(x.lang))||v.find(x=>x.lang.toLowerCase()==='ru')||null;}
+function playSyllables(card,word,indexOnly){
+  stopAll();const syllables=[...card.querySelectorAll('.syl')];const order=indexOnly===undefined?word.parts.map((_,i)=>i):[indexOnly];const token=ttsGeneration;
+  if(!('speechSynthesis' in window)){setStatus(card,'error','本设备不支持音节朗读，请使用完整单词的录音。');return;}
+  let voice=russianVoice();
+  let pointer=0;
+  function next(){
+    if(ttsGeneration!==token)return;
+    syllables.forEach(el=>delete el.dataset.active);
+    if(pointer>=order.length){setStatus(card,'','跟读音节后，点击 🔊 听完整单词。');return;}
+    let partIndex=order[pointer++];syllables[partIndex].dataset.active='true';
+    let utterance=new SpeechSynthesisUtterance(word.parts[partIndex].toLowerCase());
+    utterance.lang='ru-RU';if(voice)utterance.voice=voice;
+    utterance.rate=.72;utterance.pitch=1;
+    utterance.onend=function(){if(ttsGeneration===token)setTimeout(next,200);};
+    utterance.onerror=function(){if(ttsGeneration===token){syllables.forEach(el=>delete el.dataset.active);setStatus(card,'error','浏览器音节合成失败，请听完整单词。');}};
+    speechSynthesis.speak(utterance);
+  }
+  setStatus(card,'','🎶 跟着念：'+spacedParts(word));next();
+}
+function playWhole(card,word){
+  stopAll();const a=new Audio(word.audio);currentAudio=a;a.preload='auto';
+  setStatus(card,'','🔊 正在播放完整单词：'+word.word);
+  a.onended=function(){if(currentAudio===a){currentAudio=null;setStatus(card,'','听完了吗？现在试着跟读 🎤');}};
+  a.onerror=function(){if(currentAudio===a){currentAudio=null;setStatus(card,'error','音频暂时无法加载，请检查网络。');}};
+  a.play().catch(function(){setStatus(card,'error','浏览器阻止播放，请再次点击 🔊 或检查声音设置。');});
+}
+function speak(card,word,i){
+  stopAll();
+  if(!window.isSecureContext||!SpeechAPI){setStatus(card,'error','此浏览器不支持语音识别。请通过 HTTPS 在 Chrome 中打开。');return;}
+  const rec=new SpeechAPI();currentRecognition=rec;rec.lang='ru-RU';rec.interimResults=false;rec.continuous=false;rec.maxAlternatives=1;
+  let answered=false;const btn=card.querySelector('.action.mic');
+  rec.onstart=function(){if(currentRecognition!==rec)return;btn.textContent='🎙️ 正在听';setStatus(card,'','🎙️ 请说完整单词：'+word.word);};
+  rec.onresult=function(e){if(currentRecognition!==rec)return;answered=true;const heard=e.results?.[0]?.[0]?.transcript?.trim()||'';const good=norm(heard)===norm(word.word);
+    if(good){markDone(i);setStatus(card,'good','✅ 识别一致！目标：'+word.word+'；识别到：'+heard+'。继续练习！');}
+    else setStatus(card,'retry','❌ 未识别为目标词。目标：'+word.word+'；识别到：'+(heard||'（无）')+'。再试一次！');
+  };
+  rec.onerror=function(e){if(currentRecognition!==rec)return;answered=true;let msg={'not-allowed':'请允许麦克风权限。','no-speech':'没有听到声音，请再试。','network':'语音识别网络连接失败。','audio-capture':'麦克风不可用。'}[e.error]||'语音识别失败：'+e.error;setStatus(card,'error',msg);};
+  rec.onend=function(){if(currentRecognition!==rec)return;currentRecognition=null;btn.textContent='🎤 跟读';if(!answered)setStatus(card,'retry','未收到识别结果，请再试。');};
+  try{rec.start();}catch(e){currentRecognition=null;btn.textContent='🎤 跟读';setStatus(card,'error','无法启动麦克风。');}
+}
+function create(word,i){
+  let el=document.createElement('article');el.className='word-card';el.style.setProperty('--accent',word.color);
+  el.innerHTML=
+    '<div class="art" aria-hidden="true"></div>'+
+    '<div class="card-main"><div class="card-number"><span>第 '+String(i+1).padStart(2,'0')+' 个词</span><span class="tag">'+(word.parts.length===2?'2 音节':'3 音节')+'</span></div>'+
+    '<div class="ru-word" lang="ru"></div><div class="translit"></div><div class="zh" lang="zh-CN"></div></div>'+
+    '<div class="syl-label">👆 点击音节，金色代表重读音节</div><div class="syllables"></div>'+
+    '<div class="actions"><button type="button" class="action slow">🎼 分音节听</button>'+
+    '<button type="button" class="action listen">🔊 听完整词</button>'+
+    '<button type="button" class="action mic">🎤 跟读</button></div>'+
+    '<div class="feedback" role="status" aria-live="polite">先按音节读，再听完整单词。</div>';
+  el.querySelector('.art').textContent=word.emoji;
+  const renderStress=word.parts.map((x,j)=>j===word.stress?stressSyllable(x):x).join('');
+  el.querySelector('.ru-word').textContent=renderStress;
+  el.querySelector('.translit').textContent=word.latin;
+  el.querySelector('.zh').textContent=word.zh;
+  word.parts.forEach((part,j)=>{
+    let b=document.createElement('button');b.type='button';b.className='syl';b.dataset.stressed=String(j===word.stress);
+    b.setAttribute('aria-label','听音节 '+part);
+    b.textContent=j===word.stress?stressSyllable(part):part;
+    let small=document.createElement('small');small.textContent=j===word.stress?'重音 ↗':'音节';b.append(small);
+    b.addEventListener('click',()=>playSyllables(el,word,j));el.querySelector('.syllables').append(b);
+    if(j<word.parts.length-1){let dash=document.createElement('span');dash.className='hyphen';dash.textContent='—';el.querySelector('.syllables').append(dash);}
+  });
+  el.querySelector('.slow').addEventListener('click',()=>playSyllables(el,word));
+  el.querySelector('.listen').addEventListener('click',()=>playWhole(el,word));
+  el.querySelector('.mic').addEventListener('click',()=>speak(el,word,i));
+  return el;
+}
+WORDS.forEach((word,i)=>cards.append(create(word,i)));
+window.addEventListener('pagehide',stopAll);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAll();});
+})();
+</script>
+</body>
+</html>
