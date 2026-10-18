@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - feature/lesson2-100words-first10-2026-10-19
+      - feature/lesson2-clean-design-audio-2026-10-19
   workflow_dispatch:
 permissions:
   contents: read
