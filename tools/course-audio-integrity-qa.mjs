@@ -26,7 +26,19 @@ for(const filename of files){
   const matches=[...html.matchAll(/<[^>]*\bdata-say="([^"]+)"[^>]*>/g)];
   const missing=[];
   for(const m of matches){
-    const item=m[0], text=m[1], role=(item.match(/\bdata-role="([^"]+)"/)||[])[1]||'male';
+    const item=m[0], text=m[1];
+    let role=(item.match(/\bdata-role="([^"]+)"/)||[])[1]||'male';
+    // Lesson 3 denotes speakers A/B on parent dialogue lines, not by data-role.
+    if(filename==='lesson-3-pronouns-basic.html'){
+      const start=html.lastIndexOf('<div class="say"',m.index);
+      if(start>=0){
+        const tag=html.slice(start,html.indexOf('>',start)+1);
+        if(tag.includes('data-say="'+text+'"')){
+          const lead=html.slice(html.indexOf('>',start)+1,html.indexOf('>',start)+150);
+          if(/class="speaker">Б<\/span>/.test(lead))role='female';
+        }
+      }
+    }
     const key=role+'|'+text;
     if(!manifest[key]) missing.push(key);
     else paths.add(manifest[key]);
@@ -40,7 +52,6 @@ for(const src of ['assets/audio-manifest.js','assets/course-extensions-audio.js'
 }
 for(const file of Object.values(allMaps.window.COURSE_AUDIO||{}))paths.add(file);
 const pathsToCheck=[...paths];
-const missingFiles=pathsToCheck.filter(async()=>false);
 const errors=[];
 let good=0, next=0;
 async function worker(){
