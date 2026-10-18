@@ -268,6 +268,10 @@
       if (manifest[role+'|'+item.text] && window.CourseAudio) {
         window.CourseAudio.play([{text:item.text,role:role}]);
         feedback('info','正在播放原音','听完后点击 🎤 跟读。');
+      } else if (lesson===1 && typeof window.speak==='function') {
+        // The alphabet lesson keeps its own existing natural MP3 voice player.
+        window.speak(item.text);
+        feedback('info','正在播放原音','正在使用第1课原有的词语发音。听完后点击 🎤。');
       } else {
         feedback('warning','没有找到单独的音频','请返回相应课程，先听卡片中的 🔊 原音。');
       }
