@@ -6,6 +6,7 @@ on:
       - feature/lesson2-clean-design-audio-2026-10-19
       - feature/lesson2-vertical-list-2026-10-19
       - feature/lesson2-colorful-sidebars-2026-10-19
+      - feature/lesson2-imperial-premium-2026-10-19
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,6 +26,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: lesson2-vertical-screenshots
+          name: lesson2-premium-screenshots
           path: qa-lesson2-vertical/
           if-no-files-found: ignore
