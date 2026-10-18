@@ -4,6 +4,7 @@ on:
     branches:
       - feature/lesson2-100words-first10-2026-10-19
       - feature/lesson2-clean-design-audio-2026-10-19
+      - feature/lesson2-vertical-list-2026-10-19
   workflow_dispatch:
 permissions:
   contents: read
@@ -20,3 +21,9 @@ jobs:
         run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24.22.3
       - name: Verify with Chrome at phone and desktop widths
         run: node tools/lesson2-tenword-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lesson2-vertical-screenshots
+          path: qa-lesson2-vertical/
+          if-no-files-found: ignore
