@@ -1,0 +1,44 @@
+{
+  "ла": {
+    "path": "audio/lesson2-pronunciation-v2/la.mp3",
+    "context": "ла́па",
+    "duration_sec": 0.62,
+    "crop": "stressed first syllable, cropped at 548ms; local RMS 10"
+  },
+  "по": {
+    "path": "audio/lesson2-pronunciation-v2/po.mp3",
+    "context": "по́ле",
+    "duration_sec": 0.46,
+    "crop": "stressed first syllable, cropped at 371ms; local RMS 3284"
+  },
+  "до": {
+    "path": "audio/lesson2-pronunciation-v2/do.mp3",
+    "context": "до́ма",
+    "duration_sec": 0.41,
+    "crop": "stressed first syllable, cropped at 327ms; local RMS 1399"
+  },
+  "ко": {
+    "path": "audio/lesson2-pronunciation-v2/ko.mp3",
+    "context": "ко́тик",
+    "duration_sec": 0.5,
+    "crop": "stressed first syllable, cropped at 436ms; local RMS 29"
+  },
+  "бу": {
+    "path": "audio/lesson2-pronunciation-v2/bu.mp3",
+    "context": "бу́лка",
+    "duration_sec": 0.82,
+    "crop": "stressed first syllable, cropped at 753ms; local RMS 141"
+  },
+  "во": {
+    "path": "audio/lesson2-pronunciation-v2/vo.mp3",
+    "context": "во́ля",
+    "duration_sec": 0.38,
+    "crop": "stressed first syllable, cropped at 310ms; local RMS 1436"
+  },
+  "мука": {
+    "path": "audio/lesson2-pronunciation-v2/flour.mp3",
+    "context": "Нам нужна пшеничная мука для выпечки.",
+    "duration_sec": 0.5,
+    "crop": "entire word in flour context"
+  }
+}
