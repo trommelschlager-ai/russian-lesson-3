@@ -115,7 +115,8 @@ const progressFill=document.getElementById('progress-fill');
 const completed=new Set();
 let currentAudio=null,currentRecognition=null,ttsGeneration=0;
 function norm(x){return String(x||'').toLocaleLowerCase('ru-RU').replace(/ё/g,'е').replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');}
-function spacedParts(w){return w.parts.map((p,i)=>p+(i===w.stress?'\u0301':'')).join(' — ');}
+function stressSyllable(s){return s.replace(/([АЕЁИОУЫЭЮЯ])([^АЕЁИОУЫЭЮЯ]*)$/i, '$1\u0301$2');}
+function spacedParts(w){return w.parts.map((p,i)=>i===w.stress?stressSyllable(p):p).join(' — ');}
 function setStatus(card,type,txt){let el=card.querySelector('.feedback');el.dataset.kind=type;el.textContent=txt;}
 function updateProgress(){progressLabel.textContent='已练习 '+completed.size+' / '+WORDS.length;progressFill.style.width=(completed.size/WORDS.length*100)+'%';}
 function stopAll(){ttsGeneration++;try{speechSynthesis.cancel();}catch(_){}if(currentAudio){currentAudio.pause();currentAudio=null;}if(currentRecognition){try{currentRecognition.abort();}catch(_){}currentRecognition=null;}document.querySelectorAll('.syl[data-active]').forEach(x=>delete x.dataset.active);document.querySelectorAll('.action.mic').forEach(x=>x.textContent='🎤 跟读');}
@@ -173,14 +174,14 @@ function create(word,i){
     '<button type="button" class="action mic">🎤 跟读</button></div>'+
     '<div class="feedback" role="status" aria-live="polite">先按音节读，再听完整单词。</div>';
   el.querySelector('.art').textContent=word.emoji;
-  const renderStress=word.parts.map((x,j)=>x+(j===word.stress?'\u0301':'')).join('');
+  const renderStress=word.parts.map((x,j)=>j===word.stress?stressSyllable(x):x).join('');
   el.querySelector('.ru-word').textContent=renderStress;
   el.querySelector('.translit').textContent=word.latin;
   el.querySelector('.zh').textContent=word.zh;
   word.parts.forEach((part,j)=>{
     let b=document.createElement('button');b.type='button';b.className='syl';b.dataset.stressed=String(j===word.stress);
     b.setAttribute('aria-label','听音节 '+part);
-    b.textContent=part+(j===word.stress?'\u0301':'');
+    b.textContent=j===word.stress?stressSyllable(part):part;
     let small=document.createElement('small');small.textContent=j===word.stress?'重音 ↗':'音节';b.append(small);
     b.addEventListener('click',()=>playSyllables(el,word,j));el.querySelector('.syllables').append(b);
     if(j<word.parts.length-1){let dash=document.createElement('span');dash.className='hyphen';dash.textContent='—';el.querySelector('.syllables').append(dash);}
