@@ -1,0 +1,25 @@
+name: Verify lesson audio file integrity
+on:
+  push:
+    branches:
+      - feature/pronunciation-check-2026-10-18
+      - course-recovery-2026-10-16
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install FFmpeg and ffprobe
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          ffprobe -version | head -n 1
+      - name: Check audio mappings and MP3 files
+        run: node tools/course-audio-integrity-qa.mjs
