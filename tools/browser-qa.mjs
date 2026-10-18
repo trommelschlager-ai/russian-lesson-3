@@ -79,12 +79,12 @@ try {
               const control=[...document.querySelectorAll('[data-say]')].find(b=>b.dataset.say===w);
               if(!control) return {error:'Missing button '+w};
               const linked=window.COURSE_AUDIO?.['male|'+w];
-              if(!linked || !linked.includes('audio/lesson2-pronunciation-fixes/')) return {error:'Old audio source '+w+': '+linked};
+              if(!linked || !linked.includes('audio/lesson2-pronunciation-v2/')) return {error:'Old audio source '+w+': '+linked};
               control.click();
               const player=document.querySelector('audio[data-course-player]');
               return {src:player?.getAttribute('src'),linked};
             },word);
-            if(check.error||!check.src?.includes('audio/lesson2-pronunciation-fixes/')) throw Error('Lesson 2 audio '+word+': '+JSON.stringify(check));
+            if(check.error||!check.src?.includes('audio/lesson2-pronunciation-v2/')) throw Error('Lesson 2 audio '+word+': '+JSON.stringify(check));
             await page.waitForFunction((expected)=>{
               const p=document.querySelector('audio[data-course-player]');
               return p && p.currentSrc.includes(expected) && p.readyState>=2 && !p.error;
