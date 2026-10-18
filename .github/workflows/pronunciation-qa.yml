@@ -1,0 +1,23 @@
+name: Test pronunciation practice (mobile)
+on:
+  push:
+    branches:
+      - feature/pronunciation-check-2026-10-18
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser driver
+        run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24.22.3
+      - name: Locate Chrome
+        run: google-chrome --version
+      - name: Run speech-training UI tests
+        run: node tools/pronunciation-qa.mjs
