@@ -63,8 +63,8 @@ try{
     await page.click('.word-card:first-child .action.mic');
     await page.waitForFunction(()=>document.querySelector('.word-card:first-child .feedback').textContent.includes('❌'));
     assert.equal(await page.$eval('#progress-label',el=>el.textContent),'已练习 1 / 10');
-    await page.click('.word-card:first-child .action.listen');
-    await page.waitForFunction(()=>[...document.querySelectorAll('audio')].some(a=>a.readyState>=2 && !a.error),{timeout:15000});
+    const [audioResponse]=await Promise.all([page.waitForResponse(resp=>resp.url().includes('1ba336d42a62d39b66.mp3'),{timeout:15000}),page.click('.word-card:first-child .action.listen')]);
+    assert.equal(audioResponse.status(),200,'Whole-word MP3 should load successfully');
     assert.deepEqual(errors,[],'JS errors on viewport '+width);
     console.log('PASS lesson2-10card viewport '+width+' cards='+data.count+' audio=loaded mic=match+mismatch no-horizontal-scroll');
     await page.close();
