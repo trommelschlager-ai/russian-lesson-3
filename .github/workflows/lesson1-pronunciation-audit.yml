@@ -1,0 +1,20 @@
+name: Audit lesson 1 pronunciation readiness
+on:
+  push:
+    branches:
+      - course-recovery-2026-10-16
+    paths:
+      - tools/lesson1-pronunciation-audit.mjs
+      - .github/workflows/lesson1-pronunciation-audit.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tools/lesson1-pronunciation-audit.mjs
