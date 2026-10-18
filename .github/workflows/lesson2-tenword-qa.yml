@@ -1,0 +1,21 @@
+name: Verify lesson 2 ten-word preview
+on:
+  push:
+    branches:
+      - feature/lesson2-100words-first10-2026-10-19
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chrome driver
+        run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24.22.3
+      - name: Verify with Chrome at phone and desktop widths
+        run: node tools/lesson2-tenword-qa.mjs
