@@ -75,6 +75,101 @@ h1{font-size:clamp(29px,4.5vw,39px);margin:7px 0 8px;line-height:1.22;color:var(
 }
 @media(max-width:349px){.wrap{padding-left:10px;padding-right:10px}.word-card{padding:11px}.art{width:78px}.action{font-size:11px}.action .sym{font-size:14px}.syl{min-width:49px;padding:8px 10px;font-size:21px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Bright companion panels around the existing ten-word reading list. */
+:root{--rose:#e36b72;--sun:#f2b35d;--teal:#39a4a0;--violet:#7768bc}
+body{background:radial-gradient(ellipse 46% 25% at 0% 14%,#ffe5e2 0%,transparent 78%),radial-gradient(ellipse 40% 28% at 100% 9%,#dcf2ee 0%,transparent 81%),#faf9f6}
+.wrap{max-width:1480px;padding-left:clamp(12px,2.5vw,32px);padding-right:clamp(12px,2.5vw,32px)}
+header{border-bottom-color:#f0dfd7}
+.stage-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}
+.lesson-column{min-width:0}
+.side-panel{min-width:0;display:flex;flex-direction:column;gap:16px;align-self:start}
+.sidebar-hero{position:relative;isolation:isolate;overflow:hidden;border-radius:24px;padding:25px 20px 21px;background:linear-gradient(155deg,#e66f79 0%,#d75a87 44%,#8667b2 100%);color:#fff;box-shadow:0 12px 26px #be6a8650}
+.sidebar-hero::before{content:"";position:absolute;width:190px;height:190px;border:3px solid #ffffff35;border-radius:50%;top:-105px;right:-75px;pointer-events:none}
+.sidebar-hero::after{content:"";position:absolute;width:110px;height:110px;border:2px dashed #ffffff57;border-radius:50%;right:-30px;bottom:30px;pointer-events:none}
+.side-eyebrow{font-weight:850;font-size:11px;letter-spacing:.09em;opacity:.95}
+.book-art{position:relative;width:107px;height:98px;margin:11px auto 14px}
+.book-page{position:absolute;bottom:8px;background:#fff9f2;border-radius:8px 7px 3px 3px;border:3px solid #fff8fa;box-shadow:0 7px 10px #762d5933}
+.book-page.left{left:8px;width:48px;height:64px;transform:skewY(-9deg) rotate(-10deg)}
+.book-page.right{right:8px;width:48px;height:64px;transform:skewY(9deg) rotate(10deg);background:#fff0df}
+.book-letter{position:absolute;z-index:2;font-size:42px;color:#c55373;font-weight:950;top:7px;left:17px;transform:rotate(-10deg)}
+.book-letter.second{color:#4e74a7;left:auto;right:15px;transform:rotate(10deg)}
+.book-star{position:absolute;color:#ffe291;font-size:30px;top:-13px;right:4px}
+.sidebar-hero h2{font-size:26px;line-height:1.18;font-weight:950;margin:0 0 11px;letter-spacing:.01em}
+.sidebar-hero p{font-size:12px;line-height:1.65;color:#fff9f5;margin:0 0 13px}
+.lesson-ribbon{display:inline-flex;align-items:center;gap:5px;border-radius:12px;background:#ffffff30;border:1px solid #ffffff55;padding:8px 11px;font-size:11px;font-weight:850}
+.words-jump{background:#fff;border:1px solid #ede6df;border-radius:21px;padding:17px 13px;box-shadow:0 10px 22px #5664750d}
+.words-jump h3{margin:0 0 3px;font-size:16px;color:#2b4863}
+.jump-caption{font-size:12px;color:#90949f;margin-bottom:11px}
+.word-links{display:grid;gap:5px}
+.word-link{display:flex;gap:9px;align-items:center;min-height:35px;padding:6px 8px;text-decoration:none;color:#536779;border-radius:10px;font-size:13px;font-weight:650;transition:background .15s}
+.word-link:hover{background:#fff0e8;color:#ad5948}
+.word-link[aria-current="location"]{background:#fff0e5;color:#b05843;font-weight:850}
+.word-link[data-done="true"] .link-dot{background:#41a980;color:#fff}
+.link-dot{height:23px;width:23px;flex:none;border-radius:9px;display:grid;place-items:center;background:#eff3f6;color:#6384a0;font-size:11px;font-weight:850}
+.word-link .link-word{flex:1}
+.word-link .link-chinese{font-size:11px;color:#9a9ea6}
+.right-panel .how-card{border-radius:24px;border:1px solid #dae9e9;background:linear-gradient(150deg,#f7fffe,#e7f8f2);padding:20px 17px;box-shadow:0 9px 24px #b3d8d42d}
+.how-title{font-size:17px;font-weight:950;color:#2f626a;margin:0 0 5px}
+.how-subtitle{font-size:12px;color:#789496;line-height:1.5;margin-bottom:16px}
+.steps{display:grid;gap:10px}
+.tutorial-step{display:flex;gap:9px;align-items:center;background:#ffffffa3;border:1px solid #e6f1ef;border-radius:13px;padding:9px}
+.step-ico{display:grid;place-items:center;min-width:36px;width:36px;height:36px;border-radius:11px;font-size:20px;background:#dceaf9}
+.tutorial-step:nth-child(2) .step-ico{background:#fff0d3}
+.tutorial-step:nth-child(3) .step-ico{background:#f5e1f3}
+.tutorial-step:nth-child(4) .step-ico{background:#dbf3e1}
+.tutorial-step strong{display:block;font-size:13px;color:#345770}
+.tutorial-step span{display:block;font-size:11px;color:#91a0a4;margin-top:2px}
+.achievement{background:#fff;border:1px solid #e8e0ef;border-radius:22px;padding:19px 16px;box-shadow:0 8px 25px #877ba016}
+.achievement h3{font-size:16px;margin:0;color:#56487b}
+.achievement-subtitle{font-size:12px;margin:4px 0 10px;color:#93909e}
+.progress-wheel{--pct:0%;width:115px;height:115px;margin:12px auto;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#ec8a77 0 var(--pct),#f1eff4 var(--pct) 100%)}
+.progress-wheel-core{width:91px;height:91px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#56457c}
+.progress-wheel-core strong{font-size:25px}
+.progress-wheel-core small{font-size:11px;color:#8d8b9d}
+.achievement-desc{font-size:12px;color:#7a7890;line-height:1.55;margin:0;text-align:center}
+.tip-banner{border-radius:20px;background:linear-gradient(145deg,#fff1d3 0%,#ffdfb9 100%);color:#815b36;padding:18px 16px;border:1px solid #ffe0ad}
+.tip-banner .tip-emoji{font-size:30px}
+.tip-banner strong{font-size:14px;display:block;margin:3px 0}
+.tip-banner p{font-size:12px;line-height:1.6;margin:0;color:#a0764c}
+.intro{border-radius:22px;padding:27px 27px 23px;background:linear-gradient(105deg,#ffffff 0%,#fff4e8 96%);border:1px solid #f6e3d7;box-shadow:0 8px 22px #cb8f7a1c;margin:11px 0 11px;position:relative;overflow:hidden}
+.intro::before{content:"";position:absolute;width:100px;height:100px;border:14px solid #ffc99e45;border-radius:50%;right:-46px;top:-52px;pointer-events:none}
+.overline{color:#ca675d}
+h1{color:#283f68}
+.progress-fill{background:linear-gradient(90deg,#ecad61,#da6982)}
+.word-card{position:relative;overflow:hidden;border-color:#ece8e1;box-shadow:0 7px 25px #3b596017}
+.word-card::before{content:"";position:absolute;width:5px;inset:0 auto 0 0;background:var(--card-accent,#da7d73)}
+.word-card:nth-child(4n+1){--card-accent:#e87483}
+.word-card:nth-child(4n+2){--card-accent:#eeb15f}
+.word-card:nth-child(4n+3){--card-accent:#70b6b0}
+.word-card:nth-child(4n){--card-accent:#9285cf}
+.word-card:nth-child(4n+1) .art{background:linear-gradient(140deg,#fff2e8,#ffe7eb)}
+.word-card:nth-child(4n+2) .art{background:linear-gradient(140deg,#fff7de,#ffeac8)}
+.word-card:nth-child(4n+3) .art{background:linear-gradient(140deg,#edfffa,#dcf6ee)}
+.word-card:nth-child(4n) .art{background:linear-gradient(140deg,#f6f0ff,#eae6fe)}
+.word-card .eyebrow{color:var(--card-accent)}
+.word-card:nth-child(4n+2) .syl[data-stressed="true"]{background:#fff3d6;border-color:#f0c67b;color:#99601e}
+.word-card:nth-child(4n+3) .syl[data-stressed="true"]{background:#e1f8ef;border-color:#8bcead;color:#257960}
+.group-head h2{color:#2d526d}
+@media(min-width:1160px){
+.stage-layout{grid-template-columns:210px minmax(0,1fr) 208px;gap:18px}
+.side-panel{position:sticky;top:15px;max-height:calc(100vh - 30px);overflow-y:auto;scrollbar-width:thin}
+}
+@media(min-width:700px) and (max-width:1159px){
+.stage-layout{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.lesson-column{grid-column:1/-1;grid-row:1}
+.left-panel{grid-column:1;grid-row:2}
+.right-panel{grid-column:2;grid-row:2}
+.sidebar-hero{min-height:195px}
+.words-jump{margin-bottom:10px}
+}
+@media(max-width:699px){
+.stage-layout{display:block}
+.side-panel{display:none}
+.intro{padding:22px 19px;margin-top:12px}
+.word-card{box-shadow:0 5px 22px #40597310}
+}
+
 </style>
 </head>
 <body>
@@ -83,6 +178,21 @@ h1{font-size:clamp(29px,4.5vw,39px);margin:7px 0 8px;line-height:1.22;color:var(
   <a href="russian_lesson_1_COMPLETE.html" class="brand"><span class="brandmark">Я</span>俄语轻松学 <span style="color:#9aa6af;font-weight:500">/ Русский</span></a>
   <a href="russian_lesson_1_COMPLETE.html" class="go-back">← 第1课</a>
 </header>
+<div class="stage-layout">
+<aside class="side-panel left-panel" aria-label="课程导航与单词清单">
+  <section class="sidebar-hero">
+    <div class="side-eyebrow">✦ РУССКИЙ ДЛЯ ТЕБЯ</div>
+    <div class="book-art" aria-hidden="true"><span class="book-page left"></span><span class="book-page right"></span><span class="book-letter">А</span><span class="book-letter second">Я</span><span class="book-star">✦</span></div>
+    <h2>俄语阅读<br>轻松开始!</h2>
+    <p>从简单的字母和音节，迈向第一次完整的俄语单词朗读。</p>
+    <span class="lesson-ribbon">📖 第2课 · 10 个单词</span>
+  </section>
+  <nav class="words-jump" aria-label="跳到课程单词">
+    <h3>📚 单词目录</h3><div class="jump-caption">点击单词，快速定位卡片</div>
+    <div class="word-links" id="word-links"></div>
+  </nav>
+</aside>
+<div class="lesson-column">
 <section class="intro">
   <div class="overline">УРОК 02 · 第2课</div>
   <h1>学会读俄语单词</h1>
@@ -97,6 +207,29 @@ h1{font-size:clamp(29px,4.5vw,39px);margin:7px 0 8px;line-height:1.22;color:var(
 <main class="cards" id="cards" aria-label="俄语单词列表"></main>
 <p class="note"><strong>学习提醒：</strong>点击音节只会高亮，不会播放机器人语音。原音和慢速都使用同一段俄语录音。麦克风检查识别到的整词文字，不评判每个音素或重音。某些浏览器会把语音发送到识别服务。</p>
 <div class="footer">第2课预览版 · 10 / 100。第1课、正式第2课和首页均未修改。</div>
+</div>
+<aside class="side-panel right-panel" aria-label="学习方法与进度">
+  <section class="how-card">
+    <h2 class="how-title">🌿 怎样练习？</h2>
+    <div class="how-subtitle">轻松 4 步 · Четыре шага</div>
+    <div class="steps">
+      <div class="tutorial-step"><div class="step-ico" aria-hidden="true">👀</div><div><strong>看音节</strong><span>读准重音位置</span></div></div>
+      <div class="tutorial-step"><div class="step-ico" aria-hidden="true">🎧</div><div><strong>听原音</strong><span>听自然俄语发音</span></div></div>
+      <div class="tutorial-step"><div class="step-ico" aria-hidden="true">🗣️</div><div><strong>跟着读</strong><span>从慢速到正常速度</span></div></div>
+      <div class="tutorial-step"><div class="step-ico" aria-hidden="true">🎤</div><div><strong>试试麦克风</strong><span>识别完整俄语单词</span></div></div>
+    </div>
+  </section>
+  <section class="achievement">
+    <h3>⭐ 我的学习进度</h3>
+    <p class="achievement-subtitle">识别文字匹配的单词</p>
+    <div class="progress-wheel" id="side-progress-wheel" role="progressbar" aria-label="已匹配单词数" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+      <div class="progress-wheel-core"><strong id="side-progress-count">0/10</strong><small>已匹配</small></div>
+    </div>
+    <p class="achievement-desc" id="side-motivation">慢慢练习，每一个单词都有进步 ✨</p>
+  </section>
+  <section class="tip-banner"><div class="tip-emoji" aria-hidden="true">💡</div><strong>记住重音！</strong><p>橙色的音节是重读音节。先听完整单词，再跟读更容易掌握。</p></section>
+</aside>
+</div>
 </div>
 <audio id="player" preload="none" hidden></audio>
 <script>
@@ -132,7 +265,17 @@ let currentRecording=null,currentMic=null;
 const norm=s=>String(s||'').toLocaleLowerCase('ru-RU').replace(/ё/g,'е').replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');
 const stress=s=>s.replace(/([АЕЁИОУЫЭЮЯ])([^АЕЁИОУЫЭЮЯ]*)$/i,'$1\u0301$2');
 const status=(card,kind,message)=>{const el=card.querySelector('.feedback');el.dataset.kind=kind;el.textContent=message;};
-function progress(){document.getElementById('progress-label').textContent=done.size+' / '+WORDS.length;document.getElementById('progress-fill').style.width=done.size/WORDS.length*100+'%';}
+function progress(){
+ const count=done.size,total=WORDS.length,pct=Math.round(count/total*100);
+ document.getElementById('progress-label').textContent=count+' / '+total;
+ document.getElementById('progress-fill').style.width=pct+'%';
+ const side=document.getElementById('side-progress-count'),ring=document.getElementById('side-progress-wheel');
+ if(side)side.textContent=count+'/'+total;
+ if(ring){ring.style.setProperty('--pct',pct+'%');ring.setAttribute('aria-valuenow',String(count));}
+ const cheer=document.getElementById('side-motivation');
+ if(cheer)cheer.textContent=count===total?'🎉 太棒了！你已完成全部10个单词。':count>=5?'🌟 继续加油！已经成功识别 '+count+' 个单词。':'慢慢练习，每一个单词都有进步 ✨';
+ document.querySelectorAll('.word-link').forEach((link,i)=>{link.dataset.done=String(done.has(i));const dot=link.querySelector('.link-dot');if(dot)dot.textContent=done.has(i)?'✓':String(i+1).padStart(2,'0');});
+}
 function stopPlayer(){player.pause();player.removeAttribute('src');player.load();player.onended=null;player.onerror=null;currentRecording=null;}
 function stopMic(){if(currentMic){const rec=currentMic;currentMic=null;try{rec.abort();}catch(_){} }document.querySelectorAll('.action.mic').forEach(btn=>btn.disabled=false);}
 function stopAll(){stopPlayer();stopMic();}
@@ -160,7 +303,7 @@ function mic(card,w,i){
  try{rec.start();}catch(e){currentMic=null;button.disabled=false;status(card,'error','无法启动麦克风。');}
 }
 function makeCard(w,i){
- const card=document.createElement('article');card.className='word-card';card.dataset.wordIndex=String(i);
+ const card=document.createElement('article');card.className='word-card';card.dataset.wordIndex=String(i);card.id='word-'+(i+1);
  card.innerHTML='<div class="art" aria-hidden="true"></div><div class="headline"><div class="eyebrow"></div><div class="word" lang="ru"></div><div class="meaning"><span class="latin"></span><span class="sep">·</span><span class="cn" lang="zh-CN"></span></div></div><div class="syllable-area"><p class="syllable-guide">ПО СЛОГАМ · 按音节阅读（橙色为重音）</p><div class="syllables"></div></div><div class="actions"><button type="button" class="action listen"><span class="sym" aria-hidden="true">🔊</span>听原音</button><button type="button" class="action slow"><span class="sym" aria-hidden="true">◷</span>慢速听</button><button type="button" class="action mic"><span class="sym" aria-hidden="true">🎤</span>我来读</button></div><div class="feedback" role="status" aria-live="polite" data-kind="info">听完整单词，再开口练习。</div>';
  card.querySelector('.art').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244 210">'+SVG[w.art]+'</svg>';
  card.querySelector('.eyebrow').textContent='СЛОВО '+String(i+1).padStart(2,'0')+' / '+String(WORDS.length).padStart(2,'0');
@@ -179,6 +322,17 @@ function makeCard(w,i){
  return card;
 }
 WORDS.forEach((w,i)=>container.append(makeCard(w,i)));
+const links=document.getElementById('word-links');
+if(links)WORDS.forEach((w,i)=>{
+ const a=document.createElement('a');a.href='#word-'+(i+1);a.className='word-link';a.dataset.done='false';
+ const dot=document.createElement('span');dot.className='link-dot';dot.textContent=String(i+1).padStart(2,'0');
+ const ru=document.createElement('span');ru.className='link-word';ru.textContent=w.word;
+ const cn=document.createElement('span');cn.className='link-chinese';cn.textContent=w.zh;
+ a.append(dot,ru,cn);if(i===0)a.setAttribute('aria-current','location');
+ a.addEventListener('click',()=>{links.querySelectorAll('a').forEach(x=>x.removeAttribute('aria-current'));a.setAttribute('aria-current','location');});
+ links.append(a);
+});
+progress();
 window.addEventListener('pagehide',stopAll);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAll();});
 })();
