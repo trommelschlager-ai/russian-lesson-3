@@ -1,0 +1,29 @@
+name: Rebuild lesson 2 stress from correctly accented Russian words
+on:
+  push:
+    branches: [course-recovery-2026-10-16]
+    paths: [.github/workflows/lesson2-stress-v2.yml]
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          python -m pip install edge-tts pydub mutagen
+          sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - run: python tools/lesson2-stress-v2.py
+      - name: Save only lesson 2 audio fixes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add russian_lesson_2_reading.html assets/audio-manifest.js assets/lesson2-audio-overrides-v2.js audio/lesson2-pronunciation-v2/
+          git diff --cached --exit-code -- index.html
+          git diff --cached --exit-code -- lesson-7.html
+          git commit -m "Scope seven re-recorded stress-accurate sound clips to lesson 2"
+          git push
