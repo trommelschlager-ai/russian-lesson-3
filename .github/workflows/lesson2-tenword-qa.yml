@@ -5,6 +5,7 @@ on:
       - feature/lesson2-100words-first10-2026-10-19
       - feature/lesson2-clean-design-audio-2026-10-19
       - feature/lesson2-vertical-list-2026-10-19
+      - feature/lesson2-colorful-sidebars-2026-10-19
   workflow_dispatch:
 permissions:
   contents: read
