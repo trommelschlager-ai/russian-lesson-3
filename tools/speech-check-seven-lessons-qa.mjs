@@ -75,6 +75,7 @@ try{
        await page.click('.rc-listen');
        if(name.startsWith('1.')){
          // Verify every alphabet word offered in this speaking practice uses natural MP3.
+         const missingAlphabet=[];
          for(let k=0;k<options;k++){
            await page.select('#rc-word-choice',String(k));
            await page.click('.rc-listen');
@@ -83,8 +84,10 @@ try{
              return player?.getAttribute('src')||player?.currentSrc||'';
            });
            const word=await page.$eval('.rc-word-ru',el=>el.textContent.trim());
-           assert.ok(source.includes('alphabet-natural/'),'Missing alphabet MP3 for '+word+': '+source);
+           console.log('ALPHABET_ITEM '+word+' => '+source);
+           if(!source.includes('alphabet-natural/'))missingAlphabet.push(word);
          }
+         assert.deepEqual(missingAlphabet,[],'No native alphabet MP3 for these words');
        }else{
          const src=await page.evaluate(()=>{
            const player=document.querySelector('audio[data-course-player]');
