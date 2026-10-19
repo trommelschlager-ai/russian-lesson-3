@@ -1,0 +1,32 @@
+name: Lesson 2 final reference and audio audit
+on:
+  push:
+    branches:
+      - feature/lesson2-final-order-audio-qa-20261019
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lesson2-final-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Ensure ffprobe
+        run: command -v ffprobe || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - name: Verify all 100 image/audio paths, word mappings and stress positions
+        run: node tools/lesson2-reference-qa.mjs
+      - name: Install browser driver
+        run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24.22.3
+      - name: Test UI on desktop and mobile
+        run: node tools/lesson2-reference-browser-qa.mjs
+      - name: Save two screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lesson2-final-reference-screenshots
+          path: lesson2-qa-screenshots/
+          if-no-files-found: ignore
