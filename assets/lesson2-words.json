@@ -244,7 +244,7 @@
     "group": 2,
     "url": "audio/alphabet-natural/svetlana-8f0feb22cc60e864.mp3",
     "voiceLabel": "女声 · 斯韦特兰娜",
-    "imageData": "assets/lesson2-photos/word-039.jpg",
+    "imageData": "assets/lesson1-corrected/pike.svg",
     "legacyIndex": 18
   },
   {
@@ -805,7 +805,7 @@
     "group": 6,
     "url": "audio/alphabet-natural/svetlana-98b06bd1f81fe244.mp3",
     "voiceLabel": "女声 · 斯韦特兰娜",
-    "imageData": "assets/lesson2-photos/word-058.jpg",
+    "imageData": "assets/lesson1-corrected/brush.svg",
     "fit": "contain",
     "legacyIndex": 53
   },
