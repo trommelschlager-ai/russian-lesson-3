@@ -2,7 +2,7 @@
 const $=s=>document.querySelector(s), audio=$('#audio');
 let words=[],current=0,recognition=null,recorder=null,stream=null,recordUrl=null;
 let saved;try{saved=JSON.parse(localStorage.getItem('lesson2-reference-progress')||'{}')}catch{saved={}}
-const seen=new Set(saved.seen||[0]), good=new Set(saved.good||[]), review=new Set(saved.review||[]);
+const seen=new Set(saved.seen||[]), good=new Set(saved.good||[]), review=new Set(saved.review||[]);
 const icon=(name,white=false)=>'assets/lesson2-icons/'+name+(white?'-white':'')+'.svg';
 const accent=s=>/[ёЁ]/.test(s)?s:s.replace(/([аеёиоуыэюя])([^аеёиоуыэюя]*)$/iu,'$1\u0301$2');
 const stressed=w=>w.parts.map((p,i)=>i===w.stress?accent(p):p).join('');
