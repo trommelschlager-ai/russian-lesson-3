@@ -31,13 +31,13 @@ for word,(num,filename,credit) in photos.items():
     with urlopen(req,timeout=35) as response:
         pic=response.read(1500000)
         typ=response.headers.get('Content-Type','')
-    assert len(pic)>4000 and pic[:2]==b'\\xff\\xd8' and 'image' in typ,(word,len(pic),typ,pic[:6])
+    assert len(pic)>4000 and pic[:2]==b'\xff\xd8' and 'image' in typ,(word,len(pic),typ,pic[:6])
     (destination/filename).write_bytes(pic)
     credits.append(f'- {word}: [{credit}](https://www.pexels.com/photo/{num}/), downloaded as {filename}.')
     for item in data:
         if item['word']==word:
             item['imageData']='assets/lesson2-photos/'+filename
             break
-(data_path).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\\n','utf-8')
-(destination/'PEXELS-SOURCES.md').write_text('\\n'.join(credits)+'\\n','utf-8')
+(data_path).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n','utf-8')
+(destination/'PEXELS-SOURCES.md').write_text('\n'.join(credits)+'\n','utf-8')
 print('DOWNLOADED_AND_UPDATED',len(photos),flush=True)
