@@ -162,3 +162,14 @@
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initialize,{once:true});else initialize();
 })();
+
+
+/* Isolated speech practice; existing course audio remains untouched. */
+(function(){
+  if(window.__coursePronunciationLoader)return;
+  window.__coursePronunciationLoader=true;
+  var script=document.createElement('script');
+  script.src='assets/pronunciation-check.js';
+  script.defer=true;
+  document.head.appendChild(script);
+})();

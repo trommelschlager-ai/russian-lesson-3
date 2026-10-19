@@ -1,0 +1,38 @@
+/* New lesson vocabulary and dialogue additions, scoped to avoid redesigning existing cards. */
+.lesson-extra{padding-top:12px;padding-bottom:18px}
+.extra-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:9px 0 16px}
+.extra-heading h2{font-family:Arial,'Noto Sans CJK SC',sans-serif;color:#203773;font-weight:800;font-size:clamp(22px,3vw,30px);line-height:1.3;margin:0}
+.extra-heading p{color:#7a6688;font-size:16px;line-height:1.5;margin:4px 0 0}
+.extra-play-all{border-radius:13px;border:2px solid #aa86cc;background:#eee3fa;color:#4e2873;padding:11px 15px;font-size:16px;font-weight:700;min-height:46px}
+.extra-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:11px}
+.extra-card{min-width:0;background:#fffdf7;border:1px solid #e9d9c6;border-radius:18px;padding:14px 8px;box-shadow:0 3px 9px #aa7e4520;text-align:center;display:flex;flex-direction:column;align-items:center}
+.extra-figure{width:min(100%,136px);aspect-ratio:1.3;background:linear-gradient(145deg,#f3e5ff,#e8f5ff);display:flex;align-items:center;justify-content:center;border-radius:15px;color:#593282;font-size:clamp(45px,6vw,72px);font-weight:850;line-height:1}
+.extra-card .ru{margin-top:12px;font-size:clamp(25px,3vw,32px);line-height:1.18}
+.extra-card .latin{font-size:20px;line-height:1.3;overflow-wrap:anywhere}
+.extra-card .zh{font-size:19px;line-height:1.4;margin-top:6px}
+.extra-card .word-play{margin-top:auto;padding-top:12px;width:106px;min-height:52px}
+.extra-card .word-play img{width:100%;height:auto}
+.extra-clock{width:100px;height:100px;margin:0 auto 7px}
+.extra-time-label{background:#edddfa;border-radius:9px;padding:4px 11px;color:#493267;font-weight:700;font-size:20px}
+.extra-rule{background:#f3ebfa;color:#66497e;border-radius:13px;font-size:16px;line-height:1.7;padding:12px 14px;margin:13px 0 0}
+.extra-dialogue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.extra-dialogue-line{background:#fffdf8;border:1px solid #e9d9c6;border-radius:16px;padding:12px;display:grid;grid-template-columns:105px minmax(0,1fr);align-items:center;gap:12px;min-width:0}
+.extra-character{width:105px;height:118px;object-fit:cover;border-radius:12px}
+.extra-speaker{font-weight:750;color:#a12d67;margin-bottom:5px}
+.extra-dialogue-line .ru{font-size:clamp(22px,2.8vw,29px);line-height:1.2;overflow-wrap:anywhere}
+.extra-dialogue-line .latin{font-size:18px;line-height:1.35}
+.extra-dialogue-line .zh{font-size:20px;line-height:1.35}
+.extra-dialogue-line button{min-width:95px;min-height:47px}
+@media(max-width:690px){
+  .lesson-extra{padding-left:12px;padding-right:12px}
+  .extra-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .extra-card{padding:10px 5px}
+  .extra-card .ru{font-size:26px}
+  .extra-card .latin{font-size:19px}
+  .extra-card .zh{font-size:18px}
+  .extra-dialogue-grid{grid-template-columns:1fr;gap:10px}
+  .extra-dialogue-line{grid-template-columns:96px minmax(0,1fr);padding:9px}
+  .extra-character{width:96px;height:115px}
+  .extra-dialogue-line .ru{font-size:22px}
+}
+@media(max-width:360px){.extra-dialogue-line{grid-template-columns:76px minmax(0,1fr)}.extra-character{width:76px;height:108px}.extra-figure{font-size:42px}}

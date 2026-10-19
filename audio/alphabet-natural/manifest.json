@@ -1,0 +1,1157 @@
+[
+  {
+    "field": "letterAudio",
+    "display": "Арбуз",
+    "spoken": "а",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-b425155a992da599.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Арбуз",
+    "spoken": "Арбуз",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-ba263f664be9d1a5.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Апельсин",
+    "spoken": "Апельсин",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-ac2028a29563f930.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Армия",
+    "spoken": "Армия",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-d3b72bc5a00165f8.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Автобус",
+    "spoken": "Автобус",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-7b56618cd81b7f7b.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Банк",
+    "spoken": "бэ",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-9cd4da40b3d9778a.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Банк",
+    "spoken": "Банк",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-1314a8184b2046ee.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Банан",
+    "spoken": "Банан",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-f29141a7ba0c7fc9.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Барабан",
+    "spoken": "Барабан",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-d6dc92b6ac221a71.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Бабочка",
+    "spoken": "Бабочка",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-22c477862307246c.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Вода",
+    "spoken": "вэ",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-7c60f88249e13c6f.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Вода",
+    "spoken": "Вода",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-a8cd0937ee62e1f6.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Вишня",
+    "spoken": "Вишня",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-110fd868308f953b.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Волк",
+    "spoken": "Волк",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-2728f5a286c61a3f.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Ветер",
+    "spoken": "Ветер",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-d33c5fdb3115722e.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Гора",
+    "spoken": "гэ",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-be13772df0fe5a99.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Гора",
+    "spoken": "Гора",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-62e3d8bd18b4e7bc.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Гриб",
+    "spoken": "Гриб",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-f0fe0327f96e8a80.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Город",
+    "spoken": "Город",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-7b718d247c612a39.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Гитара",
+    "spoken": "Гитара",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-207b40a15cc18118.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Дом",
+    "spoken": "дэ",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-92da7554c28b2431.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Дом",
+    "spoken": "Дом",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-41988eb2ae82fe48.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Дерево",
+    "spoken": "Дерево",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-00500db1d9b1106d.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Дети",
+    "spoken": "Дети",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-5a8150cac45f6ed5.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Дед",
+    "spoken": "Дед",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-6591a2c94f783edc.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Ель",
+    "spoken": "е",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-bc8917f945f10a78.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Ель",
+    "spoken": "Ель",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-42fb18cc76f6f5aa.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Енот",
+    "spoken": "Енот",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-707c4fc4d00a86b4.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Еда",
+    "spoken": "Еда",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-a1928eff1025ac68.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Единорог",
+    "spoken": "Единорог",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-6d36a6be1e8b65ce.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Ёлка",
+    "spoken": "ё",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-97376e96b704cd3f.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Ёлка",
+    "spoken": "Ёлка",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-6c456e194cc3f14c.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Ёж",
+    "spoken": "Ёж",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-5fa0ee94f12d3342.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Ёрш",
+    "spoken": "Ёрш",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-f9983c14f80b4b3b.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Ёлочка",
+    "spoken": "Ёлочка",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-12d97b397ebbc0ef.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Жук",
+    "spoken": "жэ",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-271916adabac5c53.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Жук",
+    "spoken": "Жук",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-04dfaae5d390e1ce.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Жаба",
+    "spoken": "Жаба",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-34122f59dcda4a37.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Жираф",
+    "spoken": "Жираф",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-fa7850b2bf71522c.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Журнал",
+    "spoken": "Журнал",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-4345ed6eb4349d4c.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Зима",
+    "spoken": "зэ",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-5983064f1da9400b.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Зима",
+    "spoken": "Зима",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-7a777f749cbe9bcf.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Заяц",
+    "spoken": "Заяц",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-bf1a36089626bc6b.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Звезда",
+    "spoken": "Звезда",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-8b3b0fe235735a12.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Замок",
+    "spoken": "Замок",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-07ad876270c91241.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Имя",
+    "spoken": "и",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-cb5f2e9e3daff73d.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Имя",
+    "spoken": "Имя",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-a5b4168609c6f643.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Игра",
+    "spoken": "Игра",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-a4fc1fb4978f6f25.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Индия",
+    "spoken": "Индия",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-0063d6a1ae5855be.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Иголка",
+    "spoken": "Иголка",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-e15c1a327bbd145e.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Йогурт",
+    "spoken": "и краткое",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-c0d034df97dc07fa.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Йогурт",
+    "spoken": "Йогурт",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-406448f56278e5ab.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Йод",
+    "spoken": "Йод",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-8161dfcffe38b15f.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Йога",
+    "spoken": "Йога",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-9ce80d172a123370.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Йог",
+    "spoken": "Йог",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-ef4be60cec60f991.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Кот",
+    "spoken": "ка",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-3d7ba28270b03958.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Кот",
+    "spoken": "Кот",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-0dc10f73d0666992.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Книга",
+    "spoken": "Книга",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-cea221c5414e3d7e.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Кофе",
+    "spoken": "Кофе",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-b88b94a13127f12b.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Карандаш",
+    "spoken": "Карандаш",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-15a031b104748aa0.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Лимон",
+    "spoken": "эль",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-b173a3e24d3aa011.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Лимон",
+    "spoken": "Лимон",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-476b0f258f6b7372.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Лес",
+    "spoken": "Лес",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-b4701d369831c539.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Луна",
+    "spoken": "Луна",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-5da301d9006d9668.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Лиса",
+    "spoken": "Лиса",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-415e790b0a710f54.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Мама",
+    "spoken": "эм",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-e2c6ff5736e05741.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Мама",
+    "spoken": "Мама",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-2ccfed8bd93ea3ac.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Море",
+    "spoken": "Море",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-362b424070aea83e.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Машина",
+    "spoken": "Машина",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-fc28f3046acb5b33.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Молоко",
+    "spoken": "Молоко",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-76455a1de03b74f0.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Нос",
+    "spoken": "эн",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-5a174bad8fe4bdd9.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Нос",
+    "spoken": "Нос",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-e47474af9fa7996b.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Небо",
+    "spoken": "Небо",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-919105ced7217afc.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Нога",
+    "spoken": "Нога",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-f066c32651c7eeb1.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Нож",
+    "spoken": "Нож",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-9f221125e8eeb986.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Окно",
+    "spoken": "о",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-891a441c91aeedb5.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Окно",
+    "spoken": "Окно",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-ec851e22cf1ef2cf.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Озеро",
+    "spoken": "Озеро",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-4bad51cceb3eab16.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Облако",
+    "spoken": "Облако",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-a398cbb2d19cd010.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Овощи",
+    "spoken": "Овощи",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-30d1edb87a7cdf5f.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Папа",
+    "spoken": "пэ",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-25d3d6ec66b2f1c0.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Папа",
+    "spoken": "Папа",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-a0db4873b559279f.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Парк",
+    "spoken": "Парк",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-abcc3469a5bfd911.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Пицца",
+    "spoken": "Пицца",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-4699e69f1f975e79.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Птица",
+    "spoken": "Птица",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-bdff791cbc88be0b.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Рука",
+    "spoken": "эр",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-be1d81fa82b97b0c.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Рука",
+    "spoken": "Рука",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-63b1a2505193fb92.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Река",
+    "spoken": "Река",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-f02ddaf49828a3df.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Рыба",
+    "spoken": "Рыба",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-c2556ed6253e4063.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Робот",
+    "spoken": "Робот",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-7752de9e640db4a7.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Сок",
+    "spoken": "эс",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-a0c06eb90bca6eb4.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Сок",
+    "spoken": "Сок",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-8c3abbc6863d2550.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Солнце",
+    "spoken": "Солнце",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-45ce6fd92d1ab15f.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Сыр",
+    "spoken": "Сыр",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-10fbce17668a6027.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Собака",
+    "spoken": "Собака",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-87361ecc38e7b29a.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Такси",
+    "spoken": "тэ",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-bf1b7d33cf0fae11.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Такси",
+    "spoken": "Такси",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-321dd4415c6d4702.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Телефон",
+    "spoken": "Телефон",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-917bdebc5bcd21d8.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Торт",
+    "spoken": "Торт",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-354b09e972da67c4.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Тигр",
+    "spoken": "Тигр",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-444b22410524670b.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Утро",
+    "spoken": "у",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-cb77d260f5d0b3e3.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Утро",
+    "spoken": "Утро",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-8971aabd36b91cff.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Улица",
+    "spoken": "Улица",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-6e0a615b954662b0.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Ухо",
+    "spoken": "Ухо",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-a35b78b0271cedf6.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Улыбка",
+    "spoken": "Улыбка",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-2c6913ac7a880e49.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Фото",
+    "spoken": "эф",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-24f08148eedde71e.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Фото",
+    "spoken": "Фото",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-02e508ce16390ea9.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Фильм",
+    "spoken": "Фильм",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-f1f6c5baeed3aa43.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Фрукты",
+    "spoken": "Фрукты",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-95cd0df0d380476b.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Флаг",
+    "spoken": "Флаг",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-7ee8a342480a65b8.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Хлеб",
+    "spoken": "ха",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-a2ad2eef5200ff1f.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Хлеб",
+    "spoken": "Хлеб",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-cd608b614bec6bbe.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Холод",
+    "spoken": "Холод",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-9fd4d3303d14ce19.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Хомяк",
+    "spoken": "Хомяк",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-fccc7ddb6c7c81df.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Халат",
+    "spoken": "Халат",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-0a3c6bafca91dea0.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Цирк",
+    "spoken": "цэ",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-77ebd2d9119d83e0.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Цирк",
+    "spoken": "Цирк",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-2d97b816f57a502f.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Цветок",
+    "spoken": "Цветок",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-1ff492d4122f4c7a.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Цыплёнок",
+    "spoken": "Цыплёнок",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-a23b7f912ccc3853.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Цепь",
+    "spoken": "Цепь",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-b320d63b32cf72d9.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Чай",
+    "spoken": "че",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-a0ef70cb8a795120.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Чай",
+    "spoken": "Чай",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-9c7831f98c2c2f50.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Часы",
+    "spoken": "Часы",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-e733377180609d69.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Черепаха",
+    "spoken": "Черепаха",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-548cfaed91ab317c.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Чашка",
+    "spoken": "Чашка",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-30a21ec3f3618ecb.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Шар",
+    "spoken": "ша",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-99b2a4171dbf383c.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Шар",
+    "spoken": "Шар",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-1de0242b82556016.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Школа",
+    "spoken": "Школа",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-c3195a28f9d4f5e4.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Шапка",
+    "spoken": "Шапка",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-b4d906216eab0dd5.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Шоколад",
+    "spoken": "Шоколад",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-5673b387339410e1.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Щётка",
+    "spoken": "ща",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-8e458405139d32a9.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Щётка",
+    "spoken": "Щётка",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-98b06bd1f81fe244.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Щука",
+    "spoken": "Щука",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-8f0feb22cc60e864.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Щи",
+    "spoken": "Щи",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-283ccd7db679da81.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Щель",
+    "spoken": "Щель",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-92d1a5da5e67abf3.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Твёрдый знак",
+    "spoken": "твёрдый знак",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-c3cbe9e38a9fcc04.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Твёрдый знак",
+    "spoken": "Твёрдый знак",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-f60d46af0e3b5982.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "объект",
+    "spoken": "объект",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-676e9ea39f668e99.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "подъезд",
+    "spoken": "подъезд",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-6010689d31fc3308.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "объём",
+    "spoken": "объём",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-e2a2d434cf6307ae.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Сыр",
+    "spoken": "ы",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-a76cce651659f7d0.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Сыр",
+    "spoken": "Сыр",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-d363b70698a8ec0a.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "мы",
+    "spoken": "мы",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-09581271d86c89d8.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "рыба",
+    "spoken": "рыба",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-b83629d2cf6e76e3.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "сын",
+    "spoken": "сын",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-6c1e8988a5a29c5e.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Мягкий знак",
+    "spoken": "мягкий знак",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-97b610a507fcbea7.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Мягкий знак",
+    "spoken": "Мягкий знак",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-dd3e4c7da19740c5.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "день",
+    "spoken": "день",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-680599a594f25389.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "мать",
+    "spoken": "мать",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-727789304dd712bb.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "конь",
+    "spoken": "конь",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-f90e3598e7422468.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Это",
+    "spoken": "э",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-4c63a9215dffb079.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Это",
+    "spoken": "Это",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-cfcb0b9a990b71e2.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Эхо",
+    "spoken": "Эхо",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-d6dff9748594f417.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Экран",
+    "spoken": "Экран",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-c45626f3b73901d5.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Экзамен",
+    "spoken": "Экзамен",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-6c98d3e6bfa350d3.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Юг",
+    "spoken": "ю",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-e0060c5df797e5c2.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Юг",
+    "spoken": "Юг",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-db0ffe27c4ade421.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Юбка",
+    "spoken": "Юбка",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-001995a0cb3ade65.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Юмор",
+    "spoken": "Юмор",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-a1941bd23741910b.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Юла",
+    "spoken": "Юла",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-3eeaac598c037f3e.mp3"
+  },
+  {
+    "field": "letterAudio",
+    "display": "Яблоко",
+    "spoken": "я",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-21764402be1c1fe2.mp3"
+  },
+  {
+    "field": "wordAudio",
+    "display": "Яблоко",
+    "spoken": "Яблоко",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-c520eb93cf15b76d.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Язык",
+    "spoken": "Язык",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-9784abe519d5144b.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Яхта",
+    "spoken": "Яхта",
+    "voice": "Dmitry",
+    "file": "audio/alphabet-natural/dmitry-ba7c767dcb3b0799.mp3"
+  },
+  {
+    "field": "audio",
+    "display": "Ягода",
+    "spoken": "Ягода",
+    "voice": "Svetlana",
+    "file": "audio/alphabet-natural/svetlana-1ab0f7faaee61950.mp3"
+  }
+]
