@@ -1,0 +1,405 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第二课｜阅读与发音</title><style>
+:root{--wood:#674027;--wood2:#8a5733;--paper:#fff7e7;--paper2:#fffdf6;--ink:#3b291f;--rust:#b93631;--gold:#f7bd48;--orange:#ed7a22;--blue:#347fce;--green:#55944f;--pink:#db6371;--purple:#8c5bd5}
+*{box-sizing:border-box}
+html{background:#4b2f1f}
+body{margin:0;color:var(--ink);font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;background:repeating-linear-gradient(91deg,#7a4d2f 0,#855634 44px,#77482b 85px,#93603b 125px);background-attachment:fixed}
+a{color:inherit}
+.wrap{width:min(1180px,100%);margin:auto;padding:clamp(8px,2vw,22px)}
+.back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;color:#fff7e7;padding:10px 15px;border:1px solid #e2b780;border-radius:24px;background:#4a2b1ccf;box-shadow:0 3px 0 #3a2117;margin-bottom:12px}
+.back:hover{background:#613a23}
+.hero{display:grid;grid-template-columns:1.02fr .98fr;min-height:295px;overflow:hidden;background:linear-gradient(120deg,#fff6e3,#e8ca9f);border:6px solid #e0bd83;border-radius:9px;box-shadow:0 7px 0 #85512f,0 16px 28px #30180e55;margin-bottom:20px;position:relative}
+.hero-copy{padding:clamp(22px,3vw,38px);align-self:center;position:relative;z-index:1}
+.sticker{display:inline-block;background:var(--rust);color:#fff8e8;padding:8px 15px;border:2px solid #f0c781;border-radius:5px;box-shadow:0 4px 0 #772e25;font-weight:900;font-size:clamp(15px,1.8vw,20px);transform:rotate(-1.5deg)}
+h1{font-size:clamp(32px,4.5vw,56px);line-height:1.06;margin:17px 0 8px;color:#33241c}
+.subtitle{font-size:clamp(17px,2.2vw,24px);font-weight:900;color:#a33a2d;margin:0 0 12px}
+.hero-copy p{font-size:clamp(14px,1.5vw,17px);line-height:1.65;margin:0;color:#735038}
+.hero-art{position:relative;min-height:260px;overflow:hidden;border-left:2px solid #d4ae78}
+.hero-art img{width:100%;height:100%;min-height:295px;position:absolute;inset:0;object-fit:cover;object-position:center}
+.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff6e300,#fff6e300 70%,#3320140c);pointer-events:none}
+.feature-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.feature-pills span{background:#fffdf6;border:1px solid #dfc392;padding:7px 11px;border-radius:4px;font-size:13px;font-weight:800;box-shadow:0 2px 0 #e5cfaa}
+.section{background:repeating-linear-gradient(0deg,#fff8e9 0,#fff8e9 5px,#f8efd9 5px,#f8efd9 6px);border:3px solid #d9b77c;border-radius:7px;padding:clamp(14px,2vw,23px);margin:18px 0;box-shadow:0 6px 0 #85512f,0 11px 20px #30180e39;position:relative}
+.section:before{content:"";position:absolute;top:-9px;left:36px;width:84px;height:18px;transform:rotate(-2deg);background:#edce7ebd;box-shadow:0 1px 2px #84603a30}
+.section-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:10px}
+.num{width:47px;height:47px;border-radius:50%;display:grid;place-items:center;flex:none;background:linear-gradient(#f45d4f,#b8322b);border:3px solid #ffe0a2;color:#fff;font-size:25px;font-weight:1000;box-shadow:0 4px 0 #87372a}
+.section-head h2{margin:0;font-size:clamp(22px,2.8vw,31px);color:#412a20}
+.hint{font-size:14px;line-height:1.5;color:#8b5b3b;font-weight:700}
+.play-all{margin-left:auto;border:2px solid #d4ac6d;background:linear-gradient(#fffdf5,#f3dfb8);color:#733f28;padding:10px 14px;border-radius:5px;font-size:14px;font-weight:900;cursor:pointer;box-shadow:0 3px 0 #c49a5c}
+.play-all:active,.audio:active{transform:translateY(2px);box-shadow:0 1px 0 #9e5b2a}
+.syllables{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.syllable{border:2px solid #dfbf87;border-radius:6px;background:linear-gradient(145deg,#fffdf7,#f7e4c4);padding:13px 8px 11px;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:110px;cursor:pointer;color:var(--ink);box-shadow:0 4px 0 #d3ad74,0 7px 12px #5b371c12;transition:transform .13s,box-shadow .13s}
+.syllable:nth-child(4n+2){background:linear-gradient(145deg,#f5f5e6,#e4eddf)}
+.syllable:nth-child(4n+3){background:linear-gradient(145deg,#fff2e4,#efd0bd)}
+.syllable:hover{transform:translateY(-2px)}
+.syllable:active{transform:translateY(3px);box-shadow:0 1px 0 #d3ad74}
+.ru{font-size:clamp(24px,3vw,33px);font-weight:1000;letter-spacing:.5px}
+.lat{font-size:14px;color:#93654a;margin-top:1px}
+.audio{display:inline-grid;place-items:center;width:35px;height:32px;margin-top:4px;border:1px solid #f7cc7a;border-radius:50%;background:linear-gradient(#ffad42,#e86a1c);color:#fff;font-size:16px;box-shadow:0 3px 0 #a94b1b;cursor:pointer;transition:transform .13s}
+.word-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.word-card{padding:0;overflow:hidden;display:flex;flex-direction:column;text-align:left;border:2px solid #d8b77c;background:#fffdf5;border-radius:7px;box-shadow:0 4px 0 #c49d63,0 8px 14px #4c2d161c;cursor:pointer;color:var(--ink);transition:transform .13s}
+.word-card:hover{transform:translateY(-3px)}
+.word-card:active{transform:translateY(2px);box-shadow:0 1px 0 #c49d63}
+.word-card img{display:block;width:100%;height:145px;object-fit:cover;border-bottom:2px solid #e1c697}
+.word-info{padding:11px 13px 13px;position:relative;min-height:105px}
+.word-info .ru{font-size:23px}
+.word-info .lat{font-size:14px}
+.zh{font-size:16px;font-weight:800;color:#a1492d;margin-top:5px}
+.small-note{background:#ffedbf;border-left:5px solid #e9a12b;padding:12px 15px;line-height:1.6;color:#70472f;margin-top:14px}
+.examples-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.example{display:grid;grid-template-columns:74px minmax(0,1fr) 40px;align-items:center;gap:11px;background:#fffdf7;border:1px solid #dec28f;border-radius:5px;padding:10px;box-shadow:0 3px 0 #e6ce9f;cursor:pointer;color:var(--ink);text-align:left;min-width:0}
+.example-art{width:74px;height:74px;overflow:hidden;border-radius:4px;background:#f1dfbd;border:1px solid #d8b77c}
+.example-art img{width:100%;height:100%;object-fit:cover}
+.example .ru{font-size:18px;line-height:1.3;overflow-wrap:anywhere}
+.example .lat{font-size:13px;margin-top:5px;overflow-wrap:anywhere}
+.example .zh{font-size:15px}
+.example .audio{width:36px;height:36px;flex:none}
+.practice-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.practice-step{background:#fffdf4;border:1px solid #ddbd86;border-radius:5px;text-align:center;padding:16px 10px;box-shadow:0 4px 0 #d3b17d}
+.practice-step strong{display:block;font-size:20px;color:#9b392d;margin-bottom:6px}
+.practice-step p{margin:0;line-height:1.5;font-size:14px;color:#79573d}
+.quiz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.question{background:#fffdf6;border:1px solid #dfc18c;border-radius:5px;padding:14px;box-shadow:0 3px 0 #dfc393;min-width:0}
+.question-title{font-weight:900;font-size:17px;line-height:1.45;margin-bottom:9px}
+.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.option{border:1px solid #dfc59a;border-radius:5px;background:#fff8e9;padding:9px 10px;text-align:left;color:#553a28;cursor:pointer;font-weight:700;font-size:14px}
+.option:hover{background:#fff0cc;border-color:#d69c4e}
+.option.correct{background:#e1edcf;border-color:#68904c}
+.option.wrong{background:#f7ddd5;border-color:#cd6358}
+.option:disabled{cursor:default;opacity:1}
+.quiz-result{font-weight:900;color:#7d482b;margin-top:13px;line-height:1.5}
+.reset{display:none;margin-top:8px;border:0;border-radius:5px;background:#b63b31;color:#fff;padding:9px 13px;font-weight:900;cursor:pointer}
+.tip-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tip{border:1px dashed #c49c60;background:#fff0c9;padding:13px 15px;line-height:1.6;transform:rotate(-.4deg)}
+.tip:nth-child(2){background:#e6f0dc;transform:rotate(.4deg)}
+.tip strong{color:#993c2c}
+.footer{text-align:center;color:#ffefd5;font-size:14px;line-height:1.7;padding:12px 10px 25px}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-art{min-height:210px;max-height:245px;border-left:0;border-top:2px solid #d4ae78}.hero-art img{min-height:245px}.word-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.syllables{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:560px){.wrap{padding:8px}.hero{border-width:4px}.hero-copy{padding:20px}.hero-art,.hero-art img{min-height:180px}.section{padding:12px;margin:15px 0;border-width:2px}.section-head{gap:8px}.num{width:39px;height:39px;font-size:21px}.section-head h2{font-size:22px}.hint{width:100%;padding-left:47px;margin-top:-4px}.play-all{margin-left:0}.syllables{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.syllable{min-height:95px}.word-card img{height:125px}.word-info{padding:10px;min-height:95px}.word-info .ru{font-size:20px}.examples-grid,.quiz-grid,.tip-grid{grid-template-columns:1fr}.example{grid-template-columns:62px minmax(0,1fr) 34px;gap:8px;padding:8px}.example-art{width:62px;height:62px}.example .ru{font-size:16px}.example .lat{font-size:12px}.example .zh{font-size:14px}.example .audio{width:32px;height:32px}.options{grid-template-columns:repeat(2,minmax(0,1fr))}.practice-steps{grid-template-columns:1fr}.practice-step{padding:13px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* === Revised forest-green / charcoal course theme === */
+:root{--wood:#10271b;--wood2:#1b3b29;--paper:#14281c;--paper2:#1a3323;--ink:#eaf4e9;--rust:#7fd879;--gold:#9bd68a;--orange:#88d474;--blue:#64c99b;--green:#7fd879;--pink:#8ac69c;--purple:#95d28b}
+html{background:#050c08}
+body{color:#e8f2e9;background:repeating-linear-gradient(91deg,#06110b 0,#0b1b11 44px,#0d2115 85px,#08170e 125px);background-attachment:fixed}
+.wrap{width:min(1320px,100%);padding:clamp(10px,2vw,26px)}
+.back{color:#edf9ec;border-color:#4b8c5a;background:#10251a;box-shadow:0 3px 0 #030a06}
+.back:hover{background:#1b3b27}
+.hero{grid-template-columns:.82fr 1.18fr;min-height:430px;background:linear-gradient(135deg,#0d1e14,#183424 64%,#213e2a);border:4px solid #477a50;box-shadow:0 7px 0 #06100a,0 18px 32px #0009;margin-bottom:24px}
+.hero-copy{padding:clamp(26px,3.2vw,48px)}
+.sticker{background:linear-gradient(#36834b,#18532f);color:#f2fff0;border-color:#8bcb83;box-shadow:0 4px 0 #07180d}
+h1{color:#f0f8ed;font-size:clamp(36px,4.8vw,64px)}
+.subtitle{color:#a4e29d;font-size:clamp(18px,2.3vw,27px)}
+.hero-copy p{color:#cfdfcf;font-size:clamp(15px,1.45vw,18px);line-height:1.8}
+.hero-art{min-height:420px;border-left:2px solid #477a50}
+.hero-art img{min-height:420px;object-position:center;filter:saturate(.86) contrast(1.04)}
+.hero-art:after{background:linear-gradient(90deg,#11221824,#11221800 30%,#08130a22)}
+.feature-pills span{background:#172d20;border-color:#4f8056;color:#dbeed9;box-shadow:0 2px 0 #07110a;font-size:14px;padding:9px 12px}
+.section{background:repeating-linear-gradient(0deg,#112218 0,#112218 5px,#13271b 5px,#13271b 6px);border:2px solid #3f7149;box-shadow:0 6px 0 #050c08,0 11px 20px #0007;color:#e9f4e8;padding:clamp(18px,2.2vw,30px);margin:22px 0}
+.section:before{background:#8dc47e;opacity:.8}
+.section-head h2{color:#eff9ec;font-size:clamp(24px,2.9vw,34px)}
+.hint{color:#a7d7a1;font-size:15px}
+.num{background:linear-gradient(#58ad68,#246c3b);border-color:#d9eac9;color:#f7fff5;box-shadow:0 4px 0 #0b2512}
+.play-all{border:2px solid #6db579;background:linear-gradient(#254c30,#183824);color:#eaffea;box-shadow:0 3px 0 #07160b;padding:11px 15px}
+.play-all:hover{background:linear-gradient(#30623c,#20472d)}
+.syllables{grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.syllable{background:linear-gradient(145deg,#1b3a28,#12291c);border:2px solid #457d50;color:#eef9ed;min-height:142px;padding:18px 10px 14px;box-shadow:0 5px 0 #07150b,0 9px 16px #0004}
+.syllable:nth-child(4n+2){background:linear-gradient(145deg,#243f2c,#172e20)}
+.syllable:nth-child(4n+3){background:linear-gradient(145deg,#1d3526,#10241a)}
+.syllable .ru{font-size:clamp(30px,3.2vw,42px);color:#f1faef}
+.lat{font-size:16px;color:#a8d5a4;margin-top:3px}
+.audio{background:linear-gradient(#93de77,#3d9b50);border:1px solid #c5efac;color:#07170c;box-shadow:0 3px 0 #21622f;width:39px;height:37px;margin-top:6px}
+.word-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.word-card{display:grid;grid-template-columns:1.08fr .92fr;grid-template-rows:1fr;border:2px solid #477e53;border-radius:9px;background:#11271a;box-shadow:0 5px 0 #050c08,0 10px 17px #0006;color:#edf8ec;min-height:260px}
+.word-card img{width:100%;height:100%;min-height:260px;max-height:330px;object-fit:cover;border-bottom:0;border-right:2px solid #477e53}
+.word-info{padding:clamp(14px,1.8vw,23px);min-height:0;background:linear-gradient(155deg,#1b3927,#10251a);align-self:stretch}
+.word-info .ru{font-size:clamp(25px,2.8vw,35px);color:#f2fbef}
+.word-info .lat{font-size:16px;color:#a5d69e}
+.word-info .zh{font-size:19px;color:#bcebb1;margin-top:7px;padding-right:36px}
+.word-note{font-size:15px;line-height:1.7;margin-top:12px;padding-top:10px;border-top:1px solid #3e6b48;color:#d0e5cf}
+.small-note{background:linear-gradient(120deg,#183923,#11281a);border-left:5px solid #8bd879;padding:15px 18px;line-height:1.8;color:#d9edd7;margin-top:17px;font-size:15px}
+.learning-section{padding-bottom:25px}
+.teaching-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.teaching-card{background:linear-gradient(145deg,#1c3a28,#11271a);border:1px solid #477c50;border-radius:7px;padding:20px;box-shadow:0 4px 0 #061109;min-width:0}
+.teaching-kicker{font-size:12px;letter-spacing:1px;font-weight:900;color:#98de88;text-transform:uppercase}
+.teaching-card h3{font-size:21px;color:#eff9ed;margin:10px 0}
+.teaching-card p{font-size:15px;line-height:1.85;color:#d2e5d0;margin:0}
+.sound-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}
+.sound-row button{background:#75cb68;color:#07170d;border:1px solid #b5e9a5;border-radius:5px;padding:8px 10px;font-weight:900;cursor:pointer;box-shadow:0 3px 0 #28663a}
+.sound-row button:active{transform:translateY(2px);box-shadow:0 1px 0 #28663a}
+.examples-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.example{grid-template-columns:112px minmax(0,1fr) 42px;gap:15px;background:linear-gradient(120deg,#1b3525,#10251a);border:1px solid #47794e;border-radius:7px;padding:13px;box-shadow:0 4px 0 #061109;color:#edf8ec;min-height:142px}
+.example-art{width:112px;height:112px;border:1px solid #4a8254;border-radius:5px;background:#213f2b}
+.example-art img{width:100%;height:100%;object-fit:cover}
+.example .ru{font-size:clamp(17px,1.8vw,22px);color:#f1faf0;line-height:1.45}
+.example .lat{font-size:15px;color:#abdca4;margin-top:7px}
+.example .zh{font-size:17px;color:#bcebb1;margin-top:7px}
+.example .audio{width:39px;height:37px}
+.sentence-explainer{display:grid;grid-template-columns:.82fr 1.18fr;gap:18px;align-items:stretch}
+.formula{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:1px solid #4a8254;border-radius:7px;padding:22px;background:linear-gradient(145deg,#1d402b,#10251a);text-align:center}
+.formula span{display:block;font-size:clamp(25px,3vw,38px);font-weight:1000;color:#b8eea9}
+.formula small{color:#c4dec0;line-height:1.7;font-size:14px}
+.formula b{font-size:25px;color:#f6c75d}
+.sentence-text{border:1px solid #47794e;border-radius:7px;padding:20px;background:#12291b}
+.sentence-text h3{margin:0 0 10px;color:#eaf7e7;font-size:22px}
+.sentence-text p{margin:9px 0;line-height:1.9;color:#d1e4ce;font-size:16px}
+.sentence-text b{color:#aee9a2}
+.sentence-text .muted{color:#97c49a;font-size:14px}
+.quiz-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.question{background:linear-gradient(145deg,#193525,#10251a);border:1px solid #477a50;border-radius:7px;padding:18px;box-shadow:0 4px 0 #061109}
+.question-title{font-size:18px;line-height:1.6;color:#f0f8ee;margin-bottom:13px}
+.options{gap:9px}
+.option{border:1px solid #4d8053;border-radius:5px;background:#173021;color:#e5f4e1;padding:12px;font-size:15px;line-height:1.5}
+.option:hover{background:#22482c;border-color:#7bc870}
+.option.correct{background:#28613b;border-color:#8cda78;color:#f4fff0}
+.option.wrong{background:#572f2a;border-color:#d87865;color:#fff0eb}
+.quiz-result{color:#b9ebac;font-size:17px;line-height:1.8;margin-top:18px}
+.reset{background:linear-gradient(#83d86c,#388b48);color:#07150b;box-shadow:0 3px 0 #20592b}
+.practice-steps{gap:15px}
+.practice-step{background:linear-gradient(145deg,#1c3b28,#11271a);border:1px solid #477a50;color:#edf8ec;box-shadow:0 4px 0 #061109;padding:20px 14px}
+.practice-step strong{color:#a9e89d;font-size:22px}
+.practice-step p{color:#cae2c6;font-size:15px;line-height:1.75}
+.footer{color:#b4deb1}
+@media(max-width:900px){.hero{grid-template-columns:1fr 1fr;min-height:370px}.hero-art,.hero-art img{min-height:370px}.teaching-grid{grid-template-columns:1fr}.word-card{grid-template-columns:1fr;grid-template-rows:auto auto}.word-card img{height:230px;min-height:230px;max-height:260px;border-right:0;border-bottom:2px solid #477e53}.word-info{min-height:170px}.word-note{font-size:14px}}
+@media(max-width:560px){.wrap{padding:8px}.hero{grid-template-columns:1fr;min-height:0}.hero-copy{padding:22px}.hero-art,.hero-art img{min-height:240px;max-height:280px}.section{padding:13px;margin:16px 0}.syllables{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.syllable{min-height:115px;padding:12px 8px}.syllable .ru{font-size:31px}.word-grid{grid-template-columns:1fr;gap:13px}.word-card{grid-template-columns:.9fr 1.1fr;grid-template-rows:auto;min-height:210px}.word-card img{height:100%;min-height:210px;max-height:none;border-bottom:0;border-right:2px solid #477e53}.word-info{padding:13px;min-height:210px}.word-info .ru{font-size:25px}.word-info .zh{font-size:16px}.word-note{font-size:13px;line-height:1.55;margin-top:8px;padding-top:7px}.examples-grid{grid-template-columns:1fr;gap:11px}.example{grid-template-columns:82px minmax(0,1fr) 35px;gap:10px;padding:10px;min-height:110px}.example-art{width:82px;height:82px}.example .ru{font-size:17px}.example .lat{font-size:13px}.example .zh{font-size:15px}.sentence-explainer{grid-template-columns:1fr}.formula{padding:16px}.sentence-text{padding:15px}.quiz-grid{grid-template-columns:1fr}.question{padding:14px}.question-title{font-size:17px}.options{grid-template-columns:repeat(2,minmax(0,1fr))}.option{font-size:14px;padding:10px 8px}.practice-steps{grid-template-columns:1fr}}
+
+
+/* Light coral theme override — keep the same layout and functionality. */
+:root{
+ --wood:#a85c54;--wood2:#ce8177;--paper:#fff0ed;--paper2:#fffaf8;--ink:#432d2b;
+ --rust:#c94f59;--gold:#ffd2ad;--orange:#ed796d;--blue:#d96d73;--green:#719a78;
+ --pink:#e88b93;--purple:#9b81c5
+}
+html{background:#fff0ed}
+body{color:#432d2b;background:radial-gradient(ellipse at 10% 0%,#fffaf4 0%,#ffe5df 45%,#f3c1bb 100%);background-attachment:fixed}
+.back{color:#803d3d;border:1px solid #e9a39b;background:linear-gradient(#fffaf5,#ffdcd5);box-shadow:0 3px 0 #d7968c}
+.back:hover{background:#ffe3dc}
+.hero{background:linear-gradient(120deg,#fff9ef,#ffd9d2);border-color:#e6a49b;box-shadow:0 6px 0 #c77d76,0 14px 27px #7b3b2a24}
+.sticker{background:linear-gradient(#e97570,#c84b56);border-color:#ffd2a4;box-shadow:0 4px 0 #9b4545}
+h1{color:#4b2c2b}
+.subtitle{color:#b8444e}
+.hero-copy p{color:#83534c}
+.hero-art{border-left-color:#e2aaa1}
+.hero-art:after{background:linear-gradient(90deg,#fff6e300,#fff6e300 70%,#9a4a3a0c)}
+.feature-pills span{background:#fffaf6;border-color:#efc0b3;box-shadow:0 2px 0 #f2d0c7}
+.section{background:repeating-linear-gradient(0deg,#fffaf5 0,#fffaf5 5px,#ffefeb 5px,#ffefeb 6px);border-color:#e6aaa1;box-shadow:0 5px 0 #ca8279,0 10px 18px #87412d20}
+.section:before{background:#ffc8b7bf;box-shadow:0 1px 2px #8a4b3830}
+.num{background:linear-gradient(#f58b83,#d95a62);border-color:#ffe2c4;box-shadow:0 4px 0 #a64d4c}
+.section-head h2{color:#543331}
+.hint{color:#a5655d}
+.play-all{border-color:#e6a79c;background:linear-gradient(#fffaf6,#ffddd5);color:#883e3e;box-shadow:0 3px 0 #d49a8a}
+.play-all:active,.audio:active{box-shadow:0 1px 0 #ba7567}
+.syllable{border-color:#edb3a5;background:linear-gradient(145deg,#fffaf7,#ffe0d8);box-shadow:0 4px 0 #da9e8e,0 7px 12px #7c433012}
+.syllable:nth-child(4n+2){background:linear-gradient(145deg,#fff8f1,#f9e7dd)}
+.syllable:nth-child(4n+3){background:linear-gradient(145deg,#fff4ef,#f7d9d1)}
+.syllable:active{box-shadow:0 1px 0 #d3ad74}
+.lat{color:#a36e68}
+.audio{border-color:#ffd0a4;background:linear-gradient(#ffa77d,#e86b61);box-shadow:0 3px 0 #b64f4b}
+.word-card{border-color:#e5b1a2;background:#fffaf6;box-shadow:0 4px 0 #d1a08d,0 8px 14px #6a342014}
+.word-card img{border-bottom-color:#edb6a8}
+.zh{color:#b64b50}
+.small-note{background:#fff0da;border-left-color:#ee9875;color:#7d4a40}
+.example{background:#fffaf6;border-color:#e7b6a8;box-shadow:0 3px 0 #e4bca9;color:#513432}
+.example-art{background:#ffe8dd;border-color:#e5b1a2}
+.practice-step{background:#fffaf6;border-color:#e6b4a4;box-shadow:0 4px 0 #d8a18e}
+.practice-step strong{color:#c44c55}
+.practice-step p{color:#835d56}
+.question{background:#fffaf6;border-color:#e6b5a8;box-shadow:0 3px 0 #dfb2a0}
+.question-title{color:#513331}
+.option{border-color:#e7b9aa;background:#fff5f0;color:#553a37}
+.option:hover{background:#ffe5dc;border-color:#e58d81}
+.option.correct{background:#dff0dc;border-color:#79a779;color:#315d37}
+.option.wrong{background:#ffe0dc;border-color:#d97570;color:#813633}
+.quiz-result{color:#964b49}
+.reset{background:linear-gradient(#ef827a,#d85860);box-shadow:0 3px 0 #a8444b}
+.formula{border-color:#ebaea1}
+.sentence-explainer{background:#fff7f2;border-color:#e7b3a4}
+.footer{color:#8d4c4b;text-shadow:none}
+@media(max-width:850px){.hero-art{border-top-color:#e2aaa1}}
+
+
+/* === Clear warm-orange theme: cream paper, burnt-orange accents, high contrast === */
+:root{
+ --wood:#9a4c19;--wood2:#b95b1f;--paper:#fff6e9;--paper2:#fffdf8;
+ --ink:#4a2918;--rust:#c65316;--gold:#ffc15a;--orange:#f07819;
+ --blue:#b95722;--green:#4d8b4a;--pink:#da6a5d;--purple:#8758bf
+}
+html{background:#f7cf9b}
+body{
+ color:#4a2918;
+ background:radial-gradient(ellipse at 18% 0%,#fffaf2 0%,#ffedd5 43%,#f4c186 100%);
+ background-attachment:fixed;
+ overflow-x:hidden
+}
+.wrap{width:min(1280px,100%);padding:clamp(8px,1.8vw,24px)}
+.back{color:#fffaf3;border:1px solid #efb47a;background:linear-gradient(#a84f1c,#7f3813);box-shadow:0 3px 0 #69300f}
+.back:hover{background:linear-gradient(#bd6125,#913f12)}
+.hero{background:linear-gradient(120deg,#fff8eb 0%,#ffe5bd 57%,#ffd19a 100%);border-color:#e6a45e;box-shadow:0 6px 0 #bd6c28,0 14px 27px #7b3b2a24}
+.sticker{background:linear-gradient(#f68a27,#d75b0e);border-color:#ffe0a0;box-shadow:0 4px 0 #a44712;color:#fffdf6}
+h1{color:#4a2918}
+.subtitle{color:#a64212}
+.hero-copy p{color:#70452d}
+.hero-art{border-left-color:#e5a663}
+.hero-art:after{background:linear-gradient(90deg,#fff5e900,#fff5e900 70%,#8f3b090c)}
+.feature-pills span{background:#fffdf8;border-color:#e7b77d;box-shadow:0 2px 0 #efd2aa;color:#67351a}
+.section{background:repeating-linear-gradient(0deg,#fffaf2 0,#fffaf2 5px,#fff0dd 5px,#fff0dd 6px);border:2px solid #e0a15a;box-shadow:0 5px 0 #c77b35,0 10px 18px #87412d20;color:#4a2918}
+.section:before{background:#ffc26fca;box-shadow:0 1px 2px #8a4b3830}
+.section-head h2{color:#542a12}
+.hint{color:#94501f;font-size:14px;font-weight:800}
+.num{background:linear-gradient(#ff9f35,#e45f0c);border-color:#fff0ce;box-shadow:0 4px 0 #a74713;color:#fff}
+.play-all{border:2px solid #e9a051;background:linear-gradient(#fffdf7,#ffdfb2);color:#7d3b10;box-shadow:0 3px 0 #c77b35}
+.play-all:hover{background:linear-gradient(#fff7e8,#ffd39a)}
+.play-all:active,.audio:active{box-shadow:0 1px 0 #9e5b2a}
+.syllable{background:linear-gradient(145deg,#fffdf8,#ffe4bd);border:2px solid #e4a45b;color:#4a2918;box-shadow:0 4px 0 #c98640,0 7px 12px #7c433012}
+.syllable:nth-child(4n+2){background:linear-gradient(145deg,#fffaf1,#ffe9cd)}
+.syllable:nth-child(4n+3){background:linear-gradient(145deg,#fff8e9,#ffd9b0)}
+.syllable:nth-child(4n+4){background:linear-gradient(145deg,#fffaf1,#ffebd3)}
+.syllable .ru{color:#4a2918}
+.syllable:active{box-shadow:0 1px 0 #c98640}
+.lat{color:#874b28}
+.audio{border:1px solid #ffd697;background:linear-gradient(#ffa33d,#e85e0b);color:#fff;box-shadow:0 3px 0 #a7440e}
+.word-card{border-color:#df9c55;background:#fffaf2;box-shadow:0 4px 0 #c47b36,0 8px 14px #6a342014;color:#4a2918}
+.word-card img{border-bottom-color:#e8ab68;border-right-color:#e8ab68}
+.word-info{background:linear-gradient(155deg,#fffdf7,#ffebcf)}
+.word-info .ru{color:#4a2918}
+.word-info .lat{color:#8d512b}
+.word-info .zh{color:#9f3f10}
+.word-note{border-top-color:#efc18b;color:#774522}
+.small-note{background:linear-gradient(120deg,#fff0d4,#ffe0af);border-left-color:#ef7c1c;color:#713c16}
+.teaching-card{background:linear-gradient(145deg,#fff7e8,#ffe4bf);border-color:#df9f59;box-shadow:0 4px 0 #c27c3b;color:#4a2918}
+.teaching-kicker{color:#ba4f11}
+.teaching-card h3{color:#5e2f12}
+.teaching-card p{color:#70472c}
+.sound-row button{background:linear-gradient(#ffa23b,#e96711);color:#fff;border-color:#ffd69a;box-shadow:0 3px 0 #a8490c}
+.examples-grid{gap:14px}
+.example{background:linear-gradient(120deg,#fffaf2,#ffebd2);border-color:#e1a15b;box-shadow:0 3px 0 #cd8743;color:#4a2918}
+.example-art{background:#ffe3bd;border-color:#dca05b}
+.example .ru{color:#4a2918}
+.example .lat{color:#874b28}
+.example .zh{color:#9f3f10}
+.sentence-explainer{gap:15px}
+.formula{background:linear-gradient(145deg,#ffedce,#ffd9a2);border-color:#dc9850}
+.formula span{color:#a8440b}
+.formula small{color:#73451f}
+.formula b{color:#bd4f0a}
+.sentence-text{border-color:#dfa15f;background:#fff9ef}
+.sentence-text h3{color:#6a2f10}
+.sentence-text p{color:#674126}
+.sentence-text b{color:#a53f08}
+.sentence-text .muted{color:#8b5b39}
+.quiz-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.question{background:linear-gradient(145deg,#fffdf8,#fff0dd);border:1px solid #e5a45d;border-radius:8px;padding:16px;box-shadow:0 4px 0 #d69a56;color:#492a19;min-width:0}
+.question-title{font-size:17px;line-height:1.55;color:#552b14;margin-bottom:12px;overflow-wrap:anywhere}
+.options{gap:8px}
+.option{border:1px solid #df9d52;border-radius:6px;background:#fff9ef;color:#5d3218;padding:11px 10px;font-size:14px;line-height:1.45;min-width:0;white-space:normal;overflow-wrap:anywhere}
+.option:hover{background:#ffe4b9;border-color:#d97318}
+.option.correct{background:#ddefcf;border-color:#62954b;color:#284a20}
+.option.wrong{background:#ffe0d6;border-color:#cb5543;color:#7c281d}
+.option:disabled{cursor:default;opacity:1}
+.quiz-result{color:#8f3d0d;font-size:17px;line-height:1.8;margin-top:16px}
+.reset{background:linear-gradient(#ffa03a,#e15a0d);color:#fff;box-shadow:0 3px 0 #a33c0b}
+.practice-step{background:linear-gradient(145deg,#fffaf2,#ffedcf);border-color:#dfa15b;color:#4a2918;box-shadow:0 4px 0 #c98640}
+.practice-step strong{color:#ad430c}
+.practice-step p{color:#70472c}
+.tip{border-color:#dba15e;background:#fff0ce;color:#68401e}
+.tip:nth-child(2){background:#ffdfbd}
+.tip strong{color:#a83f0a}
+.footer{color:#8c3c10;text-shadow:none}
+@media(max-width:900px){.hero{grid-template-columns:1fr 1fr;min-height:0}.hero-art,.hero-art img{min-height:300px}.word-card{grid-template-columns:1.08fr .92fr;grid-template-rows:1fr}.word-card img{height:100%;min-height:260px;max-height:330px;border-right:2px solid #e8ab68;border-bottom:0}.word-info{min-height:0}.word-note{font-size:14px}}
+@media(max-width:560px){.wrap{padding:8px}.hero{grid-template-columns:1fr;min-height:0}.hero-copy{padding:19px}.hero-art,.hero-art img{min-height:205px;max-height:250px}.section{padding:12px;margin:15px 0}.section-head{gap:8px}.section-head h2{font-size:21px}.hint{padding-left:0;margin-top:0;width:auto}.play-all{margin-left:0;padding:9px 11px}.syllables{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.syllable{min-height:100px;padding:11px 7px}.word-grid{grid-template-columns:1fr;gap:13px}.word-card{grid-template-columns:.9fr 1.1fr;min-height:210px}.word-card img{height:100%;min-height:210px;max-height:none;border-bottom:0;border-right:2px solid #e8ab68}.word-info{padding:13px;min-height:210px}.word-info .ru{font-size:24px}.word-info .zh{font-size:16px}.word-note{font-size:13px;line-height:1.55;margin-top:8px;padding-top:7px}.examples-grid{grid-template-columns:1fr;gap:10px}.example{grid-template-columns:72px minmax(0,1fr) 34px;gap:8px;padding:8px;min-height:100px}.example-art{width:72px;height:72px}.example .ru{font-size:16px}.example .lat{font-size:12px}.example .zh{font-size:14px}.example .audio{width:32px;height:32px}.sentence-explainer{grid-template-columns:1fr}.formula{padding:16px}.sentence-text{padding:14px}.quiz-grid{grid-template-columns:1fr;gap:11px}.question{padding:13px}.question-title{font-size:16px}.options{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.option{font-size:13px;padding:10px 8px}.practice-steps{grid-template-columns:1fr}.practice-step{padding:13px}}
+
+
+/* Readability update: larger Latin transliteration for all syllable cards. */
+.syllable .lat{
+  display:block;
+  font-size:clamp(18px,1.8vw,24px)!important;
+  font-weight:800;
+  line-height:1.25;
+  color:#91410e!important;
+  margin-top:5px;
+}
+@media(max-width:560px){
+  .syllable .lat{font-size:20px!important}
+}
+
+
+/* Variant A: build words from syllables; match the existing warm orange paper design. */
+.build-intro{font-size:16px;line-height:1.8;color:#8b4a27;margin:4px 0 14px;font-weight:700}
+.build-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.build-card{position:relative;min-width:0;padding:18px 16px 14px;border:2px solid #e9a15a;border-radius:10px;background:linear-gradient(145deg,#fffaf0,#ffe3c0);box-shadow:0 5px 0 #d48a43,0 9px 16px #8b4b2018}
+.build-number{position:absolute;top:9px;left:10px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(#ffb84d,#f0781c);color:#fff;font-weight:900;box-shadow:0 2px 0 #b95b1b}
+.build-formula{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px 0 14px;flex-wrap:wrap}
+.build-sound{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-width:74px;min-height:91px;padding:9px 10px;border:1px solid #efb66d;border-radius:9px;background:linear-gradient(#fffdf8,#ffedcf);color:#572f1c;cursor:pointer;box-shadow:0 3px 0 #dfab66}
+.build-sound b{font-size:clamp(22px,2.2vw,29px);line-height:1.1;font-weight:1000}
+.build-sound span{font-size:17px;font-weight:900;color:#a34e1d}
+.build-sound small{font-size:11px;color:#865c40;font-weight:800}
+.build-sound:active{transform:translateY(2px);box-shadow:0 1px 0 #dfab66}
+.build-plus,.build-equals{font-size:25px;font-weight:1000;color:#d76a1e}
+.build-result{border:2px solid #f18b30;background:linear-gradient(#fff0d7,#ffd09a);min-width:100px}
+.build-result b{font-size:clamp(22px,2.4vw,31px);color:#b63d19}
+.build-meaning{display:flex;align-items:baseline;justify-content:center;gap:12px;flex-wrap:wrap;border-top:1px dashed #e6b477;padding-top:10px;color:#6c3c26}
+.build-meaning strong{font-size:22px;color:#a43b1c}.build-meaning span{font-weight:800}.build-meaning span:nth-child(2){font-size:16px;color:#ad5a26}.build-meaning span:nth-child(3){font-size:16px;color:#75422c}
+@media(max-width:700px){.build-grid{grid-template-columns:1fr}.build-card{padding:17px 10px 13px}.build-formula{gap:6px}.build-sound{min-width:65px;min-height:83px;padding:8px 6px}.build-plus,.build-equals{font-size:21px}}
+
+
+/* Show the same illustration as course card #2 without cutting away the book. */
+.hero-art img.home-matched-book{object-fit:contain;object-position:center;background:#f7edd9}
+</style><link rel="stylesheet" href="assets/course.css"><link rel="stylesheet" href="assets/lesson2-scrapbook.css">
+</head>
+<body class="lesson2-scrapbook"><nav class="course-nav" aria-label="课程导航"><a class="course-home" href="index.html">← 课程目录</a><details><summary>第2课 · 切换课程</summary><div class="course-menu"><a href="russian_lesson_1_COMPLETE.html" >1 · 俄语字母表</a><a href="russian_lesson_2_reading.html" aria-current="page">2 · 阅读与发音</a><a href="lesson-3-pronouns-basic.html" >3 · 人称代词</a><a href="lesson-4-presentation-READY.html" >4 · 日常问候</a><a href="lesson-5.html" >5 · 数字与时间</a><a href="lesson-6.html" >6 · 我的家人</a><a href="lesson-7.html" >7 · 我的一天</a></div></details><a href="#quiz-section">小测验 ↓</a></nav><main class="wrap">
+<header class="reference-hero" aria-labelledby="lesson2-title"><img src="assets/images/lesson2-approved-reference.png" alt="阅读与发音 · Чтение и произношение. Иллюстрированная тетрадь на деревянном столе." fetchpriority="high"><h1 id="lesson2-title" class="sr-only">第2课 · 阅读与发音</h1><a class="reference-back" href="index.html" aria-label="返回课程目录"></a></header>
+<nav class="scrap-quicknav" aria-label="第2课学习内容"><a href="#syllables"><span class="nav-emoji" aria-hidden="true">📖</span> 读音节 →</a><a href="#words"><span class="nav-emoji" aria-hidden="true">🔊</span> 听单词 →</a><a href="#quiz-section"><span class="nav-emoji" aria-hidden="true">✏️</span> 做小测验 →</a></nav>
+<section class="section"><div class="section-head"><span class="num">1</span><h2>第一部分｜读音节</h2><span class="hint">共40组拼读练习 · 点击整张卡片听发音</span><button class="play-all" type="button" data-play-all="syllables">🔊 全部播放</button></div><div class="syllables" id="syllables"><button class="syllable" type="button" data-say="ма" aria-label="听发音 МА"><span class="ru">МА</span><span class="lat">ma</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="му" aria-label="听发音 МУ"><span class="ru">МУ</span><span class="lat">mu</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="мо" aria-label="听发音 МО"><span class="ru">МО</span><span class="lat">mo</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="мы" aria-label="听发音 МЫ"><span class="ru">МЫ</span><span class="lat">my</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="на" aria-label="听发音 НА"><span class="ru">НА</span><span class="lat">na</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ну" aria-label="听发音 НУ"><span class="ru">НУ</span><span class="lat">nu</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ни" aria-label="听发音 НИ"><span class="ru">НИ</span><span class="lat">ni</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="но" aria-label="听发音 НО"><span class="ru">НО</span><span class="lat">no</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="та" aria-label="听发音 ТА"><span class="ru">ТА</span><span class="lat">ta</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ту" aria-label="听发音 ТУ"><span class="ru">ТУ</span><span class="lat">tu</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ти" aria-label="听发音 ТИ"><span class="ru">ТИ</span><span class="lat">ti</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="то" aria-label="听发音 ТО"><span class="ru">ТО</span><span class="lat">to</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ва" aria-label="听发音 ВА"><span class="ru">ВА</span><span class="lat">va</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="во" aria-label="听发音 ВО"><span class="ru">ВО</span><span class="lat">vo</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ша" aria-label="听发音 ША"><span class="ru">ША</span><span class="lat">sha</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ши" aria-label="听发音 ШИ"><span class="ru">ШИ</span><span class="lat">shi</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ба" aria-label="听发音 БА"><span class="ru">БА</span><span class="lat">ba</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="бу" aria-label="听发音 БУ"><span class="ru">БУ</span><span class="lat">bu</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="бо" aria-label="听发音 БО"><span class="ru">БО</span><span class="lat">bo</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="бы" aria-label="听发音 БЫ"><span class="ru">БЫ</span><span class="lat">by</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="па" aria-label="听发音 ПА"><span class="ru">ПА</span><span class="lat">pa</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="пу" aria-label="听发音 ПУ"><span class="ru">ПУ</span><span class="lat">pu</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="по" aria-label="听发音 ПО"><span class="ru">ПО</span><span class="lat">po</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="пы" aria-label="听发音 ПЫ"><span class="ru">ПЫ</span><span class="lat">py</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="да" aria-label="听发音 ДА"><span class="ru">ДА</span><span class="lat">da</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ду" aria-label="听发音 ДУ"><span class="ru">ДУ</span><span class="lat">du</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="до" aria-label="听发音 ДО"><span class="ru">ДО</span><span class="lat">do</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ды" aria-label="听发音 ДЫ"><span class="ru">ДЫ</span><span class="lat">dy</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ка" aria-label="听发音 КА"><span class="ru">КА</span><span class="lat">ka</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ку" aria-label="听发音 КУ"><span class="ru">КУ</span><span class="lat">ku</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ко" aria-label="听发音 КО"><span class="ru">КО</span><span class="lat">ko</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="кы" aria-label="听发音 КЫ"><span class="ru">КЫ</span><span class="lat">ky</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ла" aria-label="听发音 ЛА"><span class="ru">ЛА</span><span class="lat">la</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="лу" aria-label="听发音 ЛУ"><span class="ru">ЛУ</span><span class="lat">lu</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ло" aria-label="听发音 ЛО"><span class="ru">ЛО</span><span class="lat">lo</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="лы" aria-label="听发音 ЛЫ"><span class="ru">ЛЫ</span><span class="lat">ly</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ра" aria-label="听发音 РА"><span class="ru">РА</span><span class="lat">ra</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ру" aria-label="听发音 РУ"><span class="ru">РУ</span><span class="lat">ru</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ро" aria-label="听发音 РО"><span class="ru">РО</span><span class="lat">ro</span><span class="audio" aria-hidden="true">🔊</span></button><button class="syllable" type="button" data-say="ры" aria-label="听发音 РЫ"><span class="ru">РЫ</span><span class="lat">ry</span><span class="audio" aria-hidden="true">🔊</span></button></div><div class="small-note"><b>学习目标：</b>不要急着背整句话，先把一个音节读准确。按照“看 → 听 → 跟读”的顺序，每个音节重复两遍。<br>学习方法：先看字母，再听发音，最后跟读两遍。</div></section>
+<section class="section build-section"><div class="section-head"><span class="num" style="background:linear-gradient(#ffb14a,#e86a1c)">2</span><h2>把音节拼成单词｜拼读练习</h2><span class="hint">听音节 → 跟读 → 合起来读单词</span><button class="play-all" type="button" data-play-all="buildwords">🔊 全部播放</button></div>
+<p class="build-intro">先分别听两个音节，再听完整单词。请跟着读两遍！</p>
+<div class="build-grid" id="buildwords">
+<article class="build-card"><div class="build-number">01</div><div class="build-formula"><button type="button" data-say="ма" class="build-sound"><b>МА</b><span>ma</span><small>🔊 听音节</small></button><span class="build-plus">+</span><button type="button" data-say="ма" class="build-sound"><b>МА</b><span>ma</span><small>🔊 听音节</small></button><span class="build-equals">=</span><button type="button" data-say="мама" class="build-sound build-result"><b>МАМА</b><span>mama</span><small>🔊 听单词</small></button></div><div class="build-meaning"><strong>МАМА</strong><span>mama</span><span>妈妈</span></div></article>
+<article class="build-card"><div class="build-number">02</div><div class="build-formula"><button type="button" data-say="па" class="build-sound"><b>ПА</b><span>pa</span><small>🔊 听音节</small></button><span class="build-plus">+</span><button type="button" data-say="па" class="build-sound"><b>ПА</b><span>pa</span><small>🔊 听音节</small></button><span class="build-equals">=</span><button type="button" data-say="папа" class="build-sound build-result"><b>ПАПА</b><span>papa</span><small>🔊 听单词</small></button></div><div class="build-meaning"><strong>ПАПА</strong><span>papa</span><span>爸爸</span></div></article>
+<article class="build-card"><div class="build-number">03</div><div class="build-formula"><button type="button" data-say="ра" class="build-sound"><b>РА</b><span>ra</span><small>🔊 听音节</small></button><span class="build-plus">+</span><button type="button" data-say="ма" class="build-sound"><b>МА</b><span>ma</span><small>🔊 听音节</small></button><span class="build-equals">=</span><button type="button" data-say="рама" class="build-sound build-result"><b>РАМА</b><span>rama</span><small>🔊 听单词</small></button></div><div class="build-meaning"><strong>РАМА</strong><span>rama</span><span>框架／窗框</span></div></article>
+<article class="build-card"><div class="build-number">04</div><div class="build-formula"><button type="button" data-say="ла" class="build-sound"><b>ЛА</b><span>la</span><small>🔊 听音节</small></button><span class="build-plus">+</span><button type="button" data-say="па" class="build-sound"><b>ПА</b><span>pa</span><small>🔊 听音节</small></button><span class="build-equals">=</span><button type="button" data-say="лапа" class="build-sound build-result"><b>ЛАПА</b><span>lapa</span><small>🔊 听单词</small></button></div><div class="build-meaning"><strong>ЛАПА</strong><span>lapa</span><span>爪子／动物的脚</span></div></article>
+</div><div class="small-note"><b>小技巧：</b>不要在两个音节之间停太久。先读「МА」，再读「МА」，最后连起来读「МАМА」。</div></section>
+<section class="section learning-section"><div class="section-head"><span class="num" style="background:linear-gradient(#7fc47a,#3d824b)">2</span><h2>怎样读俄语音节</h2><span class="hint">把字母、声音和嘴巴动作连起来</span></div>
+<div class="teaching-grid">
+<article class="teaching-card"><div class="teaching-kicker">01 · 元音</div><h3>先把元音读清楚</h3><p><b>А — a</b>：嘴巴自然张开；<b>У — u</b>：嘴唇向前收圆；<b>О — o</b>：嘴唇稍微收圆；<b>И — i</b>：嘴角略向两边；<b>Ы — y</b>：俄语特有的音，舌头稍微向后，不要直接读成“и”。</p><div class="sound-row"><button data-say="а">А 🔊</button><button data-say="у">У 🔊</button><button data-say="о">О 🔊</button><button data-say="ы">Ы 🔊</button></div></article>
+<article class="teaching-card"><div class="teaching-kicker">02 · 辅音</div><h3>有些字母长得像拉丁字母</h3><p><b>М = m</b>，<b>Н = n</b>（形状像 H，但读 n），<b>В = v</b>（形状像 B，但读 v），<b>Т = t</b>，<b>Ш = sh</b>。看字形时要记住：俄语字母和英语字母不总是同一个发音。</p><div class="sound-row"><button data-say="ма">МА 🔊</button><button data-say="на">НА 🔊</button><button data-say="ва">ВА 🔊</button><button data-say="ша">ША 🔊</button></div></article>
+<article class="teaching-card"><div class="teaching-kicker">03 · 拼读</div><h3>一个音节，一口气读完</h3><p>先把辅音和元音接起来：<b>М + А = МА</b>，<b>М + У = МУ</b>，<b>Н + О = НО</b>。不要把每个字母停顿开读；听完以后模仿音节整体的声音。</p><div class="sound-row"><button data-say="ма">МА 🔊</button><button data-say="му">МУ 🔊</button><button data-say="но">НО 🔊</button></div></article>
+</div>
+<div class="small-note"><b>记住：</b>拉丁转写只是辅助记忆，不是汉语拼音，也不完全等于真实发音。ШИ 虽然写 и，实际读音接近 шы；ш 是硬辅音。КЫ 用于发音练习，在常见俄语词中通常写 КИ。特别是 <b>Ы</b> 和 <b>Ш</b>，要多听几遍，再跟着读。</div></section>
+<section class="section"><div class="section-head"><span class="num" style="background:linear-gradient(#f9c74a,#e89920)">3</span><h2>第二部分｜常见单词</h2><span class="hint">把单词、读音和意思连起来</span><button class="play-all" type="button" data-play-all="words">🔊 全部播放</button></div><div class="word-grid" id="words"><button class="word-card" type="button" data-say="мама" aria-label="听单词 мама"><img class="" src="assets/images/2d0f237c36c3d142fd.jpg" alt="мама" loading="lazy"><div class="word-info"><div class="ru">мама</div><div class="lat">mama</div><div class="zh">妈妈</div><div class="word-note">重音在第一个音节：МА-ма。先读 ma，再连起来读 mama。</div><span class="audio"  aria-hidden="true">🔊</span></div></button><button class="word-card" type="button" data-say="вода" aria-label="听单词 вода"><img class="" src="assets/images/70ef03e94fc9c09317.jpg" alt="вода" loading="lazy"><div class="word-info"><div class="ru">вода</div><div class="lat">voda</div><div class="zh">水</div><div class="word-note">意思是“水”。重音在最后：во-ДА́。请把最后一个音节读得更清楚。</div><span class="audio"  aria-hidden="true">🔊</span></div></button><button class="word-card" type="button" data-say="мука" aria-label="听单词 мука"><img class="" src="assets/images/54b5c4c13b517d3490.jpg" alt="мука" loading="lazy"><div class="word-info"><div class="ru">мука</div><div class="lat">muka</div><div class="zh">面粉</div><div class="word-note">意思是“面粉”。重音在最后：му-КА́。注意不要把它和 мама 的重音读法混在一起。</div><span class="audio"  aria-hidden="true">🔊</span></div></button><button class="word-card" type="button" data-say="такси" aria-label="听单词 такси"><img class="" src="assets/images/94cf5f444836c9b2d7.jpg" alt="такси" loading="lazy"><div class="word-info"><div class="ru">такси</div><div class="lat">taksi</div><div class="zh">出租车</div><div class="word-note">意思是“出租车”。重音在最后：так-СИ́。这个词来自国际常用词 taxi。</div><span class="audio"  aria-hidden="true">🔊</span></div></button><button class="word-card" type="button" data-say="нос" aria-label="听单词 нос"><img class="" src="assets/images/e407400d82ae9a110b.jpg" alt="нос" loading="lazy"><div class="word-info"><div class="ru">нос</div><div class="lat">nos</div><div class="zh">鼻子</div><div class="word-note">意思是“鼻子”。只有一个音节，直接连贯地读 nos。</div><span class="audio"  aria-hidden="true">🔊</span></div></button><button class="word-card" type="button" data-say="шапка" aria-label="听单词 шапка"><img class="" src="assets/images/b8233b30472a63b0d3.jpg" alt="шапка" loading="lazy"><div class="word-info"><div class="ru">шапка</div><div class="lat">shapka</div><div class="zh">帽子</div><div class="word-note">意思是“帽子”。重音在开头：ШАП-ка；ш 的发音接近英文 sh。</div><span class="audio"  aria-hidden="true">🔊</span></div></button><button class="word-card" type="button" data-say="шар" aria-label="听单词 шар"><img class="" src="assets/images/f3c0677bb400208930.jpg" alt="шар" loading="lazy"><div class="word-info"><div class="ru">шар</div><div class="lat">shar</div><div class="zh">球</div><div class="word-note">意思是“球”。它只有一个音节；先读 ш（sh），再连上 а 和 р。</div><span class="audio"  aria-hidden="true">🔊</span></div></button><button class="word-card" type="button" data-say="дом" aria-label="听单词 дом"><img class="" src="assets/images/58826ed131ae0b967d.jpg" alt="дом" loading="lazy"><div class="word-info"><div class="ru">дом</div><div class="lat">dom</div><div class="zh">房子</div><div class="word-note">意思是“房子、家”。只有一个音节，д + о + м 连起来就是 dom。</div><span class="audio"  aria-hidden="true">🔊</span></div></button></div></section>
+<section class="section"><div class="section-head"><span class="num" style="background:linear-gradient(#83bd65,#478646)">4</span><h2>第三部分｜读简单句子</h2><span class="hint">先听完整句子，再自己跟读</span><button class="play-all" type="button" data-play-all="examples">🔊 播放例句</button></div><div class="examples-grid" id="examples"><button class="example" type="button" data-say="Это мама." aria-label="听句子 Это мама."><span class="example-art"><img class="" src="assets/images/2d0f237c36c3d142fd.jpg" alt="Это мама." loading="lazy"></span><span><span class="ru">Это мама.</span><span class="lat" style="display:block">Eto mama.</span><span class="zh" style="display:block">这是妈妈。</span></span><span class="audio" aria-hidden="true">🔊</span></button><button class="example" type="button" data-say="Это вода." aria-label="听句子 Это вода."><span class="example-art"><img class="" src="assets/images/70ef03e94fc9c09317.jpg" alt="Это вода." loading="lazy"></span><span><span class="ru">Это вода.</span><span class="lat" style="display:block">Eto voda.</span><span class="zh" style="display:block">这是水。</span></span><span class="audio" aria-hidden="true">🔊</span></button><button class="example" type="button" data-say="Это дом." aria-label="听句子 Это дом."><span class="example-art"><img class="" src="assets/images/58826ed131ae0b967d.jpg" alt="Это дом." loading="lazy"></span><span><span class="ru">Это дом.</span><span class="lat" style="display:block">Eto dom.</span><span class="zh" style="display:block">这是房子。</span></span><span class="audio" aria-hidden="true">🔊</span></button><button class="example" type="button" data-say="Это такси." aria-label="听句子 Это такси."><span class="example-art"><img class="" src="assets/images/94cf5f444836c9b2d7.jpg" alt="Это такси." loading="lazy"></span><span><span class="ru">Это такси.</span><span class="lat" style="display:block">Eto taksi.</span><span class="zh" style="display:block">这是出租车。</span></span><span class="audio" aria-hidden="true">🔊</span></button></div></section>
+<section class="section learning-section"><div class="section-head"><span class="num" style="background:linear-gradient(#4fbc91,#1e785b)">5</span><h2>第四部分｜句型练习</h2><span class="hint">用一个简单句型，把刚学的词说出来</span><button class="play-all" type="button" data-play-all="examples">🔊 再听一遍</button></div>
+<div class="sentence-explainer"><div class="formula"><span>Это</span><small>это · 这是 / 这是一种介绍</small><b>+</b><span>名词</span><small>мама · вода · дом · такси</small></div><div class="sentence-text"><h3>俄语入门句型：Это + 名词</h3><p>在介绍一个人或一个东西时，可以先用 <b>Это…</b>，意思接近“这是……”。俄语入门阶段可以先直接说「Это + 名词」，不需要额外学习复杂语法。</p><p><b>Это мама.</b> — 这是妈妈。<br><b>Это вода.</b> — 这是水。<br><b>Это дом.</b> — 这是房子。<br><b>Это такси.</b> — 这是出租车。</p><p class="muted">练习方法：点击橙色声音按钮，先听完整句子，再模仿语调跟读两遍。</p></div></div></section>
+<section class="section"><div class="section-head"><span class="num" style="background:linear-gradient(#aa83ea,#7b4ec8)">6</span><h2>第五部分｜闯关测试</h2><span class="hint">共20题：认识单词、辨认读音、看懂简单句。每题只有一个正确答案，选完马上看到反馈。</span></div><div id="quiz-section"></div><div class="quiz-grid" id="quiz"></div><div class="quiz-result" id="result" aria-live="polite">小提示：先读俄语单词，再回忆刚刚看到的中文意思。完成所有题目后，就能看到你的得分。</div><button type="button" class="reset" id="reset">再做一次 ↻</button></section>
+<footer class="footer">⭐ 太棒了！你已经能读一些俄语单词了。每天练习一点点，就会越来越熟练！</footer>
+</main>
+<script src="assets/audio-manifest.js"></script><script src="assets/course.js"></script><script>
+const quizData=[
+["俄语单词「мама」是什么意思？","мама",["水","妈妈","房子","出租车"],1],
+["俄语单词「вода」是什么意思？","вода",["帽子","面粉","水","球"],2],
+["俄语单词「шапка」是什么意思？","шапка",["帽子","鼻子","妈妈","房子"],0],
+["俄语单词「дом」是什么意思？","дом",["出租车","房子","面粉","水"],1],
+["俄语单词「мука」是什么意思？","мука",["面粉","出租车","水","球"],0],
+["俄语单词「нос」是什么意思？","нос",["妈妈","鼻子","帽子","房子"],1],
+["俄语单词「шар」是什么意思？","шар",["出租车","球","水","面粉"],1],
+["「出租车」用俄语怎么说？","такси",["дом","нос","такси","вода"],2],
+["「мама」的拉丁转写是哪一个？","мама",["mama","ma","my","mu"],0],
+["「шапка」的拉丁转写是哪一个？","шапка",["shapka","shar","shina","shok"],0],
+["音节「МА」的拉丁转写是什么？","ма",["ma","mu","mo","my"],0],
+["音节「МЫ」的拉丁转写是什么？","мы",["my","mu","ma","mo"],0],
+["哪个俄语单词表示「水」？","вода",["мама","вода","дом","шар"],1],
+["「дом」的拉丁转写是哪一个？","дом",["dom","nos","shar","mama"],0],
+["句子「Это мама.」是什么意思？","Это мама.",["这是妈妈。","这是水。","这是房子。","这是出租车。"],0],
+["句子「Это вода.」是什么意思？","Это вода.",["这是妈妈。","这是水。","这是房子。","这是出租车。"],1],
+["哪个俄语音节读作「sha」？","ша",["ША","ШИ","МА","ТО"],0],
+["哪个俄语音节读作「shi」？","ши",["ША","ШИ","МУ","НО"],1],
+["哪个俄语音节读作「no」？","но",["НУ","НО","НА","НИ"],1],
+["句子「Это дом.」是什么意思？","Это дом.",["这是水。","这是妈妈。","这是房子。","这是球。"],2]
+];
+const answered={};
+function speak(text){CourseAudio.play([{text,role:"male"}]);}
+function speakSequence(items){CourseAudio.play(items.map(text=>({text,role:"male"})));}
+document.addEventListener('click',e=>{const card=e.target.closest('[data-say]');if(card){speak(card.dataset.say);return}const all=e.target.closest('[data-play-all]');if(all){const id=all.dataset.playAll;const items=[...document.querySelectorAll('#'+id+' [data-say]')].map(x=>x.dataset.say);speakSequence(items)}});
+function renderQuiz(){document.getElementById('quiz').innerHTML='';quizData.forEach((q,i)=>{const el=document.createElement('div');el.className='question';const title=document.createElement('div');title.className='question-title';title.textContent=(i+1)+'. '+q[0];el.appendChild(title);const listen=document.createElement('button');listen.className='action';listen.type='button';listen.textContent='🔊 听题目';listen.onclick=()=>speak(q[1]);el.appendChild(listen);const opts=document.createElement('div');opts.className='options';q[2].forEach((o,j)=>{const b=document.createElement('button');b.className='option';b.type='button';b.textContent=String.fromCharCode(65+j)+'　'+o;b.onclick=()=>{if(answered[i]!==undefined)return;answered[i]=j;[...opts.children].forEach((btn,k)=>{btn.disabled=true;if(k===q[3])btn.classList.add('correct')});if(j!==q[3])b.classList.add('wrong');const feedback=document.createElement('p');feedback.textContent=(j===q[3]?'✓ 正确：':'✗ 正确答案：')+q[2][q[3]];el.appendChild(feedback);updateScore()};opts.appendChild(b)});el.appendChild(opts);document.getElementById('quiz').appendChild(el)})}
+function updateScore(){const n=Object.keys(answered).length;const score=Object.keys(answered).filter(k=>answered[k]===quizData[k][3]).length;const result=document.getElementById('result');if(n===quizData.length)CourseProgress.save(2,score,quizData.length);result.textContent=n<quizData.length?'已完成 '+n+' / '+quizData.length+' 题。答对 '+score+' 题。':'测试完成！你答对了 '+score+' / '+quizData.length+' 题'+(score===quizData.length?'，满分！太棒了！':'，再听一遍单词，继续加油！');document.getElementById('reset').style.display=n===quizData.length?'inline-block':'none'}
+document.getElementById('reset').onclick=()=>{Object.keys(answered).forEach(k=>delete answered[k]);renderQuiz();document.getElementById('result').textContent='小提示：先读俄语单词，再回忆刚刚看到的中文意思。完成所有题目后，就能看到你的得分。';document.getElementById('reset').style.display='none'};
+renderQuiz();
+</script><nav class="course-bottom" aria-label="上一课和下一课"><a href="russian_lesson_1_COMPLETE.html">← 上一课</a><a href="audio-check.html">检查声音 🔊</a><a href="lesson-3-pronouns-basic.html">下一课 →</a></nav><aside class="audio-dock" aria-label="音频播放器"><span id="course-audio-status" role="status" aria-live="polite">点击 🔊 听发音</span><button id="course-audio-stop" type="button">■ 停止</button></aside></body></html>
