@@ -5,6 +5,8 @@ final result: blocked
 The page is an interactive rebuild, not a completed fidelity-approved lesson.
 
 Source: /workspace/scratch/bf35dba45c29/upload/01-30102.png, 1536×1024.
+Public test verified: https://raw.githack.com/trommelschlager-ai/russian-lesson-3/3688c18d381a6b7ed3c4675c2b2aba03aa6dc7c5/lesson-2-100-words.html — 100 menu entries, МАМА initially, MP3 readyState 4 / duration 1.872 / rate 0.7.
+
 Actual browser evidence: /workspace/scratch/lesson2-final-browser.jpg, 1363×936 desktop browser. /workspace/scratch/lesson2-mobile-browser.jpg shows the lesson inside a 390×844 iframe. These are real browser captures, not ImageGen results. Exact desktop 1536×1024 export failed with Page.captureScreenshot timeout. Local Playwright Chromium was missing; downloading it failed with truncated archive errors. A 1536×1024 iframe harness exists in qa/desktop.html; it does not substitute for the requested exact-size screenshot.
 Comparison: qa/comparison.jpg combines reference and browser capture. Different viewport explicitly noted; no pixel-perfect assertion. Focused typography/photo/frame review performed from the full-resolution browser view.
 
