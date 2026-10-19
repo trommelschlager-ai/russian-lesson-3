@@ -56,6 +56,29 @@ try{
 
   assert.deepEqual(errors,[]);
   console.log('PASS '+width+'x'+height+': 100 rendered words; images, audio rates, navigation and text fitting OK');
+  if(width===1536){
+   const catalog=await page.evaluate(()=>window.lesson2.words.map((w,i)=>({i:i+1,word:w.word,zh:w.zh,src:w.imageData})));
+   await page.evaluate(catalog=>{
+    document.body.replaceChildren();
+    const style=document.createElement('style');
+    style.textContent='body{margin:0;background:#f4ecda;font:16px Arial,sans-serif}.qa-gallery{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:7px;padding:8px;max-width:1536px;margin:auto}.qa-card{border:2px solid #cd9934;background:#fffdf7;border-radius:8px;padding:6px;overflow:hidden}.qa-card img{width:100%;height:126px;object-fit:cover;display:block}.qa-card strong,.qa-card span{display:block;padding:4px 0 0;text-align:center}.qa-card strong{font-size:17px;color:#78140c}.qa-card span{font-size:13px;color:#125a35}';
+    document.head.append(style);
+    const grid=document.createElement('div');grid.className='qa-gallery';
+    for(const item of catalog){
+     const c=document.createElement('div');c.className='qa-card';
+     const img=document.createElement('img');img.src=item.src;img.loading='eager';
+     const title=document.createElement('strong');title.textContent=String(item.i).padStart(2,'0')+' '+item.word;
+     const zh=document.createElement('span');zh.textContent=item.zh;
+     c.append(img,title,zh);grid.append(c);
+    }
+    document.body.append(grid);
+   },catalog);
+   await page.waitForFunction(()=>Array.from(document.querySelectorAll('.qa-card img')).every(img=>img.complete),{timeout:60000});
+   const broken=await page.$eval('.qa-card img',all=>all.filter(x=>x.naturalWidth===0).length);
+   assert.equal(broken,0,'broken images in 100-word photo gallery');
+   await page.screenshot({path:'lesson2-qa-screenshots/lesson2-all-100-images.png',fullPage:true});
+   console.log('PASS 100/100 image decoding; photo contact sheet saved');
+  }
   await page.close();
  }
 }finally{await browser.close();await new Promise(r=>server.close(r))}
