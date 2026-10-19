@@ -8,5 +8,15 @@
     "file": "audio/lesson2-corrections/yogurt-svetlana-first-stress.mp3",
     "listeningVerified": false,
     "note": "Explicit first-syllable stress supplied to synthesis. Auditory review still required; runtime cannot hear audio."
+  },
+  {
+    "field": "wordAudio",
+    "display": "Йогурт",
+    "spoken": "Ёгурт.",
+    "voice": "Svetlana",
+    "engine": "ru-RU-SvetlanaNeural",
+    "file": "audio/lesson2-corrections/yogurt-svetlana-yo-v2.mp3",
+    "listeningVerified": false,
+    "note": "Phonetic synthesis input uses initial Ё to force stressed /jo/. Displayed spelling remains Йогурт. New v2 filename prevents reusing prior recording. Auditory review unavailable."
   }
 ]

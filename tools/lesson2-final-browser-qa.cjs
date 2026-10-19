@@ -6,7 +6,7 @@ const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+decodeU
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const base='http://127.0.0.1:'+server.address().port;
  const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'/usr/bin/google-chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
- const out=process.env.QA_SCREENSHOTS||path.join(root,'qa/lesson2-final-20261019');fs.mkdirSync(out,{recursive:true});
+ const out=process.env.QA_SCREENSHOTS||path.join(root,'qa/lesson2-full-page-list-v2-20261019');fs.mkdirSync(out,{recursive:true});
  for(const mobile of [false,true]){
   const context=await browser.newContext(mobile?{...devices['Pixel 7'],viewport:{width:390,height:844},deviceScaleFactor:1}:{viewport:{width:1536,height:1024}});
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -29,7 +29,8 @@ const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+decodeU
    return {bad,width:innerWidth,scrollWidth:document.documentElement.scrollWidth,navHeight:nav.clientHeight,navScrollHeight:nav.scrollHeight,progress:JSON.parse(localStorage.getItem('lesson2-reference-progress')),first:w[0].word,last:w.at(-1).word};
   });
   assert.deepEqual(result.bad,[]);assert.ok(result.scrollWidth<=result.width+3);assert.equal(result.progress.seen.length,100);
-  if(mobile)assert.equal(result.navHeight,result.navScrollHeight,'mobile list must use document scrolling');
+  assert.equal(result.navHeight,result.navScrollHeight,'the list must use document scrolling on every device');
+  assert.ok(await page.evaluate(()=>document.querySelector('.catalog').getBoundingClientRect().top>=document.querySelector('.lesson').getBoundingClientRect().bottom),'catalog must be below lesson');
   await page.reload();await page.waitForFunction(()=>window.lesson2?.words.length===100);assert.equal(await page.locator('#seen').textContent(),'100');
   await page.evaluate(()=>window.lesson2.choose(73));
   for(const [id,rate] of [['#play',1],['#slow',.7]]){
@@ -40,12 +41,16 @@ const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+decodeU
   }
   await page.evaluate(()=>window.lesson2.choose(74));await page.locator('#photo').evaluate(im=>im.decode());
   await page.screenshot({path:out+'/lesson2-'+(mobile?'android':'desktop')+'-sun.jpg',quality:85});
+  await page.locator('.catalog').scrollIntoViewIfNeeded();
+  await page.locator('#words').evaluate(el=>el.scrollIntoView({block:'start'}));
+  await page.screenshot({path:out+'/lesson2-'+(mobile?'android':'desktop')+'-list-start.jpg',quality:85});
   const last=page.locator('.worditem').last();await last.scrollIntoViewIfNeeded();
   assert.equal(await last.locator('.num').textContent(),'100');
   await page.screenshot({path:out+'/lesson2-'+(mobile?'android':'desktop')+'-list-100.jpg',quality:85});
   await last.click();await page.waitForFunction(()=>window.lesson2.current===99);
   assert.ok(await last.evaluate(el=>el.classList.contains('active')));
-  if(mobile)assert.ok(await page.locator('.lesson').evaluate(el=>Math.abs(el.getBoundingClientRect().top)<3));
+  assert.ok(await last.evaluate(el=>{const r=el.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight}),'list click must not jump to top');
+  await page.waitForFunction(()=>document.querySelector('#audio').ended);
   assert.deepEqual(errors,[]);console.log(JSON.stringify({device:mobile?'Pixel 7 Android emulation':'desktop',...result,audio:'real MP3 played to end at 1x and 0.7x; pitch preserved; no listening verification'}));
   await context.close();
  }

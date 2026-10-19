@@ -7,3 +7,20 @@
 
 /* One continuous vertical catalog; long words stay inside their row. */
 .worditem>span:last-child{min-width:0}.worditem strong,.worditem small{overflow-wrap:anywhere}.worditem img{flex-shrink:0}
+
+/* Full-page word list below the lesson, on every screen size. */
+.catalog{height:auto;max-height:none}
+.catalog nav{height:auto;max-height:none;overflow:visible;display:block}
+.worditem{grid-template-columns:37px 68px minmax(0,1fr) 28px}
+.worditem .list-speaker{width:25px;height:25px;object-fit:contain;border-radius:0}
+@media(min-width:701px){
+ .layout{grid-template-columns:minmax(0,1fr) 313px;max-width:1280px}
+ .lesson{grid-column:1;grid-row:1}
+ .guidance{grid-column:2;grid-row:1;display:flex}
+ .catalog{grid-column:1/-1;grid-row:2;margin-top:8px}
+}
+@media(min-width:701px) and (max-width:1100px){
+ .layout{grid-template-columns:minmax(0,1fr)}
+ .guidance{grid-column:1;grid-row:3;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:700px){.worditem{grid-template-columns:35px 60px minmax(0,1fr) 25px}}
