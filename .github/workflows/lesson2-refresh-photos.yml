@@ -1,0 +1,29 @@
+name: Replace eight mismatched Lesson 2 photos locally
+on:
+  push:
+    branches:
+      - feature/lesson2-final-order-audio-qa-20261019
+    paths:
+      - .github/workflows/lesson2-refresh-photos.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch-and-commit-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/lesson2-final-order-audio-qa-20261019
+          persist-credentials: true
+      - name: Get local images for 8 words from Pexels
+        run: python3 tools/lesson2-refresh-photos.py
+      - name: Commit only the new pictures and Lesson 2 word metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/lesson2-photos/*.jpg assets/lesson2-photos/PEXELS-SOURCES.md assets/lesson2-words.json
+          git diff --cached --check
+          git commit -m "Lesson 2: replace eight mismatched or duplicated photos with local images"
+          git push origin HEAD:feature/lesson2-final-order-audio-qa-20261019
