@@ -8,6 +8,16 @@ const icon=(name,white=false)=>'assets/lesson2-icons/'+name+(white?'-white':'')+
 const accent=s=>/[ёЁ]/.test(s)?s:s.replace(/([аеёиоуыэюя])([^аеёиоуыэюя]*)$/iu,'$1\u0301$2');
 const stressed=w=>w.parts.map((p,i)=>i===w.stress?accent(p):p).join('');
 const norm=s=>s.toLowerCase().replace(/ё/g,'е').replace(/[^а-я]/g,'');
+// A learner may repeat the same word while SpeechRecognition is listening.
+// Accept up to 4 identical tokens, but NEVER accept a phrase containing
+// a different word (for example "еда вода" or "не еда").
+function transcriptionMatches(spoken,expectedWord){
+ const expected=norm(expectedWord);
+ if(!expected||typeof spoken!=='string')return false;
+ if(norm(spoken)===expected)return true;
+ const tokens=spoken.toLocaleLowerCase('ru-RU').replace(/ё/g,'е').match(/[а-я]+/g)||[];
+ return tokens.length>=2&&tokens.length<=4&&tokens.every(token=>token===expected);
+}
 let words=[],cards=[],active=-1,recognition=null,recorder=null,stream=null;
 let speechSession=0;
 const recordings=new Map();
@@ -23,7 +33,7 @@ function updateProgress(){
  const fill=document.getElementById('fill');if(fill)fill.style.width=Math.min(100,100*n/words.length)+'%';
  try{localStorage.setItem('lesson2-reference-progress',JSON.stringify({seen:[...seen],good:[...good],review:[...review]}))}catch{}
 }
-const VOICE_CHECK_VERSION='mobile-diagnostics-v3-20261019';
+const VOICE_CHECK_VERSION='mobile-repeat-fix-v4-20261019';
 function diagnostic(i,stage){
  const card=cards[i];if(!card)return;
  let line=card.querySelector('.voice-diagnostics');
@@ -162,13 +172,15 @@ function record(i){
    }
    if(!candidates.length)return;
    received=true;
-   const expected=norm(words[i].word);
-   const matching=candidates.find(t=>norm(t)===expected);
+   const matching=candidates.find(t=>transcriptionMatches(t,words[i].word));
    const id=indexOf(words[i]),ok=!!matching;
    if(ok){good.add(id);review.delete(id)}
    else{review.add(id);good.delete(id)}
-   status(i,ok?'✅ 文字识别正确！':'❌ 文字不一致，请重试',
-    '识别结果：'+(matching||candidates[0])+'。目标：'+words[i].word+'。文字识别不能判断重音是否正确。',!ok);
+   const repeated=ok&&((matching.toLocaleLowerCase('ru-RU').match(/[а-яё]+/g)||[]).length>1);
+   status(i,ok?'✅ 文字识别一致！':'❌ 文字不一致，请重试',
+    '识别结果：'+(matching||candidates[0])+'。目标：'+words[i].word+'。'+
+    (repeated?'多次朗读同一单词，仍算文字一致。':'')+
+    '语音识别仅核对文字，不能可靠判断发音或重音。',!ok);
    updateProgress();
   };
   r.onnomatch=()=>{if(token===speechSession&&!received){failed=true;status(i,'没有匹配的识别结果','请重新点击粉色按钮，大声读出单词。',true)}};
