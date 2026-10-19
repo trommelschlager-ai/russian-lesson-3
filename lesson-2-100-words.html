@@ -22,12 +22,75 @@ button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:
 @media(max-width:730px){.top-inner{min-height:74px;padding:10px 15px}.brand-icon{font-size:35px}.brand-copy strong{font-size:20px}.brand-copy small{font-size:10px}.go-home{padding:9px 12px;font-size:12px}.layout{padding:13px 12px 34px}.intro{padding:20px 19px}.intro h1{font-size:31px}.card{grid-template-columns:1fr;grid-template-areas:'photo' 'info' 'syllables' 'buttons' 'feedback';gap:0;padding:15px}.card .photo-frame{width:100%;height:auto;min-height:0;aspect-ratio:4/3;margin:0 auto}.card .photo{width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover}.word{font-size:43px;margin-top:12px}.syllable-part{margin:14px 0 0}.buttons{gap:8px;margin-top:20px}.action{min-height:57px;gap:4px;font-size:13px;padding:6px 3px}.action b{font-size:20px}}
 @media(max-width:380px){.card .photo-frame{max-height:246px}.card{padding:10px}.action{font-size:11px}.action b{font-size:16px}.syllables{gap:7px}.syl{min-height:47px;min-width:60px;font-size:24px;padding:6px 10px}.brand-copy strong{font-size:16px}.brand-copy small{display:none}.intro h1{font-size:27px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-.group-title{color:#074e33;background:linear-gradient(95deg,#e5f3dc,#fdf6df);border:2px solid #bda15e;border-radius:15px;padding:13px 18px;margin:16px 0 0;font-family:"Noto Serif SC",serif;font-size:clamp(18px,2vw,24px);box-shadow:0 4px 14px #5b713323}.card .photo{object-fit:contain;background:#f7f2dc}.jump a{gap:6px}.jump a .ru{font-size:12px}.jump a .zh{font-size:10px}img.photo[src^="data:image/svg+xml"]{object-fit:contain}.cards{gap:18px}@media(min-width:1250px){.layout{grid-template-columns:225px minmax(0,1fr) 236px}}</style></head><body>
+.group-title{color:#074e33;background:linear-gradient(95deg,#e5f3dc,#fdf6df);border:2px solid #bda15e;border-radius:15px;padding:13px 18px;margin:16px 0 0;font-family:"Noto Serif SC",serif;font-size:clamp(18px,2vw,24px);box-shadow:0 4px 14px #5b713323}.card .photo{object-fit:contain;background:#f7f2dc}.jump a{gap:6px}.jump a .ru{font-size:12px}.jump a .zh{font-size:10px}img.photo[src^="data:image/svg+xml"]{object-fit:contain}.cards{gap:18px}@media(min-width:1250px){.layout{grid-template-columns:225px minmax(0,1fr) 236px}}
+/* APPROVED GOLDEN LESSON DESIGN: only presentation, all 100 existing items and MP3 remain intact */
+body{background:#04452b;color:#422a20}
+.top{min-height:145px;border-bottom:7px ridge #eabd62;box-shadow:0 5px 0 #063c2b;background-size:cover;background-position:center}
+.top-inner{min-height:145px;max-width:none;padding:18px 4%;align-items:center}
+.brand-copy strong{font-family:Georgia,"Noto Serif SC",serif;font-size:clamp(24px,3vw,39px);color:#fff4d0;text-shadow:0 3px 3px #002b20}
+.brand-copy small{display:block;font-size:15px;color:#fff9e4}
+.layout{max-width:1920px;padding:17px 12px 45px;grid-template-columns:minmax(195px,18%) minmax(0,1fr) minmax(220px,20%);gap:12px;background:linear-gradient(120deg,#075736,#093c29 65%,#075736)}
+.sidebar{display:grid;top:10px;max-height:calc(100vh - 20px);gap:12px}
+.heritage{display:none}
+.panel,.intro,.card{border:3px solid #c98a22;background:linear-gradient(135deg,#fffae7,#fffdf4 47%,#fcf2d7);box-shadow:inset 0 0 0 3px #fff4c4,0 0 0 2px #71471e,0 7px 16px #07251970;border-radius:16px}
+.panel:before,.intro:before,.card:before{content:"❦";position:absolute;color:#cc941e;font-size:33px;top:0;left:7px}
+.panel h3{color:#6c291f;font:900 21px Georgia,"Noto Serif SC",serif}
+.left nav.panel{padding:10px 8px}
+.left nav.panel h3{background:linear-gradient(90deg,#00623c,#003c2a);color:#fff5ce;text-align:center;padding:15px 4px;margin:0 0 8px;border-radius:12px;border:2px solid #b88a30}
+.jump{gap:4px}
+.jump a{position:relative;display:grid;grid-template-columns:31px 51px minmax(0,1fr);grid-template-rows:25px 22px;gap:0 6px;min-height:57px;padding:4px;background:#fff9e9;border:1px solid #ead9b5;border-radius:12px}
+.jump a.current{background:#eaffdf;border:2px solid #30ac57;box-shadow:0 0 6px #26ca6280}
+.jump a .n{grid-column:1;grid-row:1/3;width:30px;height:30px;align-self:center}
+.jump a .thumb{grid-column:2;grid-row:1/3;height:48px;width:50px;border-radius:8px;object-fit:cover;background:#f4ead4;border:1px solid #ead5a5}
+.jump a .ru{grid-column:3;grid-row:1;font:900 13px Georgia,serif;color:#7c1f1c;align-self:end}
+.jump a .zh{grid-column:3;grid-row:2;margin:0;color:#185136;font-size:12px}
+.middle{min-width:0}
+.intro{text-align:center;padding:9px 15px 12px;margin-bottom:12px;min-height:82px}
+.intro .eyebrow{padding:0;font-size:19px;color:#72351f}
+.intro h1{margin:3px 0;font-size:clamp(22px,2.2vw,32px)}
+.intro p,.intro .tag{display:none}
+.meter{display:none}
+.cards{display:block}
+.group-title{display:none}
+.card{display:none;grid-template-columns:minmax(200px,52%) minmax(0,1fr);grid-template-areas:"photo info" "photo syllables" "buttons buttons" "feedback feedback";gap:0 20px;min-height:540px;padding:26px 20px 18px;border-radius:19px}
+.card.is-active{display:grid}
+.card .photo-frame{border:6px ridge #da9d2e;outline:3px solid #ecbd56;border-radius:17px;min-height:310px;max-height:450px;box-shadow:inset 0 0 0 4px #fff4ba,0 4px 18px #7a552640}
+.card .photo{object-fit:contain;max-height:none;aspect-ratio:1/1;background:#f3ecd5}
+.info{display:flex;flex-direction:column;justify-content:center;text-align:center}
+.kicker{color:#704d27;font-size:13px}
+.word{font:900 clamp(42px,5.5vw,86px) Georgia,serif;color:#970d17;line-height:1.18;margin:17px 0;overflow-wrap:anywhere}
+.translation{font-size:clamp(18px,2vw,26px);font-weight:800;color:#673020}
+.translation b{font-size:inherit;color:#065934}
+.syllable-part{align-self:center}
+.hint-line{background:#fff1ce;color:#815027;border-color:#efd08b;text-align:center;font-size:14px}
+.syllables{justify-content:center}
+.syl{flex:1;min-height:62px;border-color:#e3a331;background:#fff1d2;font-size:clamp(24px,2.6vw,38px)}
+.syl.stressed{color:#ce1435;background:#ffe3e7;border-color:#e93553}
+.buttons{margin-top:22px;gap:10px}
+.action{min-height:83px;font-size:19px;border-radius:15px}
+.action b{font-size:32px}
+.feedback{min-height:72px;background:#eaf6df;color:#12563a;border-color:#bcd9aa;font-size:16px;font-weight:750}
+.right .panel{padding:16px 12px;margin-bottom:8px;background:linear-gradient(125deg,#fff7dd,#fffefa)}
+.right .step{background:#fffdf6;margin:7px 0;padding:8px 6px}
+.right .step .badge{background:linear-gradient(#d7a153,#b57528)}
+.right .wheel{height:94px;width:94px;margin:8px auto}
+.right .wheel div{height:75px;width:75px;font-size:17px}
+.right .tip{background:#fff7df;color:#684020;border:3px solid #c98a22;box-shadow:inset 0 0 0 3px #fff2ca}
+.lesson-nav{display:grid;grid-template-columns:1fr 120px 1fr;gap:16px;align-items:center;padding:14px 12px;margin-top:4px;background:#fff8e8;border:3px ridge #e6ad39;border-radius:0 0 21px 21px}
+.lesson-nav button{cursor:pointer;min-height:52px;border-radius:36px;border:2px solid #dc9d28;background:linear-gradient(#fffefa,#ffedc4);color:#642c1b;font-size:17px;font-weight:900}
+.lesson-nav #next-word{color:white;border-color:#e7ae40;background:linear-gradient(#098b53,#005631)}
+.lesson-nav #position{text-align:center;font:bold 20px Georgia,serif;color:#5a271a}
+.footnote{font-size:11px;color:#f4dba1}
+@media(min-width:1050px){.sidebar{display:grid}.layout{grid-template-columns:minmax(185px,18%) minmax(0,1fr) minmax(205px,20%)}}
+@media(max-width:1049px){.layout{grid-template-columns:minmax(0,1fr)}.sidebar{position:static;display:block;max-height:none}.left nav.panel{display:block}.jump{max-height:220px;overflow:auto;grid-template-columns:repeat(2,minmax(0,1fr))}.right{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.right .tip{grid-column:1/-1}}
+@media(max-width:650px){.top,.top-inner{min-height:88px}.layout{padding:10px 8px}.intro{min-height:65px}.card.is-active{display:flex;flex-direction:column;min-height:unset;padding:13px}.card .photo-frame{min-height:0;max-height:350px;aspect-ratio:4/3;width:100%}.word{font-size:51px}.kicker{margin-top:12px}.buttons{gap:6px}.action{font-size:13px;min-height:62px;gap:4px}.action b{font-size:20px}.lesson-nav{gap:4px;grid-template-columns:1fr 70px 1fr;padding:8px 5px}.lesson-nav button{font-size:12px}.right{display:block}.jump{grid-template-columns:1fr 1fr}.top-inner{padding:10px}.go-home{font-size:11px}}
+
+</style></head><body>
 <header class="top"><div class="top-inner"><div class="brand"><span class="brand-icon">🪆</span><div class="brand-copy"><strong>俄语零基础入门</strong><small>从零开始，轻松学会俄语！</small></div></div><a class="go-home" href="https://trommelschlager-ai.github.io/russian-lesson-3/">← 返回主页</a></div></header>
 <div class="layout"><aside class="sidebar left"><section class="heritage"><span class="icon">🏰</span><h2>走进俄语世界</h2><p>俄语文化 · 发音 · 阅读<br>每天进步一点点</p></section><nav class="panel" aria-label="单词目录"><h3>📖 单词目录</h3><div class="jump" id="jump"></div></nav></aside>
 <section class="middle"><div class="intro"><div class="eyebrow">✦ 第二课 · 按音节学习 ✦</div><h1>100个简单俄语单词</h1><p>从容易的单词开始学习！先看重音，再听标准录音，慢慢跟读，最后练习说出来。</p><div class="tag">🌿 试听版本 · 已开放全部100个单词</div></div>
 <div class="meter"><span>已识别 <strong id="num">0</strong> / 100</span><div class="track"><div id="fill" class="fill"></div></div><span>共10组</span></div>
-<main id="cards" class="cards" aria-label="100个俄语单词"></main><p class="footnote">这是前10个词的独立试听版本。麦克风只比较语音识别得到的文字，不能专业评判重音与口音。<br>第1课和正式课程主页保持不变。</p></section>
+<main id="cards" class="cards" aria-label="100个俄语单词"></main><p class="footnote">这是100个单词的完整练习版本。麦克风只比较语音识别得到的文字，不能专业评判重音与口音。<br>第1课和正式课程主页保持不变。</p></section>
 <aside class="sidebar right"><section class="panel"><h3>🎓 怎样学习？</h3><div class="step"><span class="badge">1</span><div><b>看音节</b><small>找出标红色的重读音节</small></div></div><div class="step"><span class="badge">2</span><div><b>先听原音</b><small>点击蓝色按钮，仔细聆听</small></div></div><div class="step"><span class="badge">3</span><div><b>慢速跟读</b><small>点击金色按钮，放慢语速</small></div></div><div class="step"><span class="badge">4</span><div><b>麦克风练习</b><small>点击红色按钮，说出完整单词</small></div></div></section>
 <section class="panel"><h3>🏆 我的学习进度</h3><div class="wheel" id="wheel" role="progressbar" aria-label="正确识别的单词数" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="wheel-label">0/100</div></div><div class="motiv" id="motivation">每一个单词，都是一小步进步 ✨</div></section><section class="tip">💡 <b>学习小提示</b><br>红色音节表示重音，先听后读。不要担心说错，多练习就会越来越好！</section></aside></div>
 <audio id="player" preload="none" hidden></audio>
@@ -52,4 +115,38 @@ let link=document.createElement('a');link.href='#'+card.id;link.innerHTML='<span
 });
 window.addEventListener('pagehide',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});update();
 })();
-</script></body></html>
+</script>
+<script>
+/* Presentation-only navigation: keeps existing per-word MP3/audio/microphone listeners. */
+(function(){
+  const cards=Array.from(document.querySelectorAll('#cards .card'));
+  const links=Array.from(document.querySelectorAll('#jump a'));
+  if(cards.length!==100||links.length!==100)return;
+  const nav=document.createElement('div');nav.className='lesson-nav';
+  nav.innerHTML='<button type="button" id="prev-word">❮ 上一个单词</button><span id="position">1 / 100</span><button type="button" id="next-word">下一个单词 ❯</button>';
+  document.querySelector('#cards').after(nav);
+  const imgEls=cards.map(x=>x.querySelector('.photo'));
+  links.forEach((a,i)=>{
+    let img=document.createElement('img');img.className='thumb';img.alt='';img.loading=i<10?'eager':'lazy';img.src=imgEls[i]?.src||'';
+    a.querySelector('.n')?.after(img);
+    a.addEventListener('click',e=>{e.preventDefault();show(i);});
+  });
+  let index=0;
+  function show(i){
+    index=Math.max(0,Math.min(cards.length-1,i));
+    const p=document.querySelector('#player');if(p&&!p.paused){p.pause();}
+    cards.forEach((card,j)=>{card.classList.toggle('is-active',index===j);card.setAttribute('aria-hidden',j!==index?'true':'false')});
+    links.forEach((link,j)=>link.classList.toggle('current',index===j));
+    document.querySelector('#position').textContent=(index+1)+' / '+cards.length;
+    document.querySelector('#prev-word').disabled=index===0;
+    document.querySelector('#next-word').disabled=index===cards.length-1;
+    document.querySelector('.middle .intro').scrollIntoView({block:'start',behavior:'instant'});
+    try{history.replaceState(null,'','#word-'+(index+1))}catch{}
+  }
+  document.querySelector('#prev-word').addEventListener('click',()=>show(index-1));
+  document.querySelector('#next-word').addEventListener('click',()=>show(index+1));
+  const initial=Number((location.hash.match(/^#word-(\d+)$/)||[])[1]||1);
+  show(initial-1);
+})();
+</script>
+</body></html>
