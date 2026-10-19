@@ -9,3 +9,5 @@ Images from Pexels, free-to-use license.
 - Вчера: [Pixabay / Pexels](https://www.pexels.com/photo/273153/), downloaded as calendar-yesterday-pexels.jpg.
 - Сегодня: [Fauzan Fitria / Pexels](https://www.pexels.com/photo/8646391/), downloaded as calendar-today-pexels.jpg.
 - Завтра: [Towfiqu barbhuiya / Pexels](https://www.pexels.com/photo/11773871/), downloaded as calendar-tomorrow-pexels.jpg.
+
+- Солнце: [Tuğba / Pexels](https://www.pexels.com/photo/the-sun-is-shining-brightly-in-the-blue-sky-27679978/), local sun-sky-pexels.jpg (1600 × 1067). [Pexels license](https://www.pexels.com/license/) permits free website/commercial use and cropping; checked 2026-10-19. Sky and sun only; no text or identifiable people. CSS object-position keeps the sun visible inside the existing gold frame.

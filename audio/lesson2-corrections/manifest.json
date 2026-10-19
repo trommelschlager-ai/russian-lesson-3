@@ -1,0 +1,12 @@
+[
+  {
+    "field": "wordAudio",
+    "display": "Йогурт",
+    "spoken": "Йо́гурт.",
+    "voice": "Svetlana",
+    "engine": "ru-RU-SvetlanaNeural",
+    "file": "audio/lesson2-corrections/yogurt-svetlana-first-stress.mp3",
+    "listeningVerified": false,
+    "note": "Explicit first-syllable stress supplied to synthesis. Auditory review still required; runtime cannot hear audio."
+  }
+]

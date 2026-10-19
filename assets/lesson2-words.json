@@ -1153,7 +1153,7 @@
     "latin": "yogurt",
     "zh": "酸奶",
     "group": 8,
-    "url": "audio/alphabet-natural/svetlana-406448f56278e5ab.mp3",
+    "url": "audio/lesson2-corrections/yogurt-svetlana-first-stress.mp3",
     "voiceLabel": "女声 · 斯韦特兰娜",
     "imageData": "assets/lesson2-photos/word-029.jpg",
     "fit": "contain",
@@ -1171,8 +1171,9 @@
     "group": 8,
     "url": "audio/alphabet-natural/svetlana-45ce6fd92d1ab15f.mp3",
     "voiceLabel": "女声 · 斯韦特兰娜",
-    "imageData": "assets/lesson2-photos/word-041.png",
-    "legacyIndex": 74
+    "imageData": "assets/lesson2-photos/sun-sky-pexels.jpg",
+    "legacyIndex": 74,
+    "position": "100% 30%"
   },
   {
     "word": "Звезда",
