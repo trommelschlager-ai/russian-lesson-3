@@ -27,7 +27,11 @@ try{
   await page.setViewport({width,height,isMobile:width<=700,hasTouch:width<=700});
   await page.evaluateOnNewDocument(()=>{HTMLMediaElement.prototype.play=function(){return Promise.resolve()}});
   await page.goto(url,{waitUntil:'networkidle0',timeout:60000});
+  await page.evaluate(()=>localStorage.removeItem('lesson2-reference-progress'));
+  await page.reload({waitUntil:'networkidle0',timeout:60000});
   await page.waitForFunction(()=>window.lesson2?.words?.length===100,{timeout:25000});
+  await page.waitForFunction(()=>document.querySelector('#photo')?.naturalWidth>0,{timeout:20000});
+  await page.screenshot({path:'lesson2-qa-screenshots/lesson2-'+width+'x'+height+'.png',fullPage:true});
   assert.equal(await page.$$eval('.worditem',a=>a.length),100);
   const results=await page.evaluate(async()=>{
    const words=window.lesson2.words, bad=[];
@@ -49,7 +53,7 @@ try{
   await page.waitForFunction(()=>document.querySelector('#photo')?.naturalWidth>0,{timeout:20000});
   await page.click('#play');assert.equal(await page.$eval('#audio',e=>e.playbackRate),1);
   await page.click('#slow');assert.equal(await page.$eval('#audio',e=>e.playbackRate),.7);
-  await page.screenshot({path:'lesson2-qa-screenshots/lesson2-'+width+'x'+height+'.png',fullPage:true});
+
   assert.deepEqual(errors,[]);
   console.log('PASS '+width+'x'+height+': 100 rendered words; images, audio rates, navigation and text fitting OK');
   await page.close();
