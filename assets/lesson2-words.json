@@ -1,0 +1,1486 @@
+[
+  {
+    "word": "Мама",
+    "parts": [
+      "МА",
+      "МА"
+    ],
+    "stress": 0,
+    "latin": "mama",
+    "zh": "妈妈",
+    "emoji": "👩‍👧",
+    "group": 1,
+    "url": "audio/alphabet-natural/svetlana-2ccfed8bd93ea3ac.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/embedded-001.webp"
+  },
+  {
+    "word": "Папа",
+    "parts": [
+      "ПА",
+      "ПА"
+    ],
+    "stress": 0,
+    "latin": "papa",
+    "zh": "爸爸",
+    "emoji": "👨‍👦",
+    "group": 1,
+    "url": "audio/alphabet-natural/svetlana-a0db4873b559279f.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/embedded-002.webp"
+  },
+  {
+    "word": "Вода",
+    "parts": [
+      "ВО",
+      "ДА"
+    ],
+    "stress": 1,
+    "latin": "voda",
+    "zh": "水",
+    "emoji": "💧",
+    "group": 1,
+    "url": "audio/alphabet-natural/svetlana-a8cd0937ee62e1f6.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/embedded-003.webp"
+  },
+  {
+    "word": "Рука",
+    "parts": [
+      "РУ",
+      "КА"
+    ],
+    "stress": 1,
+    "latin": "ruka",
+    "zh": "手",
+    "emoji": "✋",
+    "group": 1,
+    "url": "audio/alphabet-natural/svetlana-63b1a2505193fb92.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/embedded-004.webp"
+  },
+  {
+    "word": "Нога",
+    "parts": [
+      "НО",
+      "ГА"
+    ],
+    "stress": 1,
+    "latin": "noga",
+    "zh": "腿",
+    "emoji": "🦵",
+    "group": 1,
+    "url": "audio/alphabet-natural/dmitry-f066c32651c7eeb1.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/embedded-005.webp"
+  },
+  {
+    "word": "Собака",
+    "parts": [
+      "СО",
+      "БА",
+      "КА"
+    ],
+    "stress": 1,
+    "latin": "sobaka",
+    "zh": "狗",
+    "group": 4,
+    "url": "audio/alphabet-natural/svetlana-87361ecc38e7b29a.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-031.jpg"
+  },
+  {
+    "word": "Цветок",
+    "parts": [
+      "ЦВЕ",
+      "ТОК"
+    ],
+    "stress": 1,
+    "latin": "tsvetok",
+    "zh": "花",
+    "emoji": "🌸",
+    "group": 1,
+    "url": "audio/alphabet-natural/svetlana-1ff492d4122f4c7a.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/flower-verified.jpg"
+  },
+  {
+    "word": "Птица",
+    "parts": [
+      "ПТИ",
+      "ЦА"
+    ],
+    "stress": 0,
+    "latin": "ptitsa",
+    "zh": "鸟",
+    "emoji": "🐦",
+    "group": 1,
+    "url": "audio/alphabet-natural/svetlana-bdff791cbc88be0b.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/embedded-008.webp"
+  },
+  {
+    "word": "Еда",
+    "parts": [
+      "Е",
+      "ДА"
+    ],
+    "stress": 1,
+    "latin": "eda",
+    "zh": "食物",
+    "emoji": "🍽️",
+    "group": 1,
+    "url": "audio/alphabet-natural/dmitry-a1928eff1025ac68.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/embedded-009.webp"
+  },
+  {
+    "word": "Имя",
+    "parts": [
+      "И",
+      "МЯ"
+    ],
+    "stress": 0,
+    "latin": "imya",
+    "zh": "名字",
+    "group": 2,
+    "url": "audio/alphabet-natural/svetlana-a5b4168609c6f643.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-019.jpg"
+  },
+  {
+    "word": "Рыба",
+    "parts": [
+      "РЫ",
+      "БА"
+    ],
+    "stress": 0,
+    "latin": "ryba",
+    "zh": "鱼",
+    "emoji": "🐟",
+    "group": 1,
+    "url": "audio/alphabet-natural/dmitry-c2556ed6253e4063.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/embedded-011.webp"
+  },
+  {
+    "word": "Лиса",
+    "parts": [
+      "ЛИ",
+      "СА"
+    ],
+    "stress": 1,
+    "latin": "lisa",
+    "zh": "狐狸",
+    "emoji": "🦊",
+    "group": 1,
+    "url": "audio/alphabet-natural/svetlana-415e790b0a710f54.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/embedded-012.webp"
+  },
+  {
+    "word": "Дети",
+    "parts": [
+      "ДЕ",
+      "ТИ"
+    ],
+    "stress": 0,
+    "latin": "deti",
+    "zh": "孩子们",
+    "group": 2,
+    "url": "audio/alphabet-natural/dmitry-5a8150cac45f6ed5.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-015.jpg"
+  },
+  {
+    "word": "Жена",
+    "parts": [
+      "ЖЕ",
+      "НА"
+    ],
+    "stress": 1,
+    "latin": "zhena",
+    "zh": "妻子",
+    "group": 2,
+    "url": "audio/course/male-07f858bb1607c9.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/wife.webp"
+  },
+  {
+    "word": "Утро",
+    "parts": [
+      "УТ",
+      "РО"
+    ],
+    "stress": 0,
+    "latin": "utro",
+    "zh": "早晨",
+    "group": 2,
+    "url": "audio/alphabet-natural/svetlana-8971aabd36b91cff.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-020.jpg"
+  },
+  {
+    "word": "Заяц",
+    "parts": [
+      "ЗА",
+      "ЯЦ"
+    ],
+    "stress": 0,
+    "latin": "zayats",
+    "zh": "野兔",
+    "group": 4,
+    "url": "audio/alphabet-natural/svetlana-bf1a36089626bc6b.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-033.jpg"
+  },
+  {
+    "word": "Жаба",
+    "parts": [
+      "ЖА",
+      "БА"
+    ],
+    "stress": 0,
+    "latin": "zhaba",
+    "zh": "蟾蜍",
+    "group": 4,
+    "url": "audio/alphabet-natural/svetlana-34122f59dcda4a37.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-035.jpg"
+  },
+  {
+    "word": "Енот",
+    "parts": [
+      "Е",
+      "НОТ"
+    ],
+    "stress": 1,
+    "latin": "enot",
+    "zh": "浣熊",
+    "group": 4,
+    "url": "audio/alphabet-natural/svetlana-707c4fc4d00a86b4.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-038.jpg"
+  },
+  {
+    "word": "Щука",
+    "parts": [
+      "ЩУ",
+      "КА"
+    ],
+    "stress": 0,
+    "latin": "shchuka",
+    "zh": "狗鱼",
+    "group": 4,
+    "url": "audio/alphabet-natural/svetlana-8f0feb22cc60e864.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-039.jpg"
+  },
+  {
+    "word": "Лапа",
+    "parts": [
+      "ЛА",
+      "ПА"
+    ],
+    "stress": 0,
+    "latin": "lapa",
+    "zh": "动物的爪子",
+    "group": 4,
+    "url": "audio/course/male-49d5514a451c49.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/paw.webp"
+  },
+  {
+    "word": "Луна",
+    "parts": [
+      "ЛУ",
+      "НА"
+    ],
+    "stress": 1,
+    "latin": "luna",
+    "zh": "月亮",
+    "group": 5,
+    "url": "audio/alphabet-natural/dmitry-5da301d9006d9668.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-042.jpg"
+  },
+  {
+    "word": "Море",
+    "parts": [
+      "МО",
+      "РЕ"
+    ],
+    "stress": 0,
+    "latin": "more",
+    "zh": "大海",
+    "group": 5,
+    "url": "audio/alphabet-natural/svetlana-362b424070aea83e.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-043.jpg"
+  },
+  {
+    "word": "Река",
+    "parts": [
+      "РЕ",
+      "КА"
+    ],
+    "stress": 1,
+    "latin": "reka",
+    "zh": "河流",
+    "group": 5,
+    "url": "audio/alphabet-natural/svetlana-f02ddaf49828a3df.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-044.jpg"
+  },
+  {
+    "word": "Гора",
+    "parts": [
+      "ГО",
+      "РА"
+    ],
+    "stress": 1,
+    "latin": "gora",
+    "zh": "山",
+    "group": 5,
+    "url": "audio/alphabet-natural/svetlana-62e3d8bd18b4e7bc.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-045.jpg"
+  },
+  {
+    "word": "Небо",
+    "parts": [
+      "НЕ",
+      "БО"
+    ],
+    "stress": 0,
+    "latin": "nebo",
+    "zh": "天空",
+    "group": 5,
+    "url": "audio/alphabet-natural/svetlana-919105ced7217afc.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-046.jpg"
+  },
+  {
+    "word": "Зима",
+    "parts": [
+      "ЗИ",
+      "МА"
+    ],
+    "stress": 1,
+    "latin": "zima",
+    "zh": "冬天",
+    "group": 5,
+    "url": "audio/alphabet-natural/svetlana-7a777f749cbe9bcf.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-047.jpg"
+  },
+  {
+    "word": "Окно",
+    "parts": [
+      "ОК",
+      "НО"
+    ],
+    "stress": 1,
+    "latin": "okno",
+    "zh": "窗户",
+    "group": 6,
+    "url": "audio/alphabet-natural/svetlana-ec851e22cf1ef2cf.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-051.jpg"
+  },
+  {
+    "word": "Рама",
+    "parts": [
+      "РА",
+      "МА"
+    ],
+    "stress": 0,
+    "latin": "rama",
+    "zh": "框架",
+    "group": 6,
+    "url": "audio/course/male-ecbaf9c0201ff9.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/frame.webp",
+    "fit": "contain"
+  },
+  {
+    "word": "Юбка",
+    "parts": [
+      "ЮБ",
+      "КА"
+    ],
+    "stress": 0,
+    "latin": "yubka",
+    "zh": "裙子",
+    "group": 6,
+    "url": "audio/alphabet-natural/svetlana-001995a0cb3ade65.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-056.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Фото",
+    "parts": [
+      "ФО",
+      "ТО"
+    ],
+    "stress": 0,
+    "latin": "foto",
+    "zh": "照片",
+    "group": 6,
+    "url": "audio/alphabet-natural/svetlana-02e508ce16390ea9.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-060.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Часы",
+    "parts": [
+      "ЧА",
+      "СЫ"
+    ],
+    "stress": 1,
+    "latin": "chasy",
+    "zh": "钟表",
+    "group": 8,
+    "url": "audio/alphabet-natural/svetlana-e733377180609d69.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-072.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Игра",
+    "parts": [
+      "И",
+      "ГРА"
+    ],
+    "stress": 1,
+    "latin": "igra",
+    "zh": "游戏",
+    "group": 8,
+    "url": "audio/alphabet-natural/svetlana-a4fc1fb4978f6f25.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-076.jpg"
+  },
+  {
+    "word": "Йога",
+    "parts": [
+      "ЙО",
+      "ГА"
+    ],
+    "stress": 0,
+    "latin": "yoga",
+    "zh": "瑜伽",
+    "group": 8,
+    "url": "audio/alphabet-natural/dmitry-9ce80d172a123370.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-078.jpg"
+  },
+  {
+    "word": "Обед",
+    "parts": [
+      "О",
+      "БЕД"
+    ],
+    "stress": 1,
+    "latin": "obed",
+    "zh": "午餐",
+    "group": 9,
+    "url": "audio/course/male-c0f7d29eab87f0.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-085.jpg",
+    "caption": "中午吃的饭 · 午餐"
+  },
+  {
+    "word": "Ужин",
+    "parts": [
+      "У",
+      "ЖИН"
+    ],
+    "stress": 0,
+    "latin": "uzhin",
+    "zh": "晚餐",
+    "group": 9,
+    "url": "audio/course/male-9828c495271752.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/dinner.webp",
+    "caption": "晚上吃的饭 · 晚餐"
+  },
+  {
+    "word": "Один",
+    "parts": [
+      "О",
+      "ДИН"
+    ],
+    "stress": 1,
+    "latin": "odin",
+    "zh": "一",
+    "group": 9,
+    "url": "audio/course/male-c5cffb9e60232c.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/illustrated/number-1.jpg",
+    "caption": "一个 · 1",
+    "fit": "contain"
+  },
+  {
+    "word": "Кофе",
+    "parts": [
+      "КО",
+      "ФЕ"
+    ],
+    "stress": 0,
+    "latin": "kofe",
+    "zh": "咖啡",
+    "group": 10,
+    "url": "audio/alphabet-natural/dmitry-b88b94a13127f12b.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-093.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Ёлка",
+    "parts": [
+      "ЁЛ",
+      "КА"
+    ],
+    "stress": 0,
+    "latin": "yolka",
+    "zh": "圣诞树",
+    "group": 10,
+    "url": "audio/alphabet-natural/svetlana-6c456e194cc3f14c.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-095.jpg"
+  },
+  {
+    "word": "Язык",
+    "parts": [
+      "Я",
+      "ЗЫК"
+    ],
+    "stress": 1,
+    "latin": "yazyk",
+    "zh": "语言/舌头",
+    "group": 10,
+    "url": "audio/alphabet-natural/svetlana-9784abe519d5144b.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/language.webp",
+    "caption": "这里表示「语言」；язык 也可以表示「舌头」"
+  },
+  {
+    "word": "Семья",
+    "parts": [
+      "СЕ",
+      "МЬЯ"
+    ],
+    "stress": 1,
+    "latin": "semya",
+    "zh": "家庭",
+    "group": 2,
+    "url": "audio/course/male-dcc632cd253f5a.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/family.webp"
+  },
+  {
+    "word": "Банан",
+    "parts": [
+      "БА",
+      "НАН"
+    ],
+    "stress": 1,
+    "latin": "banan",
+    "zh": "香蕉",
+    "group": 3,
+    "url": "audio/alphabet-natural/svetlana-f29141a7ba0c7fc9.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-021.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Арбуз",
+    "parts": [
+      "АР",
+      "БУЗ"
+    ],
+    "stress": 1,
+    "latin": "arbuz",
+    "zh": "西瓜",
+    "group": 3,
+    "url": "audio/alphabet-natural/svetlana-ba263f664be9d1a5.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-022.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Лимон",
+    "parts": [
+      "ЛИ",
+      "МОН"
+    ],
+    "stress": 1,
+    "latin": "limon",
+    "zh": "柠檬",
+    "group": 3,
+    "url": "audio/alphabet-natural/svetlana-476b0f258f6b7372.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-025.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Ягода",
+    "parts": [
+      "Я",
+      "ГО",
+      "ДА"
+    ],
+    "stress": 0,
+    "latin": "yagoda",
+    "zh": "浆果",
+    "group": 3,
+    "url": "audio/alphabet-natural/svetlana-1ab0f7faaee61950.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-027.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Вишня",
+    "parts": [
+      "ВИШ",
+      "НЯ"
+    ],
+    "stress": 0,
+    "latin": "vishnya",
+    "zh": "樱桃",
+    "group": 3,
+    "url": "audio/alphabet-natural/svetlana-110fd868308f953b.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-028.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Пицца",
+    "parts": [
+      "ПИЦ",
+      "ЦА"
+    ],
+    "stress": 0,
+    "latin": "pitstsa",
+    "zh": "披萨",
+    "group": 3,
+    "url": "audio/alphabet-natural/dmitry-4699e69f1f975e79.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-030.jpg"
+  },
+  {
+    "word": "Жираф",
+    "parts": [
+      "ЖИ",
+      "РАФ"
+    ],
+    "stress": 1,
+    "latin": "zhiraf",
+    "zh": "长颈鹿",
+    "group": 4,
+    "url": "audio/alphabet-natural/dmitry-fa7850b2bf71522c.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-032.jpg"
+  },
+  {
+    "word": "Хомяк",
+    "parts": [
+      "ХО",
+      "МЯК"
+    ],
+    "stress": 1,
+    "latin": "khomyak",
+    "zh": "仓鼠",
+    "group": 4,
+    "url": "audio/alphabet-natural/dmitry-fccc7ddb6c7c81df.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-034.jpg"
+  },
+  {
+    "word": "Ветер",
+    "parts": [
+      "ВЕ",
+      "ТЕР"
+    ],
+    "stress": 0,
+    "latin": "veter",
+    "zh": "风",
+    "group": 5,
+    "url": "audio/alphabet-natural/svetlana-d33c5fdb3115722e.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-048.jpg"
+  },
+  {
+    "word": "Книга",
+    "parts": [
+      "КНИ",
+      "ГА"
+    ],
+    "stress": 0,
+    "latin": "kniga",
+    "zh": "书",
+    "group": 6,
+    "url": "audio/alphabet-natural/svetlana-cea221c5414e3d7e.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-053.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Чашка",
+    "parts": [
+      "ЧАШ",
+      "КА"
+    ],
+    "stress": 0,
+    "latin": "chashka",
+    "zh": "杯子",
+    "group": 6,
+    "url": "audio/alphabet-natural/svetlana-30a21ec3f3618ecb.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-054.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Шапка",
+    "parts": [
+      "ШАП",
+      "КА"
+    ],
+    "stress": 0,
+    "latin": "shapka",
+    "zh": "帽子",
+    "group": 6,
+    "url": "audio/alphabet-natural/dmitry-b4d906216eab0dd5.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-055.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Халат",
+    "parts": [
+      "ХА",
+      "ЛАТ"
+    ],
+    "stress": 1,
+    "latin": "khalat",
+    "zh": "浴袍",
+    "group": 6,
+    "url": "audio/alphabet-natural/svetlana-0a3c6bafca91dea0.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/illustrated/bathrobe-white.webp",
+    "fit": "contain"
+  },
+  {
+    "word": "Щётка",
+    "parts": [
+      "ЩЁТ",
+      "КА"
+    ],
+    "stress": 0,
+    "latin": "shchyotka",
+    "zh": "刷子",
+    "group": 6,
+    "url": "audio/alphabet-natural/svetlana-98b06bd1f81fe244.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-058.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Такси",
+    "parts": [
+      "ТАК",
+      "СИ"
+    ],
+    "stress": 1,
+    "latin": "taksi",
+    "zh": "出租车",
+    "group": 7,
+    "url": "audio/alphabet-natural/svetlana-321dd4415c6d4702.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-063.jpg"
+  },
+  {
+    "word": "Улица",
+    "parts": [
+      "У",
+      "ЛИ",
+      "ЦА"
+    ],
+    "stress": 0,
+    "latin": "ulitsa",
+    "zh": "街道",
+    "group": 7,
+    "url": "audio/alphabet-natural/svetlana-6e0a615b954662b0.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-064.jpg"
+  },
+  {
+    "word": "Город",
+    "parts": [
+      "ГО",
+      "РОД"
+    ],
+    "stress": 0,
+    "latin": "gorod",
+    "zh": "城市",
+    "group": 7,
+    "url": "audio/alphabet-natural/dmitry-7b718d247c612a39.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-065.jpg"
+  },
+  {
+    "word": "Школа",
+    "parts": [
+      "ШКО",
+      "ЛА"
+    ],
+    "stress": 0,
+    "latin": "shkola",
+    "zh": "学校",
+    "group": 7,
+    "url": "audio/alphabet-natural/svetlana-c3195a28f9d4f5e4.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-066.jpg"
+  },
+  {
+    "word": "Экран",
+    "parts": [
+      "ЭК",
+      "РАН"
+    ],
+    "stress": 1,
+    "latin": "ekran",
+    "zh": "屏幕",
+    "group": 7,
+    "url": "audio/alphabet-natural/dmitry-c45626f3b73901d5.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-070.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Робот",
+    "parts": [
+      "РО",
+      "БОТ"
+    ],
+    "stress": 0,
+    "latin": "robot",
+    "zh": "机器人",
+    "group": 8,
+    "url": "audio/alphabet-natural/svetlana-7752de9e640db4a7.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-073.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Учёба",
+    "parts": [
+      "У",
+      "ЧЁ",
+      "БА"
+    ],
+    "stress": 1,
+    "latin": "uchyoba",
+    "zh": "学习",
+    "group": 8,
+    "url": "audio/course/male-303ab71ac077e6.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/study.webp"
+  },
+  {
+    "word": "Отдых",
+    "parts": [
+      "ОТ",
+      "ДЫХ"
+    ],
+    "stress": 0,
+    "latin": "otdykh",
+    "zh": "休息",
+    "group": 8,
+    "url": "audio/course/male-5725a4fdc649d0.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/rest.webp"
+  },
+  {
+    "word": "Вчера",
+    "parts": [
+      "ВЧЕ",
+      "РА"
+    ],
+    "stress": 1,
+    "latin": "vchera",
+    "zh": "昨天",
+    "group": 9,
+    "url": "audio/course/male-ae808fbec3ba38.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/calendar.webp",
+    "caption": "【昨天】 ← 今天 → 明天"
+  },
+  {
+    "word": "Вечер",
+    "parts": [
+      "ВЕ",
+      "ЧЕР"
+    ],
+    "stress": 0,
+    "latin": "vecher",
+    "zh": "晚上",
+    "group": 9,
+    "url": "audio/course/male-a6dabeb9673168.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/illustrated/day-2.jpg",
+    "caption": "太阳落山以后 · 晚上"
+  },
+  {
+    "word": "Домой",
+    "parts": [
+      "ДО",
+      "МОЙ"
+    ],
+    "stress": 1,
+    "latin": "domoy",
+    "zh": "回家",
+    "group": 9,
+    "url": "audio/course/male-7ec561e04671ca.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/homeward.webp",
+    "caption": "回家的方向 · домой"
+  },
+  {
+    "word": "Потом",
+    "parts": [
+      "ПО",
+      "ТОМ"
+    ],
+    "stress": 1,
+    "latin": "potom",
+    "zh": "然后",
+    "group": 9,
+    "url": "audio/course/male-07914f8750b9d5.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-088.jpg",
+    "caption": "先学习，然后休息 · потом = 然后／以后"
+  },
+  {
+    "word": "Овощи",
+    "parts": [
+      "О",
+      "ВО",
+      "ЩИ"
+    ],
+    "stress": 0,
+    "latin": "ovoshchi",
+    "zh": "蔬菜",
+    "group": 10,
+    "url": "audio/alphabet-natural/svetlana-30d1edb87a7cdf5f.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-091.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Озеро",
+    "parts": [
+      "О",
+      "ЗЕ",
+      "РО"
+    ],
+    "stress": 0,
+    "latin": "ozero",
+    "zh": "湖",
+    "group": 10,
+    "url": "audio/alphabet-natural/svetlana-4bad51cceb3eab16.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-096.jpg"
+  },
+  {
+    "word": "Холод",
+    "parts": [
+      "ХО",
+      "ЛОД"
+    ],
+    "stress": 0,
+    "latin": "kholod",
+    "zh": "寒冷",
+    "group": 10,
+    "url": "audio/alphabet-natural/svetlana-9fd4d3303d14ce19.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-098.jpg"
+  },
+  {
+    "word": "Сестра",
+    "parts": [
+      "СЕ",
+      "СТРА"
+    ],
+    "stress": 1,
+    "latin": "sestra",
+    "zh": "姐妹",
+    "group": 2,
+    "url": "audio/course/male-41bb67b6e83273.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/sisters.webp",
+    "caption": "姐妹 · сестра：姐姐或妹妹"
+  },
+  {
+    "word": "Улыбка",
+    "parts": [
+      "У",
+      "ЛЫБ",
+      "КА"
+    ],
+    "stress": 1,
+    "latin": "ulybka",
+    "zh": "微笑",
+    "group": 2,
+    "url": "audio/alphabet-natural/svetlana-2c6913ac7a880e49.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-018.jpg"
+  },
+  {
+    "word": "Молоко",
+    "parts": [
+      "МО",
+      "ЛО",
+      "КО"
+    ],
+    "stress": 2,
+    "latin": "moloko",
+    "zh": "牛奶",
+    "group": 3,
+    "url": "audio/alphabet-natural/svetlana-76455a1de03b74f0.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-023.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Яблоко",
+    "parts": [
+      "Я",
+      "БЛО",
+      "КО"
+    ],
+    "stress": 0,
+    "latin": "yabloko",
+    "zh": "苹果",
+    "group": 3,
+    "url": "audio/alphabet-natural/svetlana-c520eb93cf15b76d.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-024.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Йогурт",
+    "parts": [
+      "ЙО",
+      "ГУРТ"
+    ],
+    "stress": 0,
+    "latin": "yogurt",
+    "zh": "酸奶",
+    "group": 3,
+    "url": "audio/alphabet-natural/svetlana-406448f56278e5ab.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-029.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Солнце",
+    "parts": [
+      "СОЛН",
+      "ЦЕ"
+    ],
+    "stress": 0,
+    "latin": "solntse",
+    "zh": "太阳",
+    "group": 5,
+    "url": "audio/alphabet-natural/svetlana-45ce6fd92d1ab15f.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-041.png"
+  },
+  {
+    "word": "Звезда",
+    "parts": [
+      "ЗВЕ",
+      "ЗДА"
+    ],
+    "stress": 1,
+    "latin": "zvezda",
+    "zh": "星星",
+    "group": 5,
+    "url": "audio/alphabet-natural/dmitry-8b3b0fe235735a12.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-049.jpg"
+  },
+  {
+    "word": "Облако",
+    "parts": [
+      "О",
+      "БЛА",
+      "КО"
+    ],
+    "stress": 0,
+    "latin": "oblako",
+    "zh": "云朵",
+    "group": 5,
+    "url": "audio/alphabet-natural/dmitry-a398cbb2d19cd010.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-050.jpg"
+  },
+  {
+    "word": "Иголка",
+    "parts": [
+      "И",
+      "ГОЛ",
+      "КА"
+    ],
+    "stress": 1,
+    "latin": "igolka",
+    "zh": "针",
+    "group": 6,
+    "url": "audio/alphabet-natural/svetlana-e15c1a327bbd145e.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-059.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Машина",
+    "parts": [
+      "МА",
+      "ШИ",
+      "НА"
+    ],
+    "stress": 1,
+    "latin": "mashina",
+    "zh": "汽车",
+    "group": 7,
+    "url": "audio/alphabet-natural/dmitry-fc28f3046acb5b33.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-061.jpg"
+  },
+  {
+    "word": "Работа",
+    "parts": [
+      "РА",
+      "БО",
+      "ТА"
+    ],
+    "stress": 1,
+    "latin": "rabota",
+    "zh": "工作",
+    "group": 7,
+    "url": "audio/course/male-4913b12297f0ec.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/work.webp"
+  },
+  {
+    "word": "Журнал",
+    "parts": [
+      "ЖУР",
+      "НАЛ"
+    ],
+    "stress": 1,
+    "latin": "zhurnal",
+    "zh": "杂志",
+    "group": 8,
+    "url": "audio/alphabet-natural/svetlana-4345ed6eb4349d4c.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-071.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Гитара",
+    "parts": [
+      "ГИ",
+      "ТА",
+      "РА"
+    ],
+    "stress": 1,
+    "latin": "gitara",
+    "zh": "吉他",
+    "group": 8,
+    "url": "audio/alphabet-natural/svetlana-207b40a15cc18118.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-074.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Завтра",
+    "parts": [
+      "ЗАВ",
+      "ТРА"
+    ],
+    "stress": 0,
+    "latin": "zavtra",
+    "zh": "明天",
+    "group": 9,
+    "url": "audio/course/male-ea547cc196d055.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/calendar.webp",
+    "caption": "昨天 ← 今天 → 【明天】"
+  },
+  {
+    "word": "Четыре",
+    "parts": [
+      "ЧЕ",
+      "ТЫ",
+      "РЕ"
+    ],
+    "stress": 1,
+    "latin": "chetyre",
+    "zh": "四",
+    "group": 9,
+    "url": "audio/course/male-fd4bca526fa9c8.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/illustrated/number-4.jpg",
+    "caption": "四个 · 4",
+    "fit": "contain"
+  },
+  {
+    "word": "Фрукты",
+    "parts": [
+      "ФРУК",
+      "ТЫ"
+    ],
+    "stress": 0,
+    "latin": "frukty",
+    "zh": "水果",
+    "group": 10,
+    "url": "audio/alphabet-natural/dmitry-95cd0df0d380476b.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-092.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Дерево",
+    "parts": [
+      "ДЕ",
+      "РЕ",
+      "ВО"
+    ],
+    "stress": 0,
+    "latin": "derevo",
+    "zh": "树木",
+    "group": 10,
+    "url": "audio/alphabet-natural/svetlana-00500db1d9b1106d.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-097.jpg"
+  },
+  {
+    "word": "Ёлочка",
+    "parts": [
+      "Ё",
+      "ЛОЧ",
+      "КА"
+    ],
+    "stress": 0,
+    "latin": "yolochka",
+    "zh": "小圣诞树",
+    "group": 10,
+    "url": "audio/alphabet-natural/svetlana-12d97b397ebbc0ef.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-099.jpg"
+  },
+  {
+    "word": "Бабушка",
+    "parts": [
+      "БА",
+      "БУ",
+      "ШКА"
+    ],
+    "stress": 0,
+    "latin": "babushka",
+    "zh": "奶奶/外婆",
+    "group": 2,
+    "url": "audio/course/male-dc2e48207d5fe8.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/grandmother.webp"
+  },
+  {
+    "word": "Дедушка",
+    "parts": [
+      "ДЕ",
+      "ДУ",
+      "ШКА"
+    ],
+    "stress": 0,
+    "latin": "dedushka",
+    "zh": "爷爷/外公",
+    "group": 2,
+    "url": "audio/course/male-4a8ee8b2afd7c3.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/grandfather.webp"
+  },
+  {
+    "word": "Подруга",
+    "parts": [
+      "ПО",
+      "ДРУ",
+      "ГА"
+    ],
+    "stress": 1,
+    "latin": "podruga",
+    "zh": "女性朋友",
+    "group": 2,
+    "url": "audio/course/male-bd6f9579ff8d45.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/friend.webp"
+  },
+  {
+    "word": "Бабочка",
+    "parts": [
+      "БА",
+      "БОЧ",
+      "КА"
+    ],
+    "stress": 0,
+    "latin": "babochka",
+    "zh": "蝴蝶",
+    "group": 4,
+    "url": "audio/alphabet-natural/svetlana-22c477862307246c.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-037.jpg"
+  },
+  {
+    "word": "Автобус",
+    "parts": [
+      "АВ",
+      "ТО",
+      "БУС"
+    ],
+    "stress": 1,
+    "latin": "avtobus",
+    "zh": "公共汽车",
+    "group": 7,
+    "url": "audio/alphabet-natural/svetlana-7b56618cd81b7f7b.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-062.jpg"
+  },
+  {
+    "word": "Телефон",
+    "parts": [
+      "ТЕ",
+      "ЛЕ",
+      "ФОН"
+    ],
+    "stress": 2,
+    "latin": "telefon",
+    "zh": "电话",
+    "group": 7,
+    "url": "audio/alphabet-natural/svetlana-917bdebc5bcd21d8.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-067.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Барабан",
+    "parts": [
+      "БА",
+      "РА",
+      "БАН"
+    ],
+    "stress": 2,
+    "latin": "baraban",
+    "zh": "鼓",
+    "group": 8,
+    "url": "audio/alphabet-natural/dmitry-d6dc92b6ac221a71.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-075.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Сегодня",
+    "parts": [
+      "СЕ",
+      "ГО",
+      "ДНЯ"
+    ],
+    "stress": 1,
+    "latin": "segodnya",
+    "zh": "今天",
+    "group": 8,
+    "url": "audio/course/male-97e580dc072c20.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/calendar.webp",
+    "caption": "昨天 ← 【今天】 → 明天"
+  },
+  {
+    "word": "Завтрак",
+    "parts": [
+      "ЗАВ",
+      "ТРАК"
+    ],
+    "stress": 0,
+    "latin": "zavtrak",
+    "zh": "早餐",
+    "group": 9,
+    "url": "audio/course/male-bbe0bb5b1a61c7.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/breakfast.webp",
+    "caption": "早晨吃的饭 · 早餐"
+  },
+  {
+    "word": "Шоколад",
+    "parts": [
+      "ШО",
+      "КО",
+      "ЛАД"
+    ],
+    "stress": 2,
+    "latin": "shokolad",
+    "zh": "巧克力",
+    "group": 10,
+    "url": "audio/alphabet-natural/svetlana-5673b387339410e1.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-094.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Апельсин",
+    "parts": [
+      "А",
+      "ПЕЛЬ",
+      "СИН"
+    ],
+    "stress": 2,
+    "latin": "apelsin",
+    "zh": "橙子",
+    "group": 3,
+    "url": "audio/alphabet-natural/svetlana-ac2028a29563f930.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-026.jpg",
+    "fit": "contain"
+  },
+  {
+    "word": "Цыплёнок",
+    "parts": [
+      "ЦЫ",
+      "ПЛЁ",
+      "НОК"
+    ],
+    "stress": 1,
+    "latin": "tsyplyonok",
+    "zh": "小鸡",
+    "group": 4,
+    "url": "audio/alphabet-natural/dmitry-a23b7f912ccc3853.mp3",
+    "voiceLabel": "男声 · 德米特里",
+    "imageData": "assets/lesson2-photos/word-036.jpg"
+  },
+  {
+    "word": "Карандаш",
+    "parts": [
+      "КА",
+      "РАН",
+      "ДАШ"
+    ],
+    "stress": 2,
+    "latin": "karandash",
+    "zh": "铅笔",
+    "group": 7,
+    "url": "audio/alphabet-natural/svetlana-15a031b104748aa0.mp3",
+    "voiceLabel": "女声 · 斯韦特兰娜",
+    "imageData": "assets/lesson2-photos/word-069.jpg",
+    "fit": "contain"
+  }
+]

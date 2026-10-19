@@ -1,0 +1,902 @@
+[
+  {
+    "word": "Мама",
+    "image": "assets/lesson2-photos/embedded-001.webp",
+    "mp3": "audio/alphabet-natural/svetlana-2ccfed8bd93ea3ac.mp3",
+    "imageBytes": 16192,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Папа",
+    "image": "assets/lesson2-photos/embedded-002.webp",
+    "mp3": "audio/alphabet-natural/svetlana-a0db4873b559279f.mp3",
+    "imageBytes": 15080,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Вода",
+    "image": "assets/lesson2-photos/embedded-003.webp",
+    "mp3": "audio/alphabet-natural/svetlana-a8cd0937ee62e1f6.mp3",
+    "imageBytes": 17124,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Рука",
+    "image": "assets/lesson2-photos/embedded-004.webp",
+    "mp3": "audio/alphabet-natural/svetlana-63b1a2505193fb92.mp3",
+    "imageBytes": 7676,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Нога",
+    "image": "assets/lesson2-photos/embedded-005.webp",
+    "mp3": "audio/alphabet-natural/dmitry-f066c32651c7eeb1.mp3",
+    "imageBytes": 10300,
+    "mp3Bytes": 10944,
+    "imageDecoded": true,
+    "duration": "1.824000"
+  },
+  {
+    "word": "Собака",
+    "image": "assets/lesson2-photos/word-031.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-87361ecc38e7b29a.mp3",
+    "imageBytes": 53707,
+    "mp3Bytes": 12096,
+    "imageDecoded": true,
+    "duration": "2.016000"
+  },
+  {
+    "word": "Цветок",
+    "image": "assets/lesson2-photos/flower-verified.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-1ff492d4122f4c7a.mp3",
+    "imageBytes": 33848,
+    "mp3Bytes": 12096,
+    "imageDecoded": true,
+    "duration": "2.016000"
+  },
+  {
+    "word": "Птица",
+    "image": "assets/lesson2-photos/embedded-008.webp",
+    "mp3": "audio/alphabet-natural/svetlana-bdff791cbc88be0b.mp3",
+    "imageBytes": 18466,
+    "mp3Bytes": 11952,
+    "imageDecoded": true,
+    "duration": "1.992000"
+  },
+  {
+    "word": "Еда",
+    "image": "assets/lesson2-photos/embedded-009.webp",
+    "mp3": "audio/alphabet-natural/dmitry-a1928eff1025ac68.mp3",
+    "imageBytes": 15946,
+    "mp3Bytes": 10512,
+    "imageDecoded": true,
+    "duration": "1.752000"
+  },
+  {
+    "word": "Имя",
+    "image": "assets/lesson2-photos/word-019.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-a5b4168609c6f643.mp3",
+    "imageBytes": 7542,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Рыба",
+    "image": "assets/lesson2-photos/embedded-011.webp",
+    "mp3": "audio/alphabet-natural/dmitry-c2556ed6253e4063.mp3",
+    "imageBytes": 22376,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Лиса",
+    "image": "assets/lesson2-photos/embedded-012.webp",
+    "mp3": "audio/alphabet-natural/svetlana-415e790b0a710f54.mp3",
+    "imageBytes": 16068,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Дети",
+    "image": "assets/lesson2-photos/word-015.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-5a8150cac45f6ed5.mp3",
+    "imageBytes": 11072,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Жена",
+    "image": "assets/lesson2-photos/wife.webp",
+    "mp3": "audio/course/male-07f858bb1607c9.mp3",
+    "imageBytes": 203928,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Утро",
+    "image": "assets/lesson2-photos/word-020.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-8971aabd36b91cff.mp3",
+    "imageBytes": 19369,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Заяц",
+    "image": "assets/lesson2-photos/word-033.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-bf1a36089626bc6b.mp3",
+    "imageBytes": 16117,
+    "mp3Bytes": 11376,
+    "imageDecoded": true,
+    "duration": "1.896000"
+  },
+  {
+    "word": "Жаба",
+    "image": "assets/lesson2-photos/word-035.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-34122f59dcda4a37.mp3",
+    "imageBytes": 60809,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Енот",
+    "image": "assets/lesson2-photos/word-038.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-707c4fc4d00a86b4.mp3",
+    "imageBytes": 47122,
+    "mp3Bytes": 11808,
+    "imageDecoded": true,
+    "duration": "1.968000"
+  },
+  {
+    "word": "Щука",
+    "image": "assets/lesson2-photos/word-039.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-8f0feb22cc60e864.mp3",
+    "imageBytes": 44332,
+    "mp3Bytes": 11520,
+    "imageDecoded": true,
+    "duration": "1.920000"
+  },
+  {
+    "word": "Лапа",
+    "image": "assets/lesson2-photos/paw.webp",
+    "mp3": "audio/course/male-49d5514a451c49.mp3",
+    "imageBytes": 222886,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Луна",
+    "image": "assets/lesson2-photos/word-042.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-5da301d9006d9668.mp3",
+    "imageBytes": 21212,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Море",
+    "image": "assets/lesson2-photos/word-043.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-362b424070aea83e.mp3",
+    "imageBytes": 16047,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Река",
+    "image": "assets/lesson2-photos/word-044.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-f02ddaf49828a3df.mp3",
+    "imageBytes": 39280,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Гора",
+    "image": "assets/lesson2-photos/word-045.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-62e3d8bd18b4e7bc.mp3",
+    "imageBytes": 11044,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Небо",
+    "image": "assets/lesson2-photos/word-046.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-919105ced7217afc.mp3",
+    "imageBytes": 34372,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Зима",
+    "image": "assets/lesson2-photos/word-047.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-7a777f749cbe9bcf.mp3",
+    "imageBytes": 11754,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Окно",
+    "image": "assets/lesson2-photos/word-051.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-ec851e22cf1ef2cf.mp3",
+    "imageBytes": 7120,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Рама",
+    "image": "assets/lesson2-photos/frame.webp",
+    "mp3": "audio/course/male-ecbaf9c0201ff9.mp3",
+    "imageBytes": 71848,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Юбка",
+    "image": "assets/lesson2-photos/word-056.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-001995a0cb3ade65.mp3",
+    "imageBytes": 9272,
+    "mp3Bytes": 11376,
+    "imageDecoded": true,
+    "duration": "1.896000"
+  },
+  {
+    "word": "Фото",
+    "image": "assets/lesson2-photos/word-060.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-02e508ce16390ea9.mp3",
+    "imageBytes": 16883,
+    "mp3Bytes": 11376,
+    "imageDecoded": true,
+    "duration": "1.896000"
+  },
+  {
+    "word": "Часы",
+    "image": "assets/lesson2-photos/word-072.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-e733377180609d69.mp3",
+    "imageBytes": 21484,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Игра",
+    "image": "assets/lesson2-photos/word-076.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-a4fc1fb4978f6f25.mp3",
+    "imageBytes": 15929,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Йога",
+    "image": "assets/lesson2-photos/word-078.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-9ce80d172a123370.mp3",
+    "imageBytes": 12332,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Обед",
+    "image": "assets/lesson2-photos/word-085.jpg",
+    "mp3": "audio/course/male-c0f7d29eab87f0.mp3",
+    "imageBytes": 12302,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Ужин",
+    "image": "assets/lesson2-photos/dinner.webp",
+    "mp3": "audio/course/male-9828c495271752.mp3",
+    "imageBytes": 215432,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Один",
+    "image": "assets/illustrated/number-1.jpg",
+    "mp3": "audio/course/male-c5cffb9e60232c.mp3",
+    "imageBytes": 11450,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Кофе",
+    "image": "assets/lesson2-photos/word-093.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-b88b94a13127f12b.mp3",
+    "imageBytes": 12419,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Ёлка",
+    "image": "assets/lesson2-photos/word-095.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-6c456e194cc3f14c.mp3",
+    "imageBytes": 16019,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Язык",
+    "image": "assets/lesson2-photos/language.webp",
+    "mp3": "audio/alphabet-natural/svetlana-9784abe519d5144b.mp3",
+    "imageBytes": 176004,
+    "mp3Bytes": 11520,
+    "imageDecoded": true,
+    "duration": "1.920000"
+  },
+  {
+    "word": "Семья",
+    "image": "assets/lesson2-photos/family.webp",
+    "mp3": "audio/course/male-dcc632cd253f5a.mp3",
+    "imageBytes": 226516,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Банан",
+    "image": "assets/lesson2-photos/word-021.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-f29141a7ba0c7fc9.mp3",
+    "imageBytes": 3874,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Арбуз",
+    "image": "assets/lesson2-photos/word-022.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-ba263f664be9d1a5.mp3",
+    "imageBytes": 7180,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Лимон",
+    "image": "assets/lesson2-photos/word-025.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-476b0f258f6b7372.mp3",
+    "imageBytes": 4820,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Ягода",
+    "image": "assets/lesson2-photos/word-027.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-1ab0f7faaee61950.mp3",
+    "imageBytes": 26481,
+    "mp3Bytes": 11808,
+    "imageDecoded": true,
+    "duration": "1.968000"
+  },
+  {
+    "word": "Вишня",
+    "image": "assets/lesson2-photos/word-028.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-110fd868308f953b.mp3",
+    "imageBytes": 8441,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Пицца",
+    "image": "assets/lesson2-photos/word-030.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-4699e69f1f975e79.mp3",
+    "imageBytes": 56886,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Жираф",
+    "image": "assets/lesson2-photos/word-032.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-fa7850b2bf71522c.mp3",
+    "imageBytes": 10196,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Хомяк",
+    "image": "assets/lesson2-photos/word-034.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-fccc7ddb6c7c81df.mp3",
+    "imageBytes": 53615,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Ветер",
+    "image": "assets/lesson2-photos/word-048.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-d33c5fdb3115722e.mp3",
+    "imageBytes": 13617,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Книга",
+    "image": "assets/lesson2-photos/word-053.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-cea221c5414e3d7e.mp3",
+    "imageBytes": 11858,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Чашка",
+    "image": "assets/lesson2-photos/word-054.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-30a21ec3f3618ecb.mp3",
+    "imageBytes": 10029,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Шапка",
+    "image": "assets/lesson2-photos/word-055.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-b4d906216eab0dd5.mp3",
+    "imageBytes": 16794,
+    "mp3Bytes": 11088,
+    "imageDecoded": true,
+    "duration": "1.848000"
+  },
+  {
+    "word": "Халат",
+    "image": "assets/illustrated/bathrobe-white.webp",
+    "mp3": "audio/alphabet-natural/svetlana-0a3c6bafca91dea0.mp3",
+    "imageBytes": 3334,
+    "mp3Bytes": 11808,
+    "imageDecoded": true,
+    "duration": "1.968000"
+  },
+  {
+    "word": "Щётка",
+    "image": "assets/lesson2-photos/word-058.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-98b06bd1f81fe244.mp3",
+    "imageBytes": 20811,
+    "mp3Bytes": 11952,
+    "imageDecoded": true,
+    "duration": "1.992000"
+  },
+  {
+    "word": "Такси",
+    "image": "assets/lesson2-photos/word-063.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-321dd4415c6d4702.mp3",
+    "imageBytes": 21875,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Улица",
+    "image": "assets/lesson2-photos/word-064.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-6e0a615b954662b0.mp3",
+    "imageBytes": 13557,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Город",
+    "image": "assets/lesson2-photos/word-065.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-7b718d247c612a39.mp3",
+    "imageBytes": 12212,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Школа",
+    "image": "assets/lesson2-photos/word-066.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-c3195a28f9d4f5e4.mp3",
+    "imageBytes": 32006,
+    "mp3Bytes": 11520,
+    "imageDecoded": true,
+    "duration": "1.920000"
+  },
+  {
+    "word": "Экран",
+    "image": "assets/lesson2-photos/word-070.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-c45626f3b73901d5.mp3",
+    "imageBytes": 12010,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Робот",
+    "image": "assets/lesson2-photos/word-073.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-7752de9e640db4a7.mp3",
+    "imageBytes": 12631,
+    "mp3Bytes": 11376,
+    "imageDecoded": true,
+    "duration": "1.896000"
+  },
+  {
+    "word": "Учёба",
+    "image": "assets/lesson2-photos/study.webp",
+    "mp3": "audio/course/male-303ab71ac077e6.mp3",
+    "imageBytes": 168000,
+    "mp3Bytes": 11376,
+    "imageDecoded": true,
+    "duration": "1.896000"
+  },
+  {
+    "word": "Отдых",
+    "image": "assets/lesson2-photos/rest.webp",
+    "mp3": "audio/course/male-5725a4fdc649d0.mp3",
+    "imageBytes": 250084,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Вчера",
+    "image": "assets/lesson2-photos/calendar.webp",
+    "mp3": "audio/course/male-ae808fbec3ba38.mp3",
+    "imageBytes": 92448,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Вечер",
+    "image": "assets/illustrated/day-2.jpg",
+    "mp3": "audio/course/male-a6dabeb9673168.mp3",
+    "imageBytes": 29130,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Домой",
+    "image": "assets/lesson2-photos/homeward.webp",
+    "mp3": "audio/course/male-7ec561e04671ca.mp3",
+    "imageBytes": 314190,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Потом",
+    "image": "assets/lesson2-photos/word-088.jpg",
+    "mp3": "audio/course/male-07914f8750b9d5.mp3",
+    "imageBytes": 11858,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Овощи",
+    "image": "assets/lesson2-photos/word-091.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-30d1edb87a7cdf5f.mp3",
+    "imageBytes": 30476,
+    "mp3Bytes": 11376,
+    "imageDecoded": true,
+    "duration": "1.896000"
+  },
+  {
+    "word": "Озеро",
+    "image": "assets/lesson2-photos/word-096.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-4bad51cceb3eab16.mp3",
+    "imageBytes": 40478,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Холод",
+    "image": "assets/lesson2-photos/word-098.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-9fd4d3303d14ce19.mp3",
+    "imageBytes": 13010,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Сестра",
+    "image": "assets/lesson2-photos/sisters.webp",
+    "mp3": "audio/course/male-41bb67b6e83273.mp3",
+    "imageBytes": 224768,
+    "mp3Bytes": 11376,
+    "imageDecoded": true,
+    "duration": "1.896000"
+  },
+  {
+    "word": "Улыбка",
+    "image": "assets/lesson2-photos/word-018.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-2c6913ac7a880e49.mp3",
+    "imageBytes": 8792,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Молоко",
+    "image": "assets/lesson2-photos/word-023.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-76455a1de03b74f0.mp3",
+    "imageBytes": 14594,
+    "mp3Bytes": 11808,
+    "imageDecoded": true,
+    "duration": "1.968000"
+  },
+  {
+    "word": "Яблоко",
+    "image": "assets/lesson2-photos/word-024.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-c520eb93cf15b76d.mp3",
+    "imageBytes": 10609,
+    "mp3Bytes": 12528,
+    "imageDecoded": true,
+    "duration": "2.088000"
+  },
+  {
+    "word": "Йогурт",
+    "image": "assets/lesson2-photos/word-029.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-406448f56278e5ab.mp3",
+    "imageBytes": 6097,
+    "mp3Bytes": 11952,
+    "imageDecoded": true,
+    "duration": "1.992000"
+  },
+  {
+    "word": "Солнце",
+    "image": "assets/lesson2-photos/word-041.png",
+    "mp3": "audio/alphabet-natural/svetlana-45ce6fd92d1ab15f.mp3",
+    "imageBytes": 52486,
+    "mp3Bytes": 11952,
+    "imageDecoded": true,
+    "duration": "1.992000"
+  },
+  {
+    "word": "Звезда",
+    "image": "assets/lesson2-photos/word-049.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-8b3b0fe235735a12.mp3",
+    "imageBytes": 10800,
+    "mp3Bytes": 11376,
+    "imageDecoded": true,
+    "duration": "1.896000"
+  },
+  {
+    "word": "Облако",
+    "image": "assets/lesson2-photos/word-050.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-a398cbb2d19cd010.mp3",
+    "imageBytes": 41955,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Иголка",
+    "image": "assets/lesson2-photos/word-059.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-e15c1a327bbd145e.mp3",
+    "imageBytes": 8777,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Машина",
+    "image": "assets/lesson2-photos/word-061.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-fc28f3046acb5b33.mp3",
+    "imageBytes": 21875,
+    "mp3Bytes": 11376,
+    "imageDecoded": true,
+    "duration": "1.896000"
+  },
+  {
+    "word": "Работа",
+    "image": "assets/lesson2-photos/work.webp",
+    "mp3": "audio/course/male-4913b12297f0ec.mp3",
+    "imageBytes": 172792,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Журнал",
+    "image": "assets/lesson2-photos/word-071.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-4345ed6eb4349d4c.mp3",
+    "imageBytes": 20878,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Гитара",
+    "image": "assets/lesson2-photos/word-074.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-207b40a15cc18118.mp3",
+    "imageBytes": 6471,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Завтра",
+    "image": "assets/lesson2-photos/calendar.webp",
+    "mp3": "audio/course/male-ea547cc196d055.mp3",
+    "imageBytes": 92448,
+    "mp3Bytes": 12096,
+    "imageDecoded": true,
+    "duration": "2.016000"
+  },
+  {
+    "word": "Четыре",
+    "image": "assets/illustrated/number-4.jpg",
+    "mp3": "audio/course/male-fd4bca526fa9c8.mp3",
+    "imageBytes": 10094,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Фрукты",
+    "image": "assets/lesson2-photos/word-092.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-95cd0df0d380476b.mp3",
+    "imageBytes": 37590,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Дерево",
+    "image": "assets/lesson2-photos/word-097.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-00500db1d9b1106d.mp3",
+    "imageBytes": 14538,
+    "mp3Bytes": 11232,
+    "imageDecoded": true,
+    "duration": "1.872000"
+  },
+  {
+    "word": "Ёлочка",
+    "image": "assets/lesson2-photos/word-099.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-12d97b397ebbc0ef.mp3",
+    "imageBytes": 12487,
+    "mp3Bytes": 12816,
+    "imageDecoded": true,
+    "duration": "2.136000"
+  },
+  {
+    "word": "Бабушка",
+    "image": "assets/lesson2-photos/grandmother.webp",
+    "mp3": "audio/course/male-dc2e48207d5fe8.mp3",
+    "imageBytes": 216892,
+    "mp3Bytes": 12096,
+    "imageDecoded": true,
+    "duration": "2.016000"
+  },
+  {
+    "word": "Дедушка",
+    "image": "assets/lesson2-photos/grandfather.webp",
+    "mp3": "audio/course/male-4a8ee8b2afd7c3.mp3",
+    "imageBytes": 298504,
+    "mp3Bytes": 12096,
+    "imageDecoded": true,
+    "duration": "2.016000"
+  },
+  {
+    "word": "Подруга",
+    "image": "assets/lesson2-photos/friend.webp",
+    "mp3": "audio/course/male-bd6f9579ff8d45.mp3",
+    "imageBytes": 275536,
+    "mp3Bytes": 11520,
+    "imageDecoded": true,
+    "duration": "1.920000"
+  },
+  {
+    "word": "Бабочка",
+    "image": "assets/lesson2-photos/word-037.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-22c477862307246c.mp3",
+    "imageBytes": 12847,
+    "mp3Bytes": 12384,
+    "imageDecoded": true,
+    "duration": "2.064000"
+  },
+  {
+    "word": "Автобус",
+    "image": "assets/lesson2-photos/word-062.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-7b56618cd81b7f7b.mp3",
+    "imageBytes": 12484,
+    "mp3Bytes": 12240,
+    "imageDecoded": true,
+    "duration": "2.040000"
+  },
+  {
+    "word": "Телефон",
+    "image": "assets/lesson2-photos/word-067.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-917bdebc5bcd21d8.mp3",
+    "imageBytes": 28458,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Барабан",
+    "image": "assets/lesson2-photos/word-075.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-d6dc92b6ac221a71.mp3",
+    "imageBytes": 8704,
+    "mp3Bytes": 11808,
+    "imageDecoded": true,
+    "duration": "1.968000"
+  },
+  {
+    "word": "Сегодня",
+    "image": "assets/lesson2-photos/calendar.webp",
+    "mp3": "audio/course/male-97e580dc072c20.mp3",
+    "imageBytes": 92448,
+    "mp3Bytes": 12672,
+    "imageDecoded": true,
+    "duration": "2.112000"
+  },
+  {
+    "word": "Завтрак",
+    "image": "assets/lesson2-photos/breakfast.webp",
+    "mp3": "audio/course/male-bbe0bb5b1a61c7.mp3",
+    "imageBytes": 211588,
+    "mp3Bytes": 11808,
+    "imageDecoded": true,
+    "duration": "1.968000"
+  },
+  {
+    "word": "Шоколад",
+    "image": "assets/lesson2-photos/word-094.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-5673b387339410e1.mp3",
+    "imageBytes": 21010,
+    "mp3Bytes": 12240,
+    "imageDecoded": true,
+    "duration": "2.040000"
+  },
+  {
+    "word": "Апельсин",
+    "image": "assets/lesson2-photos/word-026.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-ac2028a29563f930.mp3",
+    "imageBytes": 8716,
+    "mp3Bytes": 12240,
+    "imageDecoded": true,
+    "duration": "2.040000"
+  },
+  {
+    "word": "Цыплёнок",
+    "image": "assets/lesson2-photos/word-036.jpg",
+    "mp3": "audio/alphabet-natural/dmitry-a23b7f912ccc3853.mp3",
+    "imageBytes": 15116,
+    "mp3Bytes": 11664,
+    "imageDecoded": true,
+    "duration": "1.944000"
+  },
+  {
+    "word": "Карандаш",
+    "image": "assets/lesson2-photos/word-069.jpg",
+    "mp3": "audio/alphabet-natural/svetlana-15a031b104748aa0.mp3",
+    "imageBytes": 10288,
+    "mp3Bytes": 11808,
+    "imageDecoded": true,
+    "duration": "1.968000"
+  }
+]
