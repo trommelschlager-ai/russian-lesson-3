@@ -23,12 +23,28 @@ function updateProgress(){
  const fill=document.getElementById('fill');if(fill)fill.style.width=Math.min(100,100*n/words.length)+'%';
  try{localStorage.setItem('lesson2-reference-progress',JSON.stringify({seen:[...seen],good:[...good],review:[...review]}))}catch{}
 }
+const VOICE_CHECK_VERSION='mobile-diagnostics-v3-20261019';
+function diagnostic(i,stage){
+ const card=cards[i];if(!card)return;
+ let line=card.querySelector('.voice-diagnostics');
+ if(!line){
+  line=document.createElement('div');
+  line.className='voice-diagnostics';
+  line.style.cssText='font-size:12px;line-height:1.45;color:#5e3d22;margin-top:7px;overflow-wrap:anywhere';
+  el(card,'status-copy').after(line);
+ }
+ const supported=!!(window.SpeechRecognition||window.webkitSpeechRecognition);
+ line.textContent='语音检测 '+VOICE_CHECK_VERSION+' · '+stage+
+  ' · 语音识别接口：'+(supported?'存在':'不可用')+
+  ' · HTTPS：'+(window.isSecureContext?'是':'否');
+}
 function status(i,title,copy,error=false){
  const card=cards[i];if(!card)return;
  el(card,'status-title').textContent=title;
  el(card,'status-copy').textContent=copy;
  el(card,'feedback').classList.toggle('error',error);
  el(card,'status-icon').src=icon(error?'arrow-clockwise':'speaker-high');
+ diagnostic(i,title);
 }
 function markSeen(i){seen.add(indexOf(words[i]));updateProgress()}
 function stop(){
@@ -120,6 +136,7 @@ function record(i){
  if(!words[i]||!cards[i])return;
  stop();active=i;markSeen(i);
  const card=cards[i],button=el(card,'record');
+ status(i,'🎤 按钮已触发，正在检查识别功能…','正在检查设备和浏览器，请稍候。');
  const API=window.SpeechRecognition||window.webkitSpeechRecognition;
  if(typeof API!=='function'){
   status(i,'当前浏览器无法自动判断对错','没有语音识别接口。'+browserTip()+' 下方可选择只录音试听。',true);
@@ -237,9 +254,11 @@ fetch('assets/lesson2-words.json').then(r=>{if(!r.ok)throw Error('data');return 
  const fragment=document.createDocumentFragment();
  cards=words.map((w,i)=>{const card=makeCard(w,i);fragment.append(card);return card});
  list.replaceChildren(fragment);updateProgress();
+ // Visible version marker distinguishes the newest test build from a cached tab.
+ diagnostic(0,'页面已加载。点击粉色麦克风按钮开始检测');
  requestAnimationFrame(fitWords);
  window.addEventListener('resize',()=>requestAnimationFrame(fitWords),{passive:true});
- window.lesson2={play,record,get words(){return words},get current(){return active}};
+ window.lesson2={play,record,diagnostic,get words(){return words},get current(){return active}};
 }).catch(e=>{
  list.textContent='单词加载失败，请刷新页面后重试。';
  console.error('Lesson 2 could not load:',e);
