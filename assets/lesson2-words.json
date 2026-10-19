@@ -852,7 +852,7 @@
     "group": 6,
     "url": "audio/alphabet-natural/dmitry-7b718d247c612a39.mp3",
     "voiceLabel": "男声 · 德米特里",
-    "imageData": "assets/lesson2-photos/word-065.jpg",
+    "imageData": "assets/lesson2-photos/city-skyline-pexels.jpg",
     "legacyIndex": 56
   },
   {
@@ -945,7 +945,7 @@
     "group": 7,
     "url": "audio/course/male-ae808fbec3ba38.mp3",
     "voiceLabel": "男声 · 德米特里",
-    "imageData": "assets/lesson2-photos/calendar.webp",
+    "imageData": "assets/lesson2-photos/calendar-yesterday-pexels.jpg",
     "caption": "昨天 · 昨天的日子",
     "legacyIndex": 62
   },
@@ -993,7 +993,7 @@
     "group": 7,
     "url": "audio/course/male-07914f8750b9d5.mp3",
     "voiceLabel": "男声 · 德米特里",
-    "imageData": "assets/lesson2-photos/word-088.jpg",
+    "imageData": "assets/lesson2-photos/clock-planner-pexels.jpg",
     "caption": "先学习，然后休息 · потом = 然后／以后",
     "legacyIndex": 65
   },
@@ -1042,7 +1042,7 @@
     "group": 7,
     "url": "audio/alphabet-natural/svetlana-9fd4d3303d14ce19.mp3",
     "voiceLabel": "女声 · 斯韦特兰娜",
-    "imageData": "assets/lesson2-photos/word-098.jpg",
+    "imageData": "assets/lesson2-photos/frost-crystals-pexels.jpg",
     "legacyIndex": 68
   },
   {
@@ -1235,7 +1235,7 @@
     "group": 8,
     "url": "audio/alphabet-natural/dmitry-fc28f3046acb5b33.mp3",
     "voiceLabel": "男声 · 德米特里",
-    "imageData": "assets/lesson2-photos/word-061.jpg",
+    "imageData": "assets/lesson2-photos/car-not-taxi-pexels.jpg",
     "legacyIndex": 78
   },
   {
@@ -1299,7 +1299,7 @@
     "group": 9,
     "url": "audio/course/male-ea547cc196d055.mp3",
     "voiceLabel": "男声 · 德米特里",
-    "imageData": "assets/lesson2-photos/calendar.webp",
+    "imageData": "assets/lesson2-photos/calendar-tomorrow-pexels.jpg",
     "caption": "明天 · 将来的日子",
     "legacyIndex": 82
   },
@@ -1496,7 +1496,7 @@
     "group": 10,
     "url": "audio/course/male-97e580dc072c20.mp3",
     "voiceLabel": "男声 · 德米特里",
-    "imageData": "assets/lesson2-photos/calendar.webp",
+    "imageData": "assets/lesson2-photos/calendar-today-pexels.jpg",
     "caption": "今天 · 现在的日子",
     "legacyIndex": 94
   },
@@ -1563,7 +1563,7 @@
     "group": 10,
     "url": "audio/alphabet-natural/dmitry-a23b7f912ccc3853.mp3",
     "voiceLabel": "男声 · 德米特里",
-    "imageData": "assets/lesson2-photos/word-036.jpg",
+    "imageData": "assets/lesson2-photos/whole-chick-pexels.jpg",
     "legacyIndex": 98
   },
   {
