@@ -63,5 +63,6 @@ for(const w of words){
  await fileCheck(w.url,w.word,'audio');
  await fileCheck(w.imageData,w.word,'image');
 }
+assert.equal(seenImages.size,100,'Every vocabulary item now needs its own local photograph');
 console.log(JSON.stringify({wordCount:words.length,shortest:words[0].word,longest:words.at(-1).word,verifiedNaturalManifest:naturalCount,verifiedCourseManifest:courseCount,audioFilesWithReadableDuration:durations,uniquePhotoPaths:seenImages.size,identicalMP3s:words.length-checked.size,errors},null,2));
 if(errors.length)process.exitCode=1;
