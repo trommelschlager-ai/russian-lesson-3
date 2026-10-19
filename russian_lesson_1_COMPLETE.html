@@ -156,20 +156,28 @@ function dataUriToObjectUrl(uri){
   audioBlobCache.set(uri,url);
   return url;
 }
+const lesson1Recordings=new Map();
+DATA.forEach(d=>{
+ lesson1Recordings.set(d.letter,d.letterAudio);
+ lesson1Recordings.set(d.word.toLocaleLowerCase('ru-RU'),d.wordAudio);
+ (d.examples||[]).forEach(x=>lesson1Recordings.set(x.word.toLocaleLowerCase('ru-RU'),x.audio));
+});
 function speak(text){
-  if (!('speechSynthesis' in window)) {
-    alert('Озвучка не поддерживается этим браузером.');
-    return;
-  }
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(String(text));
-  utterance.lang = 'ru-RU';
-  utterance.rate = 0.78;
-  utterance.pitch = 1;
-  const voices = window.speechSynthesis.getVoices();
-  const russianVoice = voices.find(v => /^ru(-|_)/i.test(v.lang));
-  if (russianVoice) utterance.voice = russianVoice;
-  window.speechSynthesis.speak(utterance);
+ const word=String(text);
+ const uri=lesson1Recordings.get(word)||lesson1Recordings.get(word.toLocaleLowerCase('ru-RU'));
+ if(activeAudio){try{activeAudio.pause();activeAudio.currentTime=0}catch(e){}activeAudio=null}
+ if(uri){
+  try{
+   activeAudio=new Audio(dataUriToObjectUrl(uri));
+   activeAudio.play().catch(e=>{console.warn('Audio playback failure',e);alert('录音播放失败，请再点击一次。')});
+  }catch(e){console.warn('Audio decoding failure',e)}
+  return;
+ }
+ if(!('speechSynthesis' in window)){alert('浏览器不支持音频播放。');return}
+ window.speechSynthesis.cancel();
+ const utterance=new SpeechSynthesisUtterance(word);
+ utterance.lang='ru-RU';utterance.rate=.8;
+ window.speechSynthesis.speak(utterance);
 }
 function makeHotspots(){
 const h=document.getElementById('hotspots');
