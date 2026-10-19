@@ -16,7 +16,8 @@ for(let i=0;i<words.length;i++){
  assert.ok(w.stress>=0&&w.stress<w.parts.length);
  assert.ok(w.zh.length>0&&w.emoji);
  assert.ok(w.url.endsWith('.mp3'));
- try{const s=await stat(path.resolve(w.url));assert.ok(s.size>300,'nonempty MP3');}catch(e){bad.push(w.word+': '+w.url);}
+ const filepath=w.url.startsWith('https://raw.githubusercontent.com/')?w.url.split('/course-recovery-2026-10-16/')[1]:w.url;
+ try{assert.ok(filepath&&!filepath.includes('://'));const s=await stat(path.resolve(filepath));assert.ok(s.size>300,'nonempty MP3');}catch(e){bad.push(w.word+': '+w.url);}
  if(w.imageData.startsWith('data:image/webp;'))photo++;
  else if(w.imageData.startsWith('data:image/svg+xml;'))drawn++;
  else assert.fail('Unknown image source for '+w.word);
