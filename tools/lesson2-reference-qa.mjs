@@ -13,7 +13,8 @@ const recordings=JSON.parse(await fs.readFile('audio/alphabet-natural/manifest.j
 const voiceMap={window:{}};
 vm.runInNewContext(await fs.readFile('assets/audio-manifest.js','utf8'),voiceMap);
 const mainAudio=new Map(Object.entries(voiceMap.window.COURSE_AUDIO||{}).map(([text,file])=>[file,text]));
-const natural=new Map(recordings.map(x=>[x.file,x]));
+const scopedRecordings=JSON.parse(await fs.readFile('audio/lesson2-corrections/manifest.json','utf8'));
+const natural=new Map([...recordings,...scopedRecordings].map(x=>[x.file,x]));
 const clean=s=>String(s).toLocaleLowerCase('ru').replace(/ё/g,'е').replace(/[^а-я]/g,'');
 const root=path.resolve('.');
 const checked=new Set(), seenImages=new Set(), errors=[];
