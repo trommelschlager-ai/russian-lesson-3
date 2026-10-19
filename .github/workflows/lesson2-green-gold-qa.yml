@@ -1,0 +1,21 @@
+name: Verify green-gold lesson 2 preview
+on:
+  push:
+    branches:
+      - feature/lesson2-green-gold-10-2026-10-19
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lesson-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Puppeteer Chrome driver
+        run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24.22.3
+      - name: Verify ten words on phone and desktop
+        run: node tools/lesson2-green-gold-qa.mjs
