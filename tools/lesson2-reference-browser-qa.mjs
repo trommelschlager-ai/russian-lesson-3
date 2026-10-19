@@ -74,7 +74,7 @@ try{
     document.body.append(grid);
    },catalog);
    await page.waitForFunction(()=>Array.from(document.querySelectorAll('.qa-card img')).every(img=>img.complete),{timeout:60000});
-   const broken=await page.$eval('.qa-card img',all=>all.filter(x=>x.naturalWidth===0).length);
+   const broken=await page.$eval('.qa-card img',all=>Array.from(all).filter(x=>x.naturalWidth===0).length);
    assert.equal(broken,0,'broken images in 100-word photo gallery');
    await page.screenshot({path:'lesson2-qa-screenshots/lesson2-all-100-images.png',fullPage:true});
    console.log('PASS 100/100 image decoding; photo contact sheet saved');
