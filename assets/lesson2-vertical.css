@@ -1,0 +1,84 @@
+/* Lesson 2 vertical reading mode. The approved gold artwork and controls come
+   from lesson2-rebuild.css; only the layout changes. */
+.layout{display:block;max-width:1100px;margin:0 auto;padding:0 10px}
+.word-list{display:flex;flex-direction:column;gap:18px}
+.word-card{
+ display:block;width:100%;height:auto;min-height:804px;margin:14px 0 0;
+ border:30px solid transparent;
+ border-image:url('lesson2-art/ornate-frame.webp') 95 fill stretch;
+ padding:0;
+}
+.word-card .portrait>[data-role="photo"]{
+ position:absolute;inset:9px;width:calc(100% - 18px);height:calc(100% - 18px);
+ object-fit:cover;border-radius:19px;
+}
+.word-card .portrait>[data-role="photo-caption"]{
+ position:absolute;bottom:25px;left:20px;right:20px;z-index:1;
+ text-align:center;background:#fff9e9eb;border-radius:8px;font-size:18px;padding:5px;
+}
+.word-card [data-role="photo-caption"]:empty{display:none}
+.word-card [data-role="syllables"]{display:flex;gap:8px}
+.word-card [data-role="syllables"] button{
+ flex:1;min-width:0;background:#fff4da;border:2px solid #dd9b2a;border-radius:15px;
+ font:bold 44px Georgia,serif;min-height:96px;
+}
+.word-card [data-role="syllables"] .stressed{background:#ffd3d4;border-color:#ff2545;color:#dc1226}
+.word-card [data-role="retry"]{
+ display:flex;gap:15px;align-items:center;border:0;background:transparent;
+ font-weight:bold;font-size:22px;
+}
+.word-card [data-role="retry"] img{
+ width:64px;height:64px;padding:13px;background:#f8edcd;border-radius:50%;
+}
+.word-card [data-role="retry"] small{display:block;font-size:16px;font-weight:normal}
+.word-card .listen-recording{
+ margin-top:7px;border:1px solid #b5c79d;border-radius:8px;
+ background:#fff9e9;padding:7px 12px;font-size:15px;
+}
+.guidance{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:11px;margin:22px 0 0;
+}
+.guidance .panel{min-width:0}
+@media (min-width:701px) and (max-width:950px){
+ .word-card{min-height:720px;border-width:23px}
+ .word-card .hint{white-space:normal}
+ .word-card .learning{grid-template-columns:50% 48%;height:340px}
+ .word-card .portrait{height:340px}
+ .guidance{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:700px){
+ .layout{display:block;padding:0 7px}
+ .word-list{gap:12px}
+ .word-card{
+  height:auto;min-height:0;border-width:18px;
+  padding:9px 0 15px;margin-top:0;
+ }
+ .word-card:first-child{margin-top:0}
+ .word-card .learning{display:flex;flex-direction:column;height:auto;gap:8px}
+ .word-card .portrait{width:100%;height:280px;flex-shrink:0}
+ .word-card .info{padding:0 4px}
+ .word-card .topline{font-size:13px;height:36px;padding:0 3px}
+ .word-card .voice{font-size:10px;padding:5px;max-width:46%;white-space:normal}
+ .word-card .wordline{min-height:84px;gap:8px}
+ .word-card .wordline h2{font-size:61px;text-align:center;line-height:1.2}
+ .word-card .round{width:44px;height:44px}
+ .word-card .round img{width:25px}
+ .word-card .translation{font-size:25px;margin:0 0 12px}
+ .word-card .translation strong{font-size:29px}
+ .word-card .hint{font-size:14px;padding:9px 3px;gap:5px;margin-bottom:10px;white-space:normal}
+ .word-card .hint img{width:19px;height:24px}
+ .word-card [data-role="syllables"] button{font-size:33px;min-height:67px}
+ .word-card .actions{gap:6px;margin-top:14px}
+ .word-card .action{font-size:18px;min-height:93px;flex-direction:column;gap:3px;border-radius:15px}
+ .word-card .action img{width:30px;height:30px}
+ .word-card .action small{font-size:12px}
+ .word-card .feedback{min-height:100px;padding:9px;gap:9px;margin-top:12px}
+ .word-card .feedback>img{width:40px;height:40px;padding:8px}
+ .word-card .feedback strong{font-size:17px}
+ .word-card .feedback span{font-size:12px}
+ .word-card [data-role="retry"]{padding:0}
+ .word-card [data-role="retry"] img{width:34px;height:34px;padding:6px}
+ .word-card [data-role="retry"] span{display:none}
+ .guidance{display:flex;flex-direction:column;margin:15px 0 0}
+}
