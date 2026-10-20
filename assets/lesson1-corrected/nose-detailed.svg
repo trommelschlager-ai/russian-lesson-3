@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-label="Крупный план человеческого носа">
+<defs><radialGradient id="skin" cx="48%" cy="35%" r="75%"><stop stop-color="#fce4d2"/><stop offset=".65" stop-color="#edbea5"/><stop offset="1" stop-color="#c98f76"/></radialGradient><linearGradient id="bridge" x1="0" x2="1"><stop stop-color="#c88470"/><stop offset=".24" stop-color="#f2c4ae"/><stop offset=".54" stop-color="#ffe2cf"/><stop offset=".87" stop-color="#da9b84"/><stop offset="1" stop-color="#c68c76"/></linearGradient><radialGradient id="tip"><stop stop-color="#ffe5d0"/><stop offset=".64" stop-color="#eeb89e"/><stop offset="1" stop-color="#cb9079"/></radialGradient><filter id="blur"><feGaussianBlur stdDeviation="17"/></filter></defs>
+<rect width="720" height="420" fill="#f7e8dc"/><ellipse cx="360" cy="200" rx="285" ry="282" fill="url(#skin)"/><ellipse cx="356" cy="374" rx="170" ry="22" fill="#a96c57" opacity=".2" filter="url(#blur)"/>
+<path d="M313 39 Q288 135 287 201 Q273 237 238 258 Q209 302 259 331 Q307 353 355 322 Q394 354 464 332 Q520 306 486 261 Q436 226 430 192 Q431 124 405 36Z" fill="url(#bridge)"/>
+<path d="M264 283 Q292 262 325 296 Q304 333 272 316Z" fill="#9a5546"/><path d="M456 282 Q419 265 395 296 Q412 331 449 316Z" fill="#9a5546"/>
+<path d="M266 292 Q288 281 309 297 Q287 310 269 306Z" fill="#482b2c"/><path d="M449 291 Q424 282 410 299 Q433 310 453 306Z" fill="#482b2c"/>
+<ellipse cx="358" cy="277" rx="86" ry="72" fill="url(#tip)"/><path d="M302 307 Q355 336 408 309" fill="none" stroke="#e0a78e" stroke-width="7" opacity=".7"/>
+<path d="M352 92 Q357 134 358 197" fill="none" stroke="#fff4e7" stroke-width="21" stroke-linecap="round" opacity=".45"/>
+</svg>
