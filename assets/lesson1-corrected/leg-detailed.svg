@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-label="Нога человека">
+<defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#fffcf8"/><stop offset="1" stop-color="#f6e6d4"/></linearGradient><linearGradient id="skin" x2="1"><stop stop-color="#bd7b5d"/><stop offset=".28" stop-color="#eebd99"/><stop offset=".7" stop-color="#ffe1bf"/><stop offset="1" stop-color="#c78667"/></linearGradient><linearGradient id="floor" x2="0" y2="1"><stop stop-color="#d3ac89"/><stop offset="1" stop-color="#a97d59"/></linearGradient><filter id="shadow"><feGaussianBlur stdDeviation="13"/></filter></defs>
+<rect width="720" height="420" fill="url(#wall)"/><rect x="0" y="324" width="720" height="96" fill="url(#floor)"/>
+<ellipse cx="380" cy="346" rx="270" ry="25" fill="#694c37" opacity=".24" filter="url(#shadow)"/>
+<path d="M238 -24 Q272 0 295 38 L313 196 Q322 244 298 291 Q269 328 199 335 Q162 343 161 360 Q178 385 265 384 L331 372 Q369 362 371 332 Q352 311 348 272 L334 41 Q353 5 375 -22Z" fill="url(#skin)"/>
+<path d="M421 -24 Q449 10 455 66 L470 230 Q470 274 483 292 Q520 324 573 341 Q599 354 584 370 Q557 383 511 381 L449 364 Q416 351 412 332 Q403 288 404 247 L381 54 Q381 5 394 -23Z" fill="url(#skin)"/>
+<path d="M190 350 Q213 339 240 346 M204 358 Q238 342 255 350 M471 345 Q490 337 512 345" fill="none" stroke="#f6d5bd" stroke-width="8" stroke-linecap="round"/>
+<path d="M286 30 Q301 128 306 204 M428 27 Q441 108 446 226" fill="none" stroke="#fff4dd" opacity=".44" stroke-width="14" stroke-linecap="round"/>
+</svg>
