@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-label="Кухонный нож">
+<defs><linearGradient id="board" x2=".8" y2="1"><stop stop-color="#ecd0a9"/><stop offset="1" stop-color="#bc8350"/></linearGradient><linearGradient id="steel" x2="0" y2="1"><stop stop-color="#f9fdff"/><stop offset=".28" stop-color="#a9bbc7"/><stop offset=".56" stop-color="#f8fcff"/><stop offset=".82" stop-color="#9ca8b0"/><stop offset="1" stop-color="#d8e2e7"/></linearGradient><linearGradient id="handle" x2="0" y2="1"><stop stop-color="#4f5055"/><stop offset=".5" stop-color="#222429"/><stop offset="1" stop-color="#121316"/></linearGradient><filter id="soft"><feGaussianBlur stdDeviation="12"/></filter></defs>
+<rect width="720" height="420" fill="#f9f2e8"/><rect x="47" y="38" width="626" height="344" rx="18" fill="url(#board)" stroke="#ae753f" stroke-width="10"/>
+<path d="M65 93Q355 59 645 100 M71 167Q300 142 652 188 M73 268Q325 236 643 278 M69 349Q319 325 645 350" fill="none" stroke="#b67b47" stroke-width="5" opacity=".26"/>
+<g transform="translate(75 0) rotate(14 300 210)">
+<ellipse cx="353" cy="272" rx="256" ry="29" fill="#4a372c" opacity=".24" filter="url(#soft)"/>
+<path d="M75 150 L366 150 L391 170 L391 246 L365 260 L76 256 L92 246 Q190 223 250 198 Q168 180 75 150Z" fill="url(#steel)" stroke="#6f7982" stroke-width="4"/>
+<path d="M78 254 Q192 249 286 228 Q337 214 372 232" fill="none" stroke="#fff" stroke-width="5" opacity=".9"/>
+<path d="M392 170 L603 169 Q625 168 632 188 L630 232 Q625 255 602 254 L392 248 Z" fill="url(#handle)" stroke="#25262a" stroke-width="6"/>
+<circle cx="454" cy="211" r="11" fill="#b4bec3" stroke="#75838d" stroke-width="3"/><circle cx="548" cy="211" r="11" fill="#b4bec3" stroke="#75838d" stroke-width="3"/>
+<path d="M411 181 L595 181" stroke="#74777c" stroke-width="6" opacity=".55" stroke-linecap="round"/>
+</g></svg>
