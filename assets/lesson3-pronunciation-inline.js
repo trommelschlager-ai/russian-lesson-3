@@ -49,6 +49,41 @@
       .rl3-buttons button {font-size:11px;min-height:40px;gap:2px;padding:5px 1px}
       .rl3-label,.rl3-feedback {font-size:11px}
     }
+
+    /* The original two-column grid must not stretch neighbouring cards when a result appears. */
+    #pronoun-cards.pronouns {align-items:start}
+    #pronoun-cards .card.rl3-has-panel {align-self:start;grid-template-rows:auto auto auto}
+    @media(hover:none){#pronoun-cards .card:hover{transform:none;box-shadow:0 4px 0 #c6a5f0}}
+    /* Keep feedback local to only the item that the student actively tested. */
+    .rl3-feedback{display:none}
+    .rl3-feedback.is-visible{display:block;min-height:46px;max-height:110px;overflow-y:auto;
+      overscroll-behavior:contain;padding:5px 1px 1px}
+    /* Move the example illustration to the top, and give the practice panel full card width. */
+    .examples-grid .example-card.rl3-has-panel{
+      display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);
+      grid-template-rows:repeat(4,auto) auto;align-content:start;align-items:start;
+      justify-content:stretch;gap:3px 10px;padding:13px;min-height:0
+    }
+    .examples-grid .example-card.rl3-has-panel>h3,
+    .examples-grid .example-card.rl3-has-panel>.translit,
+    .examples-grid .example-card.rl3-has-panel>.chinese,
+    .examples-grid .example-card.rl3-has-panel>.action{grid-column:1;min-width:0;margin-right:0;align-self:start}
+    .examples-grid .example-card.rl3-has-panel>.example-illustration{
+      position:static;grid-column:2;grid-row:1/span 4;align-self:start;
+      display:block;width:100%;height:125px;min-height:0;max-height:140px;
+      object-fit:contain;object-position:center top;background:#ead9ff;
+      border-left:0;border-radius:10px
+    }
+    .examples-grid .example-card.rl3-has-panel>.rl3-panel{
+      grid-column:1/-1;grid-row:5;width:100%;max-width:100%;margin:10px 0 0;padding:10px
+    }
+    .examples-grid .example-card.rl3-has-panel .rl3-buttons button{min-height:51px;font-size:14px;padding:8px 3px}
+    @media(max-width:620px){
+      .examples-grid .example-card.rl3-has-panel{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+      .examples-grid .example-card.rl3-has-panel>.rl3-panel{padding:9px 7px}
+      .examples-grid .example-card.rl3-has-panel>.example-illustration{height:110px}
+      .examples-grid .example-card.rl3-has-panel .rl3-buttons button{font-size:13px;min-height:49px}
+    }
   `;
   document.head.append(css);
 
@@ -91,6 +126,11 @@
   function setFeedback(bar,message,kind='info') {
     const el=bar.querySelector('.rl3-feedback');
     el.dataset.state=kind;
+    // A spoken result belongs to one item, never to an entire grid row.
+    document.querySelectorAll('.rl3-feedback.is-visible').forEach(other=>{
+      if(other!==el){other.classList.remove('is-visible');other.textContent='';}
+    });
+    el.classList.add('is-visible');
     el.textContent=message;
   }
   function findRecording(text,role) {
