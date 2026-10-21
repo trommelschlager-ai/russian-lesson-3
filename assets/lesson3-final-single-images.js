@@ -16,7 +16,7 @@ function apply(){
   const originalImg=art.querySelector('img');
   const picture=new Image();picture.className='l3-final-art';
   picture.alt='';picture.decoding='async';
-  picture.src='assets/lesson3-portraits/'+files[i]+'.svg?v=20261022-v13';
+  picture.src=i===0?'assets/lesson3-portraits/new-ya.webp?v=20261022-user-images':i===1?'assets/lesson3-portraits/new-ty.webp?v=20261022-user-images':'assets/lesson3-portraits/'+files[i]+'.svg?v=20261022-v13';
   // Image loading failure restores original rather than showing an empty block.
   picture.onerror=()=>{if(originalImg){art.replaceChildren(originalImg);originalImg.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;'}};
   art.replaceChildren(picture);
