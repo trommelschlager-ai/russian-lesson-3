@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="820" viewBox="0 0 600 820" role="img" aria-label="Russian pronoun Он illustration">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#fff0ee"/><stop offset="1" stop-color="#ecdaf8"/></linearGradient>
+ <linearGradient id="fadeY" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="black"/><stop offset=".055" stop-color="white"/>
+  <stop offset=".67" stop-color="white"/><stop offset=".94" stop-color="black"/><stop offset="1" stop-color="black"/>
+ </linearGradient>
+ <mask id="fade" maskUnits="userSpaceOnUse" x="-200" y="0" width="1100" height="810"><rect x="-75" y="143" width="750" height="506.1" fill="url(#fadeY)"/></mask>
+</defs>
+<rect width="600" height="820" fill="url(#bg)"/>
+<circle cx="560" cy="95" r="170" fill="#fff" opacity=".23"/>
+<ellipse cx="-50" cy="660" rx="240" ry="350" fill="#fff" opacity=".23"/>
+<!-- A lined study sheet lives BEHIND the original portrait, never in front -->
+<g transform="translate(15 135) rotate(-9)" opacity=".83">
+ <rect x="0" y="0" rx="14" width="200" height="290" fill="#fffdfa" stroke="#c2a4e2" stroke-width="4"/>
+ <path d="M0 25 H200" stroke="#c2a4e2" stroke-width="8" opacity=".6"/>
+ <g stroke="#c9b8e4" stroke-width="3" opacity=".65"><path d="M34 75H174"/><path d="M34 104H174"/><path d="M34 133H174"/><path d="M34 162H174"/><path d="M34 191H174"/><path d="M34 220H174"/><path d="M34 249H174"/></g>
+ <g fill="#c2a4e2"><circle cx="14" cy="56" r="6"/><circle cx="14" cy="96" r="6"/><circle cx="14" cy="136" r="6"/><circle cx="14" cy="176" r="6"/><circle cx="14" cy="216" r="6"/><circle cx="14" cy="256" r="6"/></g>
+ <rect x="75" y="88" width="92" height="62" rx="22" fill="#c9b4f0" opacity=".7"/>
+ <circle cx="101" cy="118" r="6" fill="#fff"/><circle cx="122" cy="118" r="6" fill="#fff"/><circle cx="143" cy="118" r="6" fill="#fff"/>
+</g>
+<!-- soft classroom leaves on the far edge -->
+<g transform="translate(567 192)" fill="none" stroke="#c2a4e2" stroke-width="5" stroke-linecap="round" opacity=".76">
+ <path d="M0 0C-5 100-38 199-8 320"/>
+ <path d="M-10 75C-65 45-72 11-57 13C-26 14-16 47-10 75Z" fill="#b7d4ba"/>
+ <path d="M-20 142C26 112 32 80 17 85C-8 91-20 118-20 142Z" fill="#a4c4b8"/>
+ <path d="M-24 220C-72 181-78 163-58 162C-37 164-25 194-24 220Z" fill="#bdd5a9"/>
+</g>
+<!-- original unmodified face, hair, gesture and clothing -->
+<image href="data:image/webp;base64,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" x="-75" y="143" width="750" height="506.1" preserveAspectRatio="none" mask="url(#fade)" />
+<!-- classroom stationery in the background area, BELOW the figure, never occluding it -->
+<g transform="translate(0 590)">
+ <path d="M0 60Q130 3 298 48T600 52V230H0Z" fill="#ffffff" opacity=".29"/>
+ <g transform="translate(75 80) rotate(-5)">
+  <rect x="-20" y="-14" width="250" height="155" rx="12" fill="#fffefb" stroke="#e3d5f0" stroke-width="5" opacity=".8"/>
+  <path d="M13 19H208" stroke="#d7cae7" stroke-width="3" opacity=".7"/><path d="M13 44H208" stroke="#d7cae7" stroke-width="3" opacity=".7"/><path d="M13 69H208" stroke="#d7cae7" stroke-width="3" opacity=".7"/><path d="M13 94H208" stroke="#d7cae7" stroke-width="3" opacity=".7"/><path d="M13 119H208" stroke="#d7cae7" stroke-width="3" opacity=".7"/>
+  <path d="M54-24V141" stroke="#f1b8c2" stroke-width="3" opacity=".8"/>
+ </g>
+ <g transform="translate(409 34)">
+  <path d="M0 57V-33" stroke="#9d80d3" stroke-width="17" stroke-linecap="round"/>
+  <path d="M31 57L50-22" stroke="#ffc16f" stroke-width="17" stroke-linecap="round"/>
+  <path d="M61 57L80-38" stroke="#89abc8" stroke-width="17" stroke-linecap="round"/>
+  <path d="M0-33L0-51L7-33M50-22L54-41L57-18M80-38L86-55L88-35" fill="#f5dcbe"/>
+  <path d="M-22 44H110L93 149H-6Z" fill="#c2a4e2" stroke="#ae99d4" stroke-width="3"/>
+  <ellipse cx="44" cy="44" rx="66" ry="12" fill="#e0cef4"/>
+ </g>
+</g>
+<g fill="#fff9de" opacity=".94">
+ <path d="M514 52L523 75L547 83L523 91L514 114L505 91L482 83L505 75Z"/>
+ <circle cx="55" cy="480" r="7"/>
+</g>
+</svg>
