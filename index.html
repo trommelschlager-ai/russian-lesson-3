@@ -20,6 +20,46 @@
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media(max-width:600px){.page{box-shadow:none}.tile{border-radius:3vw}}
     .lesson-anchor{position:absolute;top:41.4%;left:0;width:1px;height:1px;pointer-events:none}
+  
+    /* Clickable overlays sit over the ORIGINAL, unchanged 864 x 1536 homepage picture. */
+    .hotspot{position:absolute;z-index:3;display:block;border:0;background:transparent;padding:0;margin:0;cursor:pointer;border-radius:10px;touch-action:manipulation;-webkit-tap-highlight-color:rgba(19,65,142,.12)}
+    .hotspot:hover{box-shadow:inset 0 0 0 2px rgba(12,71,159,.3)}
+    .hotspot:focus-visible,.tile:focus-visible,.hero-button:focus-visible,.footer-button:focus-visible{outline:3px solid #ba164b;outline-offset:2px}
+    .hotspot:active{box-shadow:inset 0 0 0 3px rgba(181,10,70,.35)}
+    [hidden]{display:none!important}
+    body.modal-open{overflow:hidden}
+    .course-backdrop{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(11,25,52,.62);line-height:1.5}
+    .course-dialog{background:#fff;width:min(610px,100%);max-height:min(88dvh,850px);display:flex;flex-direction:column;border-radius:22px;border:1px solid #d4e0f4;overflow:hidden;box-shadow:0 22px 65px #08152f55;font-family:Arial,"Microsoft YaHei",sans-serif;color:#142d5b}
+    .dialog-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;background:linear-gradient(100deg,#f0f5ff,#fff1f5);border-bottom:1px solid #e2eaf8}
+    .dialog-head h2{font-size:21px;font-weight:800;margin:0;line-height:1.3}
+    .dialog-head small{display:block;font-size:12px;font-weight:400;color:#637798}
+    .dialog-close{background:#fff;border:1px solid #cbd8ee;border-radius:50%;height:40px;width:40px;flex:0 0 40px;font-size:25px;line-height:1;cursor:pointer;color:#253e70}
+    .dialog-close:hover,.course-link:hover,.dialog-btn:hover{filter:brightness(.96)}
+    .dialog-body{overflow:auto;overscroll-behavior:contain;padding:18px 20px 23px;font-size:15px;line-height:1.65}
+    .dialog-body p{margin:0 0 13px}
+    .dialog-body h3{margin:13px 0 8px;font-size:16px;color:#a81043}
+    .course-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
+    .course-link{display:block;border:1px solid #dae3f4;background:linear-gradient(#fff,#f3f7ff);color:#133c7d;border-radius:12px;text-decoration:none;padding:12px 13px;font-size:14px;line-height:1.4;min-width:0;box-shadow:0 2px 6px #172e5f0d}
+    .course-link strong{display:block;font-weight:800;font-size:15px}
+    .course-link small{color:#6d7d9b;display:block;margin-top:2px;font-size:12px}
+    .course-note{background:#f4f7fc;border-left:3px solid #b21446;padding:10px 12px;border-radius:9px;font-size:13px;color:#475d7e;margin:12px 0}
+    .sample-dialog{padding:12px 14px;border:1px solid #d7e2f5;border-radius:12px;margin:10px 0;background:#fbfdff}
+    .sample-dialog p{margin:3px 0;line-height:1.55}
+    .sample-dialog .translate{color:#657998;font-size:13px}
+    .dialog-btn{cursor:pointer;background:#fff;border:1px solid #ccd8ea;border-radius:9px;color:#16458c;padding:7px 12px;font-size:14px}
+    .dialog-primary{background:#af0b45;border-color:#af0b45;color:#fff}
+    .search-field{box-sizing:border-box;width:100%;padding:13px 15px;font-size:16px;border:2px solid #c9d7ee;border-radius:12px;color:#183569;outline-offset:2px}
+    .search-results{display:grid;gap:9px;margin-top:12px}
+    .search-item{display:flex;align-items:center;gap:9px;border-bottom:1px solid #e9eff9;padding:8px 0}
+    .search-item .course-link{flex:1;margin:0;padding:8px 11px}
+    .search-audio{white-space:nowrap}
+    .progress-row{display:flex;align-items:center;gap:9px;border-bottom:1px solid #e9edf6;padding:10px 4px}
+    .progress-row input{width:19px;height:19px;accent-color:#b00c43;flex:0 0 19px}
+    .progress-row span{flex:1}
+    .progress-meter{width:100%;background:#ecf1fb;border-radius:999px;height:12px;overflow:hidden;margin:9px 0}
+    .progress-meter > div{height:100%;background:linear-gradient(90deg,#0d4eae,#bd124a);width:0;transition:width .2s}
+    @media(max-width:480px){.course-backdrop{padding:9px;align-items:flex-end}.course-dialog{max-height:90dvh;border-radius:19px 19px 10px 10px}.dialog-body{padding:15px 14px 20px}.dialog-head{padding:13px 15px}.course-list{grid-template-columns:1fr}.dialog-head h2{font-size:19px}}
+
   </style>
 </head>
 <body>
@@ -41,6 +81,231 @@
     <a class="tile" href="lesson-7.html" style="left:74.4%;top:64.8%;width:23.45%;height:20.55%" aria-label="Урок 7. Мой день" title="Урок 7. Мой день"><span class="sr-only">Урок 7. Мой день</span></a>
 
     <a class="footer-button" href="#lessons" aria-label="Выбрать урок"></a>
+  
+    <!-- Accessible click targets over existing artwork; image itself is not altered. -->
+    <a class="hotspot" href="#lessons" style="left:32.5%;top:0.6%;width:8.8%;height:4.2%" aria-label="课程 — перейти к урокам"><span class="sr-only">课程</span></a>
+    <button class="hotspot" style="left:42.0%;top:0.6%;width:12.8%;height:4.2%" data-panel="resources" aria-label="学习资料 — учебные материалы"><span class="sr-only">学习资料</span></button>
+    <button class="hotspot" style="left:55.7%;top:0.6%;width:14.0%;height:4.2%" data-panel="about" aria-label="关于我们 — о курсе"><span class="sr-only">关于我们</span></button>
+    <button class="hotspot" style="left:80.1%;top:0.4%;width:8.6%;height:4.5%" data-panel="search" aria-label="搜索 — поиск по словам и урокам"><span class="sr-only">搜索</span></button>
+    <button class="hotspot" style="left:89.3%;top:0.4%;width:10.1%;height:4.5%" data-panel="menu" aria-label="菜单 — открыть меню"><span class="sr-only">菜单</span></button>
+    <button class="hotspot" style="left:3.2%;top:31.8%;width:23.0%;height:7.0%" data-panel="simple" aria-label="简单易懂 — как пользоваться курсом"><span class="sr-only">简单易懂</span></button>
+    <button class="hotspot" style="left:27.0%;top:31.8%;width:24.4%;height:7.0%" data-panel="dialogues" aria-label="实用对话 — практические диалоги"><span class="sr-only">实用对话</span></button>
+    <button class="hotspot" style="left:52.1%;top:31.8%;width:23.9%;height:7.0%" data-panel="pronunciation" aria-label="标准发音 — тренировка произношения"><span class="sr-only">标准发音</span></button>
+    <button class="hotspot" style="left:76.7%;top:31.8%;width:22.2%;height:7.0%" data-panel="progress" aria-label="循序渐进 — прогресс по урокам"><span class="sr-only">循序渐进</span></button>
+
   </main>
+
+  <!-- Panels are outside .page so their positioning never affects the homepage image. -->
+  <div id="course-backdrop" class="course-backdrop" hidden>
+    <section class="course-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <header class="dialog-head">
+        <h2 id="dialog-title"></h2>
+        <button type="button" class="dialog-close" id="dialog-close" aria-label="关闭 — закрыть">×</button>
+      </header>
+      <div id="dialog-body" class="dialog-body"></div>
+    </section>
+  </div>
+  <audio id="word-preview-player" preload="none"></audio>
+  <script>
+  (function () {
+    'use strict';
+    var lessons=[
+      {zh:'俄语字母表',ru:'Русский алфавит',href:'russian_lesson_1_COMPLETE.html'},
+      {zh:'阅读与发音',ru:'Чтение и произношение',href:'russian_lesson_2_reading.html'},
+      {zh:'人称代词',ru:'Личные местоимения',href:'lesson-3-pronouns-basic.html'},
+      {zh:'日常问候',ru:'Приветствия',href:'lesson-4-presentation-READY.html'},
+      {zh:'数字与时间',ru:'Числа и время',href:'lesson-5.html'},
+      {zh:'我的家人',ru:'Моя семья',href:'lesson-6.html'},
+      {zh:'我的一天',ru:'Мой день',href:'lesson-7.html'}
+    ];
+    var labels={
+      resources:['学习资料','Учебные материалы'],
+      about:['关于我们','О курсе'],
+      search:['搜索','Поиск по словам и урокам'],
+      menu:['菜单','Навигация'],
+      simple:['简单易懂','Как учиться'],
+      dialogues:['实用对话','Практические диалоги'],
+      pronunciation:['标准发音','Произношение'],
+      progress:['循序渐进','Мой прогресс']
+    };
+    var backdrop=document.getElementById('course-backdrop');
+    var title=document.getElementById('dialog-title');
+    var body=document.getElementById('dialog-body');
+    var close=document.getElementById('dialog-close');
+    var player=document.getElementById('word-preview-player');
+    var lastFocus=null,wordCache=null,wordPromise=null;
+    function card(name,sub,url){return '<a class="course-link" href="'+url+'"><strong>'+name+'</strong><small>'+sub+'</small></a>';}
+    function lessonCards(){
+      return '<div class="course-list">'+lessons.map(function(l,i){return card((i+1)+'. '+l.zh,l.ru,l.href);}).join('')+'</div>';
+    }
+    function panelButton(name,key){return '<button class="dialog-btn" type="button" data-panel="'+key+'">'+name+'</button>';}
+    function closePanel(){
+      if(backdrop.hidden)return;
+      backdrop.hidden=true;
+      document.body.classList.remove('modal-open');
+      player.pause();
+      if(lastFocus&&lastFocus.focus)lastFocus.focus();
+    }
+    function getCompleted(){
+      try{
+        var arr=JSON.parse(localStorage.getItem('russian-home-completed-v1')||'[]');
+        return Array.isArray(arr)?arr.filter(function(i){return Number.isInteger(i)&&i>=0&&i<lessons.length;}):[];
+      }catch(e){return [];}
+    }
+    function saveCompleted(arr){try{localStorage.setItem('russian-home-completed-v1',JSON.stringify(arr));}catch(e){}}
+    function progressMarkup(){
+      var saved=getCompleted();
+      return '<p>请手动勾选已完成的课程，进度只保存在当前设备上。</p>'+
+        '<strong id="home-progress-label"></strong><div class="progress-meter"><div id="home-progress-fill"></div></div>'+
+        lessons.map(function(l,i){return '<label class="progress-row"><input type="checkbox" data-done="'+i+'" '+(saved.includes(i)?'checked':'')+'><span>'+(i+1)+'. '+l.zh+' — '+l.ru+'</span><a href="'+l.href+'" aria-label="打开第'+(i+1)+'课">↗</a></label>';}).join('')+
+        '<p class="course-note">这里是手动完成记录，不是自动的发音评分。 / Это ручные отметки, не автоматическая оценка произношения.</p>';
+    }
+    function updateProgress(){
+      var checkboxes=[].slice.call(body.querySelectorAll('[data-done]'));
+      var done=checkboxes.filter(function(c){return c.checked;}).map(function(c){return Number(c.dataset.done);});
+      var text=document.getElementById('home-progress-label');
+      var fill=document.getElementById('home-progress-fill');
+      if(text)text.textContent='已完成 '+done.length+' / '+lessons.length+' 课 · '+Math.round(100*done.length/lessons.length)+'%';
+      if(fill)fill.style.width=100*done.length/lessons.length+'%';
+      saveCompleted(done);
+    }
+    function showPanel(which){
+      if(!labels[which])return;
+      if(backdrop.hidden)lastFocus=document.activeElement;
+      title.textContent=labels[which][0]+' · '+labels[which][1];
+      backdrop.hidden=false;document.body.classList.add('modal-open');
+      if(which==='resources'){
+        body.innerHTML='<p>从字母、常用词到日常表达，所有内容都在现有课程中。</p>'+
+          '<div class="course-list">'+
+          card('🔤 俄语字母表','Алфавит','russian_lesson_1_COMPLETE.html')+
+          card('📚 100个简单俄语单词','100 простых слов','lesson-2-100-words.html')+
+          card('👥 人称代词','Местоимения','lesson-3-pronouns-basic.html')+
+          card('💬 日常问候','Приветствия','lesson-4-presentation-READY.html')+
+          card('🔢 数字与时间','Числа и время','lesson-5.html')+
+          card('🏠 我的家人','Моя семья','lesson-6.html')+
+          '</div><p class="course-note">提示：每天学习 10–20 分钟；先听，再跟读，再复习。 / Учись понемногу каждый день.</p>'+
+          panelButton('🔎 搜索单词','search');
+      } else if(which==='about'){
+        body.innerHTML='<p><strong>俄语课程 · Русский для китайцев</strong></p>'+
+          '<p>这是面向中文初学者的七课俄语入门课程，包含俄语单词、中文解释、听力和日常表达练习。</p>'+
+          '<p>课程主题：字母、阅读与发音、人称代词、问候、数字与时间、家庭、我的一天。</p>'+
+          '<p>Наша цель — помочь начинающим китайскоязычным ученикам освоить базовую русскую лексику и разговорные ситуации.</p>'+
+          '<p class="course-note">语音识别只能对比识别到的词语，不能准确判断俄语重音或口音。 / Распознавание речи не заменяет проверку произношения преподавателем.</p>'+
+          panelButton('📘 学习资料','resources');
+      } else if(which==='simple'){
+        body.innerHTML='<h3>四步开始学习 · Четыре шага</h3>'+
+          '<p>① 选择一课 — выбери урок.</p><p>② 点击 🔊 听发音 — прослушай запись.</p>'+
+          '<p>③ 跟读并练习 — повтори вслух.</p><p>④ 复习生词并记录进度 — повтори и отметь изученное.</p>'+
+          '<div class="course-list">'+card('从第一课开始','Начать с алфавита','russian_lesson_1_COMPLETE.html')+card('学习 100 个单词','100 простых слов','lesson-2-100-words.html')+'</div>';
+      } else if(which==='dialogues'){
+        body.innerHTML='<p>从短对话开始。点击对应课程，聆听已有的课内录音并跟读。</p>'+
+          '<div class="sample-dialog"><p><strong>— Привет! — Привет!</strong></p><p class="translate">— 你好！— 你好！</p>'+
+          '<p><strong>— Как дела? — Хорошо, спасибо!</strong></p><p class="translate">— 你好吗？— 很好，谢谢！</p></div>'+
+          '<div class="course-list">'+card('日常问候','Приветствия — урок 4','lesson-4-presentation-READY.html')+
+          card('人称代词和短对话','Местоимения — урок 3','lesson-3-pronouns-basic.html')+
+          card('描述我的一天','Мой день — урок 7','lesson-7.html')+'</div>';
+      } else if(which==='pronunciation'){
+        body.innerHTML='<p>听自然俄语录音，用普通速度或慢速练习，再尝试麦克风识别。</p>'+
+          '<div class="course-list">'+card('100个简单俄语单词','Слова: 🔊 1× / 0.7× / 🎤','lesson-2-100-words.html')+
+          card('俄语字母表','Алфавит и аудио','russian_lesson_1_COMPLETE.html')+
+          card('人称代词','Местоимения и произношение','lesson-3-pronouns-basic.html')+'</div>'+
+          '<p class="course-note">麦克风取决于浏览器和网络。语音识别检查的是词语文本，不会可靠地评估口音或重音。 / На телефоне лучше использовать Chrome, разрешив доступ к микрофону.</p>';
+      } else if(which==='menu'){
+        body.innerHTML='<p>选择课程或打开其他功能：</p>'+lessonCards()+
+          '<div class="course-list">'+
+          '<button type="button" class="dialog-btn" data-panel="resources">📘 学习资料</button>'+
+          '<button type="button" class="dialog-btn" data-panel="search">🔎 搜索</button>'+
+          '<button type="button" class="dialog-btn" data-panel="progress">📊 学习进度</button>'+
+          '<button type="button" class="dialog-btn" data-panel="about">ℹ 关于我们</button></div>';
+      } else if(which==='progress'){
+        body.innerHTML=progressMarkup();updateProgress();
+      } else if(which==='search'){
+        body.innerHTML='<label for="course-search">输入俄语、拼音或者中文 / Введите слово или тему:</label>'+
+          '<input id="course-search" class="search-field" type="search" placeholder="例如: мама / mama / 妈妈" autocomplete="off">'+
+          '<div id="search-status" class="course-note" role="status">正在加载 100 个单词…</div>'+
+          '<div id="search-results" class="search-results"></div>';
+        renderSearch();
+      }
+      close.focus();
+      if(which==='search')document.getElementById('course-search').focus();
+    }
+    function normalize(s){return String(s||'').normalize('NFKC').toLowerCase().replace(/ё/g,'е').trim();}
+    function loadWords(){
+      if(wordCache)return Promise.resolve(wordCache);
+      if(!wordPromise){
+        wordPromise=fetch('assets/lesson2-words.json').then(function(r){if(!r.ok)throw Error('HTTP '+r.status);return r.json();})
+          .then(function(d){if(!Array.isArray(d))throw Error('invalid JSON');wordCache=d;return d;})
+          .catch(function(){wordPromise=null;return [];});
+      }
+      return wordPromise;
+    }
+    function renderSearch(){
+      var input=document.getElementById('course-search');
+      if(!input)return;
+      input.addEventListener('input',function(){drawResults(input.value,wordCache||[]);});
+      drawResults(input.value,wordCache||[]);
+      loadWords().then(function(words){
+        if(document.getElementById('course-search')!==input)return;
+        var status=document.getElementById('search-status');
+        if(status)status.textContent=words.length?'可搜索 '+words.length+' 个俄语单词和 7 个课程 / '+words.length+' слов и 7 уроков':'词库暂时无法加载，仍可搜索课程 / Поиск по темам доступен.';
+        drawResults(input.value,words);
+      });
+    }
+    function drawResults(q,words){
+      var results=document.getElementById('search-results');
+      if(!results)return;
+      var needle=normalize(q);
+      results.replaceChildren();
+      var entries=[];
+      lessons.forEach(function(l,i){
+        if(!needle || normalize((i+1)+' '+l.zh+' '+l.ru).includes(needle))entries.push({kind:'lesson',name:l.zh,sub:l.ru,href:l.href});
+      });
+      words.forEach(function(w){
+        if(!needle || normalize(w.word+' '+w.latin+' '+w.zh).includes(needle))entries.push({kind:'word',name:w.word,sub:(w.latin||'')+' · '+(w.zh||''),href:'lesson-2-100-words.html',audio:w.url});
+      });
+      if(!entries.length){var p=document.createElement('p');p.textContent='没有找到结果 / Ничего не найдено';results.append(p);return;}
+      entries.slice(0,needle?35:13).forEach(function(item){
+        var row=document.createElement('div');row.className='search-item';
+        var a=document.createElement('a');a.className='course-link';a.href=item.href;
+        var label=document.createElement('strong');label.textContent=(item.kind==='word'?'🔤 ':'📖 ')+item.name;
+        var sub=document.createElement('small');sub.textContent=item.sub;
+        a.append(label,sub);row.append(a);
+        if(item.audio){
+          var btn=document.createElement('button');btn.className='dialog-btn search-audio';btn.type='button';btn.dataset.audioSrc=item.audio;btn.textContent='🔊';btn.setAttribute('aria-label','播放 '+item.name);row.append(btn);
+        }
+        results.append(row);
+      });
+      if(entries.length>(needle?35:13)){
+        var more=document.createElement('p');more.className='course-note';more.textContent='显示前 '+Math.min(entries.length,needle?35:13)+' 条结果，输入更多文字继续筛选。';
+        results.append(more);
+      }
+    }
+    document.addEventListener('click',function(event){
+      var panel=event.target.closest('[data-panel]');
+      if(panel){event.preventDefault();showPanel(panel.dataset.panel);return;}
+      var sound=event.target.closest('[data-audio-src]');
+      if(sound){
+        player.pause();player.src=sound.dataset.audioSrc;player.playbackRate=1;
+        player.play().catch(function(){sound.textContent='⚠';sound.title='无法播放，请检查网络连接';});
+        return;
+      }
+      if(event.target===backdrop||event.target===close||event.target.closest('#dialog-close'))closePanel();
+    });
+    body.addEventListener('change',function(event){
+      if(event.target.matches('[data-done]'))updateProgress();
+    });
+    document.addEventListener('keydown',function(event){
+      if(event.key==='Escape'&&!backdrop.hidden){event.preventDefault();closePanel();}
+      if(event.key==='Tab'&&!backdrop.hidden){
+        var nodes=[].slice.call(backdrop.querySelectorAll('a[href],button:not([disabled]),input:not([disabled])'));
+        if(!nodes.length)return;
+        var first=nodes[0],last=nodes[nodes.length-1];
+        if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+        else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+      }
+    });
+  })();
+  </script>
+
 </body>
 </html>
