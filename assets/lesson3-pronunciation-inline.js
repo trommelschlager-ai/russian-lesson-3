@@ -236,6 +236,80 @@
         object-position:center;padding:0!important
       }
     }
+
+    /* Definitive no-empty-space fix: preserve full 3:2 source pictures and let
+       the example sentence occupy a full-width row beneath the portrait.
+       All 8 illustrations remain unmodified and no character is cropped. */
+    #pronoun-cards.pronouns>.card.rl3-has-panel{
+      grid-template-columns:minmax(0,1fr) minmax(0,1.04fr)!important;
+      grid-template-rows:auto auto auto auto!important;
+      align-items:start!important;
+    }
+    #pronoun-cards.pronouns>.card.rl3-has-panel>.card-copy{
+      grid-column:1;grid-row:1;align-self:stretch;
+      padding:20px 14px 16px;min-width:0;
+    }
+    #pronoun-cards.pronouns>.card.rl3-has-panel>.card-art{
+      position:relative;grid-column:2;grid-row:1;
+      width:100%;height:auto!important;min-height:0!important;
+      aspect-ratio:3/2!important;align-self:start;justify-self:stretch;
+      overflow:hidden;background:transparent
+    }
+    #pronoun-cards.pronouns>.card.rl3-has-panel>.card-art>img{
+      position:absolute;inset:0;width:100%;height:100%;min-height:0!important;
+      padding:0!important;display:block;
+      object-fit:cover!important;object-position:center!important
+    }
+    #pronoun-cards.pronouns>.card.rl3-has-panel>.rl3-wide-example{
+      grid-column:1/-1;grid-row:2;
+      box-sizing:border-box;margin:0 14px 9px;
+      padding:12px 7px 9px;min-width:0;
+      display:grid!important;gap:4px;
+      border-top:1px dashed #d9c3f4;
+      font-size:16px;line-height:1.42;color:#806198
+    }
+    #pronoun-cards .rl3-wide-example .example-ru{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:12px;font-size:19px;line-height:1.4
+    }
+    #pronoun-cards .rl3-wide-example .example-ru strong{
+      color:#7330c7;font-size:20px;font-weight:900
+    }
+    #pronoun-cards .rl3-wide-example .example-lat,
+    #pronoun-cards .rl3-wide-example .example-zh{
+      font-size:17px;line-height:1.4
+    }
+    #pronoun-cards .rl3-wide-example .example-audio{
+      position:static;top:auto;float:none;flex:0 0 40px;
+      width:40px;height:40px;font-size:19px
+    }
+    #pronoun-cards.pronouns>.card.rl3-has-panel>.rl3-panel{
+      grid-column:1/-1;grid-row:3;
+    }
+    #pronoun-cards.pronouns>.card.rl3-has-panel>.rl3-example-holder{
+      grid-column:1/-1;grid-row:4
+    }
+    @media(max-width:620px){
+      #pronoun-cards.pronouns>.card.rl3-has-panel{
+        grid-template-columns:minmax(0,1fr) minmax(0,1.12fr)!important;
+        grid-template-rows:auto auto auto auto!important
+      }
+      #pronoun-cards.pronouns>.card.rl3-has-panel>.card-copy{
+        padding:15px 11px 10px
+      }
+      #pronoun-cards.pronouns>.card.rl3-has-panel>.card-art{
+        height:auto!important;aspect-ratio:3/2!important
+      }
+      #pronoun-cards.pronouns>.card.rl3-has-panel>.rl3-wide-example{
+        margin:0 9px 7px;padding:11px 4px 8px;gap:4px
+      }
+      #pronoun-cards .rl3-wide-example .example-ru{
+        font-size:18px;line-height:1.42
+      }
+      #pronoun-cards .rl3-wide-example .example-ru strong{font-size:19px}
+      #pronoun-cards .rl3-wide-example .example-lat,
+      #pronoun-cards .rl3-wide-example .example-zh{font-size:16px}
+    }
   `;
   document.head.append(css);
 
@@ -413,6 +487,11 @@
   }
   function setup(){
     document.querySelectorAll('#pronoun-cards .card[data-say]').forEach(card=>{
+      // Relocate sentence BELOW the complete illustration, across the entire card.
+      // This eliminates the empty rectangle without cropping portraits or group faces.
+      const wideExample=card.querySelector('.card-copy > .example');
+      const picture=card.querySelector('.card-art');
+      if(wideExample && picture){wideExample.classList.add('rl3-wide-example');picture.after(wideExample);}
       addBar(card,card.dataset.say,'male','单词 · '+card.dataset.say);
       const example=card.querySelector('.example-audio[data-say]');
       if(example){
