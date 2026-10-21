@@ -157,6 +157,51 @@
         min-height:54px;font-size:14px
       }
     }
+
+    /* Lesson 3: larger readable examples, but keep the approved full-width cards. */
+    #pronoun-cards .card-copy .example{
+      display:grid;gap:5px;margin-top:9px;padding-top:9px;line-height:1.48
+    }
+    #pronoun-cards .card-copy .example-ru{
+      display:flex;align-items:center;gap:6px;font-size:17px;line-height:1.45
+    }
+    #pronoun-cards .card-copy .example-ru strong{font-size:18px;line-height:1.42}
+    #pronoun-cards .card-copy .example-lat,
+    #pronoun-cards .card-copy .example-zh{font-size:16px;line-height:1.4}
+    #pronoun-cards .card-copy .example-audio{
+      position:relative;top:5px;flex:0 0 31px;width:31px;height:31px;
+      font-size:16px
+    }
+    /* The purple sentence speakers should sit beside (not above) their phrases. */
+    .side-notes .examples-list li.rl3-has-panel{
+      display:grid;grid-template-columns:minmax(0,1fr) 44px;
+      grid-template-rows:auto auto;gap:8px 8px;align-items:start;
+      font-size:16px;line-height:1.55
+    }
+    .side-notes .examples-list li.rl3-has-panel>span{grid-column:1;min-width:0}
+    .side-notes .examples-list li.rl3-has-panel .example-ru{
+      font-size:16px;font-weight:850;line-height:1.42
+    }
+    .side-notes .examples-list li.rl3-has-panel .example-cn{
+      display:block;margin:4px 0 0;font-size:15px;line-height:1.44
+    }
+    .side-notes .examples-list li.rl3-has-panel>.small-audio{
+      grid-column:2;grid-row:1;align-self:start;justify-self:center;
+      margin-top:10px;width:42px;height:42px;font-size:20px;cursor:pointer
+    }
+    .side-notes .examples-list li.rl3-has-panel>.rl3-panel{
+      grid-column:1/-1;grid-row:2;width:100%;max-width:100%;
+      min-width:0;margin:4px 0 9px;justify-self:stretch
+    }
+    .window-sentences .sentence .inline-audio{position:relative;top:5px}
+    @media(max-width:620px){
+      #pronoun-cards .card-copy .example-ru{font-size:17px}
+      #pronoun-cards .card-copy .example-ru strong{font-size:17px}
+      #pronoun-cards .card-copy .example-lat,
+      #pronoun-cards .card-copy .example-zh{font-size:15px}
+      .side-notes .examples-list li.rl3-has-panel .example-ru{font-size:16px}
+      .side-notes .examples-list li.rl3-has-panel .example-cn{font-size:15px}
+    }
   `;
   document.head.append(css);
 
