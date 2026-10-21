@@ -43,6 +43,43 @@
     .rl6-desktop-zh{font-size:14px;color:#655474}
     @media(max-width:560px){.rl6-desktop-practice{display:none}}
     @media(max-width:390px){.rl6-buttons{gap:2px}.rl6-buttons button{font-size:10px;padding:4px 0}}
+
+    /* Lesson 6 vocabulary has two image/text grid columns: practice takes the whole row. */
+    .lesson-6 .family .vocab-card.rl6-has-panel{grid-template-rows:auto auto;align-items:start}
+    .lesson-6 .family .vocab-card.rl6-has-panel>.rl6-panel{
+      grid-column:1/-1!important;grid-row:auto;justify-self:stretch;align-self:stretch;
+      width:100%!important;max-width:none!important;min-width:0;margin:10px 0 2px;padding:12px 11px
+    }
+    .lesson-6 .mobile-dialogue-line.rl6-has-panel>.rl6-panel,
+    .lesson-6 .extra-dialogue-line.rl6-has-panel>.rl6-panel{
+      grid-column:1/-1;justify-self:stretch;width:100%;padding:12px 11px
+    }
+    .lesson-6 .rl6-panel .rl6-buttons{
+      width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px
+    }
+    .lesson-6 .rl6-panel .rl6-buttons button{
+      appearance:none;display:flex;align-items:center;justify-content:center;
+      gap:5px;margin:0;min-height:56px;padding:10px 5px;
+      border-radius:11px;font-size:15px;font-weight:800;
+      white-space:nowrap;line-height:1.25
+    }
+    .lesson-6 .rl6-panel .rl6-buttons .rl6-original{background:#124ca2;color:white}
+    .lesson-6 .rl6-panel .rl6-buttons .rl6-slow{background:#ad6518;color:white}
+    .lesson-6 .rl6-panel .rl6-buttons .rl6-repeat{background:#ba1857;color:white}
+    @media(max-width:560px){
+      .lesson-6 .family .vocab-card.rl6-has-panel>.rl6-panel{padding:12px 9px}
+      .lesson-6 .family .rl6-buttons button{min-height:55px;font-size:15px}
+      .lesson-6 .extra-card .rl6-buttons{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+      .lesson-6 .extra-card .rl6-buttons button{font-size:12px;min-height:48px}
+      .lesson-6 .extra-card .rl6-buttons button.rl6-repeat{grid-column:1/-1}
+      .lesson-6 .mobile-dialogue-line .rl6-buttons button,
+      .lesson-6 .extra-dialogue-line .rl6-buttons button{font-size:14px;min-height:56px}
+    }
+    @media(max-width:390px){
+      .lesson-6 .family .rl6-buttons{gap:4px}
+      .lesson-6 .family .rl6-buttons button{font-size:13px;min-height:52px;padding:8px 2px}
+      .lesson-6 .mobile-dialogue-line .rl6-buttons button{font-size:13px;padding:8px 2px}
+    }
   `;
   document.head.append(css);
 
