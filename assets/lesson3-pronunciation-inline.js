@@ -84,6 +84,79 @@
       .examples-grid .example-card.rl3-has-panel>.example-illustration{height:110px}
       .examples-grid .example-card.rl3-has-panel .rl3-buttons button{font-size:13px;min-height:49px}
     }
+
+    /* User-approved lesson 3: one pronoun per entire row, no neighbour column stretch. */
+    #pronoun-cards.pronouns{display:grid;grid-template-columns:minmax(0,1fr)!important;align-items:start;gap:16px}
+    #pronoun-cards .card.rl3-has-panel{
+      display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.55fr)!important;
+      grid-template-rows:auto auto auto!important;align-items:start;align-self:start;
+      height:auto;min-height:0;width:100%;transform:none;box-sizing:border-box
+    }
+    #pronoun-cards .card.rl3-has-panel>.card-copy{
+      grid-column:1;grid-row:1;min-width:0;padding:20px 18px 12px
+    }
+    #pronoun-cards .card.rl3-has-panel>.card-art{
+      grid-column:2;grid-row:1;order:0!important;min-height:0!important;
+      height:220px!important;align-self:start;width:100%;aspect-ratio:auto!important
+    }
+    #pronoun-cards .card.rl3-has-panel>.card-art img{
+      position:absolute;inset:0;width:100%;height:100%;min-height:0!important;
+      object-fit:contain;object-position:center top;padding:3px
+    }
+    #pronoun-cards .card.rl3-has-panel>.rl3-panel{
+      grid-column:1/-1;grid-row:2;width:calc(100% - 28px);margin:8px 14px;
+      padding:11px 12px
+    }
+    #pronoun-cards .card.rl3-has-panel>.rl3-example-holder{
+      grid-column:1/-1;grid-row:3;width:calc(100% - 28px);margin:0 14px 12px
+    }
+    #pronoun-cards .rl3-buttons button{min-height:54px;font-size:15px}
+    /* Sentence example illustration becomes a large, complete image above the text,
+       not a clipped miniature with an empty lavender side column. */
+    .examples-grid .example-card.rl3-has-panel{
+      display:flex!important;flex-direction:column;align-items:stretch;
+      justify-content:flex-start;gap:4px;width:100%;min-height:0;
+      padding:13px!important;overflow:hidden
+    }
+    .examples-grid .example-card.rl3-has-panel>.example-illustration{
+      position:static!important;order:0;display:block;align-self:stretch;
+      width:100%!important;height:235px!important;max-height:none!important;
+      aspect-ratio:auto;object-fit:contain!important;object-position:center;
+      border:0;border-radius:12px;background:#ead9ff;margin:0 0 10px
+    }
+    .examples-grid .example-card.rl3-has-panel>h3{order:1}
+    .examples-grid .example-card.rl3-has-panel>.translit{order:2}
+    .examples-grid .example-card.rl3-has-panel>.chinese{order:3}
+    .examples-grid .example-card.rl3-has-panel>.action{order:4}
+    .examples-grid .example-card.rl3-has-panel>.rl3-panel{
+      position:static;order:5;display:block;width:100%;max-width:100%;
+      margin:12px 0 0;padding:12px;align-self:stretch;grid-column:auto;grid-row:auto
+    }
+    .examples-grid .example-card.rl3-has-panel .rl3-buttons button{
+      min-height:58px;font-size:15px
+    }
+    @media(max-width:620px){
+      #pronoun-cards.pronouns{grid-template-columns:minmax(0,1fr)!important;gap:14px}
+      #pronoun-cards .card.rl3-has-panel{
+        grid-template-columns:minmax(0,1fr) minmax(0,.77fr)!important;
+        grid-template-rows:auto auto auto!important
+      }
+      #pronoun-cards .card.rl3-has-panel>.card-copy{padding:13px 12px 10px}
+      #pronoun-cards .card.rl3-has-panel>.card-art{height:195px!important}
+      #pronoun-cards .card.rl3-has-panel>.rl3-panel{
+        padding:10px 8px;margin:7px 8px;width:calc(100% - 16px)
+      }
+      #pronoun-cards .card.rl3-has-panel>.rl3-example-holder{
+        margin:0 8px 9px;width:calc(100% - 16px)
+      }
+      #pronoun-cards .rl3-buttons button{min-height:52px;font-size:14px}
+      .examples-grid .example-card.rl3-has-panel>.example-illustration{
+        height:225px!important;margin-bottom:8px
+      }
+      .examples-grid .example-card.rl3-has-panel .rl3-buttons button{
+        min-height:54px;font-size:14px
+      }
+    }
   `;
   document.head.append(css);
 
