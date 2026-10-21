@@ -15,8 +15,8 @@
     .tile:hover{box-shadow:inset 0 0 0 3px #006aba99}
     .tile:focus-visible{outline:3px solid #e2a01d;outline-offset:-3px}
     .tile:active{box-shadow:inset 0 0 0 4px #1057ac99}
-    .hero-button{position:absolute;left:5%;top:24.9%;width:29.2%;height:3.9%;border-radius:40px}
-    .footer-button{position:absolute;left:5.2%;top:92.15%;width:26.5%;height:3.95%;border-radius:40px}
+    .hero-button{position:absolute;z-index:6;display:block;left:5%;top:24.9%;width:29.2%;height:3.9%;border-radius:40px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:rgba(180,20,70,.12)}
+    .footer-button{position:absolute;z-index:6;display:block;left:5.2%;top:94.0%;width:26.5%;height:4.0%;border-radius:40px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:rgba(180,20,70,.12)}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media(max-width:600px){.page{box-shadow:none}.tile{border-radius:3vw}}
     .lesson-anchor{position:absolute;top:41.4%;left:0;width:1px;height:1px;pointer-events:none}
@@ -42,6 +42,8 @@
     .course-link{display:block;border:1px solid #dae3f4;background:linear-gradient(#fff,#f3f7ff);color:#133c7d;border-radius:12px;text-decoration:none;padding:12px 13px;font-size:14px;line-height:1.4;min-width:0;box-shadow:0 2px 6px #172e5f0d}
     .course-link strong{display:block;font-weight:800;font-size:15px}
     .course-link small{color:#6d7d9b;display:block;margin-top:2px;font-size:12px}
+    .start-first{background:linear-gradient(110deg,#af0b45,#df2861);border-color:#bd1b54;color:#fff;margin:8px 0 15px;text-align:center}
+    .start-first small{color:#ffe2ed}
     .course-note{background:#f4f7fc;border-left:3px solid #b21446;padding:10px 12px;border-radius:9px;font-size:13px;color:#475d7e;margin:12px 0}
     .sample-dialog{padding:12px 14px;border:1px solid #d7e2f5;border-radius:12px;margin:10px 0;background:#fbfdff}
     .sample-dialog p{margin:3px 0;line-height:1.55}
@@ -66,7 +68,7 @@
   <main class="page">
     <img src="course_home_main_photo2.png" alt="俄语课程: Русский для китайцев. Семь уроков: алфавит, чтение и произношение, местоимения, приветствия, числа и время, семья и мой день." width="864" height="1536" fetchpriority="high">
 
-    <a class="hero-button" href="#lessons" aria-label="Перейти к урокам"></a>
+    <a id="hero-start" class="hero-button" href="russian_lesson_1_COMPLETE.html" data-panel="start" aria-label="开始学习 — выбрать урок для начала обучения"></a>
     <span id="lessons" class="lesson-anchor" aria-hidden="true"></span>
 
     <!-- Top row lessons -->
@@ -80,7 +82,7 @@
     <a class="tile" href="lesson-6.html" style="left:50.1%;top:64.8%;width:23.55%;height:20.55%" aria-label="Урок 6. Моя семья" title="Урок 6. Моя семья"><span class="sr-only">Урок 6. Моя семья</span></a>
     <a class="tile" href="lesson-7.html" style="left:74.4%;top:64.8%;width:23.45%;height:20.55%" aria-label="Урок 7. Мой день" title="Урок 7. Мой день"><span class="sr-only">Урок 7. Мой день</span></a>
 
-    <a class="footer-button" href="#lessons" aria-label="Выбрать урок"></a>
+    <a id="footer-start" class="footer-button" href="russian_lesson_1_COMPLETE.html" data-panel="start" aria-label="开始学习 — выбрать урок для начала обучения"></a>
   
     <!-- Accessible click targets over existing artwork; image itself is not altered. -->
     <a class="hotspot" href="#lessons" style="left:32.5%;top:0.6%;width:8.8%;height:4.2%" aria-label="课程 — перейти к урокам"><span class="sr-only">课程</span></a>
@@ -119,6 +121,7 @@
       {zh:'我的一天',ru:'Мой день',href:'lesson-7.html'}
     ];
     var labels={
+      start:['开始学习','Выбери урок'],
       resources:['学习资料','Учебные материалы'],
       about:['关于我们','О курсе'],
       search:['搜索','Поиск по словам и урокам'],
@@ -174,7 +177,10 @@
       if(backdrop.hidden)lastFocus=document.activeElement;
       title.textContent=labels[which][0]+' · '+labels[which][1];
       backdrop.hidden=false;document.body.classList.add('modal-open');
-      if(which==='resources'){
+      if(which==='start'){
+        body.innerHTML='<p>从第一课开始，或者选择想学习的主题。 / Выбери урок для начала обучения.</p>'+
+          '<a class="course-link start-first" href="russian_lesson_1_COMPLETE.html"><strong>▶ 开始第一课 — Русский алфавит</strong><small>Начать с первого урока / 从字母开始</small></a>'+lessonCards();
+      } else if(which==='resources'){
         body.innerHTML='<p>从字母、常用词到日常表达，所有内容都在现有课程中。</p>'+
           '<div class="course-list">'+
           card('🔤 俄语字母表','Алфавит','russian_lesson_1_COMPLETE.html')+
