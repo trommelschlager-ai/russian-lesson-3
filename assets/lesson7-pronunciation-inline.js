@@ -43,6 +43,32 @@
     .rl7-desktop-zh{font-size:14px;color:#655474}
     @media(max-width:560px){.rl7-desktop-practice{display:none}}
     @media(max-width:390px){.rl7-buttons{gap:2px}.rl7-buttons button{font-size:10px;padding:4px 0}}
+
+    /* Override old dialogue .day-dialogue-card button {background:none} and enlarge controls. */
+    .rl7-panel .rl7-buttons button.rl7-original{background:#124ca2;color:#fff}
+    .rl7-panel .rl7-buttons button.rl7-slow{background:#ad6518;color:#fff}
+    .rl7-panel .rl7-buttons button.rl7-repeat{background:#ba1857;color:#fff}
+    .rl7-panel .rl7-buttons button{font-size:14px;min-height:56px;padding:11px 5px;margin:0;
+      border-radius:11px;line-height:1.25;white-space:nowrap;font-weight:850}
+    .day-dialogue-card.rl7-has-panel>.rl7-panel{
+      grid-column:1/-1;width:100%;padding:12px 10px;margin-top:10px
+    }
+    .day-dialogue-card .rl7-panel .rl7-buttons{gap:8px}
+    .day-dialogue-card .rl7-panel .rl7-buttons button{
+      margin:0;padding:13px 8px;min-height:62px;font-size:16px;
+      border:0;border-radius:12px;box-shadow:0 3px 7px #12163624
+    }
+    @media(max-width:560px){
+      .day-dialogue-card .rl7-panel .rl7-buttons{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+      .day-dialogue-card .rl7-panel .rl7-buttons button{font-size:16px;min-height:62px}
+      .lesson-7 .vocab-card .rl7-buttons{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+      .lesson-7 .vocab-card .rl7-buttons button{font-size:13px;min-height:50px}
+      .lesson-7 .vocab-card .rl7-buttons .rl7-repeat{grid-column:1/-1}
+      .lesson-7 .activity-card .rl7-buttons button{font-size:14px;min-height:55px}
+    }
+    @media(max-width:390px){
+      .day-dialogue-card .rl7-panel .rl7-buttons button{font-size:14px;min-height:58px;padding:10px 3px}
+    }
   `;
   document.head.append(css);
 
