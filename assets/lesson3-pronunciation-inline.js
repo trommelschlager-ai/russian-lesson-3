@@ -202,6 +202,40 @@
       .side-notes .examples-list li.rl3-has-panel .example-ru{font-size:16px}
       .side-notes .examples-list li.rl3-has-panel .example-cn{font-size:15px}
     }
+
+    /* Approved clean option: enlarge the ORIGINAL 8 illustrations by widening their
+       column, and make the art box match their natural landscape aspect ratio.
+       No transformations on faces and no new decorative elements. */
+    #pronoun-cards.pronouns>.card.rl3-has-panel{
+      grid-template-columns:minmax(0,1fr) minmax(0,.92fr)!important;
+      grid-template-rows:auto auto auto!important;
+      align-items:start;
+    }
+    #pronoun-cards.pronouns>.card.rl3-has-panel>.card-art{
+      position:relative;grid-column:2;grid-row:1;order:0!important;
+      width:100%;height:auto!important;min-height:0!important;
+      max-height:none!important;aspect-ratio:3 / 2!important;
+      align-self:start;justify-self:stretch;
+      background:transparent;overflow:hidden;
+    }
+    #pronoun-cards.pronouns>.card.rl3-has-panel>.card-art img{
+      position:absolute;inset:0;width:100%;height:100%;min-height:0!important;
+      padding:0!important;object-fit:cover!important;object-position:50% 50%;
+      display:block;
+    }
+    @media(max-width:620px){
+      #pronoun-cards.pronouns>.card.rl3-has-panel{
+        grid-template-columns:minmax(0,1fr) minmax(0,1.04fr)!important;
+      }
+      #pronoun-cards.pronouns>.card.rl3-has-panel>.card-art{
+        height:auto!important;aspect-ratio:3 / 2!important;min-height:0!important;
+        max-height:none!important;
+      }
+      #pronoun-cards.pronouns>.card.rl3-has-panel>.card-art img{
+        width:100%;height:100%;object-fit:cover!important;
+        object-position:center;padding:0!important
+      }
+    }
   `;
   document.head.append(css);
 
