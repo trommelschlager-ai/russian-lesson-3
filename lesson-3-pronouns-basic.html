@@ -37,6 +37,12 @@ h2{font-size:clamp(20px,2.1vw,30px);margin:0;line-height:1.15;min-width:0}
 .pronouns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;min-width:0}
 .card{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);min-height:141px;border:1.5px solid #ceb0ff;border-radius:14px;overflow:hidden;background:#fffaff;box-shadow:0 4px 0 #c6a5f0;cursor:pointer;transition:transform .14s,box-shadow .14s}
 .card:hover{transform:translateY(-2px);box-shadow:0 6px 0 #c6a5f0}
+
+/* Android: never highlight an entire pronoun card when a child button is tapped. */
+#pronoun-cards .card{cursor:default;-webkit-tap-highlight-color:transparent}
+#pronoun-cards .card button{-webkit-tap-highlight-color:rgba(114,70,211,.12);touch-action:manipulation}
+@media(hover:none){#pronoun-cards .card:hover{transform:none;box-shadow:0 4px 0 #c6a5f0}}
+
 .card:focus-visible,.action:focus-visible,.pill:focus-visible,.option:focus-visible{outline:3px solid #6432bd;outline-offset:2px}
 .card-copy{position:relative;padding:10px 10px 8px 13px;min-width:0}
 .ru{font-size:clamp(25px,2.1vw,34px);font-weight:950;line-height:1.04;margin:3px 36px 0 0}
