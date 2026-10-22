@@ -190,3 +190,33 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true});else setup();
   window.addEventListener('pagehide',()=>{stopActivity();if(objectUrl)URL.revokeObjectURL(objectUrl);});
 })();
+
+
+/* Complete alphabet lesson after the learner has listened to all 33 distinct letters.
+   Existing images, audio and pronunciation buttons are not modified. */
+(() => {
+  'use strict';
+  const alphabet=new Set(Array.from('АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'));
+  const key='russian-lesson1-letters-heard-v1';
+  let heard=new Set();
+  try {
+    const stored=JSON.parse(localStorage.getItem(key)||'[]');
+    if(Array.isArray(stored))heard=new Set(stored.filter(letter=>alphabet.has(letter)));
+  } catch (_) {}
+  function countLetter(event){
+    const button=event.target.closest('button[data-letter]');
+    const letter=button&&button.dataset.letter;
+    if(!alphabet.has(letter)||heard.has(letter))return;
+    heard.add(letter);
+    try {
+      localStorage.setItem(key,JSON.stringify([...heard]));
+      if(heard.size===alphabet.size){
+        const keyProgress='russian-course-progress-v1';
+        const saved=JSON.parse(localStorage.getItem(keyProgress)||'{}');
+        saved[1]={score:33,total:33,date:new Date().toISOString()};
+        localStorage.setItem(keyProgress,JSON.stringify(saved));
+      }
+    } catch (_) { /* The lesson still works if browser storage is disabled. */ }
+  }
+  document.addEventListener('click',countLetter,true);
+})();
