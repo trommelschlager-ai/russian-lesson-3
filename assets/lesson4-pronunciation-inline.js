@@ -172,13 +172,15 @@
       button.textContent='🎤 跟读';
       if(activeRecorder===recorder)activeRecorder=null;
       stream.getTracks().forEach(t=>t.stop());if(activeStream===stream)activeStream=null;
-      if(recorderOwner!==bar)return;
+      if(recorderOwner!==bar || request!==microphoneRequest)return;
+      if(activeMicButton===button)activeMicButton=null;
       if(!chunks.length){setFeedback(bar,'没有录到声音，请重新尝试。','warning');return;}
       if(objectUrl)URL.revokeObjectURL(objectUrl);
       objectUrl=URL.createObjectURL(new Blob(chunks,{type:recorder.mimeType||'audio/webm'}));
+      const replayUrl=objectUrl;
       setFeedback(bar,'🎧 录音完成（未自动评分）。可以试听自己刚才说的话。');
       const replay=document.createElement('button');replay.className='rl4-replay';replay.type='button';replay.textContent='▶️ 听我的录音';
-      replay.addEventListener('click',event=>{event.stopPropagation();if(activeAudio)activeAudio.pause();activeAudio=new Audio(objectUrl);activeAudio.play().catch(()=>setFeedback(bar,'无法播放录音。','warning'));});
+      replay.addEventListener('click',event=>{event.stopPropagation();if(activeAudio)activeAudio.pause();activeAudio=new Audio(replayUrl);activeAudio.play().catch(()=>setFeedback(bar,'无法播放录音。','warning'));});
       bar.querySelector('.rl4-feedback').append(replay);
     };
     try{recorder.start();setFeedback(bar,'🎙 正在录音……再次点击“停止录音”，或六秒后自动停止。');}
@@ -233,6 +235,12 @@
     target.append(bar);target.classList.add('rl4-has-panel');
   }
   function setup() {
+    const dock=document.querySelector('.audio-dock');
+    if(dock){
+      const updateDock=()=>document.documentElement.style.setProperty('--lesson4-dock-height',dock.getBoundingClientRect().height+'px');
+      updateDock();
+      if(window.ResizeObserver)new ResizeObserver(updateDock).observe(dock);
+    }
     // Pending recordings remain explicit: never substitute browser speech.
     document.querySelectorAll('.lesson-4 .lesson4-pending-play').forEach(button=>{
       button.title='MP3 录音待补充 · Запись пока отсутствует';
