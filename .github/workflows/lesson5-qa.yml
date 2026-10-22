@@ -1,0 +1,37 @@
+name: Verify new lesson 5 number and clock page
+on:
+  push:
+    branches: [feature/lesson5-numbers-1-to-100-20261023]
+    paths:
+      - .github/workflows/lesson5-qa.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/lesson5-numbers-1-to-100-20261023
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify JavaScript syntax
+        run: |
+          node --check assets/lesson5-numbers-100.js
+          node --check assets/lesson5-numbers-audio.js
+      - name: Install browser
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Verify all lessons and mobile layout
+        run: python scripts/check_lesson5.py
+      - name: Preserve screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lesson5-100-and-clocks
+          path: test-screenshots/*.png
+          if-no-files-found: ignore
