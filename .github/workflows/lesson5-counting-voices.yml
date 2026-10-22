@@ -20,10 +20,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
       - name: Install MP3 composer and format validator
         run: python -m pip install --disable-pip-version-check 'pydub>=0.25,<1' 'mutagen>=1.47,<2'
-      - name: Confirm FFmpeg
-        run: ffmpeg -version | head -n 1
+      - name: Confirm FFmpeg and FFprobe
+        run: |
+          ffmpeg -version | head -n 1
+          ffprobe -version | head -n 1
       - name: Compose every missing compound number MP3 from existing male recordings
         run: python scripts/create_lesson5_number_voices.py
       - name: Commit new clips and map to the separate working branch
