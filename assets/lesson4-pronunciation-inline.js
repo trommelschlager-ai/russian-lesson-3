@@ -200,9 +200,21 @@
       if(cls==='rl4-repeat')mic=b;
     });
     bar.append(controls);
+    const hasNativeAudio=!!findRecording(text,role);
+    if(!hasNativeAudio){
+      buttons.slice(0,2).forEach((_,i)=>{
+        const button=controls.children[i];
+        button.disabled=true;
+        button.title='真人录音待添加 / Запись естественного голоса ещё не добавлена';
+        button.style.opacity='.64';
+        button.style.cursor='not-allowed';
+      });
+    }
     const fb=document.createElement('div');fb.className='rl4-feedback';
     fb.setAttribute('role','status');fb.setAttribute('aria-live','polite');
-    fb.textContent='先听原音，再跟读。仅核对识别文字，不判断重音。';
+    fb.textContent=hasNativeAudio
+      ? '先听原音，再跟读。仅核对识别文字，不判断重音。'
+      : '这句话的自然语音录音待补充。🎤跟读练习可用，但文字识别不能判断重音。';
     bar.append(fb);
     // Preserve original card and dialog click listeners: control clicks must not start parent audio.
     bar.addEventListener('click',event=>event.stopPropagation());
@@ -216,14 +228,14 @@
     const selector='.vocab-card,.mobile-dialogue-line,.extra-card,.extra-dialogue-line';
     document.querySelectorAll(selector).forEach(card=>{
       const original=card.querySelector('button[data-say]');
-      if(!original)return;
-      const text=original.dataset.say;
-      const role=original.dataset.role||'male';
+      const text=original?.dataset.say||card.dataset.practiceText;
+      if(!text)return;
+      const role=original?.dataset.role||card.dataset.practiceRole||'male';
       addBar(card,text,role,'跟读练习 · '+text);
     });
     const illustration=document.querySelector('.lesson-4 .art-dialogue');
     const speechLines=[...document.querySelectorAll('.lesson-4 .mobile-dialogue-line')];
-    if(illustration&&speechLines.length&&!document.querySelector('.rl4-desktop-practice')){
+    if(illustration&&!document.querySelector('#lesson4-original-two')&&speechLines.length&&!document.querySelector('.rl4-desktop-practice')){
       const strip=document.createElement('section');
       strip.className='rl4-desktop-practice';
       strip.setAttribute('aria-label','对话跟读 · Диалоговая практика');
