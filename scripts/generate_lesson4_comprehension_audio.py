@@ -6,7 +6,7 @@ import asyncio
 import hashlib
 import json
 import re
-import subprocess
+from mutagen.mp3 import MP3
 from pathlib import Path
 
 import edge_tts
@@ -41,10 +41,7 @@ async def main():
         await synth.save(str(destination))
         if not destination.exists() or destination.stat().st_size < 4500:
             raise RuntimeError("Missing or suspiciously small MP3: " + str(destination))
-        seconds = subprocess.check_output([
-            "ffprobe", "-v", "error", "-show_entries",
-            "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", str(destination),
-        ], text=True).strip()
+        seconds = MP3(str(destination)).info.length
         if not 0.5 < float(seconds) < 12:
             raise RuntimeError("Suspicious duration " + seconds + " for " + phrase)
         mapping[role + "|" + phrase] = destination.relative_to(ROOT).as_posix()
@@ -54,7 +51,7 @@ async def main():
     MANIFEST.write_text(manifest_output, encoding="utf-8")
     assert len(produced) == 4
     for phrase, role, filename, seconds, size in produced:
-        print("OK:", role, phrase, filename, seconds + "s", size, "bytes", flush=True)
+        print("OK:", role, phrase, filename, f"{seconds:.2f}s", size, "bytes", flush=True)
 
 if __name__ == "__main__":
     asyncio.run(main())
