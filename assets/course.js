@@ -72,7 +72,11 @@
     save(lesson, score, total) {
       try {
         const progress = JSON.parse(localStorage.getItem('russian-course-progress-v1') || '{}');
-        progress[lesson] = {score,total,date:new Date().toISOString()};
+        const previous=progress[lesson];
+        // Retaking a quiz must not erase an already passed lesson.
+        if(!previous||!(Number(previous.total)>0)||score/total>Number(previous.score)/Number(previous.total)){
+          progress[lesson] = {score,total,date:new Date().toISOString()};
+        }
         localStorage.setItem('russian-course-progress-v1', JSON.stringify(progress));
       } catch (_) { /* Lessons still work when local storage is unavailable. */ }
     }
