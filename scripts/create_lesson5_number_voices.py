@@ -1,70 +1,62 @@
-"""Prepare missing Russian MP3s for all numbers 11–100, only lesson 5."""
-import asyncio
-import hashlib
+"""Build lesson 5 compound-number MP3 by joining existing licensed/previously
+recorded same-speaker Russian word clips, no external speech service."""
 import json
 import re
+import hashlib
 from pathlib import Path
 from mutagen.mp3 import MP3
-import edge_tts
+from pydub import AudioSegment
+from pydub.silence import detect_nonsilent
 
 ROOT=Path(__file__).resolve().parents[1]
-SOURCE=ROOT/'assets/audio-manifest.js'
-EXTENDED=ROOT/'assets/course-extensions-audio.js'
-DEST=ROOT/'assets/lesson5-numbers-audio.js'
 AUDIO=ROOT/'audio/lesson5-counting'
-AUDIO.mkdir(parents=True, exist_ok=True)
-s=['ноль','один','два','три','четыре','пять','шесть','семь','восемь','девять','десять']
-teens=['одиннадцать','двенадцать','тринадцать','четырнадцать','пятнадцать','шестнадцать','семнадцать','восемнадцать','девятнадцать']
-tens={20:'двадцать',30:'тридцать',40:'сорок',50:'пятьдесят',60:'шестьдесят',70:'семьдесят',80:'восемьдесят',90:'девяносто',100:'сто'}
-def word(n):
-    if n<=10:return s[n]
-    if n<20:return teens[n-11]
-    decade=(n//10)*10
-    return tens[decade]+(' '+s[n%10] if n%10 else '')
-
-def read_manifest(path):
-    value=path.read_text(encoding='utf-8')
-    obj=re.search(r'Object.assign\(window\.COURSE_AUDIO,\s*(\{.*?\})\s*\)',value,re.S)
-    if obj:return json.loads(obj.group(1))
-    m=re.search(r'window\.COURSE_AUDIO\s*=\s*(\{.*?\})\s*;',value,re.S)
-    if not m:raise RuntimeError('Unknown manifest in '+str(path))
+AUDIO.mkdir(parents=True,exist_ok=True)
+SOURCE=ROOT/'assets/audio-manifest.js'
+EXTRA=ROOT/'assets/course-extensions-audio.js'
+DEST=ROOT/'assets/lesson5-numbers-audio.js'
+units=['ноль','один','два','три','четыре','пять','шесть','семь','восемь','девять']
+tens={20:'двадцать',30:'тридцать',40:'сорок',50:'пятьдесят',60:'шестьдесят',70:'семьдесят',80:'восемьдесят',90:'девяносто'}
+def parse(path):
+    t=path.read_text(encoding='utf-8')
+    m=re.search(r'Object\.assign\(window\.COURSE_AUDIO,\s*(\{.*?\})\s*\)',t,re.S)
+    if not m:m=re.search(r'window\.COURSE_AUDIO\s*=\s*(\{.*?\})\s*;',t,re.S)
+    if not m:raise RuntimeError('Cannot read manifest: '+str(path))
     return json.loads(m.group(1))
-
-async def synthesize(n, existing, results, semaphore):
-    text=word(n)
-    key='male|'+text
-    if key in existing:
-        print('EXISTING',n,text,flush=True)
-        return
-    digest=hashlib.sha256(key.encode('utf-8')).hexdigest()[:16]
-    relative=f'audio/lesson5-counting/male-{digest}.mp3'
-    filepath=ROOT/relative
-    async with semaphore:
-        for attempt in range(3):
-            try:
-                await edge_tts.Communicate(text, voice='ru-RU-DmitryNeural',rate='-4%').save(str(filepath))
-                if filepath.stat().st_size < 1700:raise RuntimeError('Too small')
-                duration=MP3(str(filepath)).info.length
-                if duration<.65 or duration>15:raise RuntimeError(f'Bad duration: {duration}')
-                results[key]=relative
-                print('CREATED',n,text,round(duration,2),flush=True)
-                return
-            except Exception as e:
-                print('RETRY',n,attempt+1,str(e)[:100],flush=True)
-                filepath.unlink(missing_ok=True)
-                if attempt==2:raise
-                await asyncio.sleep(1.5*(attempt+1))
-async def main():
-    existing=read_manifest(SOURCE)
-    existing.update(read_manifest(EXTENDED))
-    results={}
-    semaphore=asyncio.Semaphore(3)
-    await asyncio.gather(*(synthesize(n,existing,results,semaphore) for n in range(11,101)))
-    missing=[word(n) for n in range(11,101) if 'male|'+word(n) not in existing and 'male|'+word(n) not in results]
-    if missing:raise RuntimeError('Missing recordings: '+str(missing))
-    body='/* Lesson 5 counting: ru-RU-DmitryNeural MP3; generated and duration-checked. */\n'
-    body+='window.COURSE_AUDIO=window.COURSE_AUDIO||{};\n'
-    body+='Object.assign(window.COURSE_AUDIO,'+json.dumps(results,ensure_ascii=False,separators=(',',':'))+');\n'
-    DEST.write_text(body,encoding='utf-8')
-    print('SUCCESS',len(results),'new plus',90-len(results),'existing = 90 numbers from 11 to 100',flush=True)
-if __name__=='__main__':asyncio.run(main())
+def trimmed(sound):
+    spans=detect_nonsilent(sound,min_silence_len=110,silence_thresh=-44)
+    if not spans:return sound
+    return sound[max(0,spans[0][0]-35):min(len(sound),spans[-1][1]+65)]
+def main():
+    refs=parse(SOURCE)
+    refs.update(parse(EXTRA))
+    pieces={}
+    for ru in set(units[1:])|set(tens.values()):
+        f=ROOT/refs['male|'+ru]
+        if not f.is_file():raise RuntimeError('Missing original recording '+str(f))
+        pieces[ru]=trimmed(AudioSegment.from_mp3(str(f))).set_frame_rate(24000).set_channels(1)
+    mappings={}
+    for n in range(21,100):
+        if n%10==0:continue
+        ten,one=tens[(n//10)*10],units[n%10]
+        utterance=ten+' '+one
+        key='male|'+utterance
+        if key in refs:continue
+        digest=hashlib.sha256(key.encode('utf-8')).hexdigest()[:16]
+        rel='audio/lesson5-counting/male-'+digest+'.mp3'
+        # Both pieces were recorded with the original course's male voice.
+        # A short natural pause replaces synthetic browser speech.
+        clip=pieces[ten]+AudioSegment.silent(duration=80,frame_rate=24000)+pieces[one]
+        clip.export(str(ROOT/rel),format='mp3',bitrate='160k')
+        duration=MP3(str(ROOT/rel)).info.length
+        if not 1.0<=duration<10:raise RuntimeError('Bad duration '+str(n)+' '+str(duration))
+        mappings[key]=rel
+        print('CREATED',n,utterance,round(duration,2),'sec',flush=True)
+    expected=[n for n in range(21,100) if n%10]
+    if len(mappings)+sum(1 for n in expected if 'male|'+tens[(n//10)*10]+' '+units[n%10] in refs)!=len(expected):
+        raise RuntimeError('Failed completeness for 21-99')
+    dest_text='/* Lesson 5 compound-number MP3 assembled from the existing Dmitry male number recordings. */\n'
+    dest_text+='window.COURSE_AUDIO=window.COURSE_AUDIO||{};\n'
+    dest_text+='Object.assign(window.COURSE_AUDIO,'+json.dumps(mappings,ensure_ascii=False,separators=(',',':'))+');\n'
+    DEST.write_text(dest_text,encoding='utf-8')
+    print('SUCCESS:',len(mappings),'additional composed MP3; all 11–100 now have audio in union of manifests',flush=True)
+if __name__=='__main__':main()
