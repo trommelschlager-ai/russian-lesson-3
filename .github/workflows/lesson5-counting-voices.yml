@@ -1,0 +1,35 @@
+name: Generate Russian MP3s for lesson 5 numbers 11 to 100
+on:
+  push:
+    branches: [feature/lesson5-numbers-1-to-100-20261023]
+    paths:
+      - .github/workflows/lesson5-counting-voices.yml
+      - scripts/create_lesson5_number_voices.py
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  synthesize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/lesson5-numbers-1-to-100-20261023
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Russian neural voice generator
+        run: python -m pip install --disable-pip-version-check 'edge-tts>=7,<9' 'mutagen>=1.47,<2'
+      - name: Create verified mp3s for all 11 to 100
+        run: python scripts/create_lesson5_number_voices.py
+      - name: Commit recordings and manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio/lesson5-counting assets/lesson5-numbers-audio.js
+          if ! git diff --cached --quiet; then
+            git commit -m "Add lesson 5 Russian counting neural MP3 from 11 to 100"
+            git push origin HEAD:feature/lesson5-numbers-1-to-100-20261023
+          fi
