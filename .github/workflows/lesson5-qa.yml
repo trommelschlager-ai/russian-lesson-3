@@ -35,3 +35,5 @@ jobs:
           name: lesson5-100-and-clocks
           path: test-screenshots/*.png
           if-no-files-found: ignore
+
+# Updated after correcting hidden-card content assertion.
