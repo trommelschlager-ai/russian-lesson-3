@@ -220,6 +220,7 @@
     if(!hasNativeAudio){
       buttons.slice(0,2).forEach((_,i)=>{
         const button=controls.children[i];
+        button.disabled=true;
         button.title='MP3 录音待补充 · Запись пока отсутствует';
       });
     }
@@ -240,6 +241,25 @@
       const updateDock=()=>document.documentElement.style.setProperty('--lesson4-dock-height',dock.getBoundingClientRect().height+'px');
       updateDock();
       if(window.ResizeObserver)new ResizeObserver(updateDock).observe(dock);
+    }
+    // Only dialogue #extra-dialogue-4 is new. Prevent missing MP3 from triggering
+    // "全部播放" errors; the three-button microphone still works per sentence.
+    const replacementDialogue=document.getElementById('extra-dialogue-4');
+    if(replacementDialogue){
+      const playButtons=[...replacementDialogue.querySelectorAll('button[data-say]')];
+      playButtons.forEach(button=>{
+        const playable=!!findRecording(button.dataset.say,button.dataset.role||'male');
+        button.disabled=!playable;
+        button.title=playable?'听原音':'原声录音待补充 · Запись пока отсутствует';
+        button.setAttribute('aria-label',(playable?'听 ':'录音准备中：')+button.dataset.say);
+      });
+      const playAll=document.querySelector('[data-course-all="extra-dialogue-4"]');
+      if(playAll){
+        const ready=playButtons.length===4&&playButtons.every(button=>!button.disabled);
+        playAll.disabled=!ready;
+        playAll.textContent=ready?'🔊 全部播放':'🔊 录音准备中';
+        playAll.title=ready?'听完整对话':'原声录音待补充 · Запись пока отсутствует';
+      }
     }
     // Pending recordings remain explicit: never substitute browser speech.
     document.querySelectorAll('.lesson-4 .lesson4-pending-play').forEach(button=>{
