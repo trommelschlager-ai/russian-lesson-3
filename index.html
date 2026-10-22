@@ -60,6 +60,43 @@
     .progress-row span{flex:1}
     .progress-meter{width:100%;background:#ecf1fb;border-radius:999px;height:12px;overflow:hidden;margin:9px 0}
     .progress-meter > div{height:100%;background:linear-gradient(90deg,#0d4eae,#bd124a);width:0;transition:width .2s}
+
+    /* Course dashboard is a separate section; the original 864×1536 homepage art is untouched. */
+    .course-dashboard{max-width:864px;margin:0 auto;padding:16px 16px 22px;background:linear-gradient(145deg,#edf4ff,#fff3f7);font:inherit;line-height:1.48;font-family:Arial,"Microsoft YaHei",sans-serif;color:#182e5c}
+    .course-dashboard-card{background:#fff;border:1px solid #d8def4;border-radius:20px;box-shadow:0 7px 24px #18376516;padding:18px;display:grid;grid-template-columns:116px minmax(0,1fr);gap:16px;align-items:center}
+    .dashboard-ring{position:relative;width:116px;height:116px;flex:none;display:grid;place-items:center}
+    .dashboard-ring svg{display:block;width:116px;height:116px}
+    .dashboard-ring-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;pointer-events:none}
+    .dashboard-ring-center strong{font-size:27px;line-height:1;font-weight:850;color:#183a79}
+    .dashboard-ring-center span{font-size:12px;color:#67779a;margin-top:5px}
+    .dashboard-main{min-width:0}
+    .dashboard-heading{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:10px;row-gap:1px;margin:0 0 5px}
+    .dashboard-heading strong{font-size:20px;font-weight:850;color:#1b3a7b}
+    .dashboard-heading span{font-size:13px;color:#65789d}
+    .dashboard-status{font-size:14px;color:#6b4369;margin:0 0 11px}
+    .dashboard-continue{display:inline-flex;align-items:center;justify-content:center;min-height:45px;gap:8px;padding:10px 22px;border-radius:28px;color:white!important;background:linear-gradient(105deg,#c30949,#e42c69);font-weight:800;font-size:16px;text-decoration:none;box-shadow:0 5px 12px #a6144b33;transition:filter .15s}
+    .dashboard-continue:hover{filter:brightness(1.08)}
+    .dashboard-continue:focus-visible,.dashboard-steps button:focus-visible{outline:3px solid #155ac1;outline-offset:3px}
+    .dashboard-next{font-size:12px;margin-top:7px;color:#62759a}
+    .dashboard-footer{grid-column:1/-1;padding-top:12px;border-top:1px solid #e7e9f5}
+    .dashboard-steps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;margin:1px 0 8px}
+    .dashboard-steps button{height:37px;padding:0;min-width:0;border-radius:11px;border:1px solid #dcdcf5;background:#f2f3fd;color:#566ba0;cursor:pointer;font-size:14px;font-weight:800;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+    .dashboard-steps button[aria-pressed="true"]{background:linear-gradient(135deg,#5d4ac2,#ba4fd4);border-color:#875fd4;color:#fff;box-shadow:0 3px 7px #8f65cb38}
+    .dashboard-help{margin:0;font-size:12px;color:#73819c}
+    @media(max-width:520px){
+      .course-dashboard{padding:11px 9px 17px}
+      .course-dashboard-card{border-radius:16px;padding:13px;grid-template-columns:94px minmax(0,1fr);gap:11px}
+      .dashboard-ring,.dashboard-ring svg{height:94px;width:94px}
+      .dashboard-ring-center strong{font-size:24px}
+      .dashboard-heading strong{font-size:16px}
+      .dashboard-heading span{font-size:12px}
+      .dashboard-status{font-size:12px;margin-bottom:8px}
+      .dashboard-continue{min-height:41px;padding:8px 14px;font-size:14px}
+      .dashboard-next{font-size:11px}
+      .dashboard-steps{gap:5px}
+      .dashboard-steps button{height:34px;font-size:13px;border-radius:8px}
+      .dashboard-help{font-size:11px}
+    }
     @media(max-width:480px){.course-backdrop{padding:9px;align-items:flex-end}.course-dialog{max-height:90dvh;border-radius:19px 19px 10px 10px}.dialog-body{padding:15px 14px 20px}.dialog-head{padding:13px 15px}.course-list{grid-template-columns:1fr}.dialog-head h2{font-size:19px}}
 
   </style>
@@ -96,6 +133,37 @@
     <button class="hotspot" style="left:76.7%;top:31.8%;width:22.2%;height:7.0%" data-panel="progress" aria-label="循序渐进 — прогресс по урокам"><span class="sr-only">循序渐进</span></button>
 
   </main>
+
+  <!-- New functional course progress: separate from the original homepage illustration. -->
+  <section class="course-dashboard" aria-labelledby="dashboard-heading">
+    <div class="course-dashboard-card">
+      <div class="dashboard-ring" role="img" aria-label="学习进度 0 / 7">
+        <svg viewBox="0 0 116 116" aria-hidden="true" focusable="false">
+          <circle cx="58" cy="58" r="47" fill="none" stroke="#e7e8f9" stroke-width="10"></circle>
+          <circle id="dashboard-arc" cx="58" cy="58" r="47" fill="none" stroke="#984ce1" stroke-width="10" stroke-linecap="round" stroke-dasharray="295.31" stroke-dashoffset="295.31" transform="rotate(-90 58 58)"></circle>
+        </svg>
+        <div class="dashboard-ring-center"><strong id="dashboard-count">0/7</strong><span id="dashboard-percent">0%</span></div>
+      </div>
+      <div class="dashboard-main">
+        <h2 id="dashboard-heading" class="dashboard-heading"><strong>我的学习进度</strong><span>Мой прогресс</span></h2>
+        <p id="dashboard-status" class="dashboard-status">已完成 0 / 7 课</p>
+        <a id="dashboard-continue" class="dashboard-continue" href="russian_lesson_1_COMPLETE.html">继续学习 <span aria-hidden="true">→</span></a>
+        <div id="dashboard-next" class="dashboard-next">下一课：俄语字母表</div>
+      </div>
+      <div class="dashboard-footer">
+        <div id="dashboard-steps" class="dashboard-steps" role="group" aria-label="选择已完成的课程">
+          <button type="button" data-progress-step="0" aria-pressed="false" aria-label="第1课 俄语字母表，标记完成">1</button>
+          <button type="button" data-progress-step="1" aria-pressed="false" aria-label="第2课 阅读与发音，标记完成">2</button>
+          <button type="button" data-progress-step="2" aria-pressed="false" aria-label="第3课 人称代词，标记完成">3</button>
+          <button type="button" data-progress-step="3" aria-pressed="false" aria-label="第4课 日常问候，标记完成">4</button>
+          <button type="button" data-progress-step="4" aria-pressed="false" aria-label="第5课 数字与时间，标记完成">5</button>
+          <button type="button" data-progress-step="5" aria-pressed="false" aria-label="第6课 我的家人，标记完成">6</button>
+          <button type="button" data-progress-step="6" aria-pressed="false" aria-label="第7课 我的一天，标记完成">7</button>
+        </div>
+        <p class="dashboard-help">点击数字标记已完成 · 仅保存在此设备上 / Нажми номер пройденного урока</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Panels are outside .page so their positioning never affects the homepage image. -->
   <div id="course-backdrop" class="course-backdrop" hidden>
@@ -171,6 +239,7 @@
       if(text)text.textContent='已完成 '+done.length+' / '+lessons.length+' 课 · '+Math.round(100*done.length/lessons.length)+'%';
       if(fill)fill.style.width=100*done.length/lessons.length+'%';
       saveCompleted(done);
+      refreshDashboard();
     }
     function showPanel(which){
       if(!labels[which])return;
@@ -300,6 +369,75 @@
     body.addEventListener('change',function(event){
       if(event.target.matches('[data-done]'))updateProgress();
     });
+
+    /* Dashboard and existing progress dialog share the same local completion state. */
+    var homeLastLessonKey='russian-home-last-opened-v1';
+    function lastOpenedLesson(){
+      try{var value=Number(localStorage.getItem(homeLastLessonKey));return Number.isInteger(value)&&value>=0&&value<lessons.length?value:-1;}
+      catch(e){return -1;}
+    }
+    function recordOpenedLesson(i){
+      if(i<0||i>=lessons.length)return;
+      try{localStorage.setItem(homeLastLessonKey,String(i));}catch(e){}
+    }
+    function recommendedLesson(done){
+      var last=lastOpenedLesson();
+      if(last>=0&&done.indexOf(last)===-1)return last;
+      if(last>=0){for(var offset=1;offset<=lessons.length;offset++){
+        var next=(last+offset)%lessons.length;
+        if(done.indexOf(next)===-1)return next;
+      }}
+      for(var i=0;i<lessons.length;i++)if(done.indexOf(i)===-1)return i;
+      return 0; // All seven finished: review from the first lesson.
+    }
+    function refreshDashboard(){
+      var done=getCompleted().filter(function(i,pos,arr){return arr.indexOf(i)===pos;});
+      var count=done.length,percent=Math.round(100*count/lessons.length);
+      var arc=document.getElementById('dashboard-arc');
+      var countEl=document.getElementById('dashboard-count');
+      var percentEl=document.getElementById('dashboard-percent');
+      var status=document.getElementById('dashboard-status');
+      var ring=document.querySelector('.dashboard-ring');
+      if(arc)arc.setAttribute('stroke-dashoffset',String(295.31*(1-count/lessons.length)));
+      if(countEl)countEl.textContent=count+'/7';
+      if(percentEl)percentEl.textContent=percent+'%';
+      if(status)status.textContent='已完成 '+count+' / '+lessons.length+' 课 · '+percent+'%';
+      if(ring)ring.setAttribute('aria-label','已完成 '+count+' / 7 课，'+percent+'%');
+      [].forEach.call(document.querySelectorAll('[data-progress-step]'),function(button){
+        var i=Number(button.dataset.progressStep),doneHere=done.indexOf(i)!==-1;
+        button.setAttribute('aria-pressed',String(doneHere));
+        button.textContent=doneHere?'✓':String(i+1);
+        button.setAttribute('aria-label','第'+(i+1)+'课 '+lessons[i].zh+'，'+(doneHere?'取消完成标记':'标记完成'));
+        button.title=(i+1)+'. '+lessons[i].zh+' — '+(doneHere?'已完成':'未完成');
+      });
+      var i=recommendedLesson(done),link=document.getElementById('dashboard-continue');
+      var next=document.getElementById('dashboard-next');
+      if(link)link.href=lessons[i].href;
+      if(next)next.textContent=count===lessons.length?'全部完成！可从第一课复习。':'下一课：'+lessons[i].zh+' · '+lessons[i].ru;
+    }
+    document.getElementById('dashboard-steps').addEventListener('click',function(event){
+      var button=event.target.closest('[data-progress-step]');
+      if(!button)return;
+      var i=Number(button.dataset.progressStep);
+      var done=getCompleted();
+      if(done.indexOf(i)===-1)done.push(i);
+      else done=done.filter(function(v){return v!==i;});
+      saveCompleted(done);refreshDashboard();
+      // Keep the pre-existing progress dialog consistent if it happens to be open.
+      [].forEach.call(body.querySelectorAll('[data-done]'),function(cb){cb.checked=done.indexOf(Number(cb.dataset.done))!==-1;});
+      if(body.querySelector('[data-done]'))updateProgress();
+    });
+    document.addEventListener('click',function(event){
+      var link=event.target.closest('a[href]');
+      if(!link||link.hasAttribute('data-panel'))return;
+      var href=(link.getAttribute('href')||'').split(/[?#]/)[0].replace(/^\.\//,'');
+      var i=lessons.findIndex(function(l){return l.href===href;});
+      if(i===-1&&href==='lesson-2-100-words.html')i=1;
+      if(i!==-1)recordOpenedLesson(i);
+    });
+    window.addEventListener('pageshow',refreshDashboard);
+    window.addEventListener('storage',refreshDashboard);
+    refreshDashboard();
     document.addEventListener('keydown',function(event){
       if(event.key==='Escape'&&!backdrop.hidden){event.preventDefault();closePanel();}
       if(event.key==='Tab'&&!backdrop.hidden){
