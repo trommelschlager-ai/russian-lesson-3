@@ -1,4 +1,4 @@
-name: Generate Russian MP3s for lesson 5 numbers 11 to 100
+name: Build lesson 5 MP3s from existing voice recordings
 on:
   push:
     branches: [feature/lesson5-numbers-1-to-100-20261023]
@@ -9,9 +9,9 @@ on:
 permissions:
   contents: write
 jobs:
-  synthesize:
+  compose:
     runs-on: ubuntu-latest
-    timeout-minutes: 22
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,16 +20,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install Russian neural voice generator
-        run: python -m pip install --disable-pip-version-check 'edge-tts>=7,<9' 'mutagen>=1.47,<2'
-      - name: Create verified mp3s for all 11 to 100
+      - name: Install MP3 composer and format validator
+        run: python -m pip install --disable-pip-version-check 'pydub>=0.25,<1' 'mutagen>=1.47,<2'
+      - name: Confirm FFmpeg
+        run: ffmpeg -version | head -n 1
+      - name: Compose every missing compound number MP3 from existing male recordings
         run: python scripts/create_lesson5_number_voices.py
-      - name: Commit recordings and manifest
+      - name: Commit new clips and map to the separate working branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add audio/lesson5-counting assets/lesson5-numbers-audio.js
           if ! git diff --cached --quiet; then
-            git commit -m "Add lesson 5 Russian counting neural MP3 from 11 to 100"
+            git commit -m "Add composed Russian number MP3 for 21 to 99"
             git push origin HEAD:feature/lesson5-numbers-1-to-100-20261023
           fi
