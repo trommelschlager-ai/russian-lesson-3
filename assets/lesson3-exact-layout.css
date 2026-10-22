@@ -1,0 +1,51 @@
+/* Exact lesson 3: full-width illustrated banner, eight tabs, ONE featured card. */
+.hero{display:grid!important;grid-template-columns:42% 58%!important;min-height:clamp(290px,27vw,415px)!important;height:auto!important;border-radius:0!important;margin:0 0 15px!important;background:transparent!important}
+.hero-copy{background:#fffbf2f5!important;padding:clamp(19px,2.8vw,42px)!important;justify-content:center}
+.hero .badge{font-size:clamp(17px,1.8vw,24px)!important}
+.hero h1{font-size:clamp(48px,5vw,76px)!important}
+.hero .subtitle{font-size:clamp(22px,2.5vw,36px)!important}
+.hero-art{height:auto!important;min-height:clamp(290px,27vw,415px)!important;overflow:hidden!important}
+.hero-art img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:70% center!important}
+.wrap{width:min(1600px,100%)!important;max-width:1600px!important;padding:0 clamp(10px,2vw,28px) 46px!important}
+#pronouns{border:0!important;background:#fbf4ff!important;box-shadow:none!important;padding:clamp(13px,2.3vw,28px)!important}
+#pronouns .section-head{align-items:center!important;flex-wrap:wrap}
+#pronouns .section-head h2{font-size:clamp(22px,2.1vw,34px)!important}
+#pronouns .section-desc{margin:5px 0 10px!important}
+#l3-approved-tabs{display:grid!important;grid-template-columns:repeat(8,minmax(0,1fr))!important;margin:14px 0 16px!important}
+#l3-approved-tabs .l3-approved-tab{min-height:88px!important;border-radius:14px!important}
+#l3-approved-tabs .l3-approved-tab .tab-ru{font-size:clamp(20px,2.1vw,31px)!important}
+#pronoun-cards.pronouns{display:block!important}
+#pronoun-cards.pronouns>.card{display:none!important}
+#pronoun-cards.pronouns>.card.rl3-active-card{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;grid-template-rows:1fr!important;min-height:clamp(410px,32vw,540px)!important;background:#fffaff!important;border-radius:17px!important;box-shadow:0 5px 14px #7858a444!important}
+#pronoun-cards.pronouns>.card.rl3-active-card>.card-copy{grid-column:1!important;grid-row:1!important;padding:clamp(25px,3vw,50px)!important;align-self:stretch!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+#pronoun-cards.pronouns>.card.rl3-active-card>.card-copy>.ru{font-size:clamp(66px,7.3vw,114px)!important;color:#25114c!important}
+#pronoun-cards.pronouns>.card.rl3-active-card>.card-copy>.lat{font-size:clamp(25px,2.6vw,37px)!important}
+#pronoun-cards.pronouns>.card.rl3-active-card>.card-copy>.zh{font-size:clamp(27px,3vw,39px)!important}
+#pronoun-cards.pronouns>.card.rl3-active-card .example{font-size:clamp(17px,1.7vw,25px)!important;margin-top:25px!important;padding-top:20px!important}
+#pronoun-cards.pronouns>.card.rl3-active-card .example .example-ru strong{font-size:clamp(24px,2.6vw,36px)!important}
+#pronoun-cards.pronouns>.card.rl3-active-card .example .example-lat,
+#pronoun-cards.pronouns>.card.rl3-active-card .example .example-zh{font-size:clamp(18px,1.8vw,26px)!important}
+#pronoun-cards.pronouns>.card.rl3-active-card>.card-art{grid-column:2!important;grid-row:1!important;min-height:400px!important;position:relative!important;overflow:hidden!important}
+#pronoun-cards.pronouns>.card.rl3-active-card>.card-art img{width:100%!important;height:100%!important;min-height:400px!important;object-fit:cover!important}
+#pronoun-cards.pronouns>.card.rl3-active-card .card-audio{width:55px!important;height:55px!important;top:clamp(15px,3vw,40px)!important;right:clamp(14px,3vw,38px)!important}
+.rl3-feature-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,2vw,22px);padding:17px 5px 2px}
+.rl3-feature-buttons a,.rl3-feature-buttons button{border:2px solid #fff;border-radius:16px;color:white;font-weight:900;font-size:clamp(18px,2vw,26px);min-height:70px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;box-shadow:0 4px 7px #53327548;cursor:pointer}
+.rl3-feature-buttons a:nth-child(1){background:linear-gradient(#b77ff7,#7734bd)}
+.rl3-feature-buttons a:nth-child(2){background:linear-gradient(#77c77e,#31915e)}
+.rl3-feature-buttons a:nth-child(3){background:linear-gradient(#ffa96c,#e97832)}
+@media(max-width:850px){#l3-approved-tabs{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media(max-width:650px){
+ .hero{display:grid!important;grid-template-columns:1fr!important;min-height:0!important}
+ .hero-copy{padding:18px 15px!important}.hero h1{font-size:46px!important}
+ .hero-art{min-height:240px!important}.hero-art img{width:100%!important;height:100%!important;object-position:66% center!important}
+ #l3-approved-tabs{gap:7px!important}
+ #l3-approved-tabs .l3-approved-tab{min-height:63px!important}
+ #pronoun-cards.pronouns>.card.rl3-active-card{display:flex!important;flex-direction:column-reverse!important;min-height:0!important}
+ #pronoun-cards.pronouns>.card.rl3-active-card>.card-art{min-height:240px!important;height:255px!important;width:100%!important}
+ #pronoun-cards.pronouns>.card.rl3-active-card>.card-art img{min-height:240px!important}
+ #pronoun-cards.pronouns>.card.rl3-active-card>.card-copy{padding:16px!important}
+ #pronoun-cards.pronouns>.card.rl3-active-card>.card-copy>.ru{font-size:57px!important}
+ #pronoun-cards.pronouns>.card.rl3-active-card .example{margin-top:12px!important;padding-top:11px!important}
+ #pronoun-cards.pronouns>.card.rl3-active-card .example .example-ru strong{font-size:22px!important}
+ .rl3-feature-buttons{gap:5px}.rl3-feature-buttons a{font-size:clamp(12px,3.5vw,17px)!important;min-height:62px;padding:7px}
+}
