@@ -1,0 +1,55 @@
+/* Exact-format layout: one large vocabulary card and working 1/100 navigation.
+   Original 100 word objects, audio and recognition remain loaded untouched. */
+body{background:#faf5e8 url('illustrated/lesson-4-hero.jpg') center top/100% auto no-repeat!important}
+.banner{height:clamp(265px,28vw,420px)!important;min-height:265px!important;grid-template-columns:1fr 1fr!important;display:grid!important;background:linear-gradient(90deg,#fffbeb 0%,#fff6e9ef 44%,transparent 68%),url('illustrated/lesson-4-hero.jpg') right center/cover no-repeat!important;border-bottom:4px solid #d2a363!important;box-shadow:none!important}
+.banner .l2-hero-copy{width:100%;padding:16px 28px!important;background:linear-gradient(110deg,#fffdf2ed,#fff7e8e9);border-radius:0 40px 40px 0}
+.banner .l2-hero-copy h1{font-size:clamp(29px,3.7vw,54px)}
+.layout{max-width:1550px!important;display:block!important;padding:0 clamp(10px,2.5vw,38px) 48px!important;margin:-2px auto 0!important}
+#word-list{display:block!important;max-width:100%!important}
+#word-list>.word-card{display:none!important}
+#word-list>.word-card.l2-current{display:block!important;width:100%!important;margin:0!important;padding:clamp(18px,3vw,38px)!important;min-height:0!important;border:7px double #d5a24b!important;border-image:none!important;border-radius:24px!important;background:#fffaf0!important;box-shadow:0 8px 27px #684a3152,inset 0 0 0 2px #f2d6a2!important}
+#word-list>.word-card .topline{font-size:clamp(17px,1.7vw,23px);margin:0 0 14px;padding:0 10px 10px}
+#word-list>.word-card .learning{grid-template-columns:minmax(0,1fr) minmax(0,.94fr)!important;gap:clamp(22px,2.6vw,44px)!important;min-height:400px;align-items:center}
+#word-list>.word-card .portrait{height:clamp(310px,32vw,470px)!important;min-height:310px!important;aspect-ratio:auto!important;border-radius:20px!important}
+#word-list>.word-card .portrait [data-role="photo"]{inset:0!important;width:100%!important;height:100%!important}
+#word-list>.word-card .info{height:auto;padding:15px 0!important}
+#word-list>.word-card .wordline h2{font-size:clamp(60px,7vw,114px)!important;color:#901c11}
+#word-list>.word-card .translation{font-size:clamp(28px,3vw,40px)!important}
+#word-list>.word-card .translation strong{font-size:clamp(31px,3.5vw,48px)!important}
+#word-list>.word-card .actions{margin-top:22px;gap:clamp(12px,2vw,26px)}
+#word-list>.word-card .action{min-height:95px;font-size:clamp(23px,2.5vw,35px)}
+#word-list>.word-card .action img{width:clamp(38px,4.3vw,61px)}
+#word-list>.word-card .feedback{min-height:66px}
+.l2-feature-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 6px 19px;color:#5d3820}
+.l2-feature-controls .count{font-weight:900;font-size:clamp(17px,2vw,23px)}
+.l2-feature-controls .nav-actions{display:flex;align-items:center;gap:clamp(10px,2vw,22px)}
+.l2-feature-controls button{background:#fff8e4;color:#81551c;border:2px solid #e6c17d;min-width:52px;height:52px;border-radius:14px;font-size:26px;box-shadow:0 2px 5px #65482a31}
+.l2-feature-controls button:disabled{opacity:.35}
+.l2-nav-index{font-size:clamp(18px,1.6vw,23px);font-weight:800;white-space:nowrap}
+.l2-index{margin:24px auto;max-width:1550px;padding:0 clamp(12px,2.5vw,40px);background:#fffaf3f2;border:2px solid #e9cda0;border-radius:19px}
+.l2-index summary{cursor:pointer;list-style:none;min-height:62px;display:flex;align-items:center;justify-content:space-between;font-weight:900;color:#276947;font-size:20px}
+.l2-index summary::after{content:'⌄';font-size:28px}
+.l2-index[open] summary::after{content:'⌃'}
+.l2-index-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-height:365px;overflow:auto;padding:0 0 15px}
+.l2-index-list button{border:1px solid #ddc99c;background:#fff;border-radius:10px;padding:10px 7px;text-align:left;color:#373027;cursor:pointer;overflow-wrap:anywhere}
+.l2-index-list button[aria-current=true]{background:#e4f5da;border-color:#85bb73;font-weight:900}
+.l2-index-list button span{display:block;color:#715e84;font-size:13px}
+.guidance{max-width:1550px;margin:20px auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:760px){
+ .banner{grid-template-columns:1fr!important;min-height:0!important;height:auto!important;padding:0!important;background:url('illustrated/lesson-4-hero.jpg') right center/cover no-repeat!important}
+ .banner .l2-hero-copy{padding:19px 13px!important;min-height:185px;background:#fff9eff1;border-radius:0}
+ .banner .l2-hero-copy h1{font-size:clamp(25px,6vw,34px)}
+ .layout{padding:8px!important}
+ #word-list>.word-card.l2-current{border-width:4px!important;padding:14px!important}
+ #word-list>.word-card .learning{display:flex!important;flex-direction:column!important;gap:12px!important;min-height:0!important}
+ #word-list>.word-card .portrait{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:1.65!important}
+ #word-list>.word-card .info{width:100%!important}
+ #word-list>.word-card .wordline h2{font-size:clamp(42px,12vw,70px)!important}
+ #word-list>.word-card .actions{gap:6px}
+ #word-list>.word-card .action{min-height:80px;font-size:clamp(13px,4vw,19px);padding:7px 2px;flex-direction:column}
+ #word-list>.word-card .action img{width:30px}
+ .l2-feature-controls{padding:2px 0 11px}
+ .l2-feature-controls button{min-width:43px;height:43px}
+ .l2-index-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .guidance{display:flex;flex-direction:column}
+}
