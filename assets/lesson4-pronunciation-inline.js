@@ -76,6 +76,8 @@
     if (activeRecorder) {const r=activeRecorder;activeRecorder=null;try{if(r.state==='recording')r.stop();}catch{}}
     if (activeStream) {activeStream.getTracks().forEach(t=>t.stop());activeStream=null;}
     if (activeAudio) {activeAudio.pause();activeAudio=null;}
+    if(window.speechSynthesis)window.speechSynthesis.cancel();
+    browserVoice=null;
     if (window.CourseAudio) window.CourseAudio.stop(true);
   }
   function setFeedback(bar,message,kind='info') {
@@ -89,10 +91,37 @@
     for(const key of candidates)if(manifest[key])return {path:manifest[key],role:key.split('|')[0]};
     return null;
   }
+  let browserVoice=null;
+  const voices=()=>typeof window.speechSynthesis==='undefined'?[]:window.speechSynthesis.getVoices();
+  function russianVoice(role){
+    const available=voices().filter(v=>/^ru(?:-|_)/i.test(v.lang));
+    if(!available.length)return null;
+    const prefer=role==='female'
+      ? /svetlana|светлана|irina|ирина|tatyana|татьяна|katya|катя|female/i
+      : /dmitry|дмитрий|pavel|павел|maxim|максим|male/i;
+    return available.find(v=>prefer.test(v.name))||available.find(v=>v.localService)||available[0];
+  }
+  function speakFallback(bar,text,role,slow=false){
+    const engine=window.speechSynthesis;
+    const voice=russianVoice(role);
+    if(!engine||!window.SpeechSynthesisUtterance||!voice){
+      setFeedback(bar,'设备没有可用的俄语语音，请安装俄语系统语音。 / На устройстве нет русского голоса.','warning');return;
+    }
+    const utterance=new SpeechSynthesisUtterance(text);
+    utterance.lang='ru-RU';
+    utterance.voice=voice;
+    utterance.rate=slow?0.72:0.95;
+    utterance.pitch=1;
+    browserVoice=utterance;
+    utterance.onerror=()=>setFeedback(bar,'系统朗读失败。请检查设备的俄语语音设置。','warning');
+    utterance.onstart=()=>setFeedback(bar,'🔊 系统俄语发音（不是原声音频） · '+voice.name);
+    utterance.onend=()=>{if(browserVoice===utterance)browserVoice=null;};
+    engine.speak(utterance);
+  }
   function listen(bar,text,role,slow=false) {
     stopActivity();
     const sound=findRecording(text,role);
-    if(!sound){setFeedback(bar,'此句暂时没有对应的音频，请使用原有的🔊按钮。','warning');return;}
+    if(!sound){speakFallback(bar,text,role,slow);return;}
     if(!slow && window.CourseAudio) {
       window.CourseAudio.play([{text,role:sound.role}]);
       setFeedback(bar,'正在播放原音。听完后点击“跟读”。');
@@ -204,17 +233,14 @@
     if(!hasNativeAudio){
       buttons.slice(0,2).forEach((_,i)=>{
         const button=controls.children[i];
-        button.disabled=true;
-        button.title='真人录音待添加 / Запись естественного голоса ещё не добавлена';
-        button.style.opacity='.64';
-        button.style.cursor='not-allowed';
+        button.title='系统俄语朗读 · При отсутствии записи используется системный русский голос';
       });
     }
     const fb=document.createElement('div');fb.className='rl4-feedback';
     fb.setAttribute('role','status');fb.setAttribute('aria-live','polite');
     fb.textContent=hasNativeAudio
       ? '先听原音，再跟读。仅核对识别文字，不判断重音。'
-      : '这句话的自然语音录音待补充。🎤跟读练习可用，但文字识别不能判断重音。';
+      : '原声录音待补充；🔊使用设备俄语系统声音（可能较机械）。🎤跟读可用。';
     bar.append(fb);
     // Preserve original card and dialog click listeners: control clicks must not start parent audio.
     bar.addEventListener('click',event=>event.stopPropagation());
@@ -222,6 +248,19 @@
     target.append(bar);target.classList.add('rl4-has-panel');
   }
   function setup() {
+    // Use existing recordings first, system Russian TTS only for phrases with no MP3.
+    document.querySelectorAll('.lesson-4 .lesson4-extended-card .lesson4-pending-play').forEach(button=>{
+      button.disabled=false;
+      button.removeAttribute('disabled');
+      button.classList.add('lesson4-tts-play');
+      button.title='设备俄语朗读 · Системное произношение (пока нет MP3)';
+      button.addEventListener('click',event=>{
+        event.stopPropagation();
+        const card=button.closest('.lesson4-extended-card');
+        const practice=card&&card.querySelector('.rl4-panel');
+        if(practice)listen(practice,card.dataset.practiceText,card.dataset.practiceRole||'male',false);
+      });
+    });
     // Leave the original sound buttons, images, dialogues, and cards untouched.
     // The original image-hotspots have equivalent text in the mobile dialogue;
     // on desktop we add a dedicated practice strip below the image.

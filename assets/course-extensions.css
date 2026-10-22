@@ -60,3 +60,8 @@
 .lesson-4 #extra-vocab-4 .extra-card:nth-child(2) .extra-figure{background-position:right top}
 .lesson-4 #extra-vocab-4 .extra-card:nth-child(3) .extra-figure{background-position:left bottom}
 .lesson-4 #extra-vocab-4 .extra-card:nth-child(4) .extra-figure{background-position:right bottom}
+
+/* Show the original picture without blurring filters. Keep sound button active
+   for new phrases when the device offers a Russian system voice. */
+.lesson-4 .lesson4-tts-play{opacity:1!important;cursor:pointer!important;filter:none!important}
+.lesson-4 .lesson4-tts-play:after{content:'系统音'!important}
