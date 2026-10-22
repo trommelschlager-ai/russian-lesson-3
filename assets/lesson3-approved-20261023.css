@@ -1,0 +1,69 @@
+/* Approved sketch A for lesson 3 – lavender illustrated storybook redesign.
+   Skin and navigation only: preserves every lesson phrase, voices, mic, quiz. */
+html{background:#f6eeff}
+body{background:radial-gradient(circle at 12% 6%,#fffdf7 0,#faf1ff 48%,#f1e1fe 100%);color:#231445}
+.wrap{max-width:1500px;width:min(1500px,calc(100% - 30px));padding-bottom:52px}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);min-height:340px;background:#fff8ec!important;border:0!important;border-radius:0 0 23px 23px!important;overflow:hidden;box-shadow:0 8px 24px #573a7840;margin-bottom:25px}
+.hero-copy{z-index:1;position:relative;justify-content:center;padding:26px clamp(18px,3.5vw,56px);background:linear-gradient(110deg,#fffaf2 5%,#fffbf3 80%,#fff5e9 100%)}
+.hero-copy::before{content:'✿ ✿ ❀';position:absolute;top:0;left:0;font-size:39px;letter-spacing:12px;color:#ac75d9;opacity:.72;pointer-events:none}
+.hero-copy::after{content:'✿';position:absolute;bottom:0;left:7%;font-size:49px;color:#cca5e8;opacity:.75;pointer-events:none}
+.hero .badge{align-self:flex-start;position:relative;background:linear-gradient(160deg,#be8aff,#833acc);border:2px solid #fff;border-radius:28px;padding:7px 18px;box-shadow:0 3px 9px #7246a54b;font-size:clamp(14px,1.6vw,20px);z-index:1}
+.hero h1{font:900 clamp(37px,4.8vw,72px)/1.16 'Noto Serif CJK SC','Microsoft YaHei',Georgia,serif;color:#171344;letter-spacing:0;text-shadow:1px 2px 0 #e9d2ff;margin:14px 0 2px}
+.hero .subtitle{font-size:clamp(22px,2.5vw,35px);font-weight:900;color:#7935cc;line-height:1.2;padding-bottom:8px;border-bottom:3px solid #ab7fe0;display:inline-block;max-width:max-content}
+.hero .intro{font-weight:650;font-size:clamp(12px,1.1vw,16px);color:#513d74;line-height:1.65;margin-top:5px;max-width:630px}
+.hero .pills{margin-top:16px;gap:10px}
+.hero .pill{border:1px solid #c398ef;border-radius:14px;padding:9px 15px;color:#6b2eac;background:#fbf3ff;box-shadow:0 3px 0 #dbbaf6;font-size:14px}
+.hero-art{position:relative;min-height:340px;background:linear-gradient(160deg,#cee6ff,#e5d1ed);overflow:hidden}
+.hero-art img{position:absolute;right:0;top:0;width:160%!important;max-width:none!important;height:100%!important;min-height:0!important;object-fit:cover!important;object-position:right center}
+.section{background:linear-gradient(160deg,#fffcff 0%,#fcf7ff 100%);border:2px solid #d5adf9;border-radius:20px;padding:clamp(14px,1.8vw,24px);box-shadow:0 5px 0 #dcc5f4,0 11px 22px #5e3f7930;margin:18px 0}
+#pronouns{padding-top:20px}
+#pronouns>.section-head{margin-bottom:8px}
+#pronouns .section-head h2{color:#261847;font-size:clamp(21px,2.5vw,30px)}
+#pronouns .num{background:linear-gradient(180deg,#c993ff,#8d42d7);border:2px solid #fff;box-shadow:0 3px 0 #7b49b8}
+#pronouns .tools .action{background:linear-gradient(180deg,#b86cf5,#7336bf);color:#fff;border:2px solid #f3dfff;border-radius:22px;padding:11px 17px;box-shadow:0 4px 8px #662e8e33;font-size:15px}
+#pronouns .section-desc{color:#8764a4;font-weight:700}
+.l3-approved-tabs{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;margin:16px 0 18px;min-width:0}
+.l3-approved-tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:76px;padding:9px 3px;background:linear-gradient(145deg,#fffaff,#f9efff);border:2px solid #e7d3fa;border-radius:15px;color:#221643;box-shadow:0 3px 9px #64387e26;white-space:normal;touch-action:manipulation}
+.l3-approved-tab .tab-ru{font-weight:950;font-size:clamp(21px,2vw,29px);line-height:1.2}
+.l3-approved-tab .tab-cn{font-weight:750;font-size:clamp(14px,1.4vw,18px);color:#7a41b1}
+.l3-approved-tab[aria-current="true"]{border-color:#ab65ed;box-shadow:0 2px 12px #ae5dec66, inset 0 0 0 2px #fff;background:linear-gradient(180deg,#f3e0ff,#fffaff)}
+.l3-approved-tab:focus-visible{outline:3px solid #6c31b2;outline-offset:3px}
+body .wrap #pronoun-cards.pronouns{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:19px!important}
+body .wrap #pronoun-cards.pronouns>.card{min-height:280px!important;border:2px solid #d6b2f4!important;border-radius:20px!important;box-shadow:0 6px 17px #6b398d2d!important;background:#fffafd!important;scroll-margin-top:22px}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy{padding:24px 22px 16px!important;background:linear-gradient(115deg,#fffdfd,#fcf6ff);border-right:1px solid #e6d2f8}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy>.ru{font-size:clamp(43px,5vw,72px)!important;color:#25104d!important;line-height:1.17!important}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy>.lat{font-size:clamp(19px,2vw,25px)!important;color:#8347c6!important}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy>.zh{font-size:clamp(22px,2vw,27px)!important;color:#19133e!important}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy>.example{padding:13px 0 0!important;margin:17px 0 0!important;border-top:1px dashed #d8b6ee!important;gap:5px!important}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy>.example .example-ru strong{font-size:clamp(18px,2vw,26px)!important;color:#792ac3!important}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy>.example .example-lat,
+body .wrap #pronoun-cards.pronouns>.card>.card-copy>.example .example-zh{font-size:clamp(14px,1.5vw,19px)!important;line-height:1.5!important}
+body .wrap #pronoun-cards.pronouns>.card>.card-art{background:#f2e2ff!important;overflow:hidden;border-radius:0 17px 17px 0}
+body .wrap #pronoun-cards.pronouns>.card>.card-art .l3-final-art{object-fit:cover!important}
+body .wrap #pronoun-cards.pronouns>.card .card-audio{width:49px!important;height:49px!important;border:2px solid #ead4ff!important;background:linear-gradient(180deg,#c88cf8,#8442d6)!important;box-shadow:0 3px 0 #6637b0!important}
+body .wrap #pronoun-cards.pronouns>.card .example-audio{width:38px!important;height:38px!important;flex:0 0 38px!important;background:linear-gradient(#c17ff0,#8d43d7);box-shadow:0 2px 0 #7139ad}
+.section .action{border-radius:14px}
+#pronoun-cards .card:focus-within{outline:2px solid #b06cf0;outline-offset:2px}
+@media(max-width:1000px){
+ .l3-approved-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .hero{min-height:290px}.hero-art{min-height:290px}
+}
+@media(max-width:650px){
+ .wrap{width:calc(100% - 14px)}
+ .hero{grid-template-columns:minmax(0,1fr)!important;border-radius:0 0 18px 18px!important}
+ .hero-copy{padding:24px 16px}.hero-art{min-height:175px;max-height:230px}
+ .hero-art img{width:150%!important;height:100%!important}
+ .l3-approved-tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+ .l3-approved-tab{min-height:65px;padding:7px 2px;border-radius:11px}
+ .l3-approved-tab .tab-ru{font-size:21px}.l3-approved-tab .tab-cn{font-size:13px}
+ body .wrap #pronoun-cards.pronouns>.card{min-height:210px!important;border-radius:14px!important}
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy{padding:15px 10px!important}
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy>.ru{font-size:38px!important}
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy>.lat{font-size:17px!important}
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy>.zh{font-size:21px!important}
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy>.example .example-ru strong{font-size:15px!important}
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy>.example .example-lat,
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy>.example .example-zh{font-size:13px!important}
+ body .wrap #pronoun-cards.pronouns>.card .card-audio{width:39px!important;height:39px!important}
+ body .wrap #pronoun-cards.pronouns>.card .example-audio{width:30px!important;height:30px!important;flex-basis:30px!important}
+}
