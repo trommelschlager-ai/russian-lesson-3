@@ -48,14 +48,16 @@
   let activeStream = null;
   let activeAudio = null;
   let activeTimer = null;
-  let recordingIsManual = false;
+  let activeMicButton = null;
+  let recognitionTimer = null;
+  let microphoneRequest = 0;
   let objectUrl = null;
   let recorderOwner = null;
   const root = document;
 
   function normalize(s) {
     return String(s || '').toLocaleLowerCase('ru-RU').replace(/ё/g, 'е')
-      .replace(/[^\u0400-\u052f]+/g, ' ').trim().replace(/\s+/g, ' ');
+      .replace(/[^\p{L}\p{N}]+/gu, ' ').trim().replace(/\s+/g, ' ');
   }
   function readableError(err) {
     const e = err?.error || err?.name || 'unknown';
@@ -71,13 +73,14 @@
     return messages[e] || '语音识别暂不可用（' + e + '）。';
   }
   function stopActivity() {
+    microphoneRequest++;
+    clearTimeout(recognitionTimer); recognitionTimer = null;
+    if(activeMicButton){activeMicButton.textContent="🎤 跟读";activeMicButton=null;}
     clearTimeout(activeTimer); activeTimer = null;
     if (activeRecognition) {const r=activeRecognition; activeRecognition=null;try{r.abort();}catch{}}
     if (activeRecorder) {const r=activeRecorder;activeRecorder=null;try{if(r.state==='recording')r.stop();}catch{}}
     if (activeStream) {activeStream.getTracks().forEach(t=>t.stop());activeStream=null;}
     if (activeAudio) {activeAudio.pause();activeAudio=null;}
-    if(window.speechSynthesis)window.speechSynthesis.cancel();
-    browserVoice=null;
     if (window.CourseAudio) window.CourseAudio.stop(true);
   }
   function setFeedback(bar,message,kind='info') {
@@ -87,56 +90,25 @@
   }
   function findRecording(text,role) {
     const manifest=window.COURSE_AUDIO||{};
-    const candidates=[role+'|'+text,'male|'+text,'female|'+text];
-    for(const key of candidates)if(manifest[key])return {path:manifest[key],role:key.split('|')[0]};
-    return null;
-  }
-  let browserVoice=null;
-  const voices=()=>typeof window.speechSynthesis==='undefined'?[]:window.speechSynthesis.getVoices();
-  function russianVoice(role){
-    const available=voices().filter(v=>/^ru(?:-|_)/i.test(v.lang));
-    if(!available.length)return null;
-    const prefer=role==='female'
-      ? /svetlana|светлана|irina|ирина|tatyana|татьяна|katya|катя|female/i
-      : /dmitry|дмитрий|pavel|павел|maxim|максим|male/i;
-    return available.find(v=>prefer.test(v.name))||available.find(v=>v.localService)||available[0];
-  }
-  function speakFallback(bar,text,role,slow=false){
-    const engine=window.speechSynthesis;
-    const voice=russianVoice(role);
-    if(!engine||!window.SpeechSynthesisUtterance||!voice){
-      setFeedback(bar,'设备没有可用的俄语语音，请安装俄语系统语音。 / На устройстве нет русского голоса.','warning');return;
-    }
-    const utterance=new SpeechSynthesisUtterance(text);
-    utterance.lang='ru-RU';
-    utterance.voice=voice;
-    utterance.rate=slow?0.72:0.95;
-    utterance.pitch=1;
-    browserVoice=utterance;
-    utterance.onerror=()=>setFeedback(bar,'系统朗读失败。请检查设备的俄语语音设置。','warning');
-    utterance.onstart=()=>setFeedback(bar,'🔊 系统俄语发音（不是原声音频） · '+voice.name);
-    utterance.onend=()=>{if(browserVoice===utterance)browserVoice=null;};
-    engine.speak(utterance);
+    const path=manifest[role+'|'+text];
+    return path ? {path,role} : null;
   }
   function listen(bar,text,role,slow=false) {
     stopActivity();
     const sound=findRecording(text,role);
-    if(!sound){speakFallback(bar,text,role,slow);return;}
-    if(!slow && window.CourseAudio) {
-      window.CourseAudio.play([{text,role:sound.role}]);
-      setFeedback(bar,'正在播放原音。听完后点击“跟读”。');
-      return;
-    }
+    if(!sound){setFeedback(bar,'此句尚无配套 MP3 录音。暂不提供系统朗读。 / Для этой реплики MP3 пока нет.','warning');return;}
     const audio = new Audio(sound.path); activeAudio=audio;
     audio.playbackRate=slow?0.7:1;
     if ('preservesPitch' in audio) audio.preservesPitch=true;
     setFeedback(bar,slow?'正在慢速播放（0.7×）。':'正在播放原音。');
     audio.addEventListener('ended',()=>{if(activeAudio===audio){activeAudio=null;setFeedback(bar,'请点击“跟读”试一试。');}}, {once:true});
+    audio.addEventListener('error',()=>{if(activeAudio===audio)setFeedback(bar,'录音无法播放，请检查网络或再点一次。','failure');},{once:true});
     audio.play().catch(()=>{if(activeAudio===audio) setFeedback(bar,'录音无法播放，请检查网络或再点一次。','failure');});
   }
   function useRecognition(bar,text,button) {
     stopActivity();
     const recognition=new SpeechAPI(); activeRecognition=recognition;
+    activeMicButton=button;
     let received=false; let error=false;
     recognition.lang='ru-RU';recognition.continuous=false;
     recognition.interimResults=false;recognition.maxAlternatives=3;
@@ -149,22 +121,32 @@
       if(!results.length)return;
       received=true;
       const expected=normalize(text);
-      const match=results.find(x=>normalize(x)===expected);
+      const match=normalize(results[0])===expected ? results[0] : null;
       setFeedback(bar,(match?'✅ 识别文字一致：':'❌ 识别文字不同：')+(match||results[0])+
         '。注意：识别文字并不能判断口音、音素或重音是否准确。',match?'success':'failure');
     };
     recognition.onerror=event=>{
       if(activeRecognition!==recognition)return;
-      error=true; recordingIsManual=true;button.textContent='🎤 跟读';
-      setFeedback(bar,readableError(event)+' 再次点击“跟读”可录音自听。','warning');
+      error=true;button.textContent='🎤 跟读';
+      setFeedback(bar,readableError(event)+' 点击“跟读”可重试；也可以录音自听。','warning');offerRecorder(bar,button);
     };
     recognition.onend=()=>{
       if(activeRecognition!==recognition)return;
-      activeRecognition=null;button.textContent='🎤 跟读';
+      clearTimeout(recognitionTimer);recognitionTimer=null;
+      activeRecognition=null;activeMicButton=null;button.textContent='🎤 跟读';
       if(!received&&!error)setFeedback(bar,'未收到识别结果；再次点击可重试。','warning');
     };
-    try{recognition.start();}
-    catch(err){activeRecognition=null;button.textContent='🎤 跟读';recordingIsManual=true;setFeedback(bar,readableError(err)+' 点击“跟读”可录音自听。','warning');}
+    try{recognition.start();recognitionTimer=setTimeout(()=>{
+      if(activeRecognition!==recognition)return;
+      error=true;setFeedback(bar,'识别超时，请重试或录音自听。','warning');offerRecorder(bar,button);
+      recognition.abort();button.textContent='🎤 跟读';
+    },15000);}
+    catch(err){activeRecognition=null;button.textContent='🎤 跟读';setFeedback(bar,readableError(err)+' 可以录音自听。','warning');offerRecorder(bar,button);}
+  }
+  function offerRecorder(bar,button){
+    const record=document.createElement('button');record.type='button';record.className='rl4-replay';record.textContent='🎙 录音自听（不评分）';
+    record.addEventListener('click',()=>useLocalRecorder(bar,button));
+    bar.querySelector('.rl4-feedback').append(record);
   }
   async function useLocalRecorder(bar,button) {
     if(!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) {
@@ -173,15 +155,17 @@
     }
     stopActivity();
     setFeedback(bar,'正在请求麦克风权限。录音只在此设备播放，不会上传到课程网站。');
+    const request=microphoneRequest;
     let stream;
     try{stream=await navigator.mediaDevices.getUserMedia({audio:true});}
     catch(err){setFeedback(bar,readableError(err),'warning');return;}
+    if(request!==microphoneRequest){stream.getTracks().forEach(t=>t.stop());return;}
     activeStream=stream;
     const chunks=[];
     let recorder;
     try{recorder=new MediaRecorder(stream);}
     catch{stream.getTracks().forEach(t=>t.stop());activeStream=null;setFeedback(bar,'此浏览器无法启动录音。','warning');return;}
-    activeRecorder=recorder;recorderOwner=bar;
+    activeRecorder=recorder;recorderOwner=bar;activeMicButton=button;
     button.textContent='■ 停止录音';
     recorder.ondataavailable=e=>{if(e.data?.size)chunks.push(e.data);};
     recorder.onstop=()=>{
@@ -206,7 +190,8 @@
       clearTimeout(activeTimer);activeRecorder.stop();return;
     }
     if(!window.isSecureContext) {setFeedback(bar,'麦克风只在 HTTPS 安全网页中可用。','warning');return;}
-    if (SpeechAPI && !recordingIsManual) useRecognition(bar,text,button);
+    if(activeRecognition && activeMicButton===button){stopActivity();setFeedback(bar,'已停止识别。');return;}
+    if (SpeechAPI) useRecognition(bar,text,button);
     else useLocalRecorder(bar,button);
   }
   function addBar(target, text, role='male',label='') {
@@ -233,14 +218,14 @@
     if(!hasNativeAudio){
       buttons.slice(0,2).forEach((_,i)=>{
         const button=controls.children[i];
-        button.title='系统俄语朗读 · При отсутствии записи используется системный русский голос';
+        button.title='MP3 录音待补充 · Запись пока отсутствует';
       });
     }
     const fb=document.createElement('div');fb.className='rl4-feedback';
     fb.setAttribute('role','status');fb.setAttribute('aria-live','polite');
     fb.textContent=hasNativeAudio
       ? '先听原音，再跟读。仅核对识别文字，不判断重音。'
-      : '原声录音待补充；🔊使用设备俄语系统声音（可能较机械）。🎤跟读可用。';
+      : 'MP3 录音待补充，暂不提供系统朗读。🎤跟读可用。';
     bar.append(fb);
     // Preserve original card and dialog click listeners: control clicks must not start parent audio.
     bar.addEventListener('click',event=>event.stopPropagation());
@@ -248,18 +233,9 @@
     target.append(bar);target.classList.add('rl4-has-panel');
   }
   function setup() {
-    // Use existing recordings first, system Russian TTS only for phrases with no MP3.
-    document.querySelectorAll('.lesson-4 .lesson4-extended-card .lesson4-pending-play').forEach(button=>{
-      button.disabled=false;
-      button.removeAttribute('disabled');
-      button.classList.add('lesson4-tts-play');
-      button.title='设备俄语朗读 · Системное произношение (пока нет MP3)';
-      button.addEventListener('click',event=>{
-        event.stopPropagation();
-        const card=button.closest('.lesson4-extended-card');
-        const practice=card&&card.querySelector('.rl4-panel');
-        if(practice)listen(practice,card.dataset.practiceText,card.dataset.practiceRole||'male',false);
-      });
+    // Pending recordings remain explicit: never substitute browser speech.
+    document.querySelectorAll('.lesson-4 .lesson4-pending-play').forEach(button=>{
+      button.title='MP3 录音待补充 · Запись пока отсутствует';
     });
     // Leave the original sound buttons, images, dialogues, and cards untouched.
     // The original image-hotspots have equivalent text in the mobile dialogue;
@@ -294,5 +270,10 @@
     }
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true});else setup();
+  document.addEventListener('click',event=>{
+    if(!event.target.closest('.rl4-panel') && event.target.closest('[data-say],[data-course-all],.rc-listen'))stopActivity();
+  },true);
+  document.getElementById('course-audio-stop')?.addEventListener('click',()=>stopActivity());
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopActivity();});
   window.addEventListener('pagehide',()=>{stopActivity();if(objectUrl)URL.revokeObjectURL(objectUrl);});
 })();

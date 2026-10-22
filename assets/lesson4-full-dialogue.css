@@ -97,3 +97,6 @@
   .lesson-4 .mobile-dialogue-line .latin{font-size:19px}
   .lesson-4 .mobile-dialogue-line .zh{font-size:19px}
 }
+
+/* Separate approved 640×480 originals; no sprite or resampling filters. */
+.lesson-4 #extra-vocab-4 .lesson4-scene{display:block;width:100%;max-width:260px;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:15px;margin:0 auto;box-shadow:0 3px 11px rgba(52,39,84,.13)}

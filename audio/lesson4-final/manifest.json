@@ -1,0 +1,137 @@
+[
+  {
+    "role": "female",
+    "text": "А у тебя?",
+    "voice": "ru-RU-SvetlanaNeural",
+    "path": "audio/lesson4-final/female-8624ecf29909.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 1.872
+  },
+  {
+    "role": "female",
+    "text": "Говори, пожалуйста, медленнее.",
+    "voice": "ru-RU-SvetlanaNeural",
+    "path": "audio/lesson4-final/female-ebd1826c3588.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 3.432
+  },
+  {
+    "role": "female",
+    "text": "Давай! До встречи!",
+    "voice": "ru-RU-SvetlanaNeural",
+    "path": "audio/lesson4-final/female-2acda40c3340.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 3.552
+  },
+  {
+    "role": "female",
+    "text": "Завтра будет дождь.",
+    "voice": "ru-RU-SvetlanaNeural",
+    "path": "audio/lesson4-final/female-1feca32a73a1.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 2.4
+  },
+  {
+    "role": "female",
+    "text": "Как тебя зовут?",
+    "voice": "ru-RU-SvetlanaNeural",
+    "path": "audio/lesson4-final/female-462ae0c3f5e0.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 2.184
+  },
+  {
+    "role": "female",
+    "text": "Сегодня солнечно и тепло.",
+    "voice": "ru-RU-SvetlanaNeural",
+    "path": "audio/lesson4-final/female-b38fb1033c9e.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 2.976
+  },
+  {
+    "role": "female",
+    "text": "Я из Китая.",
+    "voice": "ru-RU-SvetlanaNeural",
+    "path": "audio/lesson4-final/female-75416a3c5555.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 2.448
+  },
+  {
+    "role": "female",
+    "text": "Я немного говорю по-русски.",
+    "voice": "ru-RU-SvetlanaNeural",
+    "path": "audio/lesson4-final/female-18ae887c2b88.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 2.856
+  },
+  {
+    "role": "male",
+    "text": "А завтра?",
+    "voice": "ru-RU-DmitryNeural",
+    "path": "audio/lesson4-final/male-217584415491.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 1.872
+  },
+  {
+    "role": "male",
+    "text": "Какая сегодня погода?",
+    "voice": "ru-RU-DmitryNeural",
+    "path": "audio/lesson4-final/male-753655db5552.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 2.496
+  },
+  {
+    "role": "male",
+    "text": "Меня зовут Дмитрий.",
+    "voice": "ru-RU-DmitryNeural",
+    "path": "audio/lesson4-final/male-c8aa88d6da2b.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 2.4
+  },
+  {
+    "role": "male",
+    "text": "Откуда ты?",
+    "voice": "ru-RU-DmitryNeural",
+    "path": "audio/lesson4-final/male-b1567cd1bfcd.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 1.896
+  },
+  {
+    "role": "male",
+    "text": "Тогда пойдём в кино сегодня?",
+    "voice": "ru-RU-DmitryNeural",
+    "path": "audio/lesson4-final/male-4913ede9f300.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 2.784
+  },
+  {
+    "role": "male",
+    "text": "Ты говоришь по-русски?",
+    "voice": "ru-RU-DmitryNeural",
+    "path": "audio/lesson4-final/male-b55ec6542112.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 2.28
+  },
+  {
+    "role": "male",
+    "text": "У меня тоже всё хорошо.",
+    "voice": "ru-RU-DmitryNeural",
+    "path": "audio/lesson4-final/male-8ab877676af4.mp3",
+    "source": "Microsoft neural speech synthesis; not a human recording",
+    "auditory_review": "pending",
+    "duration_seconds": 2.736
+  }
+]
