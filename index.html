@@ -160,7 +160,7 @@
           <button type="button" data-progress-step="5" aria-pressed="false" aria-label="第6课 我的家人，标记完成">6</button>
           <button type="button" data-progress-step="6" aria-pressed="false" aria-label="第7课 我的一天，标记完成">7</button>
         </div>
-        <p class="dashboard-help">点击数字标记已完成 · 仅保存在此设备上 / Нажми номер пройденного урока</p>
+        <p class="dashboard-help">自动记录学习成果 · 点击数字打开课程 / Прогресс отмечается автоматически, нажми номер для перехода</p>
       </div>
     </div>
   </section>
@@ -217,28 +217,35 @@
       player.pause();
       if(lastFocus&&lastFocus.focus)lastFocus.focus();
     }
+    /* Completion comes from actual lesson work, not manual dashboard clicks. */
     function getCompleted(){
+      var done=[];
       try{
-        var arr=JSON.parse(localStorage.getItem('russian-home-completed-v1')||'[]');
-        return Array.isArray(arr)?arr.filter(function(i){return Number.isInteger(i)&&i>=0&&i<lessons.length;}):[];
-      }catch(e){return [];}
+        var quiz=JSON.parse(localStorage.getItem('russian-course-progress-v1')||'{}');
+        for(var lesson=1;lesson<=lessons.length;lesson++){
+          var result=quiz[String(lesson)];
+          if(result&&Number(result.total)>0&&Number(result.score)>=0&&Number(result.score)/Number(result.total)>=.8)done.push(lesson-1);
+        }
+      }catch(e){}
+      try{
+        var words=JSON.parse(localStorage.getItem('lesson2-reference-progress')||'{}');
+        if(Array.isArray(words.seen)&&new Set(words.seen).size>=100&&done.indexOf(1)===-1)done.push(1);
+      }catch(e){}
+      return done.sort(function(a,b){return a-b;});
     }
-    function saveCompleted(arr){try{localStorage.setItem('russian-home-completed-v1',JSON.stringify(arr));}catch(e){}}
     function progressMarkup(){
-      var saved=getCompleted();
-      return '<p>请手动勾选已完成的课程，进度只保存在当前设备上。</p>'+
+      var completed=getCompleted();
+      return '<p>进度自动保存：第1课听完33个字母；第2课练习全部100个单词；第3–7课测验正确率至少80%。</p>'+
         '<strong id="home-progress-label"></strong><div class="progress-meter"><div id="home-progress-fill"></div></div>'+
-        lessons.map(function(l,i){return '<label class="progress-row"><input type="checkbox" data-done="'+i+'" '+(saved.includes(i)?'checked':'')+'><span>'+(i+1)+'. '+l.zh+' — '+l.ru+'</span><a href="'+l.href+'" aria-label="打开第'+(i+1)+'课">↗</a></label>';}).join('')+
-        '<p class="course-note">这里是手动完成记录，不是自动的发音评分。 / Это ручные отметки, не автоматическая оценка произношения.</p>';
+        lessons.map(function(l,i){return '<div class="progress-row"><span>'+(completed.indexOf(i)!==-1?'✅ ':'○ ')+(i+1)+'. '+l.zh+' — '+l.ru+'</span><a href="'+l.href+'" aria-label="打开第'+(i+1)+'课">↗</a></div>';}).join('')+
+        '<p class="course-note">只记录真实学习进度，打开课程本身不算完成。记录仅保存在此设备的浏览器中。 / Прогресс засчитывается после выполнения заданий и хранится в этом браузере.</p>';
     }
     function updateProgress(){
-      var checkboxes=[].slice.call(body.querySelectorAll('[data-done]'));
-      var done=checkboxes.filter(function(c){return c.checked;}).map(function(c){return Number(c.dataset.done);});
-      var text=document.getElementById('home-progress-label');
+      var done=getCompleted();
+      var label=document.getElementById('home-progress-label');
       var fill=document.getElementById('home-progress-fill');
-      if(text)text.textContent='已完成 '+done.length+' / '+lessons.length+' 课 · '+Math.round(100*done.length/lessons.length)+'%';
+      if(label)label.textContent='已完成 '+done.length+' / '+lessons.length+' 课 · '+Math.round(100*done.length/lessons.length)+'%';
       if(fill)fill.style.width=100*done.length/lessons.length+'%';
-      saveCompleted(done);
       refreshDashboard();
     }
     function showPanel(which){
@@ -407,7 +414,7 @@
         var i=Number(button.dataset.progressStep),doneHere=done.indexOf(i)!==-1;
         button.setAttribute('aria-pressed',String(doneHere));
         button.textContent=doneHere?'✓':String(i+1);
-        button.setAttribute('aria-label','第'+(i+1)+'课 '+lessons[i].zh+'，'+(doneHere?'取消完成标记':'标记完成'));
+        button.setAttribute('aria-label','打开第'+(i+1)+'课 '+lessons[i].zh+'，'+(doneHere?'已完成':'尚未完成'));
         button.title=(i+1)+'. '+lessons[i].zh+' — '+(doneHere?'已完成':'未完成');
       });
       var i=recommendedLesson(done),link=document.getElementById('dashboard-continue');
@@ -419,13 +426,10 @@
       var button=event.target.closest('[data-progress-step]');
       if(!button)return;
       var i=Number(button.dataset.progressStep);
-      var done=getCompleted();
-      if(done.indexOf(i)===-1)done.push(i);
-      else done=done.filter(function(v){return v!==i;});
-      saveCompleted(done);refreshDashboard();
-      // Keep the pre-existing progress dialog consistent if it happens to be open.
-      [].forEach.call(body.querySelectorAll('[data-done]'),function(cb){cb.checked=done.indexOf(Number(cb.dataset.done))!==-1;});
-      if(body.querySelector('[data-done]'))updateProgress();
+      if(Number.isInteger(i)&&i>=0&&i<lessons.length){
+        recordOpenedLesson(i);
+        window.location.href=lessons[i].href;
+      }
     });
     document.addEventListener('click',function(event){
       var link=event.target.closest('a[href]');
