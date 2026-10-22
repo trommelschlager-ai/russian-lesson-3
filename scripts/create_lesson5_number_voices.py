@@ -24,9 +24,9 @@ def word(n):
 
 def read_manifest(path):
     value=path.read_text(encoding='utf-8')
-    obj=re.search(r'Object.assign\\(window\\.COURSE_AUDIO,\\s*(\\{.*?\\})\\s*\\)',value,re.S)
+    obj=re.search(r'Object.assign\(window\.COURSE_AUDIO,\s*(\{.*?\})\s*\)',value,re.S)
     if obj:return json.loads(obj.group(1))
-    m=re.search(r'window\\.COURSE_AUDIO\\s*=\\s*(\\{.*?\\})\\s*;',value,re.S)
+    m=re.search(r'window\.COURSE_AUDIO\s*=\s*(\{.*?\})\s*;',value,re.S)
     if not m:raise RuntimeError('Unknown manifest in '+str(path))
     return json.loads(m.group(1))
 
@@ -62,9 +62,9 @@ async def main():
     await asyncio.gather(*(synthesize(n,existing,results,semaphore) for n in range(11,101)))
     missing=[word(n) for n in range(11,101) if 'male|'+word(n) not in existing and 'male|'+word(n) not in results]
     if missing:raise RuntimeError('Missing recordings: '+str(missing))
-    body='/* Lesson 5 counting: ru-RU-DmitryNeural MP3; generated and duration-checked. */\\n'
-    body+='window.COURSE_AUDIO=window.COURSE_AUDIO||{};\\n'
-    body+='Object.assign(window.COURSE_AUDIO,'+json.dumps(results,ensure_ascii=False,separators=(',',':'))+');\\n'
+    body='/* Lesson 5 counting: ru-RU-DmitryNeural MP3; generated and duration-checked. */\n'
+    body+='window.COURSE_AUDIO=window.COURSE_AUDIO||{};\n'
+    body+='Object.assign(window.COURSE_AUDIO,'+json.dumps(results,ensure_ascii=False,separators=(',',':'))+');\n'
     DEST.write_text(body,encoding='utf-8')
     print('SUCCESS',len(results),'new plus',90-len(results),'existing = 90 numbers from 11 to 100',flush=True)
 if __name__=='__main__':asyncio.run(main())
