@@ -24,7 +24,7 @@ with sync_playwright() as p:
         assert page.locator('#quiz-section').count()==1
         assert page.locator('.l5-counting-group').nth(3).get_attribute('open') is not None
         last=page.locator('.l5-counting-grid .l5-number-card').last
-        assert '100' in last.inner_text()
+        assert '100' in last.text_content()  # number 100 group is folded by default
         page.locator('#l5-counting-to-100').screenshot(path=f'test-screenshots/l5-counting-{name}.png',animations='disabled')
         page.locator('#extra-times-5').screenshot(path=f'test-screenshots/l5-clocks-{name}.png',animations='disabled')
         assert not errors,errors
