@@ -1,0 +1,172 @@
+/* Approved screenshot imagery: lesson 2, final reference from 2026-10-23.
+   Preserve the original word cards, audio, speech recognition and progress. */
+html{scroll-padding-top:12px}
+.banner .l2-mobile-title{display:none!important}
+
+body{background:radial-gradient(circle at 70% -20%,#f9ecd2,#e7f1d8 65%,#fff6ed)!important}
+body>.banner,
+body>header.banner{
+ display:block!important;
+ position:relative!important;
+ height:auto!important;
+ min-height:0!important;
+ width:100%!important;
+ aspect-ratio:1672/350!important;
+ margin:0!important;
+ padding:0!important;
+ overflow:hidden!important;
+ border:none!important;
+ background:#fcf9ed url('approved-art/lesson2-approved-hero.avif') center/100% 100% no-repeat!important;
+ box-shadow:0 4px 1px #b77b35!important;
+}
+.banner>.l2-hero-copy{display:none!important}
+.layout{max-width:1600px!important;position:relative!important;margin:0 auto!important;padding:12px clamp(9px,2.2vw,30px) 36px!important;background:linear-gradient(110deg,#fff9ec7d,#fffff8a3)!important}
+#word-list{display:block!important}
+#word-list>.word-card.l2-current{
+ display:block!important;
+ position:relative!important;
+ border:9px ridge #d29c34!important;
+ border-radius:21px!important;
+ background:radial-gradient(circle at 50% 20%,#fffef7 0%,#fffaf0 68%,#ffedd0 100%)!important;
+ box-shadow:inset 0 0 0 2px #fff8d8,0 6px 1px #b98639,0 15px 20px #47351955!important;
+ padding:clamp(15px,2.2vw,32px)!important;
+}
+#word-list>.word-card.l2-current::before,
+#word-list>.word-card.l2-current::after{
+ content:'❧ ✿';position:absolute!important;top:-14px!important;left:-5px!important;
+ color:#b98220!important;text-shadow:1px 1px #fff7d7!important;
+ font:clamp(24px,3vw,43px)/1 Georgia,serif!important;pointer-events:none;
+}
+#word-list>.word-card.l2-current::after{left:auto!important;right:-5px!important;transform:scaleX(-1)}
+#word-list>.word-card .topline{
+ display:flex!important;align-items:center!important;flex-wrap:wrap!important;
+ column-gap:16px!important;row-gap:8px!important;padding:7px 3px 20px!important;
+ min-height:76px!important;font-size:clamp(15px,1.5vw,22px)!important;color:#654128!important;
+}
+#word-list>.word-card .topline>.voice{
+ margin-left:auto!important;background:#fdf3dc!important;
+ border:1px solid #ead2a9!important;color:#7b5523!important;
+ border-radius:100px!important;
+}
+#word-list>.word-card .l2-feature-controls{
+ position:static!important;display:flex!important;
+ align-items:center!important;justify-content:flex-end!important;
+ padding:0!important;margin-left:0!important;background:transparent!important;
+ min-width:0!important;width:auto!important;gap:0!important;
+ order:5!important;
+}
+#word-list>.word-card .l2-feature-controls .count{display:none!important}
+#word-list>.word-card .l2-feature-controls .nav-actions{
+ display:flex!important;gap:clamp(6px,1.4vw,17px)!important;align-items:center!important;
+}
+#word-list>.word-card .l2-feature-controls button{
+ border-radius:12px!important;min-width:48px!important;min-height:48px!important;
+ color:#a66c22!important;background:#fff3d5!important;
+ border:2px solid #ead5a0!important;box-shadow:0 2px 5px #63421827!important;
+}
+#word-list>.word-card .l2-feature-controls .l2-nav-index{
+ display:block!important;white-space:nowrap!important;
+ font-size:clamp(15px,1.5vw,22px)!important;color:#6c4d31!important;
+}
+#word-list>.word-card .learning{
+ display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,.94fr)!important;
+ align-items:center!important;gap:clamp(22px,2.5vw,40px)!important;
+ min-height:0!important;
+}
+#word-list>.word-card .portrait{
+ min-height:0!important;height:auto!important;aspect-ratio:1.53!important;
+ border-radius:20px!important;box-shadow:0 2px 11px #664c2a33!important;
+}
+#word-list>.word-card .portrait>[data-role="photo"]{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ object-fit:cover!important;border-radius:20px!important;
+}
+#word-list>.word-card .portrait>[data-role="photo-caption"]{display:none!important}
+#word-list>.word-card .info{padding:6px 0!important;min-width:0!important}
+#word-list>.word-card .wordline h2{
+ font:900 clamp(64px,7.2vw,122px)/1 Georgia,'Noto Serif',serif!important;color:#a51e12!important;
+ letter-spacing:0!important;
+}
+#word-list>.word-card .wordline .round{
+ flex:0 0 clamp(45px,4vw,59px)!important;width:clamp(45px,4vw,59px)!important;
+ height:clamp(45px,4vw,59px)!important;
+}
+#word-list>.word-card .translation{margin:2px 0 8px!important;font-size:clamp(27px,2.8vw,41px)!important}
+#word-list>.word-card .translation strong{font-size:clamp(30px,3vw,46px)!important;color:#21724e!important}
+#word-list>.word-card .l2-example{
+ border-top:2px dotted #d8b98b;padding:12px 8px 8px!important;margin-top:10px!important;
+ font-size:clamp(16px,1.9vw,28px)!important;color:#593c32!important;
+}
+#word-list>.word-card .l2-example b{color:#7735ad!important}
+#word-list>.word-card .l2-example small{display:block;margin:2px 0 0 72px;color:#6a5d6b;font-size:clamp(13px,1.2vw,18px)}
+#word-list>.word-card .hint{margin:9px 0!important;font-size:clamp(13px,1.2vw,16px)!important}
+#word-list>.word-card .actions{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:clamp(7px,1.6vw,23px)!important;margin-top:20px!important}
+#word-list>.word-card .action{
+ border-radius:32px!important;min-height:92px!important;
+ font-size:clamp(20px,2.1vw,31px)!important;
+ border:3px solid #ffedbc!important;
+ box-shadow:0 4px 1px #8d5c24,0 4px 11px #66352a65,inset 0 2px 4px #ffffffa6!important;
+}
+#word-list>.word-card .action.blue{background:linear-gradient(#2dbd87,#038f61)!important}
+#word-list>.word-card .action.orange{background:linear-gradient(#ffc42f,#ea8a00)!important}
+#word-list>.word-card .action.pink{background:linear-gradient(#ff5a8e,#d90c64)!important}
+#word-list>.word-card .feedback{background:#fffbf0!important;border:1px solid #e1cda9!important}
+.l2-index{background:#fffbf1!important;border:2px solid #e3c28c!important}
+@media(max-width:750px){
+ body>header.banner{
+  display:none!important; /* Replaced by a clear, high-resolution mobile header below */
+ }
+ body>header.banner+.layout{padding-top:4px!important}
+ body>header.banner.l2-mobile-approved{
+  display:flex!important;height:auto!important;aspect-ratio:auto!important;
+  min-height:190px!important;flex-direction:column;justify-content:center!important;
+  background:linear-gradient(110deg,#fffdf8 0%,#fff9ec 65%,#f0f7eb 100%)!important;
+ }
+ body>header.banner.l2-mobile-approved::before{
+  content:''!important;pointer-events:none!important;
+  position:absolute!important;inset:0!important;width:100%!important;
+  background:url('approved-art/lesson2-approved-hero.avif') right center/auto 100% no-repeat!important;
+  opacity:.26!important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 36%,#000 100%)!important;
+  mask-image:linear-gradient(90deg,transparent 36%,#000 100%)!important;
+  z-index:0!important;
+ }
+ body>header.banner.l2-mobile-approved>.l2-mobile-title{
+  display:block!important;position:relative;z-index:1;padding:14px 13px;
+  text-align:center;color:#121741;
+ }
+ body>header.banner.l2-mobile-approved>.l2-mobile-title .lesson-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  border-radius:100px;background:#eaf9deee;border:2px solid #6da664;padding:7px 21px;
+  color:#135736;font-weight:900;font-size:clamp(17px,4.8vw,23px);box-shadow:0 3px 6px #6f5b2d55;
+ }
+ body>header.banner.l2-mobile-approved>.l2-mobile-title h1{
+  font-size:clamp(24px,6.3vw,34px);line-height:1.1;margin:13px 0 4px;
+  font-weight:950;color:#121741;
+ }
+ body>header.banner.l2-mobile-approved>.l2-mobile-title p{
+  font-size:clamp(16px,4.6vw,24px);line-height:1.2;margin:4px 0;color:#9354a4;font-weight:900;
+ }
+ body>header.banner.l2-mobile-approved>.l2-mobile-title small{
+  display:inline-block;margin:5px 0 0;background:#197f53;color:#fff;font-size:13px;
+  padding:6px 9px;border-radius:7px;max-width:100%;
+ }
+ #word-list>.word-card.l2-current{padding:12px!important;border-width:6px!important}
+ #word-list>.word-card .topline{gap:6px!important;padding:5px 2px 12px!important}
+ #word-list>.word-card .topline>span:first-child{font-size:clamp(14px,3.6vw,18px)!important;flex:1 1 100%!important}
+ #word-list>.word-card .topline>.voice{margin-left:0!important;font-size:11px!important}
+ #word-list>.word-card .l2-feature-controls{margin-left:auto!important}
+ #word-list>.word-card .l2-feature-controls button{min-width:40px!important;min-height:40px!important;padding:4px!important}
+ #word-list>.word-card .l2-feature-controls .l2-nav-index{font-size:clamp(14px,3.5vw,18px)!important}
+ #word-list>.word-card .learning{display:flex!important;flex-direction:column!important;gap:11px!important}
+ #word-list>.word-card .portrait{aspect-ratio:1.48!important;min-height:0!important;width:100%!important}
+ #word-list>.word-card .info{padding:0 3px!important;width:100%!important}
+ #word-list>.word-card .wordline h2{font-size:clamp(53px,13vw,77px)!important}
+ #word-list>.word-card .wordline .round{width:50px!important;height:50px!important;flex-basis:50px!important}
+ #word-list>.word-card .translation{font-size:clamp(24px,5.8vw,33px)!important}
+ #word-list>.word-card .translation strong{font-size:clamp(26px,6vw,35px)!important}
+ #word-list>.word-card .l2-example{font-size:clamp(16px,4.1vw,20px)!important}
+ #word-list>.word-card .actions{gap:6px!important;margin-top:14px!important}
+ #word-list>.word-card .action{border-radius:17px!important;min-height:84px!important;padding:8px 2px!important;font-size:clamp(13px,3.6vw,20px)!important;flex-direction:column!important}
+ #word-list>.word-card .action img{max-width:35px!important}
+}
