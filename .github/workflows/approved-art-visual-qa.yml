@@ -32,3 +32,5 @@ jobs:
           name: approved-lesson2-3-screenshots
           path: qa-approved-art/*.png
           if-no-files-found: ignore
+
+# Rerun after responsive lesson 3 assertion fix and mobile header contrast fix.
