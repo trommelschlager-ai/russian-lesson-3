@@ -34,3 +34,5 @@ jobs:
           if-no-files-found: ignore
 
 # Rerun after responsive lesson 3 assertion fix and mobile header contrast fix.
+
+# Responsive approved header QA rerun: 23 Oct 2026.
