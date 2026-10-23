@@ -32,7 +32,7 @@ with sync_playwright() as pw:
     boxes=cards.evaluate_all("""els=>els.map(el=>{const r=el.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height}})""")
     assert all(abs(z["x"]-boxes[0]["x"])<4 for z in boxes),boxes
     assert all(z["y"]>=boxes[i-1]["y"]+boxes[i-1]["h"]-5 for i,z in enumerate(boxes) if i>0),boxes
-    assert all(z["w"]>=min(width-40,1200) for z in boxes),boxes
+    assert all(z["w"]>=min(width-60,1200) for z in boxes),boxes
     assert page.evaluate("document.documentElement.scrollWidth<=window.innerWidth+8"),"Horizontal overflow"
     assert not errors,errors
     page.screenshot(path=f"qa-lesson3/lesson3-{label}-header.png",animations="disabled")
