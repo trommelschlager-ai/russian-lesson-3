@@ -43,7 +43,11 @@ with sync_playwright() as p:
         assert page.locator('#pronoun-cards>.card').count()==8
         assert page.locator('#l3-approved-tabs .l3-approved-tab').count()==8
         assert page.locator('#pronoun-cards>.card.rl3-active-card .card-art img').get_attribute('src')=='assets/approved-art/lesson3-approved-student.avif'
-        assert 'lesson3-approved-hero.avif' in page.locator('header.hero').evaluate('(el)=>getComputedStyle(el).backgroundImage')
+        if kind=='desktop':
+            assert 'lesson3-approved-hero.avif' in page.locator('header.hero').evaluate('(el)=>getComputedStyle(el).backgroundImage')
+        else:
+            assert page.locator('.hero>.hero-copy').is_visible()
+            assert page.locator('.hero>.hero-art').is_visible()
         assert page.locator('header.hero .hero-art img').get_attribute('src')=='assets/approved-art/lesson3-approved-hero.avif'
         assert 'lesson-4-hero.jpg' not in page.content()
         for img in ['lesson3-approved-hero.avif','lesson3-approved-student.avif']:
