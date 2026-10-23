@@ -27,3 +27,5 @@ jobs:
           name: lesson3-original-rows-screenshots
           path: qa-lesson3/*.png
           if-no-files-found: ignore
+
+# Re-run after correcting a four-pixel QA width threshold.
