@@ -22,7 +22,11 @@ with sync_playwright() as p:
         assert page.locator('#word-list>.word-card.l2-current').count()==1
         assert page.locator('#word-list .l2-example').count()==1
         assert page.locator('#word-list>.word-card').first.locator('[data-role="photo"]').get_attribute('src').endswith('lesson2-approved-food.avif')
-        assert 'lesson2-approved-hero.avif' in page.locator('header.banner').evaluate('(el)=>getComputedStyle(el).backgroundImage')
+        if kind=='desktop':
+            assert 'lesson2-approved-hero.avif' in page.locator('header.banner').evaluate('(el)=>getComputedStyle(el).backgroundImage')
+        else:
+            assert page.locator('.l2-mobile-title').is_visible()
+            assert page.locator('.l2-mobile-title h1').inner_text()=='100个简单俄语单词'
         assert page.locator('#word-list>.word-card.l2-current [data-role=play]').count()==1
         assert page.locator('#word-list>.word-card.l2-current [data-role=slow]').count()==1
         assert page.locator('#word-list>.word-card.l2-current [data-role=record]').count()==1
