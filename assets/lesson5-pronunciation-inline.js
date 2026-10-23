@@ -61,6 +61,41 @@
     return String(s || '').toLocaleLowerCase('ru-RU').replace(/ё/g, 'е')
       .replace(/[^\u0400-\u052f]+/g, ' ').trim().replace(/\s+/g, ' ');
   }
+  // The phone's ASR returns recognized TEXT, not phonetic correctness.
+  // Russian numerals are often returned as digits (7) instead of words (семь).
+  // Do not treat extra filler words or ASR-only errors as bad pronunciation.
+  function numeralTextToNumber(text) {
+    const word=normalize(text);
+    const ones=['ноль','один','два','три','четыре','пять','шесть','семь','восемь','девять','десять'];
+    const teens=['одиннадцать','двенадцать','тринадцать','четырнадцать','пятнадцать','шестнадцать','семнадцать','восемнадцать','девятнадцать'];
+    const tens=new Map([['двадцать',20],['тридцать',30],['сорок',40],['пятьдесят',50],['шестьдесят',60],['семьдесят',70],['восемьдесят',80],['девяносто',90],['сто',100]]);
+    if(ones.includes(word)) return ones.indexOf(word);
+    if(teens.includes(word)) return teens.indexOf(word)+11;
+    if(tens.has(word)) return tens.get(word);
+    const tokens=word.split(' ');
+    if(tokens.length===2&&tens.has(tokens[0])&&tens.get(tokens[0])<100) {
+      const unit=ones.indexOf(tokens[1]);
+      if(unit>=1&&unit<=9)return tens.get(tokens[0])+unit;
+    }
+    return null;
+  }
+  function judgeRecognition(text,alternatives) {
+    const expected=normalize(text);
+    if(!expected||!alternatives.length)return {kind:'warning',label:'⚠️ 没有可比较的识别结果。',heard:''};
+    const exact=alternatives.find(x=>normalize(x)===expected);
+    if(exact) return {kind:'success',label:'✅ 已识别到目标词：',heard:exact};
+    const number=numeralTextToNumber(expected);
+    if(number!==null){
+      const numberAsDigit=alternatives.find(x=>{
+        const numeric=String(x).trim().match(/^(?:число\s+|номер\s+)?(\d{1,3})[.!?。！\s]*$/iu);
+        return numeric&&Number(numeric[1])===number;
+      });
+      if(numberAsDigit)return {kind:'success',label:'✅ 设备把数字转成了数字形式：',heard:numberAsDigit};
+    }
+    const embedded=alternatives.find(x=>(' '+normalize(x)+' ').includes(' '+expected+' '));
+    if(embedded)return {kind:'success',label:'✅ 听到了目标词（识别器还附加了其他词）：',heard:embedded};
+    return {kind:'warning',label:'⚠️ 手机识别结果与目标文字不一致，但这不代表你读错了：',heard:alternatives[0]};
+  }
   function readableError(err) {
     const e = err?.error || err?.name || 'unknown';
     const messages = {
@@ -114,7 +149,7 @@
     const recognition=new SpeechAPI(); activeRecognition=recognition;
     let received=false; let error=false;
     recognition.lang='ru-RU';recognition.continuous=false;
-    recognition.interimResults=false;recognition.maxAlternatives=3;
+    recognition.interimResults=false;recognition.maxAlternatives=5;
     button.textContent='🎙 聆听中';
     recognition.onstart=()=>{if(activeRecognition===recognition)setFeedback(bar,'请清楚地朗读：'+text);};
     recognition.onresult=event=>{
@@ -123,10 +158,9 @@
       for(const r of event.results)for(const alternative of r){if(alternative?.transcript)results.push(alternative.transcript.trim());}
       if(!results.length)return;
       received=true;
-      const expected=normalize(text);
-      const match=results.find(x=>normalize(x)===expected);
-      setFeedback(bar,(match?'✅ 识别文字一致：':'❌ 识别文字不同：')+(match||results[0])+
-        '。注意：识别文字并不能判断口音、音素或重音是否准确。',match?'success':'failure');
+      const verdict=judgeRecognition(text,results);
+      setFeedback(bar,verdict.label+verdict.heard+
+        '。这只是自动文字识别，不能判断口音、音素或重音是否准确。',verdict.kind);
     };
     recognition.onerror=event=>{
       if(activeRecognition!==recognition)return;
