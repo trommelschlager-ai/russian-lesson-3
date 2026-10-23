@@ -1,0 +1,139 @@
+/* Lesson 3: restored eight complete pronoun cards, approved artwork and
+   a compact purpose-built personal-pronoun header. Do not hide 7 cards! */
+html{scroll-behavior:smooth}
+body{background:linear-gradient(#fff9ff,#f7efff 45%,#f4eafe)!important}
+.wrap{width:min(1600px,calc(100% - 24px))!important;max-width:1600px!important;
+ padding:0 0 45px!important;margin:0 auto!important}
+.wrap>.hero{
+ display:grid!important;grid-template-columns:43% 57%!important;
+ width:100%!important;min-height:310px!important;height:auto!important;
+ margin:0 0 18px!important;aspect-ratio:auto!important;
+ position:relative!important;border:0!important;border-radius:0 0 20px 20px!important;
+ overflow:hidden!important;background:#fff8f2!important;
+ box-shadow:0 6px 19px #553b7540!important;
+}
+.wrap>.hero>.hero-copy{
+ display:flex!important;position:relative!important;clip-path:none!important;
+ pointer-events:auto!important;left:auto!important;top:auto!important;
+ width:100%!important;height:auto!important;overflow:visible!important;
+ min-width:0!important;z-index:1!important;
+ padding:clamp(22px,3vw,43px)!important;
+ background:linear-gradient(110deg,#fffdf5,#fff8ef)!important;
+}
+.wrap>.hero>.hero-copy::before{content:'✿ ❀';position:absolute;right:18px;top:4px;color:#ba95d5;font-size:31px;opacity:.7}
+.wrap>.hero .badge{background:linear-gradient(#b87bec,#823ac4)!important;color:#fff;
+ border:2px solid #fff!important;border-radius:28px!important;box-shadow:0 4px 0 #8554ab;
+ padding:7px 14px!important;font-size:clamp(14px,1.4vw,19px)!important}
+.wrap>.hero h1{font:900 clamp(36px,4vw,67px)/1.17 Georgia,'Noto Serif CJK SC',serif!important;
+ color:#211544!important;margin:12px 0 5px!important}
+.wrap>.hero .subtitle{font-size:clamp(22px,2.4vw,36px)!important;
+ color:#863ac1!important;line-height:1.2!important;font-weight:950!important}
+.wrap>.hero .intro{font-size:clamp(12px,1.05vw,16px)!important;
+ line-height:1.6!important;margin:8px 0!important}
+.wrap>.hero .pills{display:flex!important;gap:7px!important;flex-wrap:wrap!important;margin-top:10px!important}
+.wrap>.hero .pill{font-size:clamp(12px,1.1vw,16px)!important;background:#fdf5ff!important}
+.wrap>.hero>.hero-art{
+ display:block!important;position:relative!important;clip-path:none!important;
+ pointer-events:auto!important;left:auto!important;top:auto!important;
+ width:100%!important;min-height:310px!important;height:auto!important;
+ background:#ead9f7!important;overflow:hidden!important;
+}
+.wrap>.hero>.hero-art img{
+ position:absolute!important;inset:0!important;
+ display:block!important;width:100%!important;height:100%!important;
+ min-height:0!important;max-width:none!important;
+ object-fit:cover!important;object-position:82% center!important;
+}
+/* Keep the full, readable sequence of all eight pronouns below clickable
+   tabs, instead of showing only one and apparently losing the other seven. */
+#pronouns{width:100%!important;padding:clamp(12px,2vw,24px)!important;
+ margin:14px 0!important;border-radius:18px!important}
+#pronouns .section-head{flex-wrap:wrap!important;gap:10px!important}
+#pronouns .section-desc{margin:8px 0 15px!important;
+ font-size:clamp(12px,1.05vw,15px)!important}
+#l3-approved-tabs{display:grid!important;
+ grid-template-columns:repeat(8,minmax(0,1fr))!important;
+ gap:clamp(5px,.85vw,12px)!important;margin:16px 0!important}
+#l3-approved-tabs .l3-approved-tab{min-height:80px!important;padding:9px 4px!important;
+ border-radius:14px!important;box-shadow:0 3px 7px #73539439!important}
+#l3-approved-tabs .l3-approved-tab[aria-current=true]{border-color:#9953dc!important}
+body .wrap #pronoun-cards.pronouns{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:22px!important}
+body .wrap #pronoun-cards.pronouns>.card{
+ display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,.92fr)!important;
+ min-height:315px!important;width:100%!important;height:auto!important;
+ border:2px solid #dcb8f7!important;border-radius:20px!important;
+ box-shadow:0 4px 13px #71519530!important;
+ scroll-margin-top:18px!important;overflow:hidden!important;
+ background:#fffaff!important;transform:none!important;
+}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy{
+ display:flex!important;flex-direction:column!important;justify-content:center!important;
+ grid-column:1!important;grid-row:1!important;
+ padding:clamp(17px,2.5vw,36px)!important;
+ min-width:0!important;
+}
+body .wrap #pronoun-cards.pronouns>.card>.card-art{
+ grid-column:2!important;grid-row:1!important;
+ min-width:0!important;min-height:315px!important;
+ background:#ede3ff!important;overflow:hidden!important;border-radius:0 18px 18px 0!important;
+}
+body .wrap #pronoun-cards.pronouns>.card>.card-art img{
+ width:100%!important;height:100%!important;min-height:315px!important;
+ object-fit:cover!important;object-position:center!important;
+}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy>.ru{
+ font-size:clamp(45px,5vw,75px)!important;line-height:1.06!important;
+ color:#251345!important;
+}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy>.lat{
+ font-size:clamp(20px,2vw,29px)!important;color:#824ac3!important}
+body .wrap #pronoun-cards.pronouns>.card>.card-copy>.zh{font-size:clamp(23px,2.2vw,31px)!important}
+body .wrap #pronoun-cards.pronouns>.card .example{
+ margin-top:14px!important;padding-top:12px!important;font-size:clamp(15px,1.4vw,21px)!important}
+body .wrap #pronoun-cards.pronouns>.card .example strong{
+ font-size:clamp(19px,2vw,27px)!important}
+body .wrap #pronoun-cards.pronouns>.card .rl3-panel{max-width:100%!important}
+#pronoun-cards .card:focus-within{outline:2px solid #a966dc;outline-offset:2px}
+@media(max-width:950px){
+ #l3-approved-tabs{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media(max-width:650px){
+ .wrap{width:calc(100% - 12px)!important}
+ .wrap>.hero{grid-template-columns:1fr!important;display:flex!important;
+  flex-direction:column!important;min-height:0!important;box-shadow:0 5px 12px #846aa13b!important}
+ .wrap>.hero>.hero-copy{padding:17px 14px 13px!important}
+ .wrap>.hero h1{font-size:clamp(33px,9vw,43px)!important;margin:8px 0 2px!important}
+ .wrap>.hero .subtitle{font-size:clamp(22px,6vw,29px)!important}
+ .wrap>.hero .intro{display:none!important}
+ .wrap>.hero .pills{display:none!important}
+ .wrap>.hero>.hero-art{height:215px!important;min-height:215px!important}
+ .wrap>.hero>.hero-art img{object-position:77% center!important}
+ #pronouns{padding:11px 9px!important}
+ #pronouns .section-head{align-items:center!important}
+ #pronouns .section-head h2{font-size:clamp(19px,5vw,25px)!important}
+ #pronouns .section-head .tools{margin-left:0!important}
+ #l3-approved-tabs{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:7px!important}
+ #l3-approved-tabs .l3-approved-tab{min-height:63px!important;padding:7px 1px!important}
+ #l3-approved-tabs .tab-ru{font-size:21px!important}
+ #l3-approved-tabs .tab-cn{font-size:13px!important}
+ body .wrap #pronoun-cards.pronouns>.card{
+  display:flex!important;flex-direction:column-reverse!important;min-height:0!important;
+  border-radius:15px!important;gap:0!important;
+ }
+ body .wrap #pronoun-cards.pronouns>.card>.card-art{
+  display:block!important;width:100%!important;height:220px!important;
+  min-height:220px!important;max-height:220px!important;
+  border-radius:13px 13px 0 0!important;
+ }
+ body .wrap #pronoun-cards.pronouns>.card>.card-art img{
+  width:100%!important;height:220px!important;min-height:220px!important;
+  object-position:center 37%!important}
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy{
+  display:flex!important;width:100%!important;padding:15px 12px!important}
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy>.ru{
+  font-size:clamp(42px,12vw,59px)!important}
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy>.lat{font-size:22px!important}
+ body .wrap #pronoun-cards.pronouns>.card>.card-copy>.zh{font-size:24px!important}
+ body .wrap #pronoun-cards.pronouns>.card .example{margin-top:11px!important;padding-top:11px!important}
+ body .wrap #pronoun-cards.pronouns>.card .example strong{font-size:19px!important}
+}
