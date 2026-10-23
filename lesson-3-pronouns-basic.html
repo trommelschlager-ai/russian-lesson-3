@@ -231,21 +231,24 @@ h2{font-size:clamp(20px,2.1vw,30px);margin:0;line-height:1.15;min-width:0}
 #pronoun-cards .card:hover{transform:none!important;box-shadow:0 4px 0 #c6a5f0!important}
 #pronoun-cards .card button{cursor:pointer;touch-action:manipulation}
 </style>
-<link rel="stylesheet" href="assets/lesson3-touch-targets.css"/><link rel="stylesheet" href="assets/lesson3-approved-20261023.css"><link rel="stylesheet" href="assets/lesson3-eight-cards-restored.css?v=2">
+<link rel="stylesheet" href="assets/lesson3-touch-targets.css"/>
+<style>
+/* Approved lesson-three banner only; original word-by-word card layout is restored. */
+.l3-approved-full-banner{display:block;position:relative;left:50%;transform:translateX(-50%);width:100vw;max-width:1672px;margin:0 auto 16px;overflow:hidden;background:#fff8f4;box-shadow:0 4px 12px #7155a224}
+.l3-approved-full-banner img{display:block;width:100%;height:auto;object-fit:contain;max-width:none}
+html{overflow-x:hidden}
+/* The original lesson 3 portrait module itself provides one full-width row per word.
+   Keep cards visible even when navigating or completing microphone exercises. */
+#pronoun-cards.pronouns{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+#pronoun-cards.pronouns>.card{display:grid!important;visibility:visible!important}
+#pronoun-cards.pronouns>.card[aria-hidden="true"]{visibility:visible!important}
+@media(max-width:620px){.l3-approved-full-banner{margin-bottom:10px}}
+</style>
 </head>
 <body>
 <div class="wrap">
-<header class="hero">
-  <div class="hero-copy">
-    <span class="badge">第3课 · Урок 3</span>
-    <h1>人称代词</h1>
-    <div class="subtitle">Личные местоимения</div>
-    <div class="intro">学习怎样用俄语说“我、你、他、她、它、我们、你们、他们”。点击卡片听发音，跟着拉丁字母提示练习，再用简单句子开始说俄语。</div>
-    <nav class="pills" aria-label="课程导航">
-      <a class="pill" href="#pronouns">🔊 听发音</a><a class="pill" href="#examples">🧩 学句子</a><a class="pill" href="#quiz-section">✏️ 小测验</a>
-    </nav>
-  </div>
-  <div class="hero-art"><img src="assets/approved-art/lesson3-approved-hero.avif" alt="Дмитрий и Светлана изучают личные местоимения"></div>
+<header class="l3-approved-full-banner" aria-label="Урок 3 — Личные местоимения · 人称代词">
+  <img src="assets/approved-art/lesson3-approved-hero.avif" width="1672" height="355" alt="Урок 3 — Личные местоимения: Дмитрий и Светлана у Кремля. 第3课 · 人称代词" loading="eager" fetchpriority="high">
 </header>
 
 <section class="section" id="pronouns">
@@ -489,6 +492,6 @@ renderQuiz();
 </script>
 <script src="assets/lesson3-pronunciation-inline.js?v=20261021-portrait-gapfix7"></script>
 <script src="assets/lesson3-final-single-images.js?v=20261022-eight-new-portraits16"></script>
-<script src="assets/lesson3-approved-20261023.js"></script>
+
 </body>
 </html>
