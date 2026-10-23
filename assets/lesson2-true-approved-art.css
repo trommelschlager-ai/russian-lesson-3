@@ -120,7 +120,16 @@ body>header.banner{
  body>header.banner.l2-mobile-approved{
   display:flex!important;height:auto!important;aspect-ratio:auto!important;
   min-height:190px!important;flex-direction:column;justify-content:center!important;
-  background:linear-gradient(90deg,#fff7e8ef 0%,#fff4e7d8 80%),url('approved-art/lesson2-approved-hero.avif') center right/auto 100% no-repeat!important;
+  background:linear-gradient(110deg,#fffdf8 0%,#fff9ec 65%,#f0f7eb 100%)!important;
+ }
+ body>header.banner.l2-mobile-approved::before{
+  content:''!important;pointer-events:none!important;
+  position:absolute!important;inset:0!important;width:100%!important;
+  background:url('approved-art/lesson2-approved-hero.avif') right center/auto 100% no-repeat!important;
+  opacity:.26!important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 36%,#000 100%)!important;
+  mask-image:linear-gradient(90deg,transparent 36%,#000 100%)!important;
+  z-index:0!important;
  }
  body>header.banner.l2-mobile-approved>.l2-mobile-title{
   display:block!important;position:relative;z-index:1;padding:14px 13px;
