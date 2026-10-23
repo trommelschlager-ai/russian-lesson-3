@@ -87,7 +87,7 @@
     const number=numeralTextToNumber(expected);
     if(number!==null){
       const numberAsDigit=alternatives.find(x=>{
-        const numeric=String(x).trim().match(/^(?:число\\s+|номер\\s+)?(\\d{1,3})[.!?。！\\s]*$/iu);
+        const numeric=String(x).trim().match(/^(?:число\s+|номер\s+)?(\d{1,3})[.!?。！\s]*$/iu);
         return numeric&&Number(numeric[1])===number;
       });
       if(numberAsDigit)return {kind:'success',label:'✅ 设备把数字转成了数字形式：',heard:numberAsDigit};
