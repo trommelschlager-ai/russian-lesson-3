@@ -1,6 +1,8 @@
 /* Approved screenshot imagery: lesson 2, final reference from 2026-10-23.
    Preserve the original word cards, audio, speech recognition and progress. */
 html{scroll-padding-top:12px}
+.banner .l2-mobile-title{display:none!important}
+
 body{background:radial-gradient(circle at 70% -20%,#f9ecd2,#e7f1d8 65%,#fff6ed)!important}
 body>.banner,
 body>header.banner{
