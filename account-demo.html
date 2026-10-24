@@ -118,7 +118,8 @@ function buildProgress(){
   return {done:done.sort(function(a,b){return a-b}),quiz:quiz,wordCount:wordCount}
 }
 function recommended(done){
-  var recent=Number(safeRead("russian-home-last-opened-v1"));
+  var savedRecent=safeRead("russian-home-last-opened-v1");
+  var recent=savedRecent===null?-1:Number(savedRecent);
   if(!Number.isInteger(recent)||recent<0||recent>6)recent=-1;
   if(recent>=0&&!done.includes(recent))return recent;
   if(recent>=0){for(var offset=1;offset<=7;offset++){var next=(recent+offset)%7;if(!done.includes(next))return next}}
@@ -142,7 +143,7 @@ function render(){
   byId("continue-link").onclick=function(){track(next)};
   var grid=byId("lesson-grid");grid.replaceChildren();
   lessons.forEach(function(lesson,i){
-    var passed=p.done.includes(i),lastOpened=Number(safeRead("russian-home-last-opened-v1"))===i;
+    var passed=p.done.includes(i),lastRaw=safeRead("russian-home-last-opened-v1"),lastOpened=lastRaw!==null&&Number(lastRaw)===i;
     var a=document.createElement("a");a.className="lesson"+(passed?" finished":"");a.href=lesson.url;
     a.addEventListener("click",function(){track(i)});
     var n=document.createElement("span");n.className="lesson-number";n.textContent=passed?"✓":String(i+1);
