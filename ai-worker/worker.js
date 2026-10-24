@@ -44,7 +44,7 @@ export default {
     if (url.pathname !== "/api/chat") return responseJSON({ error: "Not found" }, 404);
     const origin = request.headers.get("Origin");
     if (origin !== ALLOWED_ORIGIN) return responseJSON({ error: "Unauthorized origin" }, 403);
-    if (request.method === "OPTIONS") return responseJSON({ ok: true }, 204);
+    if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { "Access-Control-Allow-Origin": ALLOWED_ORIGIN, "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type", "Vary": "Origin" } });
     if (request.method !== "POST") return responseJSON({ error: "Use POST" }, 405);
     // Deliberately fail closed rather than exposing an unmetered public endpoint.
     if (!env.AI || !env.RATE_LIMITER) {
