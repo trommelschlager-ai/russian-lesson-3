@@ -10,22 +10,22 @@ function activate(){
  document.documentElement.dataset.photoL67='1';
  const st=document.createElement('style');st.id='lesson67-photo-style';
  st.textContent=[
- '.l67-photo{background-image:url("'+url+'");background-size:600% 300%;background-repeat:no-repeat;',
+ '.l67-photo{background-image:url("'+url+'")!important;background-size:600% 300%!important;background-repeat:no-repeat!important;',
  'border-radius:12px;display:block;box-sizing:border-box;background-color:#f2eafb;border:1px solid #e3daeb;overflow:hidden}',
- '.lesson-6 .upgrade-phrase-symbol.l67-photo{font-size:0!important;width:98px!important;height:104px!important;min-width:98px!important;flex:none!important}',
+ '.lesson-6 .upgrade-phrase-symbol.l67-photo{font-size:0!important;width:128px!important;height:138px!important;min-width:128px!important;flex:none!important}',
  '.lesson-6 .extra-figure.l67-photo,.lesson-7 .upgrade-emoji.l67-photo{font-size:0!important;line-height:0!important}',
  '.lesson-6 .extra-figure.l67-photo{width:100%;max-width:185px;height:auto;aspect-ratio:1/1;margin:0 auto}',
- '.lesson-6 .l67-portrait{width:100px;height:112px;flex:0 0 100px}',
- '.lesson-7 .l67-portrait{width:100px;height:112px;flex:0 0 100px}',
+ '.lesson-6 .l67-portrait{width:128px;height:138px;flex:0 0 128px}',
+ '.lesson-7 .l67-portrait{width:128px;height:138px;flex:0 0 128px}',
  '.lesson-6 .l67-pair{display:flex!important;gap:3px!important;background:#e6def2}',
  '.lesson-6 .l67-pair .l67-photo{width:50%;height:100%;flex:1;border:0;border-radius:0}',
- '.lesson-7 .upgrade-action-heading:has(.l67-action){grid-template-columns:115px minmax(0,1fr)!important}',
- '.lesson-7 .l67-action{width:115px;height:110px;align-self:start}',
- '.lesson-7 .upgrade-emoji.l67-photo{width:100%!important;height:140px!important;max-width:150px!important;margin:auto}',
+ '.lesson-7 .upgrade-action-heading:has(.l67-action){grid-template-columns:minmax(0,45%) minmax(0,1fr)!important;align-items:start!important}',
+ '.lesson-7 .l67-action{width:100%;height:auto;aspect-ratio:1/1;align-self:start}',
+ '.lesson-7 .upgrade-emoji.l67-photo{width:100%!important;max-width:250px!important;height:auto!important;aspect-ratio:4/3;margin:auto}',
  '@media(max-width:690px){.lesson-6 .upgrade-phrase-symbol.l67-photo{width:76px!important;min-width:76px!important;height:85px!important}',
- '.lesson-6 .l67-portrait{width:82px;height:100px;flex-basis:82px}',
- '.lesson-7 .upgrade-action-heading:has(.l67-action){grid-template-columns:94px minmax(0,1fr)!important}',
- '.lesson-7 .l67-action{width:94px;height:96px}}'
+ '.lesson-6 .l67-portrait{width:116px;height:122px;flex-basis:116px}',
+ '.lesson-7 .upgrade-action-heading:has(.l67-action){grid-template-columns:minmax(0,45%) minmax(0,1fr)!important}',
+ '.lesson-7 .l67-action{width:100%;height:auto;aspect-ratio:1/1}}'
  ].join('');
  document.head.append(st);
  const pos=i=>((i%6)*20)+'% '+(Math.floor(i/6)*50)+'%';
