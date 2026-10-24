@@ -155,19 +155,61 @@ body{background:
 }
 @media(max-width:370px){.stat{padding:10px 7px}.stat .num{font-size:22px}.stat .foot{font-size:8px}.progress-orb{width:72px;height:72px}.progress-orb-label strong{font-size:17px}}
 
+
+/* Approved saturated dashboard, real interactive layout — no example/fake scores */
+body{background:linear-gradient(125deg,#e4e7ff,#fff8e7 52%,#e3efff)}
+.wrap{max-width:1250px;background:linear-gradient(#fff7ec,#fffaf4)}
+.v2-top{height:70px;padding:8px 24px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(90deg,#fff1f6,#fff,#edf5ff);color:#263a79}
+.v2-logo{display:flex;align-items:center;gap:9px;white-space:nowrap}.v2-logo>span:first-child{font-size:27px}.v2-logo b{display:block;font-size:19px;color:#202c70}.v2-logo small{display:block;font-size:11px;color:#65729e}
+.v2-links{display:flex;height:100%;align-items:stretch;gap:5px}.v2-links a{display:grid;place-items:center;align-content:center;min-width:80px;gap:2px;font-size:21px;color:#7c8baa;border-radius:11px;font-weight:bold}.v2-links a span{font-size:11px}.v2-links a.active,.v2-links a:hover{background:#eaf2ff;color:#0968f1}.v2-account{font-size:13px;white-space:nowrap;display:flex;align-items:center;gap:6px}.v2-account>span{display:grid;place-items:center;border-radius:50%;background:#f8e8f4;height:37px;width:37px}
+.hero{min-height:270px;height:270px;background:linear-gradient(90deg,#1a479875,#2056a624),url("assets/illustrated/lesson-4-hero.jpg") center 45%/cover;border-bottom:0;box-shadow:inset 0 0 50px #213c845b}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#112c72ba,#183b7522 74%,#071c5577)}.hero:after{display:none}
+.hero-content{position:absolute;left:4%;top:13%;padding:0;z-index:3;color:white;text-shadow:0 2px 6px #162d7755}.hero .eyebrow{margin:0;color:#ffe7c0;font-size:11px;letter-spacing:1.3px}
+.hero h1{font-family:Arial,"Microsoft YaHei",sans-serif;font-size:clamp(25px,3.6vw,41px);color:#fff;margin:10px 0 5px;text-shadow:0 2px 8px #14265e8c}.hero h2{font-size:21px;margin:3px 0;color:#fff}.hero p{color:#f4f5ff;font-size:13px;margin:7px 0}
+.v2-teachers{position:absolute;z-index:2;right:2.5%;bottom:0;display:flex;align-items:end;height:100%}.v2-person{width:176px;height:100%;position:relative;flex:none}.v2-person img{position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);height:103%;width:auto;max-width:none;filter:drop-shadow(0 5px 10px #14215c8d)}.v2-person.anton img{height:108%}.v2-person>span{position:absolute;bottom:23px;left:5px;right:5px;border-radius:30px;color:white;font-weight:bold;text-align:center;padding:6px 4px;background:linear-gradient(#ff55c1,#d40089);box-shadow:0 5px 12px #1a367060}.v2-person.anton>span{background:linear-gradient(#37b7ff,#075be6)}.v2-person small{position:absolute;bottom:6px;left:0;right:0;text-align:center;color:white;font-size:10px;text-shadow:0 2px 4px #163c6f}
+.layout{display:block;padding:0 16px 24px}.sidebar{display:none}.main{width:100%}.welcome{display:none}
+.intro-grid{display:grid;grid-template-columns:205px repeat(3,minmax(0,1fr)) 1.3fr;gap:10px;background:#fffdfa;border-radius:23px;padding:12px;margin:0 0 12px;align-items:stretch;box-shadow:0 8px 21px #36407326;position:relative;z-index:4}
+.intro-grid>.progress-panel{grid-column:1;grid-row:1;margin:0;padding:9px;border-radius:17px;box-shadow:none;border:0;display:grid;place-items:center;background:#fff;min-width:0}.intro-grid .progress-info{display:none}.intro-grid .progress-orb{width:135px;height:135px;box-shadow:none}.intro-grid .progress-orb-label strong{font-size:30px}.intro-grid .progress-orb-label small{font-size:12px}
+.stat{border:none;min-height:140px;border-radius:17px;padding:12px 8px;text-align:center;display:grid;align-content:center;justify-items:center;box-shadow:none}.stat:nth-child(1){background:linear-gradient(135deg,#ffe8ee,#ffd8e9)}.stat:nth-child(2){background:linear-gradient(135deg,#e3f3ff,#c7e2ff)}.stat:nth-child(3){background:linear-gradient(135deg,#dffbf2,#c3f4e7)}.stat .sym{float:none;font-size:27px}.stat .num{font-size:27px}.stat .label{font-size:12px}.stat .foot{font-size:11px}.stat:after{display:none}
+.stat.v2-bonus{grid-column:5;grid-row:1;background:linear-gradient(115deg,#fff5d6,#ffeac7);color:#98651c}.v2-bonus .sym{font-size:33px}.v2-bonus .label{font-weight:bold;font-size:16px}.v2-bonus .foot{font-size:13px;color:#865930}
+.continue-card{min-height:69px;border-radius:16px;padding:12px 23px;background:linear-gradient(90deg,#13b5ff,#026cf9 69%,#1461f4);margin:5px 3px 15px;box-shadow:0 8px 17px #175cc64d}.continue-card h3{font-size:15px;margin:0}.continue-card:after{display:none}.continue-card .eyeline{font-size:16px;color:#fff}.continue-card p{font-size:12px}.primary-btn{background:#ffffff1e;border:1px solid #ffffff91;color:#fff;box-shadow:none;padding:9px 13px}.primary-btn:hover{background:#ffffff39}
+.section-header{margin:14px 0 9px}.section-header h3{font-size:21px;color:#223472}.section-header h3:before{display:none}#lessons{background:#ffffffd4;padding:12px 16px 17px;border-radius:19px;box-shadow:0 5px 15px #30417d16}
+.lesson-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px}.lesson{height:177px;display:flex;flex-direction:column;justify-content:end;align-items:center;text-align:center;padding:10px 6px;min-width:0;border:0;border-radius:15px;box-shadow:0 6px 11px #3e408628;color:#fff;overflow:hidden}
+.lesson:before{display:none}.lesson:hover{transform:translateY(-3px)}.lesson:nth-child(1){background:linear-gradient(150deg,#ff7a64,#fc262f)}.lesson:nth-child(2){background:linear-gradient(150deg,#3bcaff,#0752e9)}.lesson:nth-child(3){background:linear-gradient(150deg,#86e755,#05a65c)}.lesson:nth-child(4){background:linear-gradient(150deg,#ffcb47,#f36d00)}.lesson:nth-child(5){background:linear-gradient(150deg,#c97cff,#7134ef)}.lesson:nth-child(6){background:linear-gradient(150deg,#ff8cb4,#d20c8b)}.lesson:nth-child(7){background:linear-gradient(150deg,#4bceff,#0864ed)}
+.lesson .lesson-number{position:absolute;top:7px;left:7px;width:auto;height:auto;background:none!important;border:none;border-radius:0;box-shadow:none;color:white!important;font-size:18px}
+.lesson .lesson-copy{display:flex;flex-direction:column;align-items:center;margin-top:auto;color:#fff!important}.lesson .lesson-copy strong{font-size:13px;color:#fff;line-height:1.3}.lesson .lesson-copy small{font-size:11px;color:#fff9}.lesson .lesson-copy .state{font-size:10px;color:#fff!important;background:#ffffff18;border:0;padding:2px 5px;margin-top:4px}
+.lesson .lesson-icon{position:relative;top:auto;right:auto;order:-1;display:grid;place-items:center;margin-top:24px;margin-bottom:5px;font-size:49px;opacity:1;height:78px;width:88px;line-height:1;z-index:2}.lesson .lesson-icon img{height:79px;width:79px;object-fit:contain}.lesson .go{display:none}
+.lesson.finished .lesson-number{color:white!important}.lesson.finished .state{color:white!important;background:#1752344a}
+.lesson:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,#00000015);pointer-events:none}.lesson .lesson-copy{z-index:2}
+.v2-ai{border:0!important;min-height:171px;padding:14px 19px;background:linear-gradient(105deg,#ed3cde,#bd51ee 48%,#1e7afa 76%,#8249db)!important;display:grid;grid-template-columns:1.3fr .78fr .78fr .62fr;gap:9px;border-radius:20px;align-items:center;overflow:hidden;color:white;box-shadow:0 10px 20px #904dc44d}
+.v2-ai-intro h3{color:#fff!important;font-size:21px}.v2-ai-intro p{color:#fff;font-weight:bold;font-size:13px}.v2-ai-intro .tiny{color:#fff9;font-size:11px}.v2-ai-face{display:grid;justify-items:center;align-self:stretch;align-content:end;min-width:0}.v2-ai-face img{width:95px;height:108px;object-fit:contain;filter:drop-shadow(0 3px 9px #2b175f6a)}.v2-ai-face a{font-size:12px;color:#fff;font-weight:bold;padding:9px 13px;white-space:nowrap;border:1px solid #fff8;background:linear-gradient(90deg,#f642d2,#a311e1);border-radius:28px}.v2-ai-face:nth-child(3) a{background:linear-gradient(90deg,#19caff,#065de3)}.v2-ai-action{background:#ffffffee;border-radius:14px;padding:13px 5px;color:#3251ab;font-weight:bold;font-size:12px;text-align:center}.v2-ai-action small{display:block;font-size:10px}
+.v2-extras{display:grid;grid-template-columns:1.1fr 1.1fr 1fr;gap:9px;margin:14px 0}.v2-extrapanel{border-radius:14px;background:#fff;min-height:180px;padding:12px;box-shadow:0 5px 14px #3c44951b}.v2-extrapanel h3{font-size:13px;color:#334087;margin:0 0 10px}.v2-extrapanel #v2-activity{font-size:12px;color:#697394}.v2-log{padding:8px 0;border-bottom:1px solid #f1ecf6;font-size:12px}.v2-log:last-child{border:0}.v2-awards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.v2-awards>div{display:grid;text-align:center;background:#f8f6ff;border-radius:10px;padding:8px 4px;justify-items:center;font-size:10px;gap:2px}.v2-awards span{font-size:29px}.v2-awards small{font-size:9px;color:#7880a1}.v2-awards .locked{filter:grayscale(1);opacity:.43}
+.v2-calhead{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#3d5092}.v2-calhead button{border:0;border-radius:6px;background:#f0effc;color:#4356a1;padding:3px 9px}.v2-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:7px}.v2-calendar span{text-align:center;font-size:10px;min-height:20px;padding:3px 0;border-radius:50%}.v2-calendar .learned{background:#0cc99e;color:white}.v2-calendar .today{outline:1px solid #f5a12b}
+#profile{border:1px solid #e9dfef;border-radius:16px;padding:12px;background:#fff;margin:12px 0}.privacy{font-size:11px}
+.v2-bottom{display:none}
+@media(max-width:900px){.v2-links a{min-width:56px}.v2-logo b{font-size:16px}.v2-person{width:155px}.intro-grid{grid-template-columns:158px repeat(3,minmax(0,1fr));gap:5px}.stat.v2-bonus{display:none}.intro-grid .progress-orb{width:115px;height:115px}.lesson-grid{gap:5px}.lesson{height:157px}.lesson .lesson-icon{width:72px;font-size:37px}.v2-ai{grid-template-columns:1.2fr .9fr .9fr}.v2-ai-action{display:none}}
+@media(max-width:670px){.v2-top{height:60px;padding:7px 12px}.v2-links,.v2-account{display:none}.v2-logo b{font-size:15px}.v2-logo>span:first-child{font-size:23px}
+.hero{height:247px;min-height:247px;background-position:62% center}.hero-content{top:5%;left:5%;right:3%}.hero h1{font-size:24px;margin:6px 0 1px}.hero h2{font-size:14px}.hero p{display:none}.hero .eyebrow{font-size:9px}
+.v2-teachers{right:2%;height:72%;bottom:0}.v2-person{width:123px}.v2-person img{height:97%}.v2-person.anton img{height:102%}.v2-person>span{font-size:11px;bottom:19px;padding:4px 2px}.v2-person small{font-size:8px;bottom:6px}
+.layout{padding:0 7px 13px}.intro-grid{grid-template-columns:repeat(3,minmax(0,1fr));padding:7px;gap:5px;border-radius:17px;margin-bottom:9px}.intro-grid>.progress-panel{grid-column:1/-1;grid-row:auto;padding:2px;min-height:105px}.intro-grid .progress-orb{width:108px;height:108px}.stat{min-height:88px;padding:6px 2px;border-radius:11px}.stat .sym{font-size:23px}.stat .num{font-size:20px}.stat .label{font-size:10px}.stat .foot{font-size:9px}
+.continue-card{margin:6px 0 10px;border-radius:13px;padding:10px}.continue-card .eyeline{font-size:13px}.continue-card h3{font-size:12px}.continue-card p{display:none}.primary-btn{padding:9px;font-size:11px}
+#lessons{padding:8px;border-radius:14px}.section-header h3{font-size:16px}.lesson-grid{display:grid;grid-template-columns:1fr;gap:5px}.lesson{height:48px;flex-direction:row;justify-content:start;text-align:left;gap:6px;padding:3px 10px 3px 46px;border-radius:9px}.lesson .lesson-number{left:11px;top:5px;font-size:23px}.lesson .lesson-icon{height:43px;width:42px;font-size:27px;margin:0;order:0;position:relative}.lesson .lesson-icon img{width:41px;height:41px}.lesson .lesson-copy{margin:0;align-items:flex-start}.lesson .lesson-copy strong{font-size:12px}.lesson .lesson-copy small{font-size:9px}.lesson .lesson-copy .state{display:none}
+.v2-ai{margin:9px 0;padding:11px 13px;min-height:84px;grid-template-columns:1fr 120px;border-radius:13px}.v2-ai-intro h3{font-size:15px}.v2-ai-intro p{font-size:11px;margin:4px 0}.v2-ai-intro .tiny{font-size:10px}.v2-ai-face{display:none}.v2-ai-action{display:block}
+.v2-extras{grid-template-columns:1fr;gap:8px}.v2-extrapanel{min-height:auto}.v2-bottom{display:flex;position:fixed;z-index:15;bottom:0;left:0;right:0;justify-content:space-around;padding:7px 0 max(7px,env(safe-area-inset-bottom));background:white;box-shadow:0 -3px 12px #32478630}.v2-bottom a{display:grid;text-align:center;gap:1px;font-size:10px;color:#7180ab}.v2-bottom a b{font-size:20px;color:#1379ed}.wrap{padding-bottom:52px}}
+
+
+/* Stats in screenshot order: ring, actual studied days, words, completed, trophy */
+.intro-grid>.v2-stat-days{background:linear-gradient(135deg,#ffe9f1,#ffd3e7);color:#9b3972}
+.intro-grid>.v2-words{background:linear-gradient(135deg,#e2f4ff,#bfdefb);color:#2b5d9c}
+.intro-grid>.v2-completed{background:linear-gradient(135deg,#dff9f1,#bff0e2);color:#268566}
+.intro-grid>.v2-stat-days .num,.intro-grid>.v2-words .num,.intro-grid>.v2-completed .num{color:#273f86}
+.lesson:nth-child(4) .lesson-icon img{border-radius:0!important;width:88px!important;height:79px!important;object-fit:contain!important}
+@media(max-width:670px){.lesson:nth-child(4) .lesson-icon img{width:40px!important;height:42px!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="hero">
-    <div class="hero-content">
-      <a class="back" href="index.html">← 返回主页 · Главная страница</a>
-      <div class="eyebrow">RUSSIAN LANGUAGE COURSE · 俄语课程</div>
-      <h1>我的学习中心<br><span style="font-size:.68em;color:#815e35">Личный кабинет</span></h1>
-      <p>学习、练习、成长，每一天都离俄语更近一步。</p>
-      <div class="demo-label">交互演示版 · Демонстрация</div>
-    </div>
-  </header>
+  <nav class="v2-top"><a class="v2-logo" href="index.html"><span>🏰</span><span><b>俄语学习中心</b><small>Личный кабинет</small></span></a><div class="v2-links"><a href="#overview" class="active">⌂<span>首页</span></a><a href="#lessons">▣<span>我的课程</span></a><a href="#practice">◉<span>AI对话</span></a><a href="#extras">▥<span>学习统计</span></a><a href="#profile">⚙<span>设置</span></a></div><a href="#profile" class="v2-account"><span>👤</span><b id="v2-headname">同学</b> ›</a></nav><header class="hero" id="top"><div class="hero-content"><div class="eyebrow">俄语学习中心 · RUSSIAN LEARNING</div><h1 id="v2-greeting">你好，同学！</h1><h2>欢迎回来，继续学习俄语吧！</h2><p>Добро пожаловать, продолжай изучать русский!</p></div><div class="v2-teachers"><div class="v2-person margarita"><img src="assets/account-margarita.webp" alt="Маргарита"><span>Маргарита</span><small>Русский преподаватель</small></div><div class="v2-person anton"><img src="assets/account-anton.webp" alt="Антон"><span>Антон</span><small>Русский преподаватель</small></div></div></header>
   <div class="layout">
     <aside class="sidebar">
       <div class="side-card">
@@ -191,6 +233,7 @@ body{background:
           <div class="stat"><span class="sym" aria-hidden="true">🏆</span><div class="label">已完成课程</div><div class="num" id="completed-number">0/7</div><div class="foot">Пройдено уроков</div></div>
           <div class="stat"><span class="sym" aria-hidden="true">📈</span><div class="label">学习进度</div><div class="num" id="percent-number">0%</div><div class="foot">Общий прогресс</div></div>
           <div class="stat"><span class="sym" aria-hidden="true">🔤</span><div class="label">第2课已练习单词</div><div class="num" id="word-number">0</div><div class="foot">Из 100 слов · при наличии данных</div></div>
+          <div class="stat v2-bonus"><span class="sym">🏆</span><div class="label">继续加油！</div><div class="foot">Ты делаешь успехи!</div></div>
         </div>
         <div class="panel progress-panel">
           <div class="progress-layout">
@@ -213,16 +256,9 @@ body{background:
       </section>
       <section id="practice" aria-labelledby="practice-title">
         <div class="section-header"><h3 id="practice-title">AI口语练习 <small>Практика разговорного русского</small></h3></div>
-        <div class="panel ai-panel">
-          <div>
-            <div class="teacher-avatars" aria-hidden="true"><img src="assets/illustrated/svetlana-4.jpg" alt=""><img src="assets/illustrated/dmitry-4.jpg" alt=""></div>
-            <h3>认识 · Знакомство</h3>
-            <p>和斯韦特兰娜、德米特里练习自我介绍、问候以及简单对话。</p>
-            <span class="tiny">Текстовый AI готов к подключению бесплатного сервера. <a href="ai-introduction-demo.html" style="text-decoration:underline">10 этапов сценарной практики ↗</a></span>
-          </div>
-          <a class="ai-action" href="ai-text-tutor.html">AI 对话 · Текстовый AI →</a>
-        </div>
+        <div class="panel ai-panel v2-ai"><div class="v2-ai-intro"><h3>💬 AI对话练习</h3><p>Разговорная практика с AI</p><div class="tiny">和玛格丽特、安东一起练习俄语口语！<br>Практикуй русский с Маргаритой и Антоном!</div></div><div class="v2-ai-face"><img src="assets/account-margarita.webp" alt="Маргарита"><a href="ai-text-tutor.html?teacher=margarita">🎙 与 Маргарита 练习</a></div><div class="v2-ai-face"><img src="assets/account-anton.webp" alt="Антон"><a href="ai-text-tutor.html?teacher=anton">🎙 与 Антон 练习</a></div><a class="v2-ai-action" href="ai-text-tutor.html">自由对话 ›<small>Текстовый AI-урок</small></a></div>
       </section>
+<section id="extras" class="v2-extras"><div class="v2-extrapanel"><h3>🕒 最近学习 · Недавняя активность</h3><div id="v2-activity">暂无记录 · Нет данных</div></div><div class="v2-extrapanel"><h3>🏅 我的成就 · Мои достижения</h3><div class="v2-awards"><div id="v2-award1"><span>🥇</span>学习达人<small>1 урок</small></div><div id="v2-award3"><span>🔥</span>坚持学习<small>3 урока</small></div><div id="v2-award7"><span>🎓</span>俄语之星<small>7 уроков</small></div></div></div><div class="v2-extrapanel"><h3>🗓️ 学习日历 · Календарь</h3><div class="v2-calhead"><button type="button" id="v2-prev" aria-label="Предыдущий месяц">‹</button><strong id="v2-month"></strong><button type="button" id="v2-next" aria-label="Следующий месяц">›</button></div><div id="v2-calendar" class="v2-calendar"></div></div></section>
       <section id="profile" aria-labelledby="profile-title">
         <div class="section-header"><h3 id="profile-title">我的资料 <small>Профиль ученика</small></h3><button class="soft-btn" id="edit-profile" type="button" aria-expanded="false" aria-controls="name-editor">✎ 修改昵称</button></div>
         <div class="panel activity">
@@ -318,6 +354,37 @@ var button=byId("edit-profile"),editor=byId("name-editor");
 button.addEventListener("click",function(){var opening=editor.hidden;editor.hidden=!opening;button.setAttribute("aria-expanded",String(opening));if(opening){byId("nickname").value=safeRead(nameKey)||"";byId("nickname").focus()}});
 editor.addEventListener("submit",function(e){e.preventDefault();var value=byId("nickname").value.trim().slice(0,30);if(!value)return;if(safeSave(nameKey,value)){editor.hidden=true;button.setAttribute("aria-expanded","false");render()}else{byId("save-state").textContent="无法在当前浏览器保存昵称。"}});
 window.addEventListener("pageshow",render);window.addEventListener("storage",render);render();
+})();
+</script>
+<div class="v2-bottom"><a href="#overview"><b>⌂</b>首页</a><a href="#lessons"><b>▣</b>课程</a><a href="#practice"><b>◉</b>AI对话</a><a href="#extras"><b>▥</b>统计</a><a href="#profile"><b>⚙</b>设置</a></div>
+<script>
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+const safe=k=>{try{return localStorage.getItem(k)}catch{return null}};
+const parse=k=>{try{return JSON.parse(safe(k)||"{}")}catch{return{}}};
+const name=(safe("russian-account-demo-name-v1")||"").trim()||"同学";
+$("v2-greeting").textContent="你好，"+name+"！";$("v2-headname").textContent=name;
+const qs=parse("russian-course-progress-v1");const dates=Object.values(qs).filter(q=>q&&q.date&&!isNaN(Date.parse(q.date))).map(q=>new Date(q.date));
+const dayKey=d=>d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();const days=new Set(dates.map(dayKey));
+const div=document.createElement("div");div.className="stat v2-stat-days";div.innerHTML='<span class="sym">🔥</span><div class="label">学习天数</div><div class="num" id="v2-days"></div><div class="foot">Дней учёбы</div>';
+const stats=document.querySelector(".intro-grid");const progress=document.querySelector(".progress-panel");
+if(stats&&progress){const originalCards=Array.from(stats.querySelectorAll(":scope > .stat:not(.v2-bonus)"));if(originalCards[1])originalCards[1].remove();stats.insertBefore(progress,stats.firstChild);stats.insertBefore(div,stats.children[1]);if(originalCards[2]&&originalCards[0])stats.insertBefore(originalCards[2],originalCards[0]);originalCards[2]?.classList.add("v2-words");originalCards[0]?.classList.add("v2-completed");}
+$("v2-days").textContent=String(days.size);
+const completed=Array.from(document.querySelectorAll(".lesson.finished")).length;
+[1,3,7].forEach(n=>{if(completed<n)$("v2-award"+n).classList.add("locked")});
+const activity=$("v2-activity");activity.replaceChildren();
+const logs=Object.entries(qs).filter(pair=>pair[1]&&pair[1].date&&!isNaN(Date.parse(pair[1].date))).sort((a,b)=>Date.parse(b[1].date)-Date.parse(a[1].date)).slice(0,3);
+if(!logs.length)activity.textContent="暂无记录 · Нет сохранённых тестов";
+logs.forEach(([lesson,q])=>{const row=document.createElement("div");row.className="v2-log";row.textContent="✅ 第"+lesson+"课 · "+new Date(q.date).toLocaleDateString("zh-CN")+(Number(q.total)>0?" · "+Math.round(100*Number(q.score)/Number(q.total))+"%":"");activity.append(row)});
+let cal=new Date();cal.setDate(1);
+function drawCalendar(){const out=$("v2-calendar");out.replaceChildren();$("v2-month").textContent=cal.toLocaleDateString("zh-CN",{year:"numeric",month:"long"});
+["一","二","三","四","五","六","日"].forEach(d=>{const c=document.createElement("span");c.textContent=d;out.append(c)});
+const offset=(cal.getDay()+6)%7;for(let i=0;i<offset;i++)out.append(document.createElement("span"));
+const last=new Date(cal.getFullYear(),cal.getMonth()+1,0).getDate(),now=new Date();
+for(let i=1;i<=last;i++){const c=document.createElement("span");c.textContent=i;const date=new Date(cal.getFullYear(),cal.getMonth(),i);if(days.has(dayKey(date)))c.classList.add("learned");if(dayKey(now)===dayKey(date))c.classList.add("today");out.append(c)}}
+$("v2-prev").addEventListener("click",()=>{cal.setMonth(cal.getMonth()-1);drawCalendar()});$("v2-next").addEventListener("click",()=>{cal.setMonth(cal.getMonth()+1);drawCalendar()});drawCalendar();
+const avatar=document.querySelectorAll(".lesson")[3]?.querySelector(".lesson-icon");if(avatar){avatar.textContent="";const photo=document.createElement("img");photo.src="assets/account-margarita.webp";photo.alt="Маргарита";avatar.append(photo)}
 })();
 </script>
 </body>
