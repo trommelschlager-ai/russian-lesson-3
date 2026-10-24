@@ -55,6 +55,10 @@
 .lesson-7 .enrich7 .enrich7-buttons{display:flex;flex-wrap:wrap;gap:10px}
 .lesson-7 .enrich7 .enrich7-feedback{min-height:25px;color:#42618e;margin:10px 0;font-size:14px}
 @media(max-width:580px){.lesson-7 .enrich7{padding:13px;margin:18px 0}.lesson-7 .enrich7 .enrich7-step{grid-template-columns:32px minmax(0,1fr) 42px;gap:8px;padding:10px}.lesson-7 .enrich7 .enrich7-num{min-height:34px;font-size:17px}.lesson-7 .enrich7 .enrich7-grammar{gap:8px}.lesson-7 .enrich7 .enrich7-grammar>div{padding:9px}.lesson-7 .enrich7 .enrich7-rus{font-size:17px}}
+
+/* Expand visual column to match existing large daily-action image cards. */
+.lesson-7 .upgrade-action-heading:has(.l67-action){grid-template-columns:minmax(0,45%) minmax(0,1fr)!important}
+.lesson-7 .upgrade-action-heading .l67-action{width:100%!important;height:auto!important;aspect-ratio:1/1!important}
 </style></head>
 <body class="new-lesson illustrated-lesson lesson-7"><main class="illustrated-page">
 <header class="lesson-hero"><img alt="第7课：我的一天 · Мой день · 用俄语介绍自己的日常生活。" height="359" src="assets/illustrated/lesson-7-hero.jpg" width="1024"/><h1 class="sr-only">我的一天 · Мой день</h1></header>
@@ -172,4 +176,4 @@ document.querySelectorAll('[data-day-audio]').forEach(b=>b.addEventListener('cli
 draw();
 })();
 </script>
-<script src="assets/lesson67-photo-upgrade.js?v=20261025"></script></body></html>
+<script src="assets/lesson67-photo-upgrade.js?v=20261025-fix2"></script></body></html>
