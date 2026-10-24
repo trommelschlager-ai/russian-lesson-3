@@ -112,7 +112,17 @@ if(!count||!question||!choices||!status||!next)return;
 let at=0,score=0,answered=false;
 function render(){answered=false;const e=lessons[at];count.textContent='第 '+(at+1)+' 题 / 共 '+lessons.length+' 题';question.textContent=e.q;choices.replaceChildren();status.textContent='选择一个答案，然后查看解释。';next.disabled=true;next.textContent=at===lessons.length-1?'查看成绩':'下一题 →';
 e.a.forEach((value,i)=>{const b=document.createElement('button');b.type='button';b.className='enrich-choice';b.textContent=value;b.addEventListener('click',()=>{if(answered)return;answered=true;if(i===e.ok)score++;choices.querySelectorAll('button').forEach((other,j)=>{other.disabled=true;if(j===e.ok)other.classList.add('correct');if(j===i&&i!==e.ok)other.classList.add('wrong')});status.textContent=(i===e.ok?'✅ 回答正确！':'❌ 继续学习！')+' '+e.why;next.disabled=false;});choices.append(b)})}
-next.addEventListener('click',()=>{if(next.disabled)return;if(at<lessons.length-1){at++;render();return}count.textContent='练习完成';question.textContent='成绩：'+score+' / '+lessons.length;choices.replaceChildren();status.textContent='可以重新练习，巩固“мой / моя / мои”和“есть / нет”的用法。';next.disabled=false;next.textContent='🔄 再练一次';at=-1;next.onclick=()=>{at=0;score=0;next.onclick=null;render()}})
+next.addEventListener('click',()=>{
+if(next.disabled)return;
+if(at>=lessons.length){at=0;score=0;render();return}
+if(at<lessons.length-1){at++;render();return}
+at=lessons.length;
+count.textContent='练习完成';
+question.textContent='成绩：'+score+' / '+lessons.length;
+choices.replaceChildren();
+status.textContent='可以重新练习，巩固“мой / моя / мои”和“есть / нет”的用法。';
+next.disabled=false;next.textContent='🔄 再练一次';
+})
 render();
 document.querySelectorAll('[data-family-audio]').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.familyAudio;if(window.CourseAudio?.play)window.CourseAudio.play([{text:t,role:'male'}]);else{status.textContent='音频尚未加载，请刷新页面。'}}));
 })();
