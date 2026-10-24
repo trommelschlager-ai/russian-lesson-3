@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#153960">
+<title>Знакомство · 认识 | AI-практика русского</title>
+<meta name="description" content="Демонстрационный урок русского языка для китайских учеников: знакомство, речь, перевод, Светлана и Дмитрий.">
+<style>
+:root{--navy:#173657;--ink:#152c49;--muted:#687b92;--cream:#fffaf0;--gold:#bf9151;--blue:#1d65bd;--pale:#f3f6fb;--border:#e4dfd2;--shadow:0 12px 32px #243a561c}*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#ecf3fa,#fbf3e9 50%,#e8eff8);color:var(--ink);font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.5}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #1571d8;outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.48}a{color:inherit}.site{max-width:1400px;margin:0 auto;background:#fff9ee;box-shadow:0 18px 65px #142b4d28;min-height:100vh}.hero{height:270px;position:relative;background-image:linear-gradient(90deg,rgba(255,248,228,.96) 1%,rgba(255,248,228,.87) 41%,rgba(255,244,219,.13) 95%),url("assets/illustrated/lesson-4-hero.jpg");background-position:center 48%;background-size:cover;border-bottom:3px solid #cba163;overflow:hidden}.hero:after{content:"";position:absolute;inset:auto 0 0;height:65px;background:linear-gradient(transparent,#fff9eea6);pointer-events:none}.hero-content{padding:24px 34px;position:relative;z-index:1}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;color:#865b2c}.hero h1{font-family:Georgia,"Times New Roman","Noto Serif SC",serif;font-size:clamp(29px,3.5vw,47px);line-height:1.16;margin:8px 0 4px;color:#132e50;text-shadow:0 1px 5px #fff6}.hero h1 span{color:#8d6638}.hero p{font-size:14px;margin:5px 0;max-width:600px}.hero .sub{font-weight:700}.back{display:inline-flex;align-items:center;text-decoration:none;gap:6px;background:#fffcf5cd;padding:7px 11px;border:1px solid #d6b987;border-radius:28px;font-size:12px;color:#544126}.back:hover{background:#fff}.hero-label{position:absolute;right:27px;top:20px;background:#fffaf0e6;padding:8px 14px;border-radius:30px;color:#66502e;border:1px solid #dec293;z-index:1;font-size:12px;font-weight:700}.teacher-row{position:relative;z-index:2;margin:-44px 20px 18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.teacher{background:#fffdf8;border:2px solid #e8d7b8;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px;min-width:194px;padding:9px 14px 9px 9px;border-radius:50px;color:#243d59;text-align:left;transition:transform .16s,border-color .16s}.teacher:hover{transform:translateY(-2px)}.teacher.active{border-color:#2573cb;box-shadow:0 0 0 4px #dbeafb,var(--shadow)}.teacher img{height:58px;width:58px;border-radius:50%;object-fit:cover;object-position:center top;background:#e3d1bd;border:2px solid white}.teacher strong{font-size:15px;display:block}.teacher small{font-size:11px;display:block;color:#748399}.teacher .tick{margin-left:auto;background:#236cc4;color:white;border-radius:50%;width:22px;height:22px;display:none;align-items:center;justify-content:center}.teacher.active .tick{display:flex}.mode-caption{font-size:12px;color:#6b7584;text-align:center;margin:-6px 10px 16px}.workspace{display:grid;grid-template-columns:240px minmax(0,1fr) 260px;gap:13px;padding:0 15px 22px}.panel{border:1px solid #e5dfd3;border-radius:19px;background:linear-gradient(175deg,#fffcf7,#fff);box-shadow:0 5px 22px #3440520e;overflow:hidden}.panel-title{padding:17px 18px 12px;font-family:Georgia,"Noto Serif SC",serif;color:#273f60;font-weight:800;font-size:17px}.step-list{padding:0 9px 12px;display:grid;gap:4px}.step{width:100%;display:flex;gap:10px;text-align:left;align-items:center;padding:10px 7px;border:none;background:transparent;color:#263b56;border-radius:10px}.step.active{background:#e8f1fc}.step:hover{background:#eef2f8}.num{display:grid;place-items:center;min-width:30px;height:30px;border-radius:50%;border:1px solid #e0caac;background:#fbf4e9;font-family:Georgia,serif;color:#6d4c28;font-weight:bold}.step.active .num{background:linear-gradient(140deg,#327bd9,#1649a2);color:white;border-color:#2163be}.step-text{font-size:13px;font-weight:700}.step-text small{display:block;color:#8b94a0;font-size:11px;font-weight:400}.done .num{border-color:#7bb69a;color:#2b8559;background:#e9f9ef}.conversation{display:flex;flex-direction:column;min-height:560px}.chat-head{display:flex;justify-content:space-between;align-items:center;padding:15px 19px;background:linear-gradient(100deg,#fff,#faf5e9);border-bottom:1px solid #eee4d5;gap:10px}.chat-head strong{font-family:Georgia,serif;font-size:18px}.chat-head small{display:block;color:#8490a0}.progress{width:110px;height:8px;background:#e3e5e9;border-radius:100px;overflow:hidden;margin:5px 0}.progress > div{height:100%;width:10%;background:linear-gradient(90deg,#3a95eb,#2456b9);border-radius:100px;transition:width .25s}.progress-copy{font-size:12px;text-align:right;color:#6c7f97}.chat-body{padding:22px 18px 14px;min-height:310px;flex:1;background:radial-gradient(circle at 0 0,#fff7e4,transparent 36%),#fffdf9}.chat-line{display:flex;align-items:flex-start;gap:9px;margin-bottom:18px}.avatar{flex:none;width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:center top;background:#efdfcb;border:2px solid white;box-shadow:0 2px 9px #102f3e26}.bubble{padding:13px 18px;border-radius:18px;max-width:89%;box-shadow:0 3px 10px #13243f09}.bubble.teacher-bubble{background:#f4e9d4;border-top-left-radius:5px}.bubble.answer-bubble{background:#dfeefd;border-top-right-radius:5px}.bubble .who{font-size:11px;color:#64768b;margin-bottom:5px}.bubble .ru{font-family:Georgia,"Noto Serif SC",serif;font-size:clamp(17px,2vw,22px);font-weight:bold;color:#152e4e}.bubble .cn{font-size:14px;color:#415b76;margin-top:4px}.bubble .lat{font-size:12px;color:#82909e;margin-top:4px}.line-actions{margin-top:9px;display:flex;gap:7px;flex-wrap:wrap}.tiny-btn{border:1px solid #e0caa9;color:#244772;background:#ffffffab;border-radius:22px;padding:5px 11px;font-size:12px;font-weight:700}.tiny-btn:hover{background:#fff}.student{justify-content:flex-end}.student .bubble{max-width:84%}.mini-notice{display:flex;gap:7px;align-items:center;color:#66798b;font-size:12px;padding:6px 9px;margin:0 0 15px 48px;border-left:3px solid #bfa36e}.response-box{padding:13px 20px 21px;border-top:1px solid #efe7db;background:#fff}.response-title{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:#5e7591;margin-bottom:9px}.input-row{display:flex;gap:7px;align-items:stretch}.answer-input{width:100%;min-width:0;padding:12px 14px;border:1px solid #cbd9eb;background:#f9fbfe;color:#142e53;border-radius:12px;font-size:15px}.primary{border:0;color:#fff;border-radius:12px;font-weight:700;padding:11px 16px;background:linear-gradient(140deg,#2c82da,#144baa);box-shadow:0 4px 12px #126bc12e}.primary:hover{filter:brightness(1.08)}.mic{width:51px;min-width:51px;height:49px;border-radius:50%;border:4px solid #d7e9fc;color:#fff;background:linear-gradient(145deg,#3387df,#154ca9);font-size:21px;box-shadow:0 2px 9px #315e9c35}.mic.recording{background:#c6324b;border-color:#ffd4db;animation:pulse 1s infinite}@keyframes pulse{50%{box-shadow:0 0 0 8px #d94a5e20}}.under-controls{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-top:10px}.actions{display:flex;gap:8px;flex-wrap:wrap}.control{background:#fffaf1;border:1px solid #e3cda9;color:#5d4b31;padding:8px 13px;border-radius:22px;font-size:12px;font-weight:700}.control:hover{background:#fef0d3}.status{font-size:12px;min-height:19px;color:#63748b}.feedback{border-radius:11px;border:1px solid #d4e7f5;background:#eff7fe;padding:10px 13px;font-size:13px;line-height:1.6;margin-top:12px;display:none}.feedback.show{display:block}.feedback.good{border-color:#b9ddce;background:#eaf8f1;color:#175837}.feedback.retry{border-color:#e6d3ae;background:#fff7e6;color:#674923}.aside-content{padding:0 14px 16px}.glossary{background:#fff7e7;border-radius:12px;padding:11px;display:grid;gap:10px}.vocab-item{border-bottom:1px solid #ecdcc3;padding-bottom:9px}.vocab-item:last-child{border-bottom:none;padding-bottom:0}.vocab-item strong{display:block;color:#1c416a;font-size:14px}.vocab-item .zh{font-size:12px;color:#566a80}.vocab-item .tr{font-size:11px;color:#8d8b84}.small-card{margin-top:12px;padding:13px;border-radius:12px;background:#f2f7fb}.small-card strong{font-size:13px}.small-card p{font-size:12px;color:#657891;margin:5px 0}.result{text-align:center;display:none;padding:28px 12px}.result.open{display:block}.result h2{font-family:Georgia,serif}.result .medal{font-size:50px}.result p{color:#5e7188}.footer{padding:10px 20px 25px;text-align:center;font-size:11px;color:#7f8590}.hidden{display:none!important}
+@media(max-width:1120px){.workspace{grid-template-columns:205px minmax(0,1fr)}.vocab-panel{grid-column:1/-1}.aside-content{display:grid;grid-template-columns:1fr 1fr;gap:12px}.small-card{margin-top:0}.hero{height:240px}}
+@media(max-width:720px){.hero{height:215px;background-position:64% center}.hero-content{padding:12px 17px}.hero h1{font-size:29px;margin:8px 0 4px}.hero p{font-size:12px;max-width:330px}.hero-label{display:none}.teacher-row{margin:-22px 8px 12px;gap:8px}.teacher{min-width:0;flex:1;padding:6px;gap:5px;border-radius:19px}.teacher img{height:42px;width:42px}.teacher strong{font-size:12px}.teacher small{font-size:10px}.teacher .tick{width:17px;height:17px;font-size:10px}.mode-caption{font-size:11px;padding:0 10px}.workspace{display:flex;flex-direction:column;padding:0 10px 12px;gap:9px}.step-panel{order:2}.conversation{order:1;min-height:0}.vocab-panel{order:3}.step-list{display:flex;overflow-x:auto;scrollbar-width:thin;white-space:nowrap;padding:0 8px 8px}.step{width:auto;min-width:125px;padding:9px}.chat-body{padding:15px 10px 0;min-height:270px}.bubble{padding:11px 13px}.bubble .ru{font-size:18px}.avatar{width:40px;height:40px}.chat-head{padding:11px 13px}.response-box{padding:12px}.aside-content{grid-template-columns:1fr}.footer{padding:8px 14px 20px}.mini-notice{margin-left:44px}.student .bubble{max-width:89%}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="site">
+  <header class="hero">
+    <div class="hero-label">DEMO · 免费体验</div>
+    <div class="hero-content">
+      <a href="index.html" class="back">← Вернуться к 7 урокам · 返回课程</a>
+      <div class="eyebrow" style="margin-top:13px">УРОК 0 · AI PRACTICE DEMO</div>
+      <h1>Знакомство <span>· 认识</span></h1>
+      <p class="sub">Познакомьтесь со Светланой и Дмитрием</p>
+      <p>用俄语进行第一次对话。听、说、练习，轻松开口！</p>
+    </div>
+  </header>
+  <section aria-label="选择老师" class="teacher-row" id="teachers">
+    <button type="button" class="teacher" data-mode="svetlana" aria-pressed="false"><img src="assets/illustrated/svetlana-4.jpg" alt="Светлана"><span><strong>Светлана</strong><small>女老师 · Женский</small></span><span class="tick">✓</span></button>
+    <button type="button" class="teacher" data-mode="dmitry" aria-pressed="false"><img src="assets/illustrated/dmitry-4.jpg" alt="Дмитрий"><span><strong>Дмитрий</strong><small>男老师 · Мужской</small></span><span class="tick">✓</span></button>
+    <button type="button" class="teacher active" data-mode="both" aria-pressed="true"><span style="font-size:27px;padding:0 8px">👩‍🏫👨‍🏫</span><span><strong>Два учителя</strong><small>双老师交替 · По очереди</small></span><span class="tick">✓</span></button>
+  </section>
+  <p class="mode-caption" id="mode-caption">Светлана и Дмитрий задают вопросы по очереди · 两位老师轮流提问</p>
+  <main class="workspace">
+    <nav class="panel step-panel" aria-label="Этапы урока">
+      <div class="panel-title">✦ План урока <span style="font-size:12px;color:#96866b">课程目录</span></div>
+      <div class="step-list" id="steps"></div>
+    </nav>
+    <section class="panel conversation" aria-label="Учебный диалог">
+      <div class="chat-head">
+        <div><strong id="stage-title">Приветствие</strong><small id="stage-cn">打招呼</small></div>
+        <div><div class="progress-copy"><span id="progress-label">1 / 10</span></div><div class="progress"><div id="progress-bar"></div></div></div>
+      </div>
+      <div class="chat-body" id="chat">
+        <div class="chat-line"><img class="avatar" src="assets/illustrated/svetlana-4.jpg" alt=""><div class="bubble teacher-bubble"><div class="who">Светлана</div><div class="ru">Привет!</div><div class="cn">你好！</div></div></div>
+      </div>
+      <div id="result" class="result" aria-live="polite"><div class="medal">🏅</div><h2>Отлично! · 做得好！</h2><p>Вы завершили демонстрационный урок.<br>你已完成演示课程！</p><p id="result-copy"></p><button class="primary" type="button" id="restart">Повторить · 再练一次</button></div>
+      <div class="response-box" id="response-box">
+        <div class="response-title"><span>🎙 Ваш ответ · 请用俄语回答</span><span style="font-size:11px">10分钟 · 初级</span></div>
+        <div class="input-row">
+          <input id="answer" class="answer-input" maxlength="180" autocomplete="off" placeholder="Введите ответ по-русски / 输入俄语回答" aria-label="Ответ по-русски">
+          <button id="mic" class="mic" type="button" title="Говорить / 开始说话" aria-label="Говорить по-русски">🎙</button>
+          <button id="check" class="primary" type="button">Проверить ✓</button>
+        </div>
+        <div class="under-controls">
+          <div class="actions">
+            <button class="control" type="button" id="hear">▶ Слушать</button>
+            <button class="control" type="button" id="slow">🐢 0.7×</button>
+            <button class="control" type="button" id="hint">💡 提示</button>
+          </div>
+          <div class="actions">
+            <button class="control" type="button" id="prev">← Назад</button>
+            <button class="control" type="button" id="next">Дальше →</button>
+          </div>
+        </div>
+        <div id="status" class="status" role="status">演示模式：文字答案可进行基础检查。</div>
+        <div class="feedback" id="feedback" aria-live="polite"></div>
+      </div>
+    </section>
+    <aside class="panel vocab-panel" aria-label="Новые фразы">
+      <div class="panel-title">📖 Новые фразы <span style="font-size:12px;color:#96866b">新词</span></div>
+      <div class="aside-content">
+        <div class="glossary" id="glossary"></div>
+        <div class="small-card"><strong>💡 Как проходит урок · 使用说明</strong><p>听老师说话 → 按麦克风或输入俄语 → 检查答案 → 继续下一步。</p><p>Озвучка использует голоса браузера. Микрофон работает только в поддерживаемых браузерах и при разрешённом доступе. Проверка ответов здесь сценарная, не AI-оценка произношения.</p></div>
+      </div>
+    </aside>
+  </main>
+  <footer class="footer">Демонстрация урока · 此页面为交互式演示，并非实时AI聊天。原有7节课未 изменены.</footer>
+</div>
+<script>
+(function () {
+"use strict";
+var teachers = {
+  svetlana:{name:"Светлана",img:"assets/illustrated/svetlana-4.jpg"},
+  dmitry:{name:"Дмитрий",img:"assets/illustrated/dmitry-4.jpg"}
+};
+var stages = [
+ {name:"Приветствие",zh:"打招呼",speaker:"svetlana",ru:"Привет!",cn:"你好！",latin:"Privet!",example:"Привет!",excn:"你好！",note:"先听，再说“Привет!”。",terms:[["Привет!","你好！","Privet!"],["Здравствуйте!","您好！","Zdravstvuyte!"]],test:function(s){return /\b(привет|здравствуй|здравствуйте)\b/u.test(s)}},
+ {name:"Как тебя зовут?",zh:"你叫什么名字？",speaker:"svetlana",ru:"Как тебя зовут?",cn:"你叫什么名字？",latin:"Kak tebya zovut?",example:"Меня зовут Ли На.",excn:"我叫李娜。",note:"正确结构是«Меня зовут…»，不要说«Я зовут…»。",terms:[["Как тебя зовут?","你叫什么名字？","Kak tebya zovut?"],["Меня зовут…","我叫……","Menya zovut…"]],test:function(s){return /меня зовут\s+\S+/u.test(s)}},
+ {name:"Откуда ты?",zh:"你来自哪里？",speaker:"dmitry",ru:"Откуда ты?",cn:"你来自哪里？",latin:"Otkuda ty?",example:"Я из Китая.",excn:"我来自中国。",note:"你也可以用自己的国家回答，例如«Я из России»。",terms:[["Откуда ты?","你来自哪里？","Otkuda ty?"],["Я из Китая.","我来自中国。","Ya iz Kitaya."]],test:function(s){return /^я из\s+\S+/u.test(s)}},
+ {name:"Чем занимаешься?",zh:"你做什么工作？",speaker:"svetlana",ru:"Чем ты занимаешься?",cn:"你做什么工作？",latin:"Chem ty zanimaeshsya?",example:"Я студентка.",excn:"我是女大学生。",note:"男生可以说«Я студент». 也可以说«Я работаю»。",terms:[["Чем ты занимаешься?","你是做什么的？","Chem ty zanimaeshsya?"],["Я студентка.","我是女学生。","Ya studentka."]],test:function(s){return /^я\s+(студент|студентка|работаю|учусь|учитель|врач|инженер|преподаватель|менеджер|программист|дизайнер|домохозяйка)\b/u.test(s)}},
+ {name:"Сколько тебе лет?",zh:"你多大了？",speaker:"dmitry",ru:"Сколько тебе лет?",cn:"你多大了？",latin:"Skol'ko tebe let?",example:"Мне двадцать пять лет.",excn:"我二十五岁。",note:"结构：Мне + 年龄 + год/года/лет。可用数字或俄语数字词。",terms:[["Сколько тебе лет?","你几岁？","Skol'ko tebe let?"],["Мне 25 лет.","我25岁。","Mne dvadtsat' pyat' let."]],test:function(s){return /^мне\s+[\p{L}0-9\s-]+\s+(год|года|лет)\b/u.test(s)}},
+ {name:"Очень приятно!",zh:"很高兴认识你！",speaker:"svetlana",ru:"Очень приятно познакомиться!",cn:"很高兴认识你！",latin:"Ochen' priyatno poznakomit'sya!",example:"Мне тоже очень приятно!",excn:"我也很高兴认识你！",note:"也可以只回答«Очень приятно!»。",terms:[["Очень приятно!","很高兴认识你！","Ochen' priyatno!"],["Мне тоже.","我也是。","Mne tozhe."]],test:function(s){return /приятно/u.test(s)}},
+ {name:"Повторение",zh:"复习",speaker:"dmitry",ru:"Скажи по-русски: 我来自中国。",cn:"请把“我来自中国”翻译成俄语。",latin:"Skazhi po-russki…",example:"Я из Китая.",excn:"我来自中国。",note:"试着不看提示自己说出来。",terms:[["Я","我","Ya"],["из Китая","来自中国","iz Kitaya"]],test:function(s){return /я из китая/u.test(s)}},
+ {name:"Свободный диалог",zh:"自由对话",speaker:"svetlana",ru:"Привет! Как тебя зовут? Откуда ты?",cn:"你好！你叫什么名字？你来自哪里？",latin:"Privet! Kak tebya zovut? Otkuda ty?",example:"Меня зовут Ли На. Я из Китая.",excn:"我叫李娜。我来自中国。",note:"在一句回答中介绍姓名和国家。",terms:[["Меня зовут…","我叫……","Menya zovut…"],["Я из…","我来自……","Ya iz…"]],test:function(s){return /меня зовут\s+\S+/u.test(s)&&/я из\s+\S+/u.test(s)}},
+ {name:"Мини-тест",zh:"小测试",speaker:"dmitry",ru:"Как сказать по-русски: «很高兴认识你»?",cn:"请用俄语说“很高兴认识你”。",latin:"Kak skazat' po-russki…",example:"Очень приятно!",excn:"很高兴认识你！",note:"可以回答«Очень приятно!»或者«Очень приятно познакомиться!»。",terms:[["Очень","非常","Ochen'"],["приятно","高兴、愉快","priyatno"]],test:function(s){return /очень приятно/u.test(s)}},
+ {name:"Итог",zh:"总结",speaker:"svetlana",ru:"Молодец! До встречи!",cn:"做得好！下次见！",latin:"Molodets! Do vstrechi!",example:"До свидания!",excn:"再见！",note:"以一句俄语告别，完成演示课。",terms:[["До встречи!","下次见！","Do vstrechi!"],["До свидания!","再见！","Do svidaniya!"]],test:function(s){return /(до свидания|до встречи|пока)/u.test(s)}}
+];
+var mode="both",current=0,completed=new Set(),checked=false,lastAnswer="";
+var ids=function(id){return document.getElementById(id)};
+var stepsEl=ids("steps"),chat=ids("chat"),answer=ids("answer"),feedback=ids("feedback"),status=ids("status");
+function normalize(s){return String(s||"").toLowerCase().replace(/ё/g,"е").replace(/[.,!?;:"«»()]/g," ").replace(/\s+/g," ").trim()}
+function who(i){if(mode==="both")return stages[i].speaker;return mode}
+function node(tag,klass,text){var el=document.createElement(tag);if(klass)el.className=klass;if(text!==undefined)el.textContent=text;return el}
+function renderSteps(){stepsEl.replaceChildren();stages.forEach(function(s,i){var b=node("button","step"+(i===current?" active":"")+(completed.has(i)?" done":""));b.type="button";b.setAttribute("aria-current",i===current?"step":"false");b.append(node("span","num",completed.has(i)?"✓":String(i+1)));var label=node("span","step-text",s.name);label.append(node("small","",s.zh));b.append(label);b.addEventListener("click",function(){go(i)});stepsEl.append(b)})}
+function renderBubble(speaker,ru,cn,latin,studentBubble){var line=node("div","chat-line"+(studentBubble?" student":""));if(!studentBubble){var img=node("img","avatar");img.src=teachers[speaker].img;img.alt=teachers[speaker].name;line.append(img)}
+var bubble=node("div","bubble "+(studentBubble?"answer-bubble":"teacher-bubble"));bubble.append(node("div","who",studentBubble?"Вы · 你":teachers[speaker].name));bubble.append(node("div","ru",ru));if(cn)bubble.append(node("div","cn",cn));if(latin)bubble.append(node("div","lat",latin));line.append(bubble);return line}
+function renderTerms(){ids("glossary").replaceChildren();stages[current].terms.forEach(function(term){var el=node("div","vocab-item");el.append(node("strong","",term[0]));el.append(node("div","zh",term[1]));el.append(node("div","tr",term[2]));ids("glossary").append(el)})}
+function clearFeedback(){feedback.className="feedback";feedback.textContent="";status.textContent="演示模式：文字答案可进行基础检查。"}
+function render(){var s=stages[current];ids("stage-title").textContent=s.name;ids("stage-cn").textContent=s.zh;ids("progress-label").textContent=(current+1)+" / 10";ids("progress-bar").style.width=((current+1)*10)+"%";chat.replaceChildren();chat.append(renderBubble(who(current),s.ru,s.cn,s.latin,false));chat.append(node("div","mini-notice","ⓘ "+s.note));if(checked&&lastAnswer){chat.append(renderBubble(who(current),lastAnswer,"","",true))}ids("prev").disabled=current===0;ids("next").textContent=current===9?"Результат →":"Дальше →";renderTerms();renderSteps();clearFeedback();if(checked){showFeedback(stages[current].test(normalize(lastAnswer)),lastAnswer,false)}ids("result").classList.remove("open");ids("response-box").classList.remove("hidden");chat.classList.remove("hidden")}
+function go(i){if(window.speechSynthesis)window.speechSynthesis.cancel();current=Math.max(0,Math.min(9,i));checked=false;lastAnswer="";answer.value="";render()}
+function chooseMode(m){mode=m;document.querySelectorAll(".teacher").forEach(function(b){var active=b.dataset.mode===m;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active))});ids("mode-caption").textContent=m==="both"?"Светлана и Дмитрий задают вопросы по очереди · 两位老师轮流提问":teachers[m].name+" · 单人练习模式";render()}
+document.querySelectorAll(".teacher").forEach(function(b){b.addEventListener("click",function(){chooseMode(b.dataset.mode)})});
+function showFeedback(ok,raw,rerender){feedback.className="feedback show "+(ok?"good":"retry");var s=stages[current];feedback.textContent=(ok?"✓ Хорошо! 说得对！ ":"↻ Попробуйте ещё раз · 请再试一次。 ") + (ok?"Продолжайте к следующему этапу。":"Пример · 参考答案：")+(!ok?s.example:"");if(ok)completed.add(current);if(rerender){chat.replaceChildren();chat.append(renderBubble(who(current),s.ru,s.cn,s.latin,false));chat.append(renderBubble(who(current),raw,"","",true));renderSteps()}status.textContent=ok?"✓ 答案符合此演示中的基本规则。": "ℹ 规则式检查可能无法识别所有正确的回答。"}
+function check(){var text=answer.value.trim();if(!text){status.textContent="请先输入或说出你的俄语答案。";answer.focus();return}lastAnswer=text;checked=true;showFeedback(stages[current].test(normalize(text)),text,true)}
+function speak(rate){if(!("speechSynthesis" in window)){status.textContent="浏览器不支持语音合成。";return}window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(stages[current].ru);u.lang="ru-RU";u.rate=rate;var voices=window.speechSynthesis.getVoices().filter(function(v){return /^ru(-|_)/i.test(v.lang)});if(voices.length)u.voice=voices[0];u.onerror=function(){status.textContent="语音播放失败，请检查浏览器语音服务。"};window.speechSynthesis.speak(u);status.textContent=rate<1?"🐢 Медленное произношение · 慢速播放":"▶ Прослушивание · 正常语速"}
+ids("hear").addEventListener("click",function(){speak(1)});
+ids("slow").addEventListener("click",function(){speak(.7)});
+ids("check").addEventListener("click",check);
+ids("hint").addEventListener("click",function(){feedback.className="feedback show";feedback.textContent="💡 提示：" + stages[current].example+" — "+stages[current].excn});
+answer.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check()}});
+ids("prev").addEventListener("click",function(){go(current-1)});
+ids("next").addEventListener("click",function(){if(current===9){showResult()}else go(current+1)});
+ids("restart").addEventListener("click",function(){completed.clear();go(0)});
+function showResult(){if(window.speechSynthesis)window.speechSynthesis.cancel();chat.classList.add("hidden");ids("response-box").classList.add("hidden");var el=ids("result");el.classList.add("open");ids("result-copy").textContent="Подтверждено по сценарным правилам: "+completed.size+" из 10 ответов · 按演示规则完成 "+completed.size+"/10。"}
+var recognition=null;
+ids("mic").addEventListener("click",function(){var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){status.textContent="此浏览器不支持语音识别。请使用文字输入。";return}if(recognition){try{recognition.stop()}catch(e){}return}recognition=new SR();recognition.lang="ru-RU";recognition.interimResults=false;recognition.maxAlternatives=1;recognition.onresult=function(e){answer.value=e.results[0][0].transcript;status.textContent="已识别文字，请按“Проверить”检查。注意：这不是发音评分。"};recognition.onerror=function(e){status.textContent="麦克风识别失败（"+e.error+"）。可以直接输入文字。"};recognition.onend=function(){recognition=null;ids("mic").classList.remove("recording")};try{recognition.start();ids("mic").classList.add("recording");status.textContent="🎙 正在聆听，请用俄语说话…"}catch(e){recognition=null;ids("mic").classList.remove("recording");status.textContent="无法启动麦克风，请使用文字输入。"}});
+render();
+})();
+</script>
+</body>
+</html>
