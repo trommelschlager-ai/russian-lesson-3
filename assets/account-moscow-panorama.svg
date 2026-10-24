@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 530" width="1600" height="530" role="img" aria-label="Иллюстрация панорамы Кремля и собора Василия Блаженного в Москве на закате">
+<defs>
+<linearGradient id="sky" x1="0" x2=".1" y1="0" y2="1"><stop stop-color="#1268c2"/><stop offset=".28" stop-color="#5c8fe0"/><stop offset=".57" stop-color="#e9a4b2"/><stop offset=".79" stop-color="#f3c37f"/><stop offset="1" stop-color="#fee3a4"/></linearGradient>
+<linearGradient id="brick" x1="0" x2="1"><stop stop-color="#7b315a"/><stop offset=".47" stop-color="#d06e68"/><stop offset="1" stop-color="#842f57"/></linearGradient>
+<linearGradient id="wall" y1="0" y2="1"><stop stop-color="#9d4e58"/><stop offset="1" stop-color="#54284b"/></linearGradient>
+<linearGradient id="river" x1="0" x2=".5" y1="0" y2="1"><stop stop-color="#4267c5"/><stop offset=".55" stop-color="#5487d0"/><stop offset="1" stop-color="#263d91"/></linearGradient>
+<linearGradient id="blueDome" x1="0" x2=".9" y1="0" y2="1"><stop stop-color="#7adfff"/><stop offset=".5" stop-color="#2668c7"/><stop offset="1" stop-color="#1b396d"/></linearGradient>
+<linearGradient id="greenDome" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#9ee49a"/><stop offset=".5" stop-color="#51ab74"/><stop offset="1" stop-color="#27676f"/></linearGradient>
+<linearGradient id="redDome" x1="0" x2=".9" y1="0" y2="1"><stop stop-color="#ffe295"/><stop offset=".5" stop-color="#e37f69"/><stop offset="1" stop-color="#9c3d79"/></linearGradient>
+<linearGradient id="gold" y1="0" y2="1"><stop stop-color="#fffcc7"/><stop offset=".5" stop-color="#ffd26b"/><stop offset="1" stop-color="#b47448"/></linearGradient>
+<linearGradient id="trees" y1="0" y2="1"><stop stop-color="#3c8e68"/><stop offset="1" stop-color="#1a4f5b"/></linearGradient>
+<filter id="cloud"><feGaussianBlur stdDeviation="17"/></filter>
+<filter id="glow"><feGaussianBlur stdDeviation="31"/></filter>
+<pattern id="tile" width="22" height="19" patternUnits="userSpaceOnUse"><path d="M0 0h22M0 19h22M11 0v9M0 9h22M0 9v10" stroke="#ffe1b0" stroke-opacity=".14" fill="none" stroke-width="2"/></pattern>
+</defs>
+<rect width="1600" height="530" fill="url(#sky)"/>
+<ellipse cx="1010" cy="292" rx="430" ry="140" fill="#ffe6af" opacity=".59" filter="url(#glow)"/>
+<circle cx="987" cy="276" r="66" fill="#ffefd1" opacity=".64"/>
+<path d="M-30 82Q95 17 235 78Q321 31 390 79Q484 93 544 60Q610 37 690 75" fill="none" stroke="#f0e8ff" stroke-opacity=".29" stroke-width="48" stroke-linecap="round" filter="url(#cloud)"/>
+<path d="M880 75Q979 29 1091 76T1349 62Q1434 29 1602 85" fill="none" stroke="#fff6ee" stroke-opacity=".33" stroke-width="49" stroke-linecap="round" filter="url(#cloud)"/>
+<g opacity=".68" fill="#75568e"><path d="M0 347v-29l42-17 55 21 25-52 37 60 44-18 37 18 52-40 35 42 74-26 31 14 50-40 39 38 62-21 37 19 60-20 70 31 64-44 55 49 69-29 34 18 58-35 60 33 39-9 52-27 78 54 66-32 84 16v63z"/></g>
+<g fill="#63537c" opacity=".62"><path d="M0 362v-28h35v-24h18v18h35v-54h20v-28h10v29h27v38h25v-22h22v46h30v-70h17v18h41v51h33v-29h27v36h24v-63h29v-19h12v82h35v-34h21v26h20v-59h39v-23h20v24h32v50h30v-20h28v-38h30v43h30v-32h28v31h30v-52h20v48h30v-35h30v36h28v-30h28v22h20v-43h22v35h45v25h30v-44h20v36h37v-35h22v35h25v-54h32v58h28v-40h28v42h37v-27h31v40h31v-40h32v45h30z"/></g>
+<!-- Kremlin wall, separate from Saint Basil domes -->
+<path d="M1135 363h465v94h-465z" fill="url(#wall)"/>
+<path d="M1135 363h465v94h-465z" fill="url(#tile)"/>
+<path d="M1118 363h482v13h-482z" fill="#e9a17e"/>
+<path d="M1120 362v-22h13v11h9v-13h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14h11v-14h13v14z" fill="#a54d5b"/>
+<!-- Kremlin Spasskaya tower -->
+<path d="M1358 351h98v-174h-98z" fill="url(#brick)" stroke="#f4b18e" stroke-width="3"/>
+<path d="M1350 186h114l-16-28h-82z" fill="#eff0e4"/>
+<path d="M1363 161h90l-13-25h-65z" fill="#527c99"/>
+<path d="M1378 138h59l-11-26h-36z" fill="#ffe49a"/>
+<path d="M1399 114l10-43 10 43z" fill="#aa3d59"/>
+<path d="M1407 82v-25" stroke="#e8bb62" stroke-width="4"/>
+<path d="M1395 59l12-6 12 6-12 8z" fill="#ffe47d"/>
+<path d="M1385 221h45v45h-45z" rx="3" fill="#fff3c0"/>
+<circle cx="1407" cy="244" r="20" fill="#e4ceaf" stroke="#ffd66c" stroke-width="3"/>
+<path d="M1407 232v12l10 7" fill="none" stroke="#6b4563" stroke-width="3" stroke-linecap="round"/>
+<path d="M1380 298h10v22h-10zm21 0h10v22h-10zm22 0h10v22h-10z" fill="#e6ae97"/>
+<path d="M1390 351v-41h27v41" fill="#443c66"/>
+<!-- Saint Basil Cathedral -->
+<g transform="translate(750 0)">
+<path d="M-80 401v-84h248v84z" fill="#c86a72"/>
+<path d="M-75 340h235v-17H-75z" fill="#ffe1a2"/>
+<path d="M-72 345h225v56H-72z" fill="url(#tile)" opacity=".9"/>
+<path d="M-30 401v-89H37v89z" fill="#db886d"/>
+<path d="M48 401V315h78v86z" fill="#bf5470"/>
+<path d="M-90 365h42v-106h-42z" fill="#bd5269"/>
+<path d="M124 368h46v-110h-46z" fill="#bd5771"/>
+<path d="M-70 267v-21h44v21M124 259v-18h45v18" fill="#ffe5b6"/>
+<path d="M-91 249q21-81 45-1v14h-45z" fill="url(#greenDome)" stroke="#e3e6ad" stroke-width="2"/>
+<path d="M126 246q20-78 43 0v15h-43z" fill="url(#redDome)" stroke="#ffcc84" stroke-width="2"/>
+<path d="M-49 324v-128h58v128z" fill="#d97b75"/>
+<path d="M64 326V192h64v134z" fill="#df7f70"/>
+<path d="M-53 203q31-112 65 0v10h-65z" fill="url(#blueDome)" stroke="#fbd57a" stroke-width="2"/>
+<path d="M62 195q34-110 70 0v10H62z" fill="url(#greenDome)" stroke="#ffdb98" stroke-width="2"/>
+<path d="M22 348V177h57v171z" fill="#af4269"/>
+<path d="M22 186h57v-13H22z" fill="#ffe1ad"/>
+<path d="M15 172q35-120 69 0v9H15z" fill="url(#redDome)" stroke="#f4ca6d" stroke-width="3"/>
+<path d="M49 95v-28" stroke="#ffdfa4" stroke-width="4"/><circle cx="49" cy="62" r="5" fill="#ffe288"/>
+<path d="M-49 203h59M62 195h72M15 172h68" fill="none" stroke="#fff1b0" stroke-width="3"/>
+<g stroke="#ffe2b0" stroke-width="3" opacity=".8"><path d="M-33 231v33M-8 231v33M77 230v33M113 230v33M34 218v33M65 218v33"/></g>
+<path d="M-25 401v-31q23-43 46 0v31" fill="#563958"/>
+<g fill="#ffda9c"><rect x="-72" y="347" width="14" height="23" rx="5"/><rect x="94" y="351" width="15" height="24" rx="5"/><rect x="50" y="282" width="12" height="23" rx="4"/><rect x="-27" y="270" width="10" height="22" rx="4"/></g>
+</g>
+<!-- river bridge and lush park -->
+<path d="M0 404q160-64 360 2t520 15q292-50 720-23v142H0z" fill="url(#river)"/>
+<path d="M0 415Q365 371 650 414q290 40 470-5q235-38 480-5" fill="none" stroke="#ffdcad" stroke-width="6" stroke-opacity=".64"/>
+<path d="M0 459Q391 412 694 464q361 49 906-33" fill="none" stroke="#b2d7e8" stroke-width="5" stroke-opacity=".32"/>
+<path d="M210 412q300-100 610 0" fill="none" stroke="#f2bc8f" stroke-width="14"/>
+<path d="M220 418q300-98 590 0" fill="none" stroke="#c05e73" stroke-width="8"/>
+<path d="M260 410v51m135-69v58m142-63v56m143-46v56m105-33v51" stroke="#c87380" stroke-width="10"/>
+<path d="M0 417q100-96 234-42t240 42" fill="url(#trees)"/>
+<path d="M0 500q78-110 155-86t179 80" fill="#205d66" opacity=".9"/>
+<g fill="#28746b"><circle cx="19" cy="392" r="55"/><circle cx="97" cy="392" r="54"/><circle cx="168" cy="401" r="55"/><circle cx="1529" cy="381" r="51"/><circle cx="1582" cy="370" r="66"/></g>
+<g fill="#4a9b69" opacity=".85"><circle cx="47" cy="388" r="26"/><circle cx="121" cy="389" r="29"/><circle cx="1542" cy="371" r="24"/></g>
+<path d="M0 504Q500 468 1000 516t600-18v32H0z" fill="#173c64" opacity=".44"/>
+</svg>
