@@ -75,7 +75,7 @@
       </div>
     </aside>
   </main>
-  <footer class="footer">Демонстрация урока · 此页面为交互式演示，并非实时AI聊天。原有7节课未 изменены.</footer>
+  <footer class="footer">Демонстрация урока · 此页面为交互式演示，并非实时AI聊天。原有7节课未作修改。</footer>
 </div>
 <script>
 (function () {
@@ -100,7 +100,7 @@ var mode="both",current=0,completed=new Set(),checked=false,lastAnswer="";
 var ids=function(id){return document.getElementById(id)};
 var stepsEl=ids("steps"),chat=ids("chat"),answer=ids("answer"),feedback=ids("feedback"),status=ids("status");
 function normalize(s){return String(s||"").toLowerCase().replace(/ё/g,"е").replace(/[.,!?;:"«»()]/g," ").replace(/\s+/g," ").trim()}
-function who(i){if(mode==="both")return stages[i].speaker;return mode}
+function who(i){if(mode==="both")return i%2===0?"svetlana":"dmitry";return mode}
 function node(tag,klass,text){var el=document.createElement(tag);if(klass)el.className=klass;if(text!==undefined)el.textContent=text;return el}
 function renderSteps(){stepsEl.replaceChildren();stages.forEach(function(s,i){var b=node("button","step"+(i===current?" active":"")+(completed.has(i)?" done":""));b.type="button";b.setAttribute("aria-current",i===current?"step":"false");b.append(node("span","num",completed.has(i)?"✓":String(i+1)));var label=node("span","step-text",s.name);label.append(node("small","",s.zh));b.append(label);b.addEventListener("click",function(){go(i)});stepsEl.append(b)})}
 function renderBubble(speaker,ru,cn,latin,studentBubble){var line=node("div","chat-line"+(studentBubble?" student":""));if(!studentBubble){var img=node("img","avatar");img.src=teachers[speaker].img;img.alt=teachers[speaker].name;line.append(img)}
