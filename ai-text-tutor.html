@@ -54,13 +54,13 @@ button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;curso
   <main class="content">
     <div>
       <div class="paper teacher-choices" aria-label="选择老师">
-        <button class="teacher active" data-teacher="svetlana" type="button" aria-pressed="true"><img alt="" src="assets/illustrated/svetlana-4.jpg"><span><strong>Светлана</strong><small>纠错 / Исправляет</small></span></button>
-        <button class="teacher" data-teacher="dmitry" type="button" aria-pressed="false"><img alt="" src="assets/illustrated/dmitry-4.jpg"><span><strong>Дмитрий</strong><small>对话 / Разговор</small></span></button>
+        <button class="teacher active" data-teacher="svetlana" type="button" aria-pressed="true"><img alt="" src="assets/account-margarita.webp"><span><strong>Маргарита</strong><small>纠错 / Исправляет</small></span></button>
+        <button class="teacher" data-teacher="dmitry" type="button" aria-pressed="false"><img alt="" src="assets/account-anton.webp"><span><strong>Антон</strong><small>对话 / Разговор</small></span></button>
       </div>
       <section class="paper tutor" aria-label="Диалог с AI">
         <div class="chat-top"><b>💬 认识 · Знакомство</b><span class="status-chip" id="connection">AI 未连接 · Не подключён</span></div>
         <div class="chat" id="chat" aria-live="polite">
-          <div class="bubble-row"><img class="face" src="assets/illustrated/svetlana-4.jpg" alt=""><div class="bubble"><div class="bubble-label">Светлана · Пример</div>Привет! Как тебя зовут?
+          <div class="bubble-row"><img class="face" src="assets/account-margarita.webp" alt=""><div class="bubble"><div class="bubble-label">Маргарита · Пример</div>Привет! Как тебя зовут?
 你好！你叫什么名字？</div></div>
           <div class="example">ℹ️ 这是示例开场白。真实 AI 对话需要先连接下面的服务器。<br>Это пример начала разговора. Настоящие ответы AI появятся после подключения сервера.</div>
         </div>
@@ -83,7 +83,7 @@ button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;curso
         <div class="word"><strong>Я из Китая.</strong><span>我来自中国。 · Ya iz Kitaya.</span></div>
         <div class="word"><strong>Очень приятно!</strong><span>很高兴认识你！</span></div>
       </section>
-      <section class="paper side"><h2>🎯 Как работает преподаватель</h2><p>👩 Светлана: проверяет грамматику и объясняет по-китайски.</p><p>👨 Дмитрий: задаёт вопросы на русском и поддерживает разговор.</p><p>⚠️ AI может ошибаться. Голос и оценка произношения пока не подключены.</p></section>
+      <section class="paper side"><h2>🎯 Как работает преподаватель</h2><p>👩 Маргарита: проверяет грамматику и объясняет по-китайски.</p><p>👨 Антон: задаёт вопросы на русском и поддерживает разговор.</p><p>⚠️ AI может ошибаться. Голос и оценка произношения пока не подключены.</p></section>
       <details class="configure" id="config-panel">
         <summary>⚙️ Настройка AI · 连接AI服务器</summary>
         <p>Только для владельца курса: после бесплатного развёртывания Cloudflare Worker введи его HTTPS-адрес. Пароли и API-ключи сюда вводить нельзя.</p>
@@ -105,8 +105,8 @@ button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;curso
 const SITE_KEY="russian-tutor-worker-url-v1";
 const $=id=>document.getElementById(id);
 const teachers={
-  svetlana:{name:"Светлана",img:"assets/illustrated/svetlana-4.jpg"},
-  dmitry:{name:"Дмитрий",img:"assets/illustrated/dmitry-4.jpg"}
+  svetlana:{name:"Маргарита",img:"assets/account-margarita.webp"},
+  dmitry:{name:"Антон",img:"assets/account-anton.webp"}
 };
 let teacher="svetlana",base="",connected=false,busy=false;
 const history=[];
@@ -145,6 +145,7 @@ if(history.length>8)history.splice(0,history.length-8);notice("✓ Ответ п
 }catch(error){let msg=error.name==="AbortError"?"Истекло время ожидания AI · 请求超时":error.message;notice("⚠️ "+msg+" — 可以再试一次 / Попробуй ещё раз.");}
 finally{clearTimeout(timeout);busy=false;$("send").disabled=false;$("message").disabled=false;$("message").focus()}
 });
+const selectedByLink=new URLSearchParams(location.search).get("teacher");if(selectedByLink==="margarita")choose("svetlana");if(selectedByLink==="anton")choose("dmitry");
 const stored=safeRead();if(stored&&verifyUrl(stored)){$("endpoint").value=stored;verify()}else{$("config-panel").open=true;setConnection(false)}
 })();
 </script>
