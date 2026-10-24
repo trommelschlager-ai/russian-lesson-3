@@ -12,6 +12,149 @@
 @media(max-width:950px){.layout{grid-template-columns:175px minmax(0,1fr);gap:14px}.side-card{padding:14px 8px}.brand{padding:0 6px 12px}.lesson-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.hero{min-height:207px;background-position:60% center}.hero-content{padding:14px 17px}.hero h1{font-size:30px}.hero p{font-size:12px;max-width:300px}.eyebrow{margin-top:12px}.layout{display:block;padding:14px 11px 28px}.sidebar{position:static;margin-bottom:14px}.side-card{padding:10px}.brand{display:none}.nav{display:flex;gap:5px;overflow-x:auto;margin:0;scrollbar-width:none}.nav a{flex:none;min-height:37px;padding:7px 11px;font-size:12px}.aside-note{display:none}.welcome{margin-bottom:12px}.welcome h2{font-size:20px}.welcome p{font-size:12px}.profile-circle{width:48px;height:48px;font-size:24px}.intro-grid{gap:7px}.stat{padding:12px 9px;border-radius:13px}.stat .num{font-size:23px}.stat .label,.stat .foot{font-size:10px}.stat .sym{display:none}.progress-panel{padding:15px}.continue-card{padding:16px 14px;align-items:start;flex-direction:column}.primary-btn{width:100%}.section-header{margin:17px 0 9px}.lesson-grid{gap:8px}.lesson{padding:12px}.ai-panel{grid-template-columns:1fr}.ai-action{text-align:center}.privacy{font-size:11px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+
+/* Colorful premium student dashboard — visual layer only, existing progress logic preserved */
+:root{--cream:#f8f9ff;--ink:#203454;--border:#e4e5f2;--shadow:0 12px 34px rgba(40,59,120,.1)}
+body{background:
+ radial-gradient(circle at 8% 12%,#dcd4ff 0,transparent 34%),
+ radial-gradient(circle at 92% 36%,#ffe1e8 0,transparent 32%),
+ linear-gradient(145deg,#edf6ff,#faf7ff 52%,#fff6ef)}
+.wrap{background:linear-gradient(165deg,#fcfbff 0%,#f7faff 52%,#fff9f3 100%)}
+.hero{min-height:306px;border-bottom:5px solid transparent;border-image:linear-gradient(90deg,#ff7caa,#ffc872,#74d2cf,#668bff,#b793ff) 1;
+ background-image:
+ linear-gradient(105deg,rgba(247,246,255,.97) 0%,rgba(255,247,244,.91) 34%,rgba(249,227,238,.34) 67%,rgba(154,184,241,.05) 100%),
+ url("assets/illustrated/lesson-4-hero.jpg");
+ background-position:center,center 44%;
+ box-shadow:inset 0 -32px 48px #e8edff58}
+.hero:before{content:"";position:absolute;right:-48px;top:-105px;width:340px;height:340px;border-radius:50%;border:36px solid rgba(255,255,255,.21);box-shadow:0 0 0 38px rgba(126,166,250,.1),inset 0 0 0 24px rgba(255,222,146,.1);pointer-events:none}
+.hero:after{background:linear-gradient(transparent,rgba(248,249,255,.85))}
+.hero-content{padding-top:31px;padding-bottom:35px}
+.back{background:linear-gradient(135deg,#fff,#fff1e9e8);border:1px solid #fff;box-shadow:0 5px 15px #7246721e;color:#565984}
+.back:hover{background:#fff}
+.eyebrow{letter-spacing:2.8px;color:#936ca3}
+.hero h1{color:#243d75;text-shadow:0 3px 14px #fff;font-weight:800;line-height:1.16;margin:14px 0 8px}
+.hero h1 span{color:#bc5683!important}
+.hero p{color:#515d89;font-weight:600;max-width:540px}
+.demo-label{background:linear-gradient(105deg,#ffffffed,#fbecff);border-color:#efd8fa;color:#8a58a1;padding:7px 13px;box-shadow:0 5px 15px #675aac19}
+.layout{padding-top:31px;gap:24px}
+.sidebar{top:17px}
+.side-card{background:linear-gradient(160deg,#243c83 0%,#443b9c 61%,#704da5 100%);border:1px solid #6e6ec2;box-shadow:0 15px 34px #373b8750;padding:23px 15px}
+.brand{border-bottom:1px solid #ffffff38}
+.brand strong{color:white;font-size:19px}
+.brand small{color:#d0d7ff}
+.seal{background:linear-gradient(145deg,#ffdf9c,#ff97b5);box-shadow:0 6px 18px #f3b8b655;border:1px solid #fff8}
+.nav a{color:#e9eaff;transition:background .2s,transform .2s;border:1px solid transparent}
+.nav a:hover{background:#ffffff1b;color:white;transform:translateX(2px)}
+.nav a.active{background:linear-gradient(95deg,#e8efff,#f6e8ff);color:#34467f;box-shadow:0 6px 19px #111e5c27;border:1px solid #fff}
+.aside-note{background:linear-gradient(155deg,#fff0e1,#f8eaff);border:1px solid #e9d1e2;color:#796183;box-shadow:0 7px 19px #663d7f12}
+.main{min-width:0}
+.welcome{margin-bottom:21px;padding:19px 23px;border-radius:24px;
+ background:linear-gradient(115deg,rgba(255,255,255,.97),rgba(246,235,255,.9) 55%,rgba(221,241,255,.93));
+ box-shadow:0 10px 26px #4253a619;border:1px solid #ffffff}
+.welcome h2{font-size:27px;color:#354a85}
+.welcome p{color:#6e73a1}
+.profile-circle{background:linear-gradient(135deg,#ffadcd,#ffd694 45%,#9cdaff);box-shadow:0 7px 22px #be6eab42;width:71px;height:71px;border:4px solid white}
+.stat{min-height:139px;border:1px solid #ffffffaf;box-shadow:0 12px 25px #3e459c16;padding:19px 18px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.stat:after{content:"";position:absolute;width:122px;height:122px;right:-44px;top:-49px;background:#fff6;border-radius:50%;box-shadow:0 0 0 25px #ffffff15}
+.stat:hover{transform:translateY(-3px);box-shadow:0 16px 27px #3e459c25}
+.stat:nth-child(1){background:linear-gradient(135deg,#ffe2e9 0%,#ffd1c9 100%);color:#8e3860}
+.stat:nth-child(2){background:linear-gradient(135deg,#dbe6ff 0%,#c6d6ff 100%);color:#324fa8}
+.stat:nth-child(3){background:linear-gradient(135deg,#d6f8ed 0%,#c4f4fa 100%);color:#197b80}
+.stat .label{font-size:13px;color:inherit;opacity:.88}
+.stat .num{font-size:37px;color:inherit;position:relative;z-index:1;letter-spacing:-.7px}
+.stat .foot{color:inherit;opacity:.67}
+.stat .sym{font-size:28px;position:relative;z-index:1;filter:drop-shadow(0 4px 4px #ffffffa0)}
+.panel{background:#fff;border:1px solid #ebe7f4;box-shadow:0 10px 30px #3c4f8510}
+.progress-panel{margin-top:17px;padding:22px 24px;border-radius:24px;position:relative;overflow:hidden}
+.progress-panel:before{content:"";position:absolute;top:-70px;right:-50px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,#e1d8ff94,transparent 67%);pointer-events:none}
+.progress-layout{display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;z-index:1}
+.progress-info{flex:1;min-width:0}
+.progress-top b{color:#314c8f}
+.progress-top span{font-weight:800;color:#6169a3}
+.meter{height:14px;background:#eeeefa;box-shadow:inset 0 2px 5px #6979a315}
+.meter-fill{background:linear-gradient(90deg,#41b8e8,#6d7ef5 35%,#a572ee 65%,#f5a7ce)}
+.progress-sub{line-height:1.65;margin-top:7px;color:#75809b}
+.progress-orb{width:122px;height:122px;border-radius:50%;flex:none;position:relative;display:grid;place-items:center;
+ background:conic-gradient(#6b7cf2 0deg,#cf83e5 var(--progress-angle,0deg),#eaecf7 var(--progress-angle,0deg) 360deg);
+ box-shadow:0 9px 24px #5960b12d;transform:rotate(-90deg)}
+.progress-orb:before{content:"";position:absolute;inset:13px;border-radius:50%;background:#fff;box-shadow:inset 0 2px 10px #b7bbed29}
+.progress-orb-label{position:relative;transform:rotate(90deg);display:grid;text-align:center;line-height:1.2;color:#364e8d}
+.progress-orb-label strong{font-family:Georgia,serif;font-size:27px}
+.progress-orb-label small{font-size:10px;color:#8c8ca8}
+.continue-card{margin-top:17px;border-radius:24px;min-height:140px;padding:24px 26px;background:
+ radial-gradient(circle at 80% 0%,#b966d78a,transparent 38%),
+ radial-gradient(circle at 15% 100%,#3297dd75,transparent 42%),
+ linear-gradient(110deg,#213e8b,#5148a7 62%,#a35cab);
+ box-shadow:0 17px 34px #4f4d9950;border:1px solid #a9a6ff60;position:relative;overflow:hidden}
+.continue-card:after{content:"✦";font-size:110px;line-height:1;position:absolute;right:22%;top:-7px;color:#ffffff13;pointer-events:none;transform:rotate(-20deg)}
+.continue-card h3{font-size:21px;color:white;position:relative;z-index:1}
+.continue-card .eyeline{color:#e1d9ff;position:relative;z-index:1;font-weight:700;letter-spacing:1px}
+.continue-card p{color:#d9e9ff;position:relative;z-index:1}
+.primary-btn{background:linear-gradient(115deg,#ffe4a4,#ffd1a9);border:1px solid #fff5d4;box-shadow:0 8px 20px #25296c45;position:relative;z-index:1;padding:12px 21px;color:#503d66}
+.primary-btn:hover{background:linear-gradient(115deg,#fff0bb,#ffdfc0);transform:translateY(-2px)}
+.section-header h3{color:#3b458d;font-size:21px}
+.section-header h3:before{content:"";display:inline-block;width:7px;height:23px;border-radius:9px;background:linear-gradient(#fa93b1,#8478f7);vertical-align:-5px;margin-right:9px}
+.section-header .tiny{background:#f3f0ff;color:#6859a8;border:1px solid #e0d8ff;border-radius:99px;padding:5px 11px}
+.lesson-grid{gap:15px}
+.lesson{min-height:114px;border-radius:20px;align-items:center;padding:15px 16px;position:relative;overflow:hidden;
+ background:linear-gradient(125deg,var(--lesson-light,#eef1ff),#fff 88%);
+ border:1px solid var(--lesson-border,#dedff8);
+ box-shadow:0 7px 19px #41428e11;transition:transform .2s,box-shadow .2s,border-color .2s}
+.lesson:hover{transform:translateY(-4px);box-shadow:0 15px 26px #41428e28;border-color:var(--lesson-accent,#747be3)}
+.lesson:before{content:"";position:absolute;right:-39px;bottom:-60px;width:138px;height:138px;border-radius:50%;border:25px solid var(--lesson-wash,#c7c4ff55);pointer-events:none}
+.lesson:nth-child(1){--lesson-light:#f3e5ff;--lesson-accent:#8655c6;--lesson-border:#e9d4fc;--lesson-wash:#dcc4ff88}
+.lesson:nth-child(2){--lesson-light:#fff0df;--lesson-accent:#d68b3c;--lesson-border:#ffe0b7;--lesson-wash:#ffdf9a88}
+.lesson:nth-child(3){--lesson-light:#e0f7f2;--lesson-accent:#279b82;--lesson-border:#c5ebe1;--lesson-wash:#a5e9d988}
+.lesson:nth-child(4){--lesson-light:#ffe5ef;--lesson-accent:#cb5c8d;--lesson-border:#f9ccde;--lesson-wash:#ffb9d288}
+.lesson:nth-child(5){--lesson-light:#e4efff;--lesson-accent:#4587d1;--lesson-border:#c9ddff;--lesson-wash:#bed7fa88}
+.lesson:nth-child(6){--lesson-light:#fff7d9;--lesson-accent:#ac902c;--lesson-border:#f4e7ba;--lesson-wash:#fff0b088}
+.lesson:nth-child(7){--lesson-light:#e8e5ff;--lesson-accent:#7964ce;--lesson-border:#dad4fa;--lesson-wash:#d0c5ff88}
+.lesson-number{border-radius:14px;width:49px;height:51px;background:var(--lesson-accent);color:white;box-shadow:0 6px 16px #212d701e;border:2px solid #fffc;font-size:22px;position:relative;z-index:1}
+.lesson.finished .lesson-number{background:linear-gradient(140deg,#47a88f,#2b8b7c);color:white}
+.lesson-copy{position:relative;z-index:1}
+.lesson-copy strong{font-size:15px;color:#29436b}
+.lesson-copy small{font-size:12px;color:#687a99;margin-top:2px}
+.lesson-copy .state{display:inline-block;font-size:11px;font-weight:800;color:var(--lesson-accent);margin-top:8px;border-radius:20px;background:#ffffffa8;padding:3px 8px}
+.lesson.finished .state{color:#288c65;background:#e8faefc9}
+.lesson .go{font-size:22px;color:var(--lesson-accent);position:relative;z-index:1}
+.lesson-icon{font-size:20px;position:absolute;top:11px;right:38px;opacity:.72;filter:drop-shadow(0 2px 4px #fff);z-index:1}
+.ai-panel{background:
+ radial-gradient(circle at 94% 10%,#bc9cff5b,transparent 37%),
+ radial-gradient(circle at 30% 100%,#ffd9d978,transparent 44%),
+ linear-gradient(115deg,#fff1ee,#f6efff 57%,#eef7ff);
+ border:1px solid #e4d3fb;box-shadow:0 12px 28px #7056b61b;border-radius:24px;padding:24px}
+.ai-panel h3{font-size:22px;color:#63498b}
+.ai-panel p{color:#626b98}
+.teacher-avatars img{width:55px;height:55px;border:3px solid white;box-shadow:0 6px 16px #765ca53f}
+.ai-action{background:linear-gradient(115deg,#ef6990,#b45bd9);padding:14px 20px;border:1px solid #fff7;box-shadow:0 8px 19px #be60a747;transition:transform .2s,filter .2s}
+.ai-action:hover{transform:translateY(-2px)}
+.activity{border-radius:23px}
+.activity div{border-bottom-color:#eeeaf6}
+.activity strong{color:#4b5191}
+.soft-btn{background:linear-gradient(115deg,#fce6f3,#ebe8ff);color:#75549b;border-color:#e3d6f0}
+.editor{background:#f8f4ff;border-color:#ded1f0}
+.editor button{background:linear-gradient(110deg,#527bcf,#8966d9)}
+.privacy{background:linear-gradient(120deg,#fff5e7,#fff2f8);border:1px solid #f1d9ce;color:#786074}
+.footer{color:#9492ae}
+@media(max-width:950px){.layout{gap:15px}.lesson{min-height:105px}.stat{min-height:128px;padding:15px 12px}.stat .num{font-size:32px}.side-card{padding:17px 10px}}
+@media(max-width:700px){
+ .hero{min-height:233px;background-position:center,62% center}.hero-content{padding:16px 17px}.hero:before{width:210px;height:210px;right:-95px;top:-80px;border-width:23px}.hero h1{font-size:32px}.hero p{max-width:320px}.eyebrow{margin-top:13px;letter-spacing:1.4px;font-size:10px}
+ .layout{padding:12px 11px 25px}
+ .side-card{padding:10px;border-radius:16px;background:linear-gradient(105deg,#2a4d93,#784eac)}
+ .nav a{color:#f8f7ff;border-radius:11px}
+ .nav a.active{color:#34467f}
+ .welcome{padding:14px 14px;border-radius:18px;margin-bottom:13px}
+ .welcome h2{font-size:20px}.profile-circle{width:53px;height:53px}
+ .intro-grid{gap:8px}.stat{min-height:107px;padding:12px 10px;border-radius:14px}.stat .num{font-size:26px}.stat .label{font-size:11px}.stat .foot{font-size:9px}
+ .progress-panel{padding:15px 14px;border-radius:17px}.progress-layout{gap:13px}.progress-orb{width:84px;height:84px}.progress-orb:before{inset:10px}.progress-orb-label strong{font-size:21px}.progress-orb-label small{font-size:8px}
+ .progress-top{flex-direction:column;align-items:start;gap:3px}.progress-top b{font-size:13px}.progress-top span{font-size:11px}.progress-sub{font-size:10px}
+ .continue-card{padding:18px;min-height:0;border-radius:18px}.continue-card:after{right:12%;top:5px}
+ .primary-btn{padding:12px}.section-header h3{font-size:18px}.section-header h3:before{height:19px;vertical-align:-4px;width:5px}
+ .lesson-grid{grid-template-columns:1fr;gap:10px}.lesson{min-height:92px;border-radius:17px;padding:12px 14px}.lesson-number{width:43px;height:46px;font-size:19px}.lesson-icon{top:6px;right:38px;font-size:18px}
+ .ai-panel{padding:17px;border-radius:19px}.ai-panel h3{font-size:20px}.teacher-avatars img{width:48px;height:48px}
+}
+@media(max-width:370px){.stat{padding:10px 7px}.stat .num{font-size:22px}.stat .foot{font-size:8px}.progress-orb{width:72px;height:72px}.progress-orb-label strong{font-size:17px}}
+
 </style>
 </head>
 <body>
@@ -50,9 +193,14 @@
           <div class="stat"><span class="sym" aria-hidden="true">🔤</span><div class="label">第2课已练习单词</div><div class="num" id="word-number">0</div><div class="foot">Из 100 слов · при наличии данных</div></div>
         </div>
         <div class="panel progress-panel">
-          <div class="progress-top"><b>总体学习进度 · Общий прогресс</b><span id="progress-caption">0 из 7</span></div>
-          <div class="meter" role="progressbar" aria-label="Общий прогресс семи уроков" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-meter"><div class="meter-fill" id="progress-fill"></div></div>
-          <div class="progress-sub">课程完成根据已保存的小测验成绩（至少80%）及第2课的100词练习记录判定。</div>
+          <div class="progress-layout">
+            <div class="progress-info">
+              <div class="progress-top"><b>总体学习进度 · Общий прогресс</b><span id="progress-caption">0 из 7</span></div>
+              <div class="meter" role="progressbar" aria-label="Общий прогресс семи уроков" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-meter"><div class="meter-fill" id="progress-fill"></div></div>
+              <div class="progress-sub">课程完成根据已保存的小测验成绩（至少80%）及第2课的100词练习记录判定。</div>
+            </div>
+            <div class="progress-orb" id="progress-orb" aria-hidden="true"><div class="progress-orb-label"><strong id="progress-orb-number">0%</strong><small>已完成</small></div></div>
+          </div>
         </div>
         <div class="continue-card">
           <div><div class="eyeline">▶ 继续学习 · ПРОДОЛЖИТЬ ОБУЧЕНИЕ</div><h3 id="next-title">第1课 · 俄语字母表</h3><p id="next-subtitle">Урок 1 · Русский алфавит</p></div>
@@ -134,6 +282,8 @@ function render(){
   byId("word-number").textContent=String(Math.min(p.wordCount,100));
   byId("progress-caption").textContent=count+" из 7 · "+pct+"%";
   byId("progress-fill").style.width=pct+"%";
+  byId("progress-orb").style.setProperty("--progress-angle",(pct*3.6)+"deg");
+  byId("progress-orb-number").textContent=pct+"%";
   byId("progress-meter").setAttribute("aria-valuenow",String(pct));
   byId("lesson-summary").textContent=count+" / 7 已完成";
   var next=recommended(p.done);
@@ -155,8 +305,9 @@ function render(){
     var score=q&&Number(q.total)>0&&Number(q.score)>=0?Math.round(100*Number(q.score)/Number(q.total)):null;
     state.textContent=passed?"✓ 已完成 · Пройдено"+(score!==null?" · "+score+"%":""):score!==null?"测验: "+score+"% · Повторить":lastOpened?"继续学习 · В процессе":"开始学习 · Начать";
     info.append(title,sub,state);
+    var icon=document.createElement("span");icon.className="lesson-icon";icon.setAttribute("aria-hidden","true");icon.textContent=["🔤","📖","👥","👋","🔢","🏡","☀️"][i];
     var arrow=document.createElement("span");arrow.className="go";arrow.textContent="↗";arrow.setAttribute("aria-hidden","true");
-    a.append(n,info,arrow);grid.append(a);
+    a.append(n,info,icon,arrow);grid.append(a);
   });
   var latest=null;
   Object.entries(p.quiz).forEach(function(pair){var q=pair[1];if(q&&q.date&&Number.isFinite(Date.parse(q.date))&&(!latest||Date.parse(q.date)>Date.parse(latest.date)))latest={lesson:pair[0],date:q.date,score:q.total>0?Math.round(q.score/q.total*100):null}});
