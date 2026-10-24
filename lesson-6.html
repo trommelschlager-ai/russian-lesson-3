@@ -40,6 +40,11 @@
 .lesson-6 .enrich6 .enrich-next{border:0;background:#7c3cc5;color:white;border-radius:11px;min-height:44px;padding:9px 23px;font-weight:800;cursor:pointer}
 .lesson-6 .enrich6 .enrich-next:disabled{opacity:.5;cursor:default}
 @media(max-width:580px){.lesson-6 .enrich6{padding:13px;margin:18px 0}.lesson-6 .enrich6 .enrich-grid{gap:8px}.lesson-6 .enrich6 .enrich-tile{padding:10px}.lesson-6 .enrich6 .enrich-phrase{padding:9px}.lesson-6 .enrich6 .enrich-audio{min-width:42px;min-height:42px}.lesson-6 .enrich6 .enrich-options{gap:7px}}
+
+/* Larger illustrated character and phrase images on phone (audio and contents unchanged). */
+.lesson-6 .upgrade-block .extra-dialogue-line{grid-template-columns:135px minmax(0,1fr)}
+.lesson-6 .upgrade-block img.extra-character{width:130px!important;height:138px!important;object-fit:cover}
+@media(max-width:690px){.lesson-6 .upgrade-block .extra-dialogue-line{grid-template-columns:120px minmax(0,1fr)!important}.lesson-6 .upgrade-block img.extra-character{width:116px!important;height:122px!important}}
 </style></head>
 <body class="new-lesson illustrated-lesson lesson-6"><main class="illustrated-page">
 <header class="lesson-hero"><img alt="第6课：我的家人 · Моя семья · 介绍自己的家人。" height="368" src="assets/illustrated/lesson-6-hero.jpg" width="1024"/><h1 class="sr-only">我的家人 · Моя семья</h1></header>
@@ -127,4 +132,4 @@ render();
 document.querySelectorAll('[data-family-audio]').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.familyAudio;if(window.CourseAudio?.play)window.CourseAudio.play([{text:t,role:'male'}]);else{status.textContent='音频尚未加载，请刷新页面。'}}));
 })();
 </script>
-<script src="assets/lesson67-photo-upgrade.js?v=20261025"></script></body></html>
+<script src="assets/lesson67-photo-upgrade.js?v=20261025-fix2"></script></body></html>
