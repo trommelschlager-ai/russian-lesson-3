@@ -1,0 +1,140 @@
+/* account-final-three-fixes.css | 2026-10-24
+Only welcome header, calendar and lesson 4 icon. Keep original teacher faces and all lesson URLs. */
+.wrap .hero{
+ height:332px!important;min-height:332px!important;isolation:isolate;
+ background-image:radial-gradient(circle at 74% 10%,#ffd69e43,transparent 31%),linear-gradient(103deg,#092a74d9 0%,#1d4089a6 38%,#1c4b9b19 93%),url("account-moscow-panorama.svg")!important;
+ background-size:cover!important;background-position:center,center,center 49%!important;
+ background-repeat:no-repeat!important;border-bottom:0!important;
+ box-shadow:inset 0 -22px 35px #061f5860,0 9px 23px #2b47923f!important;
+}
+.wrap .hero::before{content:"";display:block;position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 65% 0,#ffe2b12b,transparent 55%)!important}
+.wrap .hero::after{content:"";display:block!important;position:absolute!important;bottom:0;left:0;right:0;height:5px!important;z-index:6;background:linear-gradient(90deg,#3ed0f5,#fff1af 30%,#f281c2 71%,#637dfe)!important;box-shadow:0 -2px 14px #fff4!important}
+.wrap .hero-content{
+ left:4%!important;top:20%!important;right:auto!important;max-width:46%!important;
+ border:1px solid #ffffff48;border-radius:21px;
+ background:linear-gradient(105deg,#12397985,#1d438b35)!important;
+ padding:16px 20px!important;backdrop-filter:blur(1px);
+ box-shadow:0 9px 24px #071f4d39;text-shadow:0 2px 8px #092a74b8;
+}
+.wrap .hero .eyebrow{color:#ffe4ae!important;letter-spacing:1.15px!important}
+.wrap .hero h1{font-size:clamp(29px,3vw,42px)!important;line-height:1.2!important;margin:9px 0 6px!important;color:#fff!important}
+.wrap .hero h2{font-size:clamp(16px,1.7vw,22px)!important;color:#fff!important;line-height:1.4!important}
+.wrap .hero p{font-size:12px!important;color:#f7f8ff!important;margin:8px 0!important}
+.wrap .v2-teachers{
+ left:auto!important;right:2.7%!important;bottom:17px!important;top:auto!important;
+ height:auto!important;display:flex!important;align-items:end!important;gap:12px!important;
+ position:absolute!important;z-index:5!important;pointer-events:auto!important
+}
+.wrap .v2-person{
+ height:245px!important;width:175px!important;flex:none!important;overflow:hidden!important;
+ border:1px solid #ffffffe0!important;border-radius:20px!important;
+ background:linear-gradient(155deg,#ffe8f1ab,#dfe6ffd4 58%,#557cc16b)!important;
+ box-shadow:0 10px 27px #11266281,inset 0 1px 1px #ffffffcf!important;
+ backdrop-filter:blur(3px);isolation:isolate
+}
+.wrap .v2-person.anton{background:linear-gradient(155deg,#f5f7ffbb,#c9e3f6d4 54%,#4c88c47d)!important}
+.wrap .v2-person img,.wrap .v2-person.anton img{
+ position:absolute!important;bottom:auto!important;top:7px!important;left:50%!important;
+ transform:translateX(-50%)!important;width:163px!important;height:189px!important;
+ max-width:96%!important;object-fit:contain!important;object-position:center bottom!important;
+ filter:drop-shadow(0 4px 10px #22366c55)!important;
+ -webkit-mask-image:linear-gradient(#000 0%,#000 80%,transparent 100%)!important;
+ mask-image:linear-gradient(#000 0%,#000 80%,transparent 100%)!important
+}
+.wrap .v2-person>span{
+ bottom:30px!important;left:9px!important;right:9px!important;z-index:7;
+ font-size:14px!important;padding:5px 3px!important;border-radius:20px!important;
+ border:1px solid #ffffffbc!important;box-shadow:0 5px 13px #1423536b!important
+}
+.wrap .v2-person small{bottom:10px!important;font-size:10px!important;z-index:7!important}
+.wrap .v2-person:after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 26px #ffffff3b;border-radius:inherit}
+/* Interactive month calendar with tasteful glow and truthful history. */
+.wrap .v2-extrapanel:nth-child(3){
+ position:relative;overflow:hidden;min-height:0!important;
+ background:radial-gradient(circle at 90% 7%,#ce9ff96e,transparent 42%),
+ radial-gradient(circle at 8% 90%,#8fdff560,transparent 38%),
+ linear-gradient(145deg,#edf6ff,#f2e8ff 56%,#ffedf9)!important;
+ border:1px solid #fff!important;box-shadow:0 13px 29px #7b65be45,inset 0 1px #fff!important;
+}
+.wrap .v2-extrapanel:nth-child(3)::before{
+ content:"";position:absolute;right:-55px;top:-50px;width:160px;height:160px;border-radius:50%;
+ border:29px solid #ffffff24;pointer-events:none
+}
+.wrap .v2-extrapanel:nth-child(3)>h3{position:relative;z-index:1;border-bottom:1px solid #cdbdebad;padding-bottom:12px;margin-bottom:11px!important}
+.wrap .v2-calhead{
+ position:relative;z-index:1;border:1px solid #fff;box-shadow:0 5px 15px #a69cca3c;
+ padding:7px 9px!important;border-radius:15px!important;
+ background:linear-gradient(115deg,#ffffffda,#e7e2fb9e)!important;
+ margin:6px 0 9px!important;
+}
+.wrap .v2-calhead strong{font-size:16px;color:#30488e!important}
+.wrap .v2-calhead button{
+ min-width:40px!important;height:38px!important;border-radius:12px!important;
+ background:linear-gradient(125deg,#677cf4,#a36cdf)!important;
+ color:#fff!important;border:1px solid #ffffffc7!important;
+ box-shadow:0 5px 11px #7163db66!important;font-size:24px!important
+}
+.wrap .v2-calendar{position:relative;z-index:1;gap:5px!important;padding:6px 3px!important}
+.wrap .v2-calendar span{
+ display:grid!important;place-items:center!important;aspect-ratio:1;min-height:29px!important;
+ background:linear-gradient(140deg,#ffffffe3,#ffffff69)!important;
+ border-radius:11px!important;color:#4b5e8f!important;font-size:12px!important;font-weight:600;
+ box-shadow:inset 0 1px #ffffffb6,0 2px 6px #696ab21b!important;
+}
+.wrap .v2-calendar span:empty{background:transparent!important;box-shadow:none!important}
+.wrap .v2-calendar span:nth-child(-n+7){background:linear-gradient(130deg,#dce3ff,#f0ddff)!important;color:#6b569e!important;font-weight:900}
+.wrap .v2-calendar span.learned{background:linear-gradient(135deg,#0fcca9,#048ce3)!important;border-radius:50%!important;color:#fff!important;box-shadow:0 4px 11px #18b6d170!important}
+.wrap .v2-calendar span.today{background:#fff8e8!important;border-radius:50%!important;color:#a45c1b!important;font-weight:900!important;box-shadow:inset 0 0 0 2px #f8b347,0 0 0 3px #ffe9b8,0 5px 13px #f4b0477b!important;outline:0!important}
+.wrap .v2-calendar span.today.learned{background:linear-gradient(140deg,#04bdab,#187df3)!important;color:#fff!important}
+.wrap .v3-callegend{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding-top:13px;margin-top:12px;border-top:1px solid #d5c5eda3;position:relative;z-index:1}
+.wrap .v3-callegend span{font-size:10px;font-weight:600;color:#606d98;background:#ffffffaa;padding:6px 8px;border-radius:17px;border:1px solid #fff}
+.wrap .v3-callegend .today-dot:before,.wrap .v3-callegend .study-dot:before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:baseline}
+.wrap .v3-callegend .today-dot:before{background:#f9b247;box-shadow:0 0 0 2px #ffe5b3}
+.wrap .v3-callegend .study-dot:before{background:#12bfa7;box-shadow:0 0 0 2px #d9faee}
+.wrap .v3-calcount{margin-left:auto;color:#6d4dc0!important;background:#e6e1ffb8!important}
+/* Lesson 4: friendly greeting icon only; never show Margarita portrait. */
+.wrap #lesson-grid .lesson:nth-child(4) .lesson-icon{
+ background:none!important;filter:drop-shadow(0 4px 8px #ffefcbaa)!important;
+ font-size:53px!important;line-height:1!important;display:grid!important;place-items:center!important
+}
+.wrap #lesson-grid .lesson:nth-child(4) .lesson-icon img{display:none!important}
+@media(max-width:1000px) and (min-width:671px){
+ .wrap .hero-content{max-width:46%!important}
+ .wrap .v2-teachers{gap:7px!important}
+ .wrap .v2-person{width:143px!important;height:211px!important}
+ .wrap .v2-person img,.wrap .v2-person.anton img{width:137px!important;height:163px!important}
+ .wrap .v2-person>span{font-size:12px!important;bottom:28px!important}
+ .wrap .v2-person small{font-size:9px!important}
+}
+@media(max-width:670px){
+ .wrap .hero{height:348px!important;min-height:348px!important;background-position:center,center,57% 50%!important}
+ .wrap .hero-content{
+  top:14px!important;left:13px!important;right:13px!important;max-width:none!important;
+  padding:10px 13px!important;border-radius:16px!important;
+  background:linear-gradient(95deg,#133c85d1,#143f8c80)!important
+ }
+ .wrap .hero .eyebrow{font-size:9px!important;letter-spacing:.6px!important}
+ .wrap .hero h1{font-size:23px!important;margin:4px 0 3px!important}
+ .wrap .hero h2{font-size:13px!important;max-width:none!important}
+ .wrap .hero p{display:none!important}
+ .wrap .v2-teachers{
+  left:11px!important;right:11px!important;bottom:14px!important;
+  height:auto!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:9px!important;align-items:stretch!important
+ }
+ .wrap .v2-person{width:100%!important;height:184px!important;border-radius:16px!important}
+ .wrap .v2-person img,.wrap .v2-person.anton img{
+  width:149px!important;max-width:92%!important;height:143px!important;top:6px!important
+ }
+ .wrap .v2-person>span{bottom:27px!important;left:11px!important;right:11px!important;font-size:12px!important;padding:4px 2px!important}
+ .wrap .v2-person small{bottom:9px!important;font-size:9px!important}
+ .wrap .v2-extrapanel:nth-child(3){padding:16px 14px!important}
+ .wrap .v2-calendar{gap:4px!important;padding:5px 0!important}
+ .wrap .v2-calendar span{min-height:29px!important}
+ .wrap .v2-calhead strong{font-size:14px!important}
+}
+@media(max-width:365px){
+ .wrap .hero{height:327px!important;min-height:327px!important}
+ .wrap .v2-person{height:165px!important}
+ .wrap .v2-person img,.wrap .v2-person.anton img{height:126px!important}
+}
