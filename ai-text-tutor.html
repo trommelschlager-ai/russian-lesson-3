@@ -54,8 +54,8 @@ button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;curso
   <main class="content">
     <div>
       <div class="paper teacher-choices" aria-label="选择老师">
-        <button class="teacher active" data-teacher="svetlana" type="button" aria-pressed="true"><img alt="" src="assets/account-margarita.webp"><span><strong>Маргарита</strong><small>纠错 / Исправляет</small></span></button>
-        <button class="teacher" data-teacher="dmitry" type="button" aria-pressed="false"><img alt="" src="assets/account-anton.webp"><span><strong>Антон</strong><small>对话 / Разговор</small></span></button>
+        <button class="teacher active" data-teacher="svetlana" type="button" aria-pressed="true"><img alt="" src="assets/account-margarita.webp"><span><strong>玛格丽塔</strong><small>纠错 / Исправляет</small></span></button>
+        <button class="teacher" data-teacher="dmitry" type="button" aria-pressed="false"><img alt="" src="assets/account-anton.webp"><span><strong>安东</strong><small>对话 / Разговор</small></span></button>
       </div>
       <section class="paper tutor" aria-label="Диалог с AI">
         <div class="chat-top"><b>💬 认识 · Знакомство</b><span class="status-chip" id="connection">AI 未连接 · Не подключён</span></div>
@@ -105,8 +105,8 @@ button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;curso
 const SITE_KEY="russian-tutor-worker-url-v1";
 const $=id=>document.getElementById(id);
 const teachers={
-  svetlana:{name:"Маргарита",img:"assets/account-margarita.webp"},
-  dmitry:{name:"Антон",img:"assets/account-anton.webp"}
+  svetlana:{name:"玛格丽塔",img:"assets/account-margarita.webp"},
+  dmitry:{name:"安东",img:"assets/account-anton.webp"}
 };
 let teacher="svetlana",base="",connected=false,busy=false;
 const history=[];
