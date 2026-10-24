@@ -1,6 +1,6 @@
 # Русский AI-репетитор — бесплатный пилот
 
-**Безопасность:** файлы уроков 1–7 и \`index.html\` не изменяются. Здесь только отдельный Cloudflare Worker. Никаких секретных ключей в GitHub нет.
+**Безопасность:** файлы уроков 1–7 и `index.html` не изменяются. Здесь только отдельный Cloudflare Worker. Никаких секретных ключей в GitHub нет.
 
 ## Сколько это стоит
 
@@ -16,27 +16,27 @@ Cloudflare Workers AI Free: до 10 000 neurons за сутки без опла�
 1. Создайте бесплатный аккаунт на https://dash.cloudflare.com/ (не сообщайте пароль никому).
 2. На ПК установите Node.js LTS с https://nodejs.org/ . Требуется только для загрузки Worker, сам AI работает в облаке.
 3. На GitHub откройте репозиторий https://github.com/trommelschlager-ai/russian-lesson-3 , выберите **Code → Download ZIP**, распакуйте.
-4. Откройте PowerShell внутри каталога \`ai-worker\` (в Windows можно открыть папку, затем в адресной строке написать \`powershell\`).
+4. Откройте PowerShell внутри каталога `ai-worker` (в Windows можно открыть папку, затем в адресной строке написать `powershell`).
 5. Выполните команды:
 
-   \`\`\`powershell
+   ```powershell
    npx wrangler login
    npx wrangler deploy
-   \`\`\`
+   ```
 
-   При запросе входа подтвердите разрешение Cloudflare. Оплату не включайте, если тестируете только бесплатный тариф. Файл \`wrangler.jsonc\` связывает Worker с AI и ограничителем частоты запросов.
-6. Запомните URL после deploy: например \`https://russian-ai-text-tutor-demo.<your-subdomain>.workers.dev\`. Это **пример**, а не существующий URL.
-7. Откройте https://trommelschlager-ai.github.io/russian-lesson-3/ai-text-tutor.html , раскройте **⚙️ Настройка AI**, вставьте полученный URL (без \`/api/chat\`) и нажмите **Подключить**.
-8. Отправьте сообщение \`Меня зовут Ли На\`. В случае успеха придёт новый ответ модели с переводом на китайский.
+   При запросе входа подтвердите разрешение Cloudflare. Оплату не включайте, если тестируете только бесплатный тариф. Файл `wrangler.jsonc` связывает Worker с AI и ограничителем частоты запросов.
+6. Запомните URL после deploy: например `https://russian-ai-text-tutor-demo.<your-subdomain>.workers.dev`. Это **пример**, а не существующий URL.
+7. Откройте https://trommelschlager-ai.github.io/russian-lesson-3/ai-text-tutor.html , раскройте **⚙️ Настройка AI**, вставьте полученный URL (без `/api/chat`) и нажмите **Подключить**.
+8. Отправьте сообщение `Меня зовут Ли На`. В случае успеха придёт новый ответ модели с переводом на китайский.
 
 На телефоне можно проходить урок. Администраторская настройка URL в этой тестовой версии сохраняется только в том браузере, где она введена. Позже можно добавить подтверждённый URL в код сайта, чтобы каждый посетитель подключался автоматически.
 
 ## Проверка API
 
-- \`GET https://<worker-url>/health\` → JSON \`ok:true\`, \`live:true\`.
-- \`POST https://<worker-url>/api/chat\` c заголовками \`Origin: https://trommelschlager-ai.github.io\` и \`Content-Type: application/json\`, телом \`{"teacher":"svetlana","message":"Я из Китай"}\`.
+- `GET https://<worker-url>/health` → JSON `ok:true`, `live:true`.
+- `POST https://<worker-url>/api/chat` c заголовками `Origin: https://trommelschlager-ai.github.io` и `Content-Type: application/json`, телом `{"teacher":"svetlana","message":"Я из Китай"}`.
 
-Публичные ключи не нужны: \`env.AI\` — server-side binding внутри Cloudflare. Не помещайте API-токены в HTML, JS или GitHub.
+Публичные ключи не нужны: `env.AI` — server-side binding внутри Cloudflare. Не помещайте API-токены в HTML, JS или GitHub.
 
 ## Ограничения пилота
 
