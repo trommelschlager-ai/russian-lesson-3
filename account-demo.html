@@ -302,7 +302,7 @@ body{background:radial-gradient(circle at 12% 11%,#e1edff,transparent 42%),radia
  #lesson-grid .lesson .lesson-icon{right:8px!important;width:61px!important}
 }
 
-</style>
+</style><link rel="stylesheet" href="assets/account-final-three-fixes.css?v=20261024a">
 </head>
 <body>
 <div class="wrap">
@@ -355,7 +355,7 @@ body{background:radial-gradient(circle at 12% 11%,#e1edff,transparent 42%),radia
         <div class="section-header"><h3 id="practice-title">AI口语练习 <small>Практика разговорного русского</small></h3></div>
         <div class="panel ai-panel v2-ai"><div class="v2-ai-intro"><h3>💬 AI对话练习</h3><p>Разговорная практика с AI</p><div class="tiny">和玛格丽特、安东一起练习俄语口语！<br>Практикуй русский с Маргаритой и Антоном!</div></div><div class="v2-ai-face"><img src="assets/account-margarita.webp" alt="Маргарита"><a href="ai-text-tutor.html?teacher=margarita">🎙 与 Маргарита 练习</a></div><div class="v2-ai-face"><img src="assets/account-anton.webp" alt="Антон"><a href="ai-text-tutor.html?teacher=anton">🎙 与 Антон 练习</a></div><a class="v2-ai-action" href="ai-text-tutor.html">自由对话 ›<small>Текстовый AI-урок</small></a></div>
       </section>
-<section id="extras" class="v2-extras"><div class="v2-extrapanel"><h3>🕒 最近学习 · Недавняя активность</h3><div id="v2-activity">暂无记录 · Нет данных</div></div><div class="v2-extrapanel"><h3>🏅 我的成就 · Мои достижения</h3><div class="v2-awards"><div id="v2-award1"><span>🥇</span>学习达人<small>1 урок</small></div><div id="v2-award3"><span>🔥</span>坚持学习<small>3 урока</small></div><div id="v2-award7"><span>🎓</span>俄语之星<small>7 уроков</small></div></div></div><div class="v2-extrapanel"><h3>🗓️ 学习日历 · Календарь</h3><div class="v2-calhead"><button type="button" id="v2-prev" aria-label="Предыдущий месяц">‹</button><strong id="v2-month"></strong><button type="button" id="v2-next" aria-label="Следующий месяц">›</button></div><div id="v2-calendar" class="v2-calendar"></div></div></section>
+<section id="extras" class="v2-extras"><div class="v2-extrapanel"><h3>🕒 最近学习 · Недавняя активность</h3><div id="v2-activity">暂无记录 · Нет данных</div></div><div class="v2-extrapanel"><h3>🏅 我的成就 · Мои достижения</h3><div class="v2-awards"><div id="v2-award1"><span>🥇</span>学习达人<small>1 урок</small></div><div id="v2-award3"><span>🔥</span>坚持学习<small>3 урока</small></div><div id="v2-award7"><span>🎓</span>俄语之星<small>7 уроков</small></div></div></div><div class="v2-extrapanel"><h3>🗓️ 学习日历 · Календарь</h3><div class="v2-calhead"><button type="button" id="v2-prev" aria-label="Предыдущий месяц">‹</button><strong id="v2-month"></strong><button type="button" id="v2-next" aria-label="Следующий месяц">›</button></div><div id="v2-calendar" class="v2-calendar"></div><div class="v3-callegend"><span class="today-dot">今天 · Сегодня</span><span class="study-dot">学习记录 · Занятия</span><span class="v3-calcount" id="v3-calcount">0 天</span></div></div></section>
       <section id="profile" aria-labelledby="profile-title">
         <div class="section-header"><h3 id="profile-title">我的资料 <small>Профиль ученика</small></h3><button class="soft-btn" id="edit-profile" type="button" aria-expanded="false" aria-controls="name-editor">✎ 修改昵称</button></div>
         <div class="panel activity">
@@ -438,7 +438,7 @@ function render(){
     var score=q&&Number(q.total)>0&&Number(q.score)>=0?Math.round(100*Number(q.score)/Number(q.total)):null;
     state.textContent=passed?"✓ 已完成 · Пройдено"+(score!==null?" · "+score+"%":""):score!==null?"测验: "+score+"% · Повторить":lastOpened?"继续学习 · В процессе":"开始学习 · Начать";
     info.append(title,sub,state);
-    var icon=document.createElement("span");icon.className="lesson-icon";icon.setAttribute("aria-hidden","true");icon.textContent=["🔤","📖","👥","👋","🔢","🏡","☀️"][i];
+    var icon=document.createElement("span");icon.className="lesson-icon";icon.setAttribute("aria-hidden","true");icon.textContent=["🔤","📖","👥","💬","🔢","🏡","☀️"][i];
     var arrow=document.createElement("span");arrow.className="go";arrow.textContent="↗";arrow.setAttribute("aria-hidden","true");
     a.append(n,info,icon,arrow);grid.append(a);
   });
@@ -464,6 +464,7 @@ const name=(safe("russian-account-demo-name-v1")||"").trim()||"同学";
 $("v2-greeting").textContent="你好，"+name+"！";$("v2-headname").textContent=name;
 const qs=parse("russian-course-progress-v1");const dates=Object.values(qs).filter(q=>q&&q.date&&!isNaN(Date.parse(q.date))).map(q=>new Date(q.date));
 const dayKey=d=>d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();const days=new Set(dates.map(dayKey));
+$("v3-calcount").textContent=days.size+" 天 · дней";
 const div=document.createElement("div");div.className="stat v2-stat-days";div.innerHTML='<span class="sym">🔥</span><div class="label">学习天数</div><div class="num" id="v2-days"></div><div class="foot">Дней учёбы</div>';
 const stats=document.querySelector(".intro-grid");const progress=document.querySelector(".progress-panel");
 if(stats&&progress){const originalCards=Array.from(stats.querySelectorAll(":scope > .stat:not(.v2-bonus)"));if(originalCards[1])originalCards[1].remove();stats.insertBefore(progress,stats.firstChild);stats.insertBefore(div,stats.children[1]);if(originalCards[2]&&originalCards[0])stats.insertBefore(originalCards[2],originalCards[0]);originalCards[2]?.classList.add("v2-words");originalCards[0]?.classList.add("v2-completed");}
@@ -481,7 +482,7 @@ const offset=(cal.getDay()+6)%7;for(let i=0;i<offset;i++)out.append(document.cre
 const last=new Date(cal.getFullYear(),cal.getMonth()+1,0).getDate(),now=new Date();
 for(let i=1;i<=last;i++){const c=document.createElement("span");c.textContent=i;const date=new Date(cal.getFullYear(),cal.getMonth(),i);if(days.has(dayKey(date)))c.classList.add("learned");if(dayKey(now)===dayKey(date))c.classList.add("today");out.append(c)}}
 $("v2-prev").addEventListener("click",()=>{cal.setMonth(cal.getMonth()-1);drawCalendar()});$("v2-next").addEventListener("click",()=>{cal.setMonth(cal.getMonth()+1);drawCalendar()});drawCalendar();
-const avatar=document.querySelectorAll(".lesson")[3]?.querySelector(".lesson-icon");if(avatar){avatar.textContent="";const photo=document.createElement("img");photo.src="assets/account-margarita.webp";photo.alt="Маргарита";avatar.append(photo)}
+/* Lesson 4 intentionally has only a greeting icon, no teacher photograph. */
 })();
 </script>
 </body>
