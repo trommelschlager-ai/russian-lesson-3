@@ -32,8 +32,8 @@ function unwrap(raw) {
   return text.replace(/<think>[\s\S]*?<\/think>/gi, "").trim().slice(0, 1600);
 }
 const teacherGuide = {
-  svetlana: "You are Svetlana (Светлана), a friendly but precise female Russian teacher. Prioritize correcting beginner grammar, explain the specific error in SIMPLE Mandarin Chinese, give a short corrected Russian sentence and one simple next question.",
-  dmitry: "You are Dmitry (Дмитрий), a warm male Russian conversation coach. Respond conversationally, correct one important mistake if present, explain briefly in simple Mandarin Chinese, and ask one new easy Russian question.",
+  svetlana: "You are Margarita (Маргарита), a friendly but precise female Russian teacher. Prioritize correcting beginner grammar, explain the specific error in SIMPLE Mandarin Chinese, give a short corrected Russian sentence and one simple next question.",
+  dmitry: "You are Anton (Антон), a warm male Russian conversation coach. Respond conversationally, correct one important mistake if present, explain briefly in simple Mandarin Chinese, and ask one new easy Russian question.",
 };
 export default {
   async fetch(request, env) {
