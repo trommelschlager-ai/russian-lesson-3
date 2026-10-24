@@ -205,6 +205,11 @@ body{background:linear-gradient(125deg,#e4e7ff,#fff8e7 52%,#e3efff)}
 .intro-grid>.v2-stat-days .num,.intro-grid>.v2-words .num,.intro-grid>.v2-completed .num{color:#273f86}
 .lesson:nth-child(4) .lesson-icon img{border-radius:0!important;width:88px!important;height:79px!important;object-fit:contain!important}
 @media(max-width:670px){.lesson:nth-child(4) .lesson-icon img{width:40px!important;height:42px!important}}
+
+/* Persistently show the approved, natural hands-down photo for lesson 4 even after browser refresh/re-render. */
+.lesson:nth-child(4) .lesson-icon{font-size:0!important;background:url("assets/account-margarita.webp") center center/contain no-repeat!important}
+.lesson:nth-child(4) .lesson-icon img{display:none!important}
+
 </style>
 </head>
 <body>
@@ -352,7 +357,7 @@ function render(){
 }
 var button=byId("edit-profile"),editor=byId("name-editor");
 button.addEventListener("click",function(){var opening=editor.hidden;editor.hidden=!opening;button.setAttribute("aria-expanded",String(opening));if(opening){byId("nickname").value=safeRead(nameKey)||"";byId("nickname").focus()}});
-editor.addEventListener("submit",function(e){e.preventDefault();var value=byId("nickname").value.trim().slice(0,30);if(!value)return;if(safeSave(nameKey,value)){editor.hidden=true;button.setAttribute("aria-expanded","false");render()}else{byId("save-state").textContent="无法在当前浏览器保存昵称。"}});
+editor.addEventListener("submit",function(e){e.preventDefault();var value=byId("nickname").value.trim().slice(0,30);if(!value)return;if(safeSave(nameKey,value)){editor.hidden=true;button.setAttribute("aria-expanded","false");render();document.getElementById("v2-greeting").textContent="你好，"+value+"！";document.getElementById("v2-headname").textContent=value;}else{byId("save-state").textContent="无法在当前浏览器保存昵称。"}});
 window.addEventListener("pageshow",render);window.addEventListener("storage",render);render();
 })();
 </script>
