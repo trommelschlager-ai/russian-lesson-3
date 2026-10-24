@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#30468f">
+<meta name="description" content="俄语AI老师：与斯韦特兰娜、德米特里练习俄语自我介绍，获得中文纠错说明。">
+<title>俄语AI老师 · Текстовый AI-репетитор | Знакомство</title>
+<style>
+:root{--navy:#1b3161;--ink:#22365c;--violet:#6755b5;--pink:#cc4583;--muted:#71829a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 1% 2%,#e1e5ff,transparent 33%),radial-gradient(circle at 99% 84%,#ffe1ee,transparent 33%),#f4f7ff;color:var(--ink);font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.55}
+button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #167bdb;outline-offset:3px}a{color:inherit;text-decoration:none}
+.page{max-width:1160px;margin:0 auto;min-height:100vh;background:linear-gradient(165deg,#fbfaff,#fff8f2);box-shadow:0 18px 65px #1a275e24}
+.hero{min-height:223px;padding:22px clamp(16px,4vw,44px);border-bottom:4px solid #b68fea;background:linear-gradient(95deg,#fff8f2f4 0%,#fffaf2d9 35%,#e4dfff5e 78%),url("assets/illustrated/lesson-4-hero.jpg") center 40%/cover}
+.home{display:inline-block;border-radius:25px;background:#fffcf7ee;border:1px solid #dcc9dc;color:#575183;padding:7px 13px;font-size:12px;font-weight:700}
+.hero h1{font-family:Georgia,"Noto Serif SC",serif;font-size:clamp(29px,4vw,43px);margin:13px 0 3px;line-height:1.2;color:#1e3870;text-shadow:0 2px 10px #fff}
+.hero h1 span{color:#b3448b}
+.hero p{margin:3px 0;font-size:14px;color:#5f6488}.eyebrow{color:#945b8d;letter-spacing:1.5px;font-size:11px;font-weight:800;margin-top:12px}
+.content{padding:20px clamp(12px,3vw,28px) 26px;display:grid;grid-template-columns:minmax(0,1fr) 263px;gap:17px}.paper{border-radius:22px;border:1px solid #eae3f1;background:#fff;box-shadow:0 9px 29px #3d418e13}
+.teacher-choices{padding:13px;display:flex;gap:10px}.teacher{display:flex;align-items:center;gap:9px;min-width:0;flex:1;border:2px solid #e9dfef;background:#fbfaff;border-radius:15px;text-align:left;padding:8px 12px;color:#385279}
+.teacher.active{border-color:#836be7;background:linear-gradient(125deg,#e9e7ff,#fff2fa);box-shadow:0 5px 15px #6955af26}
+.teacher img{height:52px;width:52px;flex:none;object-fit:cover;object-position:center top;border-radius:50%;border:2px solid white;box-shadow:0 2px 8px #59467e2b}
+.teacher strong{display:block;font-size:14px}.teacher small{color:#76849b;font-size:11px}
+.tutor{margin-top:13px;overflow:hidden}.chat-top{padding:13px 17px;display:flex;align-items:center;justify-content:space-between;gap:9px;background:linear-gradient(100deg,#eef1ff,#fff3f7);border-bottom:1px solid #e7dcee}
+.chat-top b{color:#435289}.status-chip{font-size:11px;background:#fff;border:1px solid #e3d8f1;border-radius:20px;padding:6px 10px;color:#906a93}
+.status-chip.ready{color:#187d5d;border-color:#b9e3d5;background:#ecfff7}
+.chat{height:390px;overflow-y:auto;overscroll-behavior:contain;padding:18px;background:radial-gradient(circle at top left,#fff5ddc4,transparent 44%),#fffcfd}
+.bubble-row{display:flex;align-items:flex-start;gap:9px;margin:0 0 16px}.bubble-row.student{justify-content:flex-end}.face{height:40px;width:40px;object-fit:cover;object-position:center top;border-radius:50%;border:2px solid white;box-shadow:0 2px 8px #17273d20}
+.bubble{max-width:min(89%,570px);padding:12px 15px;border-radius:16px;background:#f3edff;color:#31416e;border-top-left-radius:5px;white-space:pre-wrap;overflow-wrap:anywhere;box-shadow:0 2px 9px #2837680b;font-size:14px}
+.student .bubble{border-radius:16px 5px 16px 16px;background:linear-gradient(115deg,#e1f0ff,#d8edff)}.bubble-label{font-size:11px;color:#8a83a2;margin-bottom:6px;font-weight:700}.example{border:1px dashed #d7c6e5;background:#fcf8ff;border-radius:14px;padding:12px 14px;color:#6c668a;font-size:13px}
+.prompt{padding:14px 16px 17px;border-top:1px solid #eee7f1}.prompt p{margin:0 0 8px;color:#6e7c96;font-size:12px}
+.input-area{display:flex;gap:8px;align-items:stretch}.message{width:100%;min-width:0;border-radius:13px;border:1px solid #c9d2e6;background:#fafcff;padding:12px;font-size:15px;color:#263b60}.send{border:0;background:linear-gradient(115deg,#a85fe3,#df4d99);color:#fff;border-radius:13px;padding:11px 20px;font-weight:800;white-space:nowrap;box-shadow:0 5px 18px #ac60c92f}.send:hover{filter:brightness(1.05)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.chip{padding:6px 11px;border-radius:22px;border:1px solid #d8d6ef;background:#f5f3ff;color:#65569e;font-size:11px}.chip:hover{background:#e8e3ff}
+.notice{font-size:12px;margin-top:10px;min-height:19px;color:#6d7992}
+.aside{display:grid;gap:13px;align-content:start}.side{padding:17px}.side h2{font-size:16px;font-family:Georgia,"Noto Serif SC",serif;margin:0 0 9px;color:#354c81}.side p{font-size:12px;color:#687998;margin:5px 0;line-height:1.65}.word{padding:8px 0;border-bottom:1px solid #f1edf5;font-size:13px}.word:last-child{border:0}.word strong{display:block;color:#425a91}.word span{font-size:11px;color:#8c829d}
+.configure{border-radius:17px;background:linear-gradient(115deg,#fff3e1,#f3ecff);border:1px solid #e9d2df;padding:14px}
+.configure summary{cursor:pointer;font-weight:800;font-size:13px;color:#875b8c}.configure p{font-size:12px;color:#826c82}
+.configure label{font-size:12px;display:block;font-weight:700;margin:9px 0 4px}
+.configure input{width:100%;padding:11px;border-radius:11px;border:1px solid #d2c8df;background:#fff;font-size:12px}
+.configure button{padding:9px 15px;border:none;border-radius:10px;color:white;background:#755cc0;font-weight:800;margin-top:8px}
+.muted{font-size:11px;color:#7b889b}.footer{text-align:center;padding:9px 20px 25px;color:#9192a5;font-size:11px}
+@media(max-width:810px){.content{grid-template-columns:1fr}.aside{grid-template-columns:1fr 1fr}.configure{grid-column:1/-1}}
+@media(max-width:520px){.hero{min-height:192px;padding:13px 15px;background-position:63% center}.hero h1{font-size:30px}.hero p{font-size:12px}.eyebrow{margin-top:9px}.content{padding:10px 9px 20px;gap:9px}.teacher-choices{padding:8px;gap:7px}.teacher{padding:7px;gap:5px}.teacher img{height:41px;width:41px}.teacher strong{font-size:12px}.teacher small{font-size:10px}.chat{height:355px;padding:12px 9px}.bubble{font-size:13px}.prompt{padding:11px 9px}.send{padding:9px 11px;font-size:12px}.aside{grid-template-columns:1fr}.side{padding:15px}.configure{grid-column:initial}.chat-top{padding:11px 9px}.status-chip{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <a class="home" href="account-demo.html">← 返回学习中心 · Личный кабинет</a>
+    <div class="eyebrow">УРОК 0 · ЗНАКОМСТВО · AI-ПРАКТИКА</div>
+    <h1>俄语AI老师 <span>· Знакомство</span></h1>
+    <p>选择老师，练习自我介绍，获得简单中文解释。</p>
+    <p>Текстовый русский репетитор для китайских учеников · Начальный уровень A0–A1</p>
+  </header>
+  <main class="content">
+    <div>
+      <div class="paper teacher-choices" aria-label="选择老师">
+        <button class="teacher active" data-teacher="svetlana" type="button" aria-pressed="true"><img alt="" src="assets/illustrated/svetlana-4.jpg"><span><strong>Светлана</strong><small>纠错 / Исправляет</small></span></button>
+        <button class="teacher" data-teacher="dmitry" type="button" aria-pressed="false"><img alt="" src="assets/illustrated/dmitry-4.jpg"><span><strong>Дмитрий</strong><small>对话 / Разговор</small></span></button>
+      </div>
+      <section class="paper tutor" aria-label="Диалог с AI">
+        <div class="chat-top"><b>💬 认识 · Знакомство</b><span class="status-chip" id="connection">AI 未连接 · Не подключён</span></div>
+        <div class="chat" id="chat" aria-live="polite">
+          <div class="bubble-row"><img class="face" src="assets/illustrated/svetlana-4.jpg" alt=""><div class="bubble"><div class="bubble-label">Светлана · Пример</div>Привет! Как тебя зовут?
+你好！你叫什么名字？</div></div>
+          <div class="example">ℹ️ 这是示例开场白。真实 AI 对话需要先连接下面的服务器。<br>Это пример начала разговора. Настоящие ответы AI появятся после подключения сервера.</div>
+        </div>
+        <form class="prompt" id="composer">
+          <p>✍ 写俄语短句，老师会用中文解释错误 · Напиши предложение на русском</p>
+          <div class="input-area"><input class="message" id="message" autocomplete="off" maxlength="320" placeholder="Например: Я из Китай" required aria-label="Введите фразу по-русски"><button class="send" id="send" type="submit">发送 · Отправить</button></div>
+          <div class="chips" id="examples">
+            <button class="chip" type="button" data-example="Привет! Меня зовут Ли На.">Привет! Меня зовут Ли На.</button>
+            <button class="chip" type="button" data-example="Я из Китай.">Я из Китай.</button>
+            <button class="chip" type="button" data-example="Я студентка.">Я студентка.</button>
+          </div>
+          <div class="notice" id="notice" role="status">请先配置 AI 服务器。 · Сначала подключи AI-сервер.</div>
+        </form>
+      </section>
+    </div>
+    <aside class="aside">
+      <section class="paper side"><h2>📘 本课词汇 · Слова урока</h2>
+        <div class="word"><strong>Привет!</strong><span>你好！ · Privet!</span></div>
+        <div class="word"><strong>Меня зовут…</strong><span>我叫…… · Menya zovut…</span></div>
+        <div class="word"><strong>Я из Китая.</strong><span>我来自中国。 · Ya iz Kitaya.</span></div>
+        <div class="word"><strong>Очень приятно!</strong><span>很高兴认识你！</span></div>
+      </section>
+      <section class="paper side"><h2>🎯 Как работает преподаватель</h2><p>👩 Светлана: проверяет грамматику и объясняет по-китайски.</p><p>👨 Дмитрий: задаёт вопросы на русском и поддерживает разговор.</p><p>⚠️ AI может ошибаться. Голос и оценка произношения пока не подключены.</p></section>
+      <details class="configure" id="config-panel">
+        <summary>⚙️ Настройка AI · 连接AI服务器</summary>
+        <p>Только для владельца курса: после бесплатного развёртывания Cloudflare Worker введи его HTTPS-адрес. Пароли и API-ключи сюда вводить нельзя.</p>
+        <form id="config-form">
+          <label for="endpoint">Worker URL (без /api/chat)</label>
+          <input id="endpoint" type="url" inputmode="url" spellcheck="false" autocomplete="off" placeholder="https://…workers.dev" aria-label="Worker URL">
+          <button type="submit" id="connect">🔗 Подключить · 连接</button>
+        </form>
+        <p id="config-status" role="status">Публичный адрес сервера не является секретом; он сохраняется только в этом браузере.</p>
+        <p><a href="https://github.com/trommelschlager-ai/russian-lesson-3/blob/main/ai-worker/README.md" target="_blank" rel="noopener noreferrer">📖 Инструкция по бесплатному запуску →</a></p>
+      </details>
+    </aside>
+  </main>
+  <footer class="footer">俄语课程 · Бесплатный тест текстового AI. Базовые 7 уроков остаются неизменными. История переписки не сохраняется в аккаунте.</footer>
+</div>
+<script>
+(function(){
+"use strict";
+const SITE_KEY="russian-tutor-worker-url-v1";
+const $=id=>document.getElementById(id);
+const teachers={
+  svetlana:{name:"Светлана",img:"assets/illustrated/svetlana-4.jpg"},
+  dmitry:{name:"Дмитрий",img:"assets/illustrated/dmitry-4.jpg"}
+};
+let teacher="svetlana",base="",connected=false,busy=false;
+const history=[];
+function safeRead(){try{return localStorage.getItem(SITE_KEY)||""}catch{return""}}
+function safeSave(v){try{localStorage.setItem(SITE_KEY,v)}catch{}}
+function showStatus(text,ok){const el=$("connection");el.textContent=text;el.classList.toggle("ready",Boolean(ok))}
+function notice(text){$("notice").textContent=text}
+function setConnection(on){connected=on;showStatus(on?"🟢 AI 已连接 · AI подключён":"⚪ AI 未连接 · Не подключён",on);if(on)notice("AI готов. Напиши фразу по-русски · 可以开始对话。")}
+function verifyUrl(raw){try{const u=new URL(raw.trim());if(u.protocol!=="https:"||u.username||u.password||u.search||u.hash||u.port||u.pathname!=="/"&&u.pathname!=="")return null;
+if(!(/\.workers\.dev$/i.test(u.hostname)))return null;
+return u.origin;}catch{return null}}
+function newBubble(role,text,who){const row=document.createElement("div");row.className="bubble-row"+(role==="user"?" student":"");if(role!=="user"){const avatar=document.createElement("img");avatar.className="face";avatar.src=teachers[who].img;avatar.alt="";row.append(avatar)}
+const bubble=document.createElement("div");bubble.className="bubble";const label=document.createElement("div");label.className="bubble-label";label.textContent=role==="user"?"Вы · 你":teachers[who].name+" · AI";bubble.append(label,document.createTextNode(text));row.append(bubble);$("chat").append(row);$("chat").scrollTop=$("chat").scrollHeight}
+function choose(who){teacher=who;document.querySelectorAll("[data-teacher]").forEach(btn=>{const a=btn.dataset.teacher===who;btn.classList.toggle("active",a);btn.setAttribute("aria-pressed",String(a))});notice(connected?"老师已切换 · Преподаватель выбран.":"Сначала подключи AI-сервер · 请先连接服务器。")}
+document.querySelectorAll("[data-teacher]").forEach(btn=>btn.addEventListener("click",()=>choose(btn.dataset.teacher)));
+document.querySelectorAll("[data-example]").forEach(btn=>btn.addEventListener("click",()=>{$("message").value=btn.dataset.example;$("message").focus()}));
+async function verify(){const value=verifyUrl($("endpoint").value);if(!value){$("config-status").textContent="Нужен https://<имя>.workers.dev без дополнительных путей.";setConnection(false);return}
+base=value;$("config-status").textContent="Проверяю сервер · 正在检查…";setConnection(false);
+try{const ctrl=new AbortController();const timer=setTimeout(()=>ctrl.abort(),12000);let res;try{res=await fetch(base+"/health",{signal:ctrl.signal,cache:"no-store"})}finally{clearTimeout(timer)}
+const data=await res.json();if(!res.ok||data.service!=="russian-ai-tutor"||!data.live)throw Error("AI binding and rate limiter are not active");
+safeSave(base);setConnection(true);$("config-status").textContent="✅ Подключён · 连接成功！";$("config-panel").open=false}
+catch(e){setConnection(false);$("config-status").textContent="Нет связи / 无法连接: "+e.message+"。Проверь развёртывание и URL."}}
+$("config-form").addEventListener("submit",e=>{e.preventDefault();verify()});
+$("composer").addEventListener("submit",async e=>{
+e.preventDefault();if(busy)return;const text=$("message").value.trim();
+if(!text)return;if(text.length>320){notice("太长了 · Слишком длинное сообщение.");return}
+if(!connected){notice("AI пока не подключён: открой ⚙️ «Настройка AI» и добавь сервер. · 请先连接服务器。");$("config-panel").open=true;$("endpoint").focus();return}
+busy=true;$("send").disabled=true;$("message").disabled=true;const selected=teacher;
+newBubble("user",text,selected);$("message").value="";notice("正在思考… · AI формулирует ответ…");
+const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),30000);
+try{
+const res=await fetch(base+"/api/chat",{method:"POST",mode:"cors",cache:"no-store",headers:{"Content-Type":"application/json"},body:JSON.stringify({teacher:selected,message:text,history:history.slice(-6)}),signal:controller.signal});
+const data=await res.json();if(!res.ok||!data.ok||typeof data.answer!=="string")throw Error(data.error||"Ошибка сервиса "+res.status);
+const reply=data.answer.trim();newBubble("assistant",reply,selected);history.push({role:"user",content:text},{role:"assistant",content:reply.slice(0,320)});
+if(history.length>8)history.splice(0,history.length-8);notice("✓ Ответ получен · 已收到回复。");
+}catch(error){let msg=error.name==="AbortError"?"Истекло время ожидания AI · 请求超时":error.message;notice("⚠️ "+msg+" — 可以再试一次 / Попробуй ещё раз.");}
+finally{clearTimeout(timeout);busy=false;$("send").disabled=false;$("message").disabled=false;$("message").focus()}
+});
+const stored=safeRead();if(stored&&verifyUrl(stored)){$("endpoint").value=stored;verify()}else{$("config-panel").open=true;setConnection(false)}
+})();
+</script>
+</body>
+</html>
