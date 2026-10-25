@@ -40,6 +40,9 @@ button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;curso
 .muted{font-size:11px;color:#7b889b}.footer{text-align:center;padding:9px 20px 25px;color:#9192a5;font-size:11px}
 @media(max-width:810px){.content{grid-template-columns:1fr}.aside{grid-template-columns:1fr 1fr}.configure{grid-column:1/-1}}
 @media(max-width:520px){.hero{min-height:192px;padding:13px 15px;background-position:63% center}.hero h1{font-size:30px}.hero p{font-size:12px}.eyebrow{margin-top:9px}.content{padding:10px 9px 20px;gap:9px}.teacher-choices{padding:8px;gap:7px}.teacher{padding:7px;gap:5px}.teacher img{height:41px;width:41px}.teacher strong{font-size:12px}.teacher small{font-size:10px}.chat{height:355px;padding:12px 9px}.bubble{font-size:13px}.prompt{padding:11px 9px}.send{padding:9px 11px;font-size:12px}.aside{grid-template-columns:1fr}.side{padding:15px}.configure{grid-column:initial}.chat-top{padding:11px 9px}.status-chip{font-size:10px}}
+/* Consistent source portraits in selection and every generated dialogue bubble. */
+.teacher img,.face{object-fit:cover;object-position:center 24%;flex-shrink:0}
+@media(max-width:670px){html{scrollbar-width:none}html::-webkit-scrollbar{display:none}}
 </style>
 </head>
 <body>
@@ -54,13 +57,13 @@ button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;curso
   <main class="content">
     <div>
       <div class="paper teacher-choices" aria-label="选择老师">
-        <button class="teacher active" data-teacher="svetlana" type="button" aria-pressed="true"><img alt="" src="assets/account-margarita.webp"><span><strong>玛格丽塔</strong><small>纠错 / Исправляет</small></span></button>
-        <button class="teacher" data-teacher="dmitry" type="button" aria-pressed="false"><img alt="" src="assets/account-anton.webp"><span><strong>安东</strong><small>对话 / Разговор</small></span></button>
+        <button class="teacher active" data-teacher="svetlana" type="button" aria-pressed="true"><img alt="" src="assets/teacher-margarita-approved-portrait.png"><span><strong>玛格丽塔</strong><small>俄语老师 · 纠错</small></span></button>
+        <button class="teacher" data-teacher="dmitry" type="button" aria-pressed="false"><img alt="" src="assets/teacher-anton-approved-portrait.png"><span><strong>安东</strong><small>俄语老师 · 对话</small></span></button>
       </div>
       <section class="paper tutor" aria-label="Диалог с AI">
         <div class="chat-top"><b>💬 认识 · Знакомство</b><span class="status-chip" id="connection">AI 未连接 · Не подключён</span></div>
         <div class="chat" id="chat" aria-live="polite">
-          <div class="bubble-row"><img class="face" src="assets/account-margarita.webp" alt=""><div class="bubble"><div class="bubble-label">玛格丽塔 · 示例</div>Привет! Как тебя зовут?
+          <div class="bubble-row"><img class="face" src="assets/teacher-margarita-approved-portrait.png" alt=""><div class="bubble"><div class="bubble-label">玛格丽塔 · 示例</div>Привет! Как тебя зовут?
 你好！你叫什么名字？</div></div>
           <div class="example">ℹ️ 这是示例开场白。真实 AI 对话需要先连接下面的服务器。<br>Это пример начала разговора. Настоящие ответы AI появятся после подключения сервера.</div>
         </div>
@@ -105,8 +108,8 @@ button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;curso
 const SITE_KEY="russian-tutor-worker-url-v1";
 const $=id=>document.getElementById(id);
 const teachers={
-  svetlana:{name:"玛格丽塔",img:"assets/account-margarita.webp"},
-  dmitry:{name:"安东",img:"assets/account-anton.webp"}
+  svetlana:{name:"玛格丽塔",img:"assets/teacher-margarita-approved-portrait.png"},
+  dmitry:{name:"安东",img:"assets/teacher-anton-approved-portrait.png"}
 };
 let teacher="svetlana",base="",connected=false,busy=false;
 const history=[];

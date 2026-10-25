@@ -207,7 +207,7 @@ body{background:linear-gradient(125deg,#e4e7ff,#fff8e7 52%,#e3efff)}
 @media(max-width:670px){.lesson:nth-child(4) .lesson-icon img{width:40px!important;height:42px!important}}
 
 /* Persistently show the approved, natural hands-down photo for lesson 4 even after browser refresh/re-render. */
-.lesson:nth-child(4) .lesson-icon{font-size:0!important;background:url("assets/account-margarita.webp") center center/contain no-repeat!important}
+.lesson:nth-child(4) .lesson-icon{font-size:0!important;background:url("assets/teacher-margarita-approved-portrait.png") center center/contain no-repeat!important}
 .lesson:nth-child(4) .lesson-icon img{display:none!important}
 
 
@@ -235,7 +235,7 @@ body{background:radial-gradient(circle at 12% 11%,#e1edff,transparent 42%),radia
 #lesson-grid .lesson:nth-child(1){--lesson-neon:#fd626d8c}#lesson-grid .lesson:nth-child(2){--lesson-neon:#169eff90}#lesson-grid .lesson:nth-child(3){--lesson-neon:#1ce67b8c}#lesson-grid .lesson:nth-child(4){--lesson-neon:#ff9b278c}#lesson-grid .lesson:nth-child(5){--lesson-neon:#ad6bfc8c}#lesson-grid .lesson:nth-child(6){--lesson-neon:#fd4da68c}#lesson-grid .lesson:nth-child(7){--lesson-neon:#1aafff98}
 #lesson-grid .lesson:hover,#lesson-grid .lesson:focus-visible{transform:translateY(-3px);box-shadow:inset 0 2px 4px #fffa,0 10px 20px #303c7940,0 0 21px var(--lesson-neon)!important;filter:saturate(1.08)}
 #lesson-grid .lesson .lesson-icon{filter:drop-shadow(0 0 9px #ffffffcb) drop-shadow(0 4px 6px #24288c45)!important}
-#lesson-grid .lesson:nth-child(4) .lesson-icon{background:url("assets/account-margarita.webp") center/contain no-repeat!important}
+#lesson-grid .lesson:nth-child(4) .lesson-icon{background:url("assets/teacher-margarita-approved-portrait.png") center/contain no-repeat!important}
 #lesson-grid .lesson:nth-child(4) .lesson-icon img{display:none!important}
 .v2-ai{box-shadow:0 9px 24px #b362d250,0 0 14px #bc7ffb66!important;border:1px solid #fff9!important}
 .v2-extras{gap:13px!important}
@@ -303,20 +303,26 @@ body{background:radial-gradient(circle at 12% 11%,#e1edff,transparent 42%),radia
 }
 
 </style><link rel="stylesheet" href="assets/account-final-three-fixes.css?v=approved-teachers-20261025b">
-<style id="approved-teachers-inline-20261025">
-/* Approved photo panels. Inline fallback prevents stale external CSS hiding the current faces. */
-.wrap .v2-teachers .v2-person{display:block!important;position:relative!important;overflow:hidden!important;text-decoration:none!important;isolation:isolate!important;cursor:pointer}
-.wrap .v2-teachers .v2-person img{opacity:0!important;pointer-events:none}
-.wrap .v2-teachers .v2-person::after{content:""!important;display:block!important;position:absolute!important;inset:0!important;z-index:2!important;border-radius:inherit!important;pointer-events:none;background-image:linear-gradient(to top,rgba(12,29,64,.58),transparent 30%),url("assets/account-approved-teachers-20261025.webp")!important;background-repeat:no-repeat!important;background-position:center center,left center!important;background-size:100% 100%,200% 100%!important;box-shadow:inset 0 0 0 1px #ffffff50!important}
-.wrap .v2-teachers .v2-person.anton::after{background-position:center center,right center!important}
-.wrap .v2-teachers .v2-person:before{display:none!important}
-.wrap .v2-teachers .v2-person>span,.wrap .v2-teachers .v2-person small{z-index:7!important}
-.wrap .v2-teachers .v2-person:focus-visible{outline:2px solid #fff;outline-offset:2px}
+<style id="approved-teachers-final-20261025">
+/* Exact approved source cards; no generated faces, color changes or stretching. */
+.wrap .v2-teachers .v2-person{display:block!important;position:relative!important;width:clamp(175px,21vw,240px)!important;height:auto!important;aspect-ratio:426 / 452;overflow:hidden!important;isolation:isolate!important;cursor:pointer;border:0!important;background:none!important;box-shadow:none!important;backdrop-filter:none!important}
+.wrap .v2-teachers .v2-person::before,.wrap .v2-teachers .v2-person::after{display:none!important}
+.wrap .v2-teachers .v2-person img,.wrap .v2-teachers .v2-person.anton img{position:static!important;display:block!important;opacity:1!important;width:100%!important;height:auto!important;max-width:100%!important;transform:none!important;object-fit:contain!important;filter:none!important;mask-image:none!important;-webkit-mask-image:none!important;pointer-events:none}
+.wrap .v2-teachers .v2-person>span,.wrap .v2-teachers .v2-person small{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+.wrap .v2-teachers .v2-person:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.v2-ai-face img{object-fit:cover!important;object-position:center 25%!important}
+@media(max-width:670px){
+ html{scrollbar-width:none}html::-webkit-scrollbar{display:none}
+ .wrap .v2-top{height:54px!important}
+ .wrap .hero{height:calc(139px + (100vw - 39px) * .5305)!important;min-height:calc(139px + (100vw - 39px) * .5305)!important}
+ .wrap .v2-teachers{left:14px!important;right:14px!important;gap:10px!important;bottom:13px!important}
+ .wrap .v2-teachers .v2-person{width:100%!important;height:auto!important;aspect-ratio:426 / 452;border-radius:18px!important}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <nav class="v2-top"><a class="v2-logo" href="index.html"><span>🏰</span><span><b>俄语学习中心</b><small>个人中心 · Личный кабинет</small></span></a><div class="v2-links"><a href="#overview" class="active">⌂<span>首页</span></a><a href="#lessons">▣<span>我的课程</span></a><a href="#practice">◉<span>AI对话</span></a><a href="#extras">▥<span>学习统计</span></a><a href="#profile">⚙<span>设置</span></a></div><a href="#profile" class="v2-account"><span>👤</span><b id="v2-headname">同学</b> ›</a></nav><header class="hero" id="top"><div class="hero-content"><div class="eyebrow">俄语学习中心 · RUSSIAN LEARNING</div><h1 id="v2-greeting">你好，同学！</h1><h2>欢迎回来，继续学习俄语吧！</h2><p>Добро пожаловать, продолжай изучать русский!</p></div><div class="v2-teachers"><a class="v2-person margarita" href="ai-text-tutor.html?teacher=margarita" aria-label="与玛格丽塔练习俄语"><img src="assets/account-margarita.webp" alt="玛格丽塔"><span>玛格丽塔</span><small>俄语老师</small></a><a class="v2-person anton" href="ai-text-tutor.html?teacher=anton" aria-label="与安东练习俄语"><img src="assets/account-anton.webp" alt="安东"><span>安东</span><small>俄语老师</small></a></div></header>
+  <nav class="v2-top"><a class="v2-logo" href="index.html"><span>🏰</span><span><b>俄语学习中心</b><small>个人中心 · Личный кабинет</small></span></a><div class="v2-links"><a href="#overview" class="active">⌂<span>首页</span></a><a href="#lessons">▣<span>我的课程</span></a><a href="#practice">◉<span>AI对话</span></a><a href="#extras">▥<span>学习统计</span></a><a href="#profile">⚙<span>设置</span></a></div><a href="#profile" class="v2-account"><span>👤</span><b id="v2-headname">同学</b> ›</a></nav><header class="hero" id="top"><div class="hero-content"><div class="eyebrow">俄语学习中心 · RUSSIAN LEARNING</div><h1 id="v2-greeting">你好，同学！</h1><h2>欢迎回来，继续学习俄语吧！</h2><p>Добро пожаловать, продолжай изучать русский!</p></div><div class="v2-teachers"><a class="v2-person margarita" href="ai-text-tutor.html?teacher=margarita" aria-label="与玛格丽塔练习俄语"><img src="assets/teacher-margarita-approved-card.png" alt="玛格丽塔"><span>玛格丽塔</span><small>俄语老师</small></a><a class="v2-person anton" href="ai-text-tutor.html?teacher=anton" aria-label="与安东练习俄语"><img src="assets/teacher-anton-approved-card.png" alt="安东"><span>安东</span><small>俄语老师</small></a></div></header>
   <div class="layout">
     <aside class="sidebar">
       <div class="side-card">
@@ -363,7 +369,7 @@ body{background:radial-gradient(circle at 12% 11%,#e1edff,transparent 42%),radia
       </section>
       <section id="practice" aria-labelledby="practice-title">
         <div class="section-header"><h3 id="practice-title">AI口语练习 <small>Практика разговорного русского</small></h3></div>
-        <div class="panel ai-panel v2-ai"><div class="v2-ai-intro"><h3>💬 AI对话练习</h3><p>Разговорная практика с AI</p><div class="tiny">和玛格丽塔、安东一起练习俄语口语！<br>与玛格丽塔和安东一起练习俄语！</div></div><div class="v2-ai-face"><img src="assets/account-margarita.webp" alt="玛格丽塔"><a href="ai-text-tutor.html?teacher=margarita">🎙 与玛格丽塔练习</a></div><div class="v2-ai-face"><img src="assets/account-anton.webp" alt="安东"><a href="ai-text-tutor.html?teacher=anton">🎙 与安东练习</a></div><a class="v2-ai-action" href="ai-text-tutor.html">自由对话 ›<small>Текстовый AI-урок</small></a></div>
+        <div class="panel ai-panel v2-ai"><div class="v2-ai-intro"><h3>💬 AI对话练习</h3><p>Разговорная практика с AI</p><div class="tiny">和玛格丽塔、安东一起练习俄语口语！<br>与玛格丽塔和安东一起练习俄语！</div></div><div class="v2-ai-face"><img src="assets/teacher-margarita-approved-portrait.png" alt="玛格丽塔"><a href="ai-text-tutor.html?teacher=margarita">🎙 与玛格丽塔练习</a></div><div class="v2-ai-face"><img src="assets/teacher-anton-approved-portrait.png" alt="安东"><a href="ai-text-tutor.html?teacher=anton">🎙 与安东练习</a></div><a class="v2-ai-action" href="ai-text-tutor.html">自由对话 ›<small>Текстовый AI-урок</small></a></div>
       </section>
 <section id="extras" class="v2-extras"><div class="v2-extrapanel"><h3>🕒 最近学习 · Недавняя активность</h3><div id="v2-activity">暂无记录 · Нет данных</div></div><div class="v2-extrapanel"><h3>🏅 我的成就 · Мои достижения</h3><div class="v2-awards"><div id="v2-award1"><span>🥇</span>学习达人<small>1 урок</small></div><div id="v2-award3"><span>🔥</span>坚持学习<small>3 урока</small></div><div id="v2-award7"><span>🎓</span>俄语之星<small>7 уроков</small></div></div></div><div class="v2-extrapanel"><h3>🗓️ 学习日历 · Календарь</h3><div class="v2-calhead"><button type="button" id="v2-prev" aria-label="Предыдущий месяц">‹</button><strong id="v2-month"></strong><button type="button" id="v2-next" aria-label="Следующий месяц">›</button></div><div id="v2-calendar" class="v2-calendar"></div><div class="v3-callegend"><span class="today-dot">今天 · Сегодня</span><span class="study-dot">学习记录 · Занятия</span><span class="v3-calcount" id="v3-calcount">0 天</span></div></div></section>
       <section id="profile" aria-labelledby="profile-title">
@@ -421,7 +427,7 @@ function track(i){safeSave("russian-home-last-opened-v1",String(i))}
 function render(){
   var p=buildProgress(),count=p.done.length,pct=Math.round(100*count/7);
   byId("completed-number").textContent=count+"/7";
-  byId("percent-number").textContent=pct+"%";
+  if(byId("percent-number"))byId("percent-number").textContent=pct+"%";
   byId("word-number").textContent=String(Math.min(p.wordCount,100));
   byId("progress-caption").textContent=count+" из 7 · "+pct+"%";
   byId("progress-fill").style.width=pct+"%";
