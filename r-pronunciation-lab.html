@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Звук Р · 俄语发音练习</title>
+<meta name="theme-color" content="#6c55ae">
+<style>
+:root{--ink:#293553;--muted:#737e95;--purple:#7258b7;--border:#e6def2;--green:#126c52}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Microsoft YaHei","Segoe UI",sans-serif;background:radial-gradient(at 2% 2%,#e7e2ff,#fff9f5 63%,#e8f2ff)}
+main{max-width:720px;margin:auto;padding:14px 12px 35px}
+a{color:#6552a3;text-decoration:none;font-weight:700}
+h1{font-family:Georgia,"Noto Serif SC",serif;font-size:clamp(29px,6vw,42px);line-height:1.15;margin:8px 0}
+h2{font-size:21px;margin:6px 0}
+p{margin:6px 0 10px}
+.hero,.panel{background:#fffefa;border:1px solid var(--border);border-radius:21px;padding:18px;margin:12px 0;box-shadow:0 7px 24px #3b2d6810}
+.hero{background:linear-gradient(120deg,#f7efff,#fff9f5);padding:22px}
+.top{font-weight:800;color:#7b619f;font-size:12px;letter-spacing:1px}
+.teacher{display:flex;align-items:center;gap:13px}
+.teacher img{width:77px;height:77px;object-fit:cover;object-position:center;border-radius:17px;box-shadow:0 4px 12px #40396222}
+.muted{color:var(--muted);font-size:13px}
+.steps{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:800}
+.progress{height:9px;border-radius:12px;background:#efe9f7;overflow:hidden;margin-top:8px}
+.fill{height:100%;background:linear-gradient(100deg,#7859c3,#ce73b9);width:0;transition:width .25s}
+.word{text-align:center;padding:22px 10px;background:linear-gradient(140deg,#f3eefe,#f5f9ff);border-radius:17px;border:1px solid #e8dcf5;margin:15px 0}
+.word .ru{font-weight:950;font-size:clamp(40px,10vw,61px);line-height:1.12}
+.word .zh{font-size:20px;color:#795e98;margin-top:9px}
+.word .latin{font-size:14px;color:#8e84ad;margin-top:4px}
+.row{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}
+button{font:inherit;cursor:pointer;border:0;border-radius:13px;padding:12px 16px;font-weight:750}
+button:disabled{opacity:.48;cursor:not-allowed}
+.primary{background:linear-gradient(120deg,#7256b5,#aa66b4);color:white;flex:1;min-width:190px}
+.secondary{border:1px solid #d7cbea;color:#674fa7;background:#f8f4ff}
+.danger{background:#b64765;color:#fff}
+.green{background:#1e8561;color:#fff}
+audio{width:100%;display:block;margin:9px 0 16px}
+hr{border:0;border-top:1px solid #ede7f5;margin:18px 0}
+.status{padding:11px 13px;margin-top:10px;border-radius:13px;background:#f7f3fc;color:#584a84;min-height:50px}
+.notice{color:#655977;font-size:13px;line-height:1.55}
+.check{padding:11px;background:#f0faf5;border:1px solid #cfe7d8;color:#1a674c;border-radius:13px;margin-top:12px}
+.hide{display:none!important}
+@media(max-width:450px){main{padding:9px}.hero,.panel{padding:14px}.teacher img{width:60px;height:60px}}
+</style>
+</head>
+<body>
+<main>
+<a href="ai-question-practice.html">← Тренажёр вопросов · 返回练习</a>
+<header class="hero">
+<div class="top">俄语发音训练 · ЗВУК «Р»</div>
+<h1>🎯 Учимся произносить «Р»</h1>
+<p>听老师读 → 录下自己的声音 → 对比听 → 不满意就再录。</p>
+<p>Слушай образец Антона, записывай себя и сравнивай. Повторяй, пока сам не услышишь правильный звук.</p>
+</header>
+<section class="panel">
+<div class="teacher"><img src="assets/teacher-anton-approved-portrait.png" alt="Одобренный портрет Антона"><div><h2>👨 安东 · Антон</h2><p class="muted">Нейросетевые MP3-образцы русского произношения · 标准俄语录音</p></div></div>
+</section>
+<section class="panel" id="exercise">
+<div class="steps"><span id="step">Упражнение 1 из 5</span><span id="done">0 / 5</span></div>
+<div class="progress"><div class="fill" id="bar"></div></div>
+<div class="word">
+<div class="ru" id="word">Р</div>
+<div class="zh" id="chinese">俄语 R</div>
+<div class="latin" id="latin">Er</div>
+</div>
+<strong>1. 🔊 Сначала послушай образец · 听标准发音</strong>
+<audio id="sample" controls preload="none" aria-label="Образец русского произношения Антона"></audio>
+<strong>2. 🎤 Запиши своё произношение · 录自己的声音</strong>
+<div class="row">
+<button id="record" type="button" class="primary">🔴 Начать запись</button>
+<button id="stop" type="button" class="secondary" disabled>⏹ Остановить запись</button>
+</div>
+<strong>3. 👂 Прослушай свою запись · 听自己的录音</strong>
+<audio id="mine" controls aria-label="Твоя запись" preload="none"></audio>
+<div class="status" id="status" role="status" aria-live="polite">Запись ещё не сделана. Разреши доступ к микрофону.</div>
+<div class="row">
+<button id="retry" class="secondary" type="button">🔁 Записать ещё раз</button>
+<button id="next" class="green" type="button" disabled>✅ Сравнил с образцом → Далее</button>
+</div>
+<div class="notice">⚠️ Кнопка «Далее» доступна только после записи и её прослушивания до конца. <strong>Оценку правильности звука «Р» выбираешь ты сам.</strong> Это не автоматическая фонетическая экспертиза.</div>
+</section>
+<section class="panel hide" id="finish">
+<h2>🎉 Все 5 упражнений пройдены!</h2>
+<p>Ты сравнил своё произношение с русскими аудиообразцами. Если звук «Р» ещё не получается — возвращайся и повторяй.</p>
+<button type="button" id="restart" class="primary">🔁 Начать заново</button>
+</section>
+<section class="panel notice">
+<h2>Как услышать правильную «Р»</h2>
+<p>В русском языке «р» обычно произносится с вибрацией кончика языка. Не заменяй её на «л» или английский звук R. Тренируй не только букву, но и «рука», «рыба», «река», «робот».</p>
+<p>🎧 Запись воспроизводится локально в браузере, не загружается на наш сайт и удаляется при закрытии вкладки. Для работы микрофона требуется HTTPS и поддержка записи браузером; в Telegram или WeChat может понадобиться открыть ссылку в Chrome.</p>
+<p><strong>Для автоматической оценки фонем</strong> понадобится отдельный сервис анализа произношения: распознавание текста не способно надёжно определять, правильно ли звучит «Р».</p>
+</section>
+</main>
+<script>
+(function(){
+"use strict";
+const q=id=>document.getElementById(id);
+const exercises=[
+{ru:"Р",zh:"俄语字母 Р",lat:"Er",mp3:"audio/course/male-a64545e654fb14.mp3"},
+{ru:"Рука",zh:"手",lat:"Ruka",mp3:"assets/audio/16072e22629ea0eb55.mp3"},
+{ru:"Рыба",zh:"鱼",lat:"Ryba",mp3:"assets/audio/73e702f9668f325f67.mp3"},
+{ru:"Река",zh:"河流",lat:"Reka",mp3:"assets/audio/70fc50d87929e719ab.mp3"},
+{ru:"Робот",zh:"机器人",lat:"Robot",mp3:"assets/audio/9372a0b2211a2e7432.mp3"}
+];
+let i=0,media=null,stream=null,parts=[],ownURL=null,recordReady=false,playedBack=false,revision=0,recordTimer=null;
+function inform(s){q("status").textContent=s}
+function cleanAudio(){
+if(ownURL){URL.revokeObjectURL(ownURL);ownURL=null;}
+q("mine").pause();q("mine").removeAttribute("src");q("mine").load();
+recordReady=false;playedBack=false;q("next").disabled=true;
+}
+function finishRecording(){
+clearTimeout(recordTimer);recordTimer=null;
+if(media&&media.state!=="inactive"){try{media.stop()}catch(e){}}
+if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
+q("record").disabled=false;q("stop").disabled=true;
+}
+function render(){
+revision++;finishRecording();cleanAudio();
+if(i>=exercises.length){q("exercise").classList.add("hide");q("finish").classList.remove("hide");return}
+q("finish").classList.add("hide");q("exercise").classList.remove("hide");
+const x=exercises[i];
+q("step").textContent="Упражнение "+(i+1)+" из "+exercises.length;
+q("done").textContent=i+" / "+exercises.length;
+q("bar").style.width=(i/exercises.length*100)+"%";
+q("word").textContent=x.ru;q("chinese").textContent=x.zh;q("latin").textContent=x.lat;
+q("sample").pause();q("sample").src=new URL(x.mp3,location.href).href;q("sample").load();
+inform("Шаг 1: послушай Антона. Шаг 2: запиши себя. Шаг 3: прослушай свою запись до конца.");
+}
+async function startRecording(){
+if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||typeof MediaRecorder==="undefined"){
+ inform("Этот браузер не поддерживает запись. Открой в Chrome на Android.");return
+}
+const token=++revision;
+q("record").disabled=true;
+q("stop").disabled=true;
+cleanAudio();
+q("sample").pause();
+inform("Запрашиваю разрешение на микрофон…");
+let acquired=null;
+try{
+ acquired=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
+ if(token!==revision){acquired.getTracks().forEach(t=>t.stop());return}
+ stream=acquired;parts=[];
+ const preferred=typeof MediaRecorder.isTypeSupported==="function"&&MediaRecorder.isTypeSupported("audio/webm;codecs=opus")?{mimeType:"audio/webm;codecs=opus"}:undefined;
+ media=preferred?new MediaRecorder(stream,preferred):new MediaRecorder(stream);
+ const current=media;
+ current.ondataavailable=e=>{if(e.data&&e.data.size)parts.push(e.data)};
+ current.onerror=()=>{inform("Ошибка записи. Попробуй ещё раз.");finishRecording()};
+ current.onstop=()=>{
+   clearTimeout(recordTimer);recordTimer=null;
+   if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
+   q("record").disabled=false;q("stop").disabled=true;
+   if(token!==revision)return;
+   if(!parts.length){inform("Запись пустая. Попробуй ещё раз.");return}
+   ownURL=URL.createObjectURL(new Blob(parts,{type:current.mimeType||"audio/webm"}));
+   q("mine").src=ownURL;q("mine").load();
+   recordReady=true;playedBack=false;
+   inform("Запись готова! ▶ Сначала прослушай свой голос целиком и сравни с образцом Антона.");
+ };
+ current.start();
+ q("stop").disabled=false;inform("🔴 Идёт запись. Произнеси «"+exercises[i].ru+"», затем нажми «Остановить».");
+ recordTimer=setTimeout(()=>{if(current.state==="recording"){inform("Запись автоматически остановлена через 12 секунд.");finishRecording()}},12000);
+}catch(e){
+ if(acquired)acquired.getTracks().forEach(t=>t.stop());
+ q("record").disabled=false;q("stop").disabled=true;
+ inform(e.name==="NotAllowedError"?"Нет разрешения на микрофон. Разреши его в настройках браузера.":"Не удалось записать: "+e.message);
+}
+}
+q("record").addEventListener("click",startRecording);
+q("stop").addEventListener("click",()=>{finishRecording()});
+q("mine").addEventListener("ended",()=>{if(recordReady){playedBack=true;q("next").disabled=false;inform("Ты прослушал свою запись. Если «Р» звучит плохо, нажми «Записать ещё раз». Иначе можешь перейти дальше.")}});
+q("retry").addEventListener("click",()=>{revision++;finishRecording();cleanAudio();inform("Повтори слово ещё раз. Сначала послушай образец, потом запиши себя.")});
+q("next").addEventListener("click",()=>{if(!recordReady||!playedBack)return;i++;render()});
+q("restart").addEventListener("click",()=>{i=0;render()});
+window.addEventListener("pagehide",()=>{revision++;finishRecording();cleanAudio()});
+render();
+})();
+</script>
+</body></html>
