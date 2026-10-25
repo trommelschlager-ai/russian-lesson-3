@@ -230,7 +230,7 @@
   if(!document.getElementById("hotspots")||!document.getElementById("lessonList"))return;
   window.__lesson1SixColumnLoaderStarted=true;
   const script=document.createElement("script");
-  script.src="assets/lesson1-six-column-alphabet.js?v=20261025-single-letter-2";
+  script.src="assets/lesson1-six-column-alphabet.js?v=cat-circus-photo-20261025";
   script.async=false;
   document.head.append(script);
 })();
