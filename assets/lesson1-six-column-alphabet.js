@@ -95,6 +95,34 @@
    const hashMatch=location.hash.match(/^#letter-(\d+)$/);
    const initial=hashMatch?Math.max(0,Math.min(32,Number(hashMatch[1])-1)):0;
    select(initial,false);
+   
+// CC0 lesson-one photo replacements: only Кот and Цирк.
+// Keep the original local image as an offline/blocked-host fallback.
+// Licenses: https://commons.wikimedia.org/wiki/File:Orange_tabby_cat_closeup.jpg
+//           https://commons.wikimedia.org/wiki/File:Circus_tents.jpg
+(()=>{
+ const replacements=[
+  {letter:12,word:"Кот",url:"https://commons.wikimedia.org/wiki/Special:FilePath/Orange_tabby_cat_closeup.jpg?width=700",alt:"Кот — фотография рыжего кота"},
+  {letter:24,word:"Цирк",url:"https://commons.wikimedia.org/wiki/Special:FilePath/Circus_tents.jpg?width=700",alt:"Цирк — фотография настоящего цирка-шапито"}
+ ];
+ for(const photo of replacements){
+  const row=document.getElementById("letter-"+photo.letter);
+  const card=row?.querySelector(".examples > .ex:first-child");
+  if(!card||card.querySelector(".ex-word")?.textContent.trim()!==photo.word)continue;
+  const image=card.querySelector("img.photo");
+  if(!image)continue;
+  const previous=image.getAttribute("src");
+  // Avoid cross-origin failures becoming blank cards on students' phones.
+  image.onerror=()=>{
+   image.onerror=null;
+   image.src=previous;
+  };
+  image.alt=photo.alt;
+  image.src=photo.url;
+  image.setAttribute("data-image-source","Wikimedia Commons · CC0");
+ }
+})();
+
    window.__lesson1SingleLetterModeLoaded=true;
  })();
 })();
