@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#6753b4">
-<title>俄语问句练习 · Тренажёр вопросов</title>
+<title>俄语问句练习 · Строгая проверка текста речи</title>
 <meta name="description" content="练习俄语提问：说对才进入下一题。Без платного AI.">
 <style>
 :root{--ink:#283653;--muted:#6c7794;--edge:#e5deef;--purple:#8162d8;--pink:#c45fa7;--good:#157c51;--bad:#aa5262}
@@ -30,7 +30,7 @@ audio{width:100%;margin-top:13px;display:block}.status{padding:12px 13px;backgro
 <div class="eyebrow">ЗНАКОМСТВО · УСТНЫЕ ВОПРОСЫ · 初级俄语</div>
 <h1>🎯 Задай вопрос по-русски</h1>
 <p>说出正确的俄语问句才能进入下一题。</p>
-<p>Произнеси подготовленный вопрос. Правильно распознано → следующий; иначе повторяй текущий.</p>
+<p>Строгая проверка распознанного текста: две отдельные удачные попытки подряд → следующий вопрос.</p>
 </header>
 <section class="card">
 <div class="teacher-row">
@@ -40,6 +40,7 @@ audio{width:100%;margin-top:13px;display:block}.status{padding:12px 13px;backgro
 </section>
 <section class="card" id="exercise">
 <div class="progressline"><span id="step">Вопрос 1 из 7</span><span id="attempts">Попыток: 0</span></div>
+<div class="progressline" style="margin:7px 0 12px;color:#624b9f"><span>🔒 Строгая проверка · 严格模式</span><span id="streak" aria-live="polite">Голос: 0/2</span></div>
 <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="progressbar" aria-label="Прогресс"><div class="fill" id="progressfill"></div></div>
 <div class="prompt">
 <div class="helper" id="promptlabel">Спроси Маргариту · 请提问</div>
@@ -59,14 +60,14 @@ audio{width:100%;margin-top:13px;display:block}.status{padding:12px 13px;backgro
 <input id="typed" maxlength="180" autocomplete="off" placeholder="Если микрофон недоступен — введи фразу" aria-label="Введи вопрос по-русски">
 <button type="submit">Проверить текст</button>
 </form>
-<p class="note">Проверка текста — запасной вариант без микрофона. Она не проверяет устное произношение.</p>
+<p class="note">⌨ Письменная проверка — запасной вариант. Она переводит к следующему вопросу после совпадения текста, но <strong>не засчитывает голосовую тренировку</strong>.</p>
 </section>
 <section class="card hide done" id="finish">
 <h2>🎉 全部完成！Все вопросы пройдены!</h2>
 <p id="summary"></p>
 <button class="primary" id="restart" type="button">🔁 Начать заново · 再来一次</button>
 </section>
-<section class="card"><p class="note">🎤 При выборе Антона звучат мужские записи, при выборе Маргариты — женские. Это образцы вопросов; ответы преподавателя пока показываются текстом. </p><p class="note">⚠️ Это бесплатный тренажёр подготовленных вопросов, а не свободный разговор с AI. Программа сверяет текст, полученный из микрофона, с допустимыми русскими фразами. Она <strong>не измеряет точность звуков и ударения</strong>: распознавание речи может ошибаться даже при правильном произношении.</p><p class="note">📱 В Chrome на Android обычно доступны функции распознавания речи; встроенные браузеры мессенджеров могут их ограничивать. MP3 можно прослушать через отдельный проигрыватель.</p></section>
+<section class="card"><p class="note">🎤 При выборе Антона звучат мужские записи, при выборе Маргариты — женские. Это образцы вопросов; ответы преподавателя пока показываются текстом.</p><p class="note">🔒 В строгом режиме нужно <strong>дважды подряд</strong> произнести отображённую фразу в двух отдельных попытках. Любое дополнительное или пропущенное слово сбрасывает серию. При наличии достоверного значения уверенности распознавания ниже 85% попытка отклоняется.</p><p class="note">⚠️ Это <strong>не оценка русского произношения, акцента, ударения или отдельных звуков</strong>. Даже две удачные попытки означают только совпадение распознанного текста с образцом. Для оценки произношения потребуется специальный речевой анализ аудио.</p><p class="note">📱 В Chrome на Android обычно доступны функции распознавания речи; встроенные браузеры мессенджеров могут их ограничивать. MP3 можно прослушать через отдельный проигрыватель.</p></section>
 </main>
 <script>
 (function(){
@@ -94,12 +95,15 @@ anton:[
 };
 let items=decks.margarita;
 const recognitionAPI=window.SpeechRecognition||window.webkitSpeechRecognition;
-let teacher="margarita",idx=0,attempts=0,totalAttempts=0,pending=null,rec=null,listenMode=false,finished=false;
+let teacher="margarita",idx=0,attempts=0,totalAttempts=0,pending=null,rec=null,listenMode=false,finished=false,voiceStreak=0,voicePassed=0,textPassed=0;
+const REQUIRED_VOICE_PASSES=2;
+const MIN_RECOGNIZER_CONFIDENCE=0.85;
 const answers={
 margarita:["Меня зовут Маргарита.","Всё хорошо, спасибо!","Спасибо, всё отлично!","Да, я тебя понимаю.","Всё отлично!","Спасибо, у меня тоже всё хорошо.","У меня всё хорошо, спасибо!"],
 anton:["Меня зовут Антон.","Я из России.","Всё хорошо, спасибо!","Да, говорю.","Да, преподаю русский язык.","Да, готов!","Сегодня хорошая погода."]
 };
-function normalize(text){return String(text||"").toLocaleLowerCase("ru-RU").replace(/ё/g,"е").replace(/[^а-я\s]/g," ").replace(/\s+/g," ").trim()}
+function normalize(text){return String(text||"").toLocaleLowerCase("ru-RU").replace(/[^а-яё\s]/g," ").replace(/\s+/g," ").trim()}
+function updateStreak(){ $("streak").textContent="Голос: "+voiceStreak+"/"+REQUIRED_VOICE_PASSES; }
 function stopListening(){
  if(rec&&listenMode){try{rec.abort()}catch(e){}}
  listenMode=false;$("mic").classList.remove("listening");$("mic").textContent="🎤 Произнести вопрос · 开始说话";
@@ -131,11 +135,12 @@ function render(){
  if(idx>=items.length){
   finished=true;stopListening();stopAudio();
   $("exercise").classList.add("hide");$("finish").classList.remove("hide");
-  $("summary").textContent="Ты прошёл "+items.length+" вопросов за "+totalAttempts+" попыток. 你已经完成"+items.length+"个问题！";
+  $("summary").textContent="Завершено: "+items.length+" фраз; голосом: "+voicePassed+", текстом: "+textPassed+". Всего попыток: "+totalAttempts+". Две удачные попытки — это совпадение распознанного текста, не оценка произношения. 练习完成！";
   return;
  }
  $("exercise").classList.remove("hide");$("finish").classList.add("hide");
  const item=items[idx];
+ voiceStreak=0;updateStreak();
  $("step").textContent="Вопрос "+(idx+1)+" из "+items.length+" · 第"+(idx+1)+"题";
  $("progressbar").setAttribute("aria-valuenow",String(idx));
  $("progressfill").style.width=(100*idx/items.length)+"%";
@@ -143,32 +148,57 @@ function render(){
  $("promptlabel").textContent="Спроси "+(teacher==="anton"?"Антона":"Маргариту")+" · 请提问";
  $("phrase").textContent=item.ru;$("chinese").textContent=item.cn;$("latin").textContent=item.lat;
  $("typed").value="";$("transcript").textContent="";
- status("Произнеси фразу точно или используй правильный вариант.","只有识别正确才会进入下一题。");
+ status("Скажи показанную фразу два раза — отдельно, без лишних слов.","Сначала произнеси один раз, затем снова нажми микрофон и повтори. 需要连续两次识别一致。");
  $("mic").disabled=!recognitionAPI;
  if(!recognitionAPI)status("Микрофон недоступен в этом браузере.","Попробуй Chrome на Android. Можно проверить текстовый ответ.");
  loadAudio();
 }
-function check(text,kind){
- if(finished||pending)return;
- attempts++;totalAttempts++;$("attempts").textContent="Попыток: "+attempts;
- $("transcript").textContent=(kind==="voice"?"🎤 Распознано: ":"⌨ Введено: ")+text;
- const ok=items[idx].accepted.some(a=>normalize(a)===normalize(text));
- if(!ok){
-  status("❌ Пока не совпало — повтори этот же вопрос.","Эталон: «"+items[idx].ru+"». Распознавание может ошибаться; послушай образец и повтори.", "bad");
-  return;
- }
+function nextQuestion(mode){
  const saidTo=teacher==="anton"?"Антон":"Маргарита";
- status("✅ Верно! Переходим к следующему вопросу.","Ответ — "+saidTo+": «"+answers[teacher][idx]+"» · 很好，下一题！","good");
+ if(mode==="voice")voicePassed++;else textPassed++;
+ status(mode==="voice"?"✅ Два совпадения текста речи подряд!":"✅ Совпадение написанного текста.",
+ (mode==="voice"?"Это НЕ оценка акцента или произношения. ":"Голосовое произношение не проверялось. ")+
+ "Ответ — "+saidTo+": «"+answers[teacher][idx]+"» · 下一题！","good");
  $("mic").disabled=true;$("typed").disabled=true;$("typedform").querySelector("button").disabled=true;
  pending=setTimeout(()=>{
    pending=null;idx++;attempts=0;
    $("typed").disabled=false;$("typedform").querySelector("button").disabled=false;
    render();
- },2100);
+ },1900);
+}
+function check(text,kind,confidence){
+ if(finished||pending)return;
+ attempts++;totalAttempts++;$("attempts").textContent="Попыток: "+attempts;
+ const confOk=typeof confidence==="number"&&Number.isFinite(confidence)&&confidence>0&&confidence<=1;
+ const confLabel=kind==="voice"&&confOk?" · Уверенность распознавания: "+Math.round(confidence*100)+"%":"";
+ $("transcript").textContent=(kind==="voice"?"🎤 Распознано: ":"⌨ Введено: ")+text+confLabel;
+ // Only the reference sentence is acceptable; no synonyms or alternative word order.
+ const ok=normalize(items[idx].ru)===normalize(text);
+ if(!ok){
+  voiceStreak=0;updateStreak();
+  status("❌ Текст не совпал полностью. Серия сброшена.","Нужно сказать без лишних и пропущенных слов: «"+items[idx].ru+"». Слушай образец и повторяй.","bad");
+  return;
+ }
+ if(kind==="text"){
+  voiceStreak=0;updateStreak();
+  nextQuestion("text");
+  return;
+ }
+ if(confOk&&confidence<MIN_RECOGNIZER_CONFIDENCE){
+  voiceStreak=0;updateStreak();
+  status("⚠️ Распознавание неуверенное. Серия сброшена.","Браузер оценил уверенность распознавания текста в "+Math.round(confidence*100)+"% — порог 85%. Это не оценка правильности звуков.","bad");
+  return;
+ }
+ voiceStreak++;updateStreak();
+ if(voiceStreak<REQUIRED_VOICE_PASSES){
+  status("✓ Первое совпадение текста речи — 1 из 2.","Нажми микрофон ещё раз и повтори фразу отдельно. Пока вопрос не засчитан. Это не оценка произношения.","");
+  return;
+ }
+ nextQuestion("voice");
 }
 function choose(who){
  if(pending){clearTimeout(pending);pending=null;$("typed").disabled=false;$("typedform").querySelector("button").disabled=false}
- teacher=who;items=decks[who];idx=0;attempts=0;totalAttempts=0;stopListening();
+ teacher=who;items=decks[who];idx=0;attempts=0;totalAttempts=0;voiceStreak=0;voicePassed=0;textPassed=0;stopListening();
  document.querySelectorAll("[data-teacher]").forEach(b=>{const active=b.dataset.teacher===who;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active))});
  render();
  playAudio();
@@ -184,13 +214,13 @@ $("mic").addEventListener("click",()=>{
  rec=new recognitionAPI();const local=rec;
  rec.lang="ru-RU";rec.continuous=false;rec.interimResults=false;rec.maxAlternatives=1;
  rec.onstart=()=>{if(rec!==local)return;listenMode=true;$("mic").classList.add("listening");$("mic").textContent="🔴 Слушаю — остановить";status("Слушаю твой вопрос.","Говори по-русски — нажми кнопку ещё раз, чтобы остановить.")};
- rec.onresult=e=>{if(rec!==local)return;const heard=e.results[0][0].transcript;check(heard,"voice")};
+ let consumed=false;rec.onresult=e=>{if(rec!==local||consumed)return;consumed=true;const first=e.results[0][0];check(first.transcript,"voice",first.confidence)};
  rec.onerror=e=>{if(rec!==local)return;const errors={"not-allowed":"Нет разрешения на микрофон.","network":"Сервис распознавания недоступен по сети.","no-speech":"Речь не распознана — повтори.","audio-capture":"Микрофон не найден."};status("⚠️ "+(errors[e.error]||"Ошибка распознавания: "+e.error),"Повтори попытку или открой в Chrome.","bad")};
  rec.onend=()=>{if(rec!==local)return;listenMode=false;$("mic").classList.remove("listening");$("mic").textContent="🎤 Произнести вопрос · 开始说话"};
  try{rec.start()}catch(e){status("Не удалось включить микрофон.",e.message,"bad")}
 });
 $("typedform").addEventListener("submit",e=>{e.preventDefault();if(finished||pending)return;const value=$("typed").value.trim();if(value)check(value,"text")});
-$("restart").addEventListener("click",()=>{idx=0;attempts=0;totalAttempts=0;render()});
+$("restart").addEventListener("click",()=>{idx=0;attempts=0;totalAttempts=0;voiceStreak=0;voicePassed=0;textPassed=0;render()});
 render();
 })();
 </script>
