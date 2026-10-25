@@ -104,7 +104,7 @@
 (()=>{
  const replacements=[
   {letter:12,word:"Кот",url:"assets/lesson1-photos/cat-cc0-pexels.jpg",alt:"Кот — фотография рыжего кота"},
-  {letter:24,word:"Цирк",url:"https://commons.wikimedia.org/wiki/Special:FilePath/Circus_tents.jpg?width=700",alt:"Цирк — фотография настоящего цирка-шапито"}
+  {letter:24,word:"Цирк",url:"https://commons.wikimedia.org/wiki/Special:FilePath/Circus_tents.jpg?width=800",alt:"Цирк — фотография настоящего цирка-шапито"}
  ];
  for(const photo of replacements){
   const row=document.getElementById("letter-"+photo.letter);
@@ -112,7 +112,7 @@
   if(!card||card.querySelector(".ex-word")?.textContent.trim()!==photo.word)continue;
   const image=card.querySelector("img.photo");
   if(!image)continue;
-  const previous=image.getAttribute("src");
+  const previous=image.dataset.fallback || image.getAttribute("src");
   // Avoid cross-origin failures becoming blank cards on students' phones.
   image.onerror=()=>{
    image.onerror=null;

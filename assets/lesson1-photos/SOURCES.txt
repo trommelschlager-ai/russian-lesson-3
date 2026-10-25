@@ -9,3 +9,12 @@ cat-cc0-pexels.jpg
   Change: copied without modification; fitted with object-fit:contain
 
 The 33-letter lesson's original images and audio have not been deleted.
+
+Lesson 1 photo replacements (2026-10-25)
+Дом — locally held course image assets/images/58826ed131ae0b967d.jpg
+Шар — locally held course image assets/images/f3c0677bb400208930.jpg
+Кот — photo hosted locally (see source above)
+Гриб — https://commons.wikimedia.org/wiki/File:Boletus_edulis_one.jpg — CC0
+Ёж — https://commons.wikimedia.org/wiki/File:Hedgehog_on_grass_in_the_morning.jpg — CC0 (Pixabay)
+Цирк — https://commons.wikimedia.org/wiki/File:Circus_tents.jpg — CC0
+Remote photos keep the pre-existing image as an on-error fallback. For reliable loading in China, copy verified CC0 files into assets once available locally.
