@@ -230,7 +230,7 @@
   if(!document.getElementById("hotspots")||!document.getElementById("lessonList"))return;
   window.__lesson1SixColumnLoaderStarted=true;
   const script=document.createElement("script");
-  script.src="assets/lesson1-six-column-alphabet.js?v=lesson1-final-photo-links-20261025c";
+  script.src="assets/lesson1-six-column-alphabet.js?v=lesson1-compact-sticky-alphabet-20261026a";
   script.async=false;
   document.head.append(script);
 })();
