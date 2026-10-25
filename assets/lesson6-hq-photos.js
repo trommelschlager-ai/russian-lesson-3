@@ -9,9 +9,9 @@
   const root="assets/lesson6-approved/";
   const original="assets/lesson7-hq/";
   const sources={
-    man:root+"ivan.png",
-    woman:root+"woman.png",
-    family:root+"family.png",
+    man:root+"ivan.jpg",
+    woman:root+"woman.jpg",
+    family:root+"family.jpg",
     boy:"assets/illustrated/family-2.jpg",
     girl:"assets/illustrated/family-3.jpg"
   };
