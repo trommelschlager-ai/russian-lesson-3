@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Звук Р · 俄语发音练习</title>
+<title>俄语发音练习 · 俄语字母「Р」</title>
 <meta name="theme-color" content="#6c55ae">
 <style>
 :root{--ink:#293553;--muted:#737e95;--purple:#7258b7;--border:#e6def2;--green:#126c52}
@@ -44,50 +44,50 @@ hr{border:0;border-top:1px solid #ede7f5;margin:18px 0}
 </head>
 <body>
 <main>
-<a href="ai-question-practice.html">← Тренажёр вопросов · 返回练习</a>
+<a href="ai-question-practice.html">← 返回俄语口语练习</a>
 <header class="hero">
-<div class="top">俄语发音训练 · ЗВУК «Р»</div>
-<h1>🎯 Учимся произносить «Р»</h1>
-<p>听老师读 → 录下自己的声音 → 对比听 → 不满意就再录。</p>
-<p>Слушай образец Антона, записывай себя и сравнивай. Повторяй, пока сам не услышишь правильный звук.</p>
+<div class="top">俄语发音专项训练 · 字母「Р」</div>
+<h1>🎯 学会正确发出俄语「Р」音</h1>
+<p>听示范 → 录下自己的声音 → 对比发音 → 不满意就重新录制。</p>
+<p>先听安东老师的标准发音，再录下自己的声音进行对比。如果感觉发音不够准确，可以反复练习。</p>
 </header>
 <section class="panel">
-<div class="teacher"><img src="assets/teacher-anton-approved-portrait.png" alt="Одобренный портрет Антона"><div><h2>👨 安东 · Антон</h2><p class="muted">Нейросетевые MP3-образцы русского произношения · 标准俄语录音</p></div></div>
+<div class="teacher"><img src="assets/teacher-anton-approved-portrait.png" alt="安东老师头像"><div><h2>👨 安东 · Антон</h2><p class="muted">俄语标准发音示范（预录制的合成语音）</p></div></div>
 </section>
 <section class="panel" id="exercise">
-<div class="steps"><span id="step">Упражнение 1 из 5</span><span id="done">0 / 5</span></div>
+<div class="steps"><span id="step">第 1 题，共 5 题</span><span id="done">0 / 5</span></div>
 <div class="progress"><div class="fill" id="bar"></div></div>
 <div class="word">
 <div class="ru" id="word">Р</div>
 <div class="zh" id="chinese">俄语 R</div>
 <div class="latin" id="latin">Er</div>
 </div>
-<strong>1. 🔊 Сначала послушай образец · 听标准发音</strong>
-<audio id="sample" controls preload="none" aria-label="Образец русского произношения Антона"></audio>
-<strong>2. 🎤 Запиши своё произношение · 录自己的声音</strong>
+<strong>1. 🔊 听安东老师的标准发音</strong>
+<audio id="sample" controls preload="none" aria-label="安东老师的标准发音"></audio>
+<strong>2. 🎤 录下你自己的发音</strong>
 <div class="row">
-<button id="record" type="button" class="primary">🔴 Начать запись</button>
-<button id="stop" type="button" class="secondary" disabled>⏹ Остановить запись</button>
+<button id="record" type="button" class="primary">🔴 开始录音</button>
+<button id="stop" type="button" class="secondary" disabled>⏹ 结束录音</button>
 </div>
-<strong>3. 👂 Прослушай свою запись · 听自己的录音</strong>
-<audio id="mine" controls aria-label="Твоя запись" preload="none"></audio>
-<div class="status" id="status" role="status" aria-live="polite">Запись ещё не сделана. Разреши доступ к микрофону.</div>
+<strong>3. 👂 回听录音，与老师的发音对比</strong>
+<audio id="mine" controls aria-label="你自己的录音" preload="none"></audio>
+<div class="status" id="status" role="status" aria-live="polite">还没有录音。请允许浏览器使用麦克风。</div>
 <div class="row">
-<button id="retry" class="secondary" type="button">🔁 Записать ещё раз</button>
-<button id="next" class="green" type="button" disabled>✅ Сравнил с образцом → Далее</button>
+<button id="retry" class="secondary" type="button">🔁 重新录音</button>
+<button id="next" class="green" type="button" disabled>✅ 已对比发音 → 下一题</button>
 </div>
-<div class="notice">⚠️ Кнопка «Далее» доступна только после записи и её прослушивания до конца. <strong>Оценку правильности звука «Р» выбираешь ты сам.</strong> Это не автоматическая фонетическая экспертиза.</div>
+<div class="notice">⚠️ 必须先录音并完整听完自己的录音，才能点击“下一题”。<strong>目前由你自己判断「Р」音是否准确。</strong> 这个练习不会自动给发音打分。</div>
 </section>
 <section class="panel hide" id="finish">
-<h2>🎉 Все 5 упражнений пройдены!</h2>
-<p>Ты сравнил своё произношение с русскими аудиообразцами. Если звук «Р» ещё не получается — возвращайся и повторяй.</p>
-<button type="button" id="restart" class="primary">🔁 Начать заново</button>
+<h2>🎉 太棒了！5 道发音练习全部完成！</h2>
+<p>你已经把自己的发音和俄语示范录音进行了对比。如果「Р」音还不够准确，可以返回继续练习。</p>
+<button type="button" id="restart" class="primary">🔁 再练习一次</button>
 </section>
 <section class="panel notice">
-<h2>Как услышать правильную «Р»</h2>
-<p>В русском языке «р» обычно произносится с вибрацией кончика языка. Не заменяй её на «л» или английский звук R. Тренируй не только букву, но и «рука», «рыба», «река», «робот».</p>
-<p>🎧 Запись воспроизводится локально в браузере, не загружается на наш сайт и удаляется при закрытии вкладки. Для работы микрофона требуется HTTPS и поддержка записи браузером; в Telegram или WeChat может понадобиться открыть ссылку в Chrome.</p>
-<p><strong>Для автоматической оценки фонем</strong> понадобится отдельный сервис анализа произношения: распознавание текста не способно надёжно определять, правильно ли звучит «Р».</p>
+<h2>怎样发出正确的俄语「Р」音？</h2>
+<p>俄语「Р」通常需要让舌尖轻触上齿龈附近，并借助气流产生振动。注意，它不是中文拼音的 r，也不是英语的 r，更不能念成俄语的「Л」。除了单独练习字母，还要练习这些词：<strong>рука（手）、рыба（鱼）、река（河流）、робот（机器人）</strong>。</p>
+<p>🎧 你的录音只在当前浏览器中播放，<strong>不会上传到我们的网站</strong>，关闭页面后会被清除。麦克风功能需要安全的 HTTPS 连接及浏览器支持。如果在 Telegram 或微信内无法录音，请尝试使用 Chrome 打开页面。</p>
+<p><strong>关于自动评分：</strong>目前还没有接入专门的语音发音评估服务。普通语音识别可以猜出你说的单词，却不能可靠地判断「Р」是否发得准确。之后我们会考虑增加真正的发音评分功能。</p>
 </section>
 </main>
 <script>
@@ -119,23 +119,23 @@ revision++;finishRecording();cleanAudio();
 if(i>=exercises.length){q("exercise").classList.add("hide");q("finish").classList.remove("hide");return}
 q("finish").classList.add("hide");q("exercise").classList.remove("hide");
 const x=exercises[i];
-q("step").textContent="Упражнение "+(i+1)+" из "+exercises.length;
+q("step").textContent="第 "+(i+1)+" 题，共 "+exercises.length+" 题";
 q("done").textContent=i+" / "+exercises.length;
 q("bar").style.width=(i/exercises.length*100)+"%";
 q("word").textContent=x.ru;q("chinese").textContent=x.zh;q("latin").textContent=x.lat;
 q("sample").pause();q("sample").src=new URL(x.mp3,location.href).href;q("sample").load();
-inform("Шаг 1: послушай Антона. Шаг 2: запиши себя. Шаг 3: прослушай свою запись до конца.");
+inform("第 1 步：听安东老师的发音。第 2 步：录下自己的声音。第 3 步：完整回听并比较。");
 }
 async function startRecording(){
 if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||typeof MediaRecorder==="undefined"){
- inform("Этот браузер не поддерживает запись. Открой в Chrome на Android.");return
+ inform("当前浏览器不支持录音。请尝试使用安卓手机上的 Chrome 浏览器。");return
 }
 const token=++revision;
 q("record").disabled=true;
 q("stop").disabled=true;
 cleanAudio();
 q("sample").pause();
-inform("Запрашиваю разрешение на микрофон…");
+inform("正在请求麦克风使用权限……");
 let acquired=null;
 try{
  acquired=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
@@ -145,31 +145,31 @@ try{
  media=preferred?new MediaRecorder(stream,preferred):new MediaRecorder(stream);
  const current=media;
  current.ondataavailable=e=>{if(e.data&&e.data.size)parts.push(e.data)};
- current.onerror=()=>{inform("Ошибка записи. Попробуй ещё раз.");finishRecording()};
+ current.onerror=()=>{inform("录音时出现错误，请重新尝试。");finishRecording()};
  current.onstop=()=>{
    clearTimeout(recordTimer);recordTimer=null;
    if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
    q("record").disabled=false;q("stop").disabled=true;
    if(token!==revision)return;
-   if(!parts.length){inform("Запись пустая. Попробуй ещё раз.");return}
+   if(!parts.length){inform("没有录到声音，请重新尝试。");return}
    ownURL=URL.createObjectURL(new Blob(parts,{type:current.mimeType||"audio/webm"}));
    q("mine").src=ownURL;q("mine").load();
    recordReady=true;playedBack=false;
-   inform("Запись готова! ▶ Сначала прослушай свой голос целиком и сравни с образцом Антона.");
+   inform("录音完成！▶ 请先完整播放自己的录音，再与安东老师的示范进行对比。");
  };
  current.start();
- q("stop").disabled=false;inform("🔴 Идёт запись. Произнеси «"+exercises[i].ru+"», затем нажми «Остановить».");
- recordTimer=setTimeout(()=>{if(current.state==="recording"){inform("Запись автоматически остановлена через 12 секунд.");finishRecording()}},12000);
+ q("stop").disabled=false;inform("🔴 正在录音。请读出「"+exercises[i].ru+"」，然后点击“结束录音”。");
+ recordTimer=setTimeout(()=>{if(current.state==="recording"){inform("录音已在 12 秒后自动结束。");finishRecording()}},12000);
 }catch(e){
  if(acquired)acquired.getTracks().forEach(t=>t.stop());
  q("record").disabled=false;q("stop").disabled=true;
- inform(e.name==="NotAllowedError"?"Нет разрешения на микрофон. Разреши его в настройках браузера.":"Не удалось записать: "+e.message);
+ inform(e.name==="NotAllowedError"?"麦克风权限被拒绝。请在浏览器设置中允许使用麦克风。":"无法录音："+e.message);
 }
 }
 q("record").addEventListener("click",startRecording);
 q("stop").addEventListener("click",()=>{finishRecording()});
-q("mine").addEventListener("ended",()=>{if(recordReady){playedBack=true;q("next").disabled=false;inform("Ты прослушал свою запись. Если «Р» звучит плохо, нажми «Записать ещё раз». Иначе можешь перейти дальше.")}});
-q("retry").addEventListener("click",()=>{revision++;finishRecording();cleanAudio();inform("Повтори слово ещё раз. Сначала послушай образец, потом запиши себя.")});
+q("mine").addEventListener("ended",()=>{if(recordReady){playedBack=true;q("next").disabled=false;inform("你已经完整听完自己的录音。如果「Р」音不够准确，请点击“重新录音”；如果满意，可以进入下一题。")}});
+q("retry").addEventListener("click",()=>{revision++;finishRecording();cleanAudio();inform("再练习一次：先听老师的示范，再录下自己的声音。")});
 q("next").addEventListener("click",()=>{if(!recordReady||!playedBack)return;i++;render()});
 q("restart").addEventListener("click",()=>{i=0;render()});
 window.addEventListener("pagehide",()=>{revision++;finishRecording();cleanAudio()});
