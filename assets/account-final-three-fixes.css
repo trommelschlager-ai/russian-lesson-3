@@ -138,3 +138,38 @@ Only welcome header, calendar and lesson 4 icon. Keep original teacher faces and
  .wrap .v2-person{height:165px!important}
  .wrap .v2-person img,.wrap .v2-person.anton img{height:126px!important}
 }
+
+/* Full-photo teacher cards: fill available area; preserve original portrait pixels, attire and Chinese labels. */
+.wrap .v2-teachers .v2-person{
+  position:relative!important;
+  overflow:hidden!important;
+  background:linear-gradient(160deg,rgba(250,237,252,.49),rgba(90,136,211,.27))!important;
+}
+.wrap .v2-teachers .v2-person img,
+.wrap .v2-teachers .v2-person.anton img{
+  position:absolute!important;
+  top:0!important;right:auto!important;bottom:0!important;left:50%!important;
+  width:100%!important;height:100%!important;max-width:none!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center 17%!important;
+  transform:translateX(-50%) scale(1.08)!important;
+  transform-origin:center center!important;
+  -webkit-mask-image:none!important;mask-image:none!important;
+  filter:none!important;
+}
+.wrap .v2-teachers .v2-person:before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:39%;z-index:3;
+  background:linear-gradient(to top,rgba(16,31,83,.43),rgba(14,35,83,0));
+  pointer-events:none;
+}
+.wrap .v2-teachers .v2-person>span,
+.wrap .v2-teachers .v2-person small{z-index:7!important}
+@media(max-width:670px){
+  .wrap .v2-teachers .v2-person img,
+  .wrap .v2-teachers .v2-person.anton img{
+    width:100%!important;height:100%!important;
+    object-fit:cover!important;object-position:center 14%!important;
+    transform:translateX(-50%) scale(1.09)!important;
+  }
+}
