@@ -1,81 +1,90 @@
-/* Lesson 6 HQ imagery. Reuses existing full-resolution, lossless originals.
- * Only visual elements change. Audio, translation, buttons and exercises unchanged. */
-(() => {
+/* Lesson 6: user-approved portrait and family image replacements.
+ * The three new PNGs belong in assets/lesson6-approved/.
+ * Only replaces a picture after it has loaded; the existing picture remains otherwise.
+ * No audio, translations, lesson text or buttons are touched.
+ */
+(()=>{
   "use strict";
-  if (!document.body.classList.contains("lesson-6")) return;
-  const root = "assets/lesson7-hq/";
-  const imgPaths = {
-    man: root + "man.webp",
-    woman: root + "woman.webp",
-    boy: "assets/illustrated/family-2.jpg",
-    girl: "assets/illustrated/family-3.jpg"
+  if(!document.body.classList.contains("lesson-6"))return;
+  const root="assets/lesson6-approved/";
+  const original="assets/lesson7-hq/";
+  const sources={
+    man:root+"ivan.png",
+    woman:root+"woman.png",
+    family:root+"family.png",
+    boy:"assets/illustrated/family-2.jpg",
+    girl:"assets/illustrated/family-3.jpg"
   };
-  function newImage(key, alt) {
-    const img = document.createElement("img");
-    img.className = "l6hq-img";
-    img.src = imgPaths[key];
-    img.alt = alt || "";
-    img.loading = "lazy";
-    img.decoding = "async";
-    return img;
-  }
-  function mount(target, ids, label) {
-    if (!target) return;
-    const original = target.cloneNode(true);
-    const keys = Array.isArray(ids) ? ids : [ids];
-    const frame = document.createElement("span");
-    frame.className = "l6hq-frame" + (keys.length > 1 ? " l6hq-pair" : "");
-    frame.setAttribute("role","img");
-    frame.setAttribute("aria-label", label || "");
-    let fallback = false;
-    keys.forEach(key => {
-      const img = newImage(key, label);
-      img.alt = "";
-      img.addEventListener("error", () => {
-        if (!fallback && frame.isConnected) {
-          fallback = true;
-          frame.replaceWith(original);
-        }
-      }, {once: true});
-      frame.appendChild(img);
+  const fallbacks={
+    man:original+"man.webp",
+    woman:original+"woman.webp",
+    family:"assets/illustrated/lesson-6-hero.jpg",
+    boy:"assets/illustrated/family-2.jpg",
+    girl:"assets/illustrated/family-3.jpg"
+  };
+  const cache=new Map();
+  function load(key){
+    if(cache.has(key))return cache.get(key);
+    const promise=new Promise(resolve=>{
+      const a=new Image();a.onload=()=>resolve(sources[key]);a.onerror=()=>{
+        const b=new Image();b.onload=()=>resolve(fallbacks[key]);b.onerror=()=>resolve(null);
+        b.src=fallbacks[key];
+      };a.src=sources[key];
     });
+    cache.set(key,promise);return promise;
+  }
+  async function place(target,keys,label){
+    if(!target)return;
+    const chosen=Array.isArray(keys)?keys:[keys];
+    const urls=await Promise.all(chosen.map(load));
+    if(urls.some(u=>!u)||!target.isConnected)return;
+    const frame=document.createElement("span");
+    frame.className="l6hq-frame"+(chosen.length>1?" l6hq-pair":"");
+    frame.setAttribute("role","img");
+    frame.setAttribute("aria-label",label||"");
+    const originalNode=target.cloneNode(true);
+    let failed=false;
+    for(const src of urls){
+      const img=new Image();img.src=src;img.alt="";
+      img.className="l6hq-img";img.decoding="async";img.loading="lazy";
+      img.addEventListener("error",()=>{
+        if(!failed&&frame.isConnected){failed=true;frame.replaceWith(originalNode);}
+      },{once:true});
+      frame.append(img);
+    }
     target.replaceWith(frame);
   }
-  // Different role-specific pictures, preserving the lesson's existing text.
-  const familyWords = {
-    "родители": ["man", "woman"],
-    "муж": "man",
-    "жена": "woman",
-    "дети": ["boy", "girl"],
-    "друг": "man",
-    "подруга": "woman"
+  const words={
+    "родители":["man","woman"],
+    "муж":"man","жена":"woman",
+    "дети":["boy","girl"],"друг":"man","подруга":"woman"
   };
-  document.querySelectorAll("#upgrade-words6-grid .extra-card").forEach(card => {
-    const word = card.querySelector(".ru")?.textContent?.trim().toLowerCase();
-    if (!word || !familyWords[word]) return;
-    mount(card.querySelector(".extra-figure"), familyWords[word], word);
+  document.querySelectorAll("#upgrade-words6-grid .extra-card").forEach(card=>{
+    const key=card.querySelector(".ru")?.textContent.trim().toLowerCase();
+    if(words[key])place(card.querySelector(".extra-figure"),words[key],key);
   });
-  document.querySelectorAll("#extra-dialogue-6 img.extra-character").forEach(img => {
-    const original = img.getAttribute("src") || "";
-    const role = /dmitry/i.test(original) ? "man" : /svetlana/i.test(original) ? "woman" : null;
-    if (!role) return;
-    img.addEventListener("error", () => {if(img.src.indexOf(imgPaths[role])>=0)img.src=original}, {once: true});
-    img.src = imgPaths[role];
-    img.loading = "lazy";
-    img.decoding = "async";
-    img.width = 1254;
-    img.height = 1254;
+  // Approved family group picture for the vocabulary word Семья.
+  document.querySelectorAll("#extra-vocab-6 .extra-card").forEach(card=>{
+    const key=card.querySelector(".ru")?.textContent.trim().toLowerCase();
+    if(key==="семья")place(card.querySelector(".extra-figure-photo"),"family",key);
   });
-  const sentences = {
-    "Это мой брат.": "boy",
-    "Это моя сестра.": "girl",
-    "У меня есть брат.": "boy",
-    "Это моя семья.": ["man", "woman"],
-    "У меня нет детей.": ["boy", "girl"]
+  const sentenceArt={
+    "Это мой брат.":"boy",
+    "Это моя сестра.":"girl",
+    "У меня есть брат.":"boy",
+    "У меня нет детей.":["boy","girl"],
+    "Я люблю свою семью.":"family",
+    "Его зовут Иван.":"man",
+    "Это моя семья.":"family"
   };
-  document.querySelectorAll("#upgrade-sentences6-grid .extra-dialogue-line").forEach(card => {
-    const sentence = card.querySelector(".ru")?.textContent?.trim();
-    if (!sentence || !sentences[sentence]) return;
-    mount(card.querySelector(".upgrade-phrase-symbol"),sentences[sentence],sentence);
+  document.querySelectorAll("#upgrade-sentences6-grid .extra-dialogue-line").forEach(card=>{
+    const sentence=card.querySelector(".ru")?.textContent.trim();
+    if(sentenceArt[sentence])place(card.querySelector(".upgrade-phrase-symbol"),sentenceArt[sentence],sentence);
+  });
+  document.querySelectorAll("#extra-dialogue-6 img.extra-character, #upgrade-dialogue6-grid img.extra-character, .lesson-6 .mobile-dialogue-line img").forEach(img=>{
+    const source=img.getAttribute("src")||"";
+    const label=img.getAttribute("alt")||"";
+    const k=/dmitry/i.test(source+label)?"man":/svetlana/i.test(source+label)?"woman":null;
+    if(k)place(img,k,label);
   });
 })();
