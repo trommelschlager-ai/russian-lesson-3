@@ -45,11 +45,12 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid
 <div class="chat" id="chat" aria-live="polite"></div>
 <div class="controls">
 <button class="mainbtn" id="mic" type="button">🎤 Сказать по-русски</button>
-<button class="button" id="sample" type="button">🔊 Проверить голос</button>
+<button class="button" id="sample" type="button">🔊 Проверить голос Маргариты</button>
 <button class="button" id="stop" type="button">⏹ Остановить звук</button>
 </div>
 <audio id="audio-preview" controls preload="none" style="display:block;width:100%;margin-top:11px" aria-label="Русская аудиозапись"></audio>
-<p class="note">Если звук не запустился автоматически, нажми ▶ в проигрывателе выше. В Telegram: ⋯ → Открыть в браузере → Chrome.</p>
+<p id="audio-status" class="note">Голос: Маргарита — русский женский.</p>
+<p class="note">После выбора Антона появится его сообщение и мужская MP3-запись. Если звук не запустился, нажми ▶ в плеере выше. В Telegram: ⋯ → Открыть в браузере → Chrome.</p>
 <p id="notice" role="status">Нажми «Проверить голос» — это работает даже без AI-сервера.</p>
 <label class="note"><input type="checkbox" id="autospeak" checked> Автоматически читать ответ вслух · 自动朗读</label>
 <form class="inputrow" id="composer"><input id="message" maxlength="320" placeholder="Например: Меня зовут Ли" aria-label="Напишите по-русски" autocomplete="off" required><button class="send" id="send" type="submit">Отправить</button></form>
@@ -76,7 +77,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid
 const $=id=>document.getElementById(id);
 const teachers={
 svetlana:{name:"Маргарита",img:"assets/teacher-margarita-approved-portrait.png",sample:"Привет! Как дела?",cn:"你好！你好吗？"},
-dmitry:{name:"Антон",img:"assets/teacher-anton-approved-portrait.png",sample:"Здравствуйте! Как Вас зовут?",cn:"您好！您叫什么名字？"}
+dmitry:{name:"Антон",img:"assets/teacher-anton-approved-portrait.png",sample:"Привет!",cn:"你好！"}
 };
 const KEY="russian-tutor-worker-url-v1";
 let teacher="svetlana",base="",connected=false,busy=false,listening=false,used=0;
@@ -85,18 +86,40 @@ const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
 let rec=null;
 function notify(msg){$("notice").textContent=msg}
 function state(yes){connected=Boolean(yes);$("status").textContent=yes?"🟢 Настоящий AI":"🟠 Демо без AI";$("status").classList.toggle("ready",Boolean(yes))}
-function teacherChoose(value){teacher=value;document.querySelectorAll("[data-teacher]").forEach(el=>{const on=el.dataset.teacher===value;el.classList.toggle("active",on);el.setAttribute("aria-pressed",String(on))});notify(teachers[value].name+" выбран · 已选择老师")}
+function teacherChoose(value){
+ if(busy){notify("Дождись ответа перед переключением преподавателя.");return}
+ if(value!==teacher){
+   teacher=value;history.length=0;
+   player.pause();if(window.speechSynthesis)window.speechSynthesis.cancel();
+   $("chat").replaceChildren();
+   add("assistant",teachers[value].sample+"\n"+teachers[value].cn,value,teachers[value].sample);
+   // Teacher selection is a user click, so this also authorizes MP3 playback in mobile browsers.
+   say(teachers[value].sample,value);
+ }
+ document.querySelectorAll("[data-teacher]").forEach(el=>{
+   const on=el.dataset.teacher===value;
+   el.classList.toggle("active",on);
+   el.setAttribute("aria-pressed",String(on));
+ });
+ $("sample").textContent="🔊 Проверить голос "+teachers[value].name;
+ notify("Выбран преподаватель "+teachers[value].name+". Его MP3-запись доступна в проигрывателе ниже.");
+}
 document.querySelectorAll("[data-teacher]").forEach(b=>b.addEventListener("click",()=>teacherChoose(b.dataset.teacher)));
 const player=$("audio-preview");
+player.addEventListener("playing",()=>{$("audio-status").textContent="▶️ "+(player.dataset.speaker||"Запись")+" — MP3 воспроизводится";});
+player.addEventListener("error",()=>{notify("Ошибка загрузки MP3. Открой в Chrome, затем нажми «Проверить голос» снова.");$("audio-status").textContent="⚠️ Запись не загрузилась";});
 let playingToken=0;
 function say(s,selected=teacher){
 const text=String(s).split(/\r?\n/)[0].trim();
 const role=selected==="svetlana"?"female":"male";
-const src=window.COURSE_AUDIO&&window.COURSE_AUDIO[role+"|"+text];
+const recorded=window.COURSE_AUDIO&&window.COURSE_AUDIO[role+"|"+text];
+const src=recorded||(selected==="dmitry"&&text==="Привет!"?"audio/lesson-3/male-b2b11afc89e6.mp3":null);
 playingToken++;
 if(window.speechSynthesis)window.speechSynthesis.cancel();
 player.pause();
 if(src){
+player.dataset.speaker=teachers[selected].name+" ("+(selected==="dmitry"?"мужской голос":"женский голос")+")";
+$("audio-status").textContent="🔊 Загружается запись: "+teachers[selected].name;
 player.src=new URL(src,location.href).href;
 player.load();
 const p=player.play();
@@ -105,7 +128,7 @@ return;
 }
 player.removeAttribute("src");
 player.load();
-if(!window.speechSynthesis||!window.SpeechSynthesisUtterance){notify("Нет готовой MP3-записи этой фразы, а встроенная озвучка недоступна. Для нового AI-текста нужен серверный голос.");return}
+if(!window.speechSynthesis||!window.SpeechSynthesisUtterance){notify("Нет готовой MP3-записи этой фразы, а встроенная озвучка недоступна. Для нового AI-текста нужен серверный голос.");$("audio-status").textContent="Нет записанного MP3 для этой фразы";return}
 const utter=new window.SpeechSynthesisUtterance(text);
 utter.lang="ru-RU";
 utter.rate=.86;
