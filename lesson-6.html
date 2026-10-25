@@ -45,6 +45,50 @@
 .lesson-6 .upgrade-block .extra-dialogue-line{grid-template-columns:135px minmax(0,1fr)}
 .lesson-6 .upgrade-block img.extra-character{width:130px!important;height:138px!important;object-fit:cover}
 @media(max-width:690px){.lesson-6 .upgrade-block .extra-dialogue-line{grid-template-columns:120px minmax(0,1fr)!important}.lesson-6 .upgrade-block img.extra-character{width:116px!important;height:122px!important}}
+
+/* Lesson 6 mobile-safe high-resolution pictures, independently scoped. */
+.lesson-6 #upgrade-words6-grid.extra-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.lesson-6 #upgrade-words6-grid .extra-card{min-width:0;padding:12px;overflow:hidden}
+.lesson-6 #upgrade-words6-grid .extra-figure,
+.lesson-6 #upgrade-words6-grid .l6hq-frame{width:100%;max-width:250px;height:auto;aspect-ratio:1 / 1;border-radius:16px;flex:none;margin-inline:auto}
+.lesson-6 .l6hq-frame{display:flex;align-items:stretch;justify-content:center;min-width:0;overflow:hidden;border-radius:14px;background:#eee9f8;border:1px solid #ddd7ee}
+.lesson-6 .l6hq-frame .l6hq-img{display:block;min-width:0;flex:1 1 100%;width:100%;height:100%;object-fit:cover;object-position:center}
+.lesson-6 .l6hq-frame.l6hq-pair .l6hq-img{flex:1 1 50%;width:50%;object-fit:cover}
+.lesson-6 #extra-dialogue-6.extra-dialogue-grid,
+.lesson-6 #upgrade-sentences6-grid.extra-dialogue-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.lesson-6 #extra-dialogue-6 .extra-dialogue-line,
+.lesson-6 #upgrade-sentences6-grid .extra-dialogue-line{grid-template-columns:112px minmax(0,1fr);min-width:0;gap:12px;align-items:start;padding:13px;overflow:hidden}
+.lesson-6 #extra-dialogue-6 .extra-dialogue-line>div:last-child,
+.lesson-6 #upgrade-sentences6-grid .extra-dialogue-line>div:last-child{min-width:0;max-width:100%}
+.lesson-6 #extra-dialogue-6 img.extra-character{display:block;width:112px!important;max-width:100%;height:128px!important;object-fit:cover;object-position:center;border-radius:14px;min-width:0}
+.lesson-6 #upgrade-sentences6-grid .upgrade-phrase-symbol,
+.lesson-6 #upgrade-sentences6-grid .l6hq-frame{width:112px!important;min-width:0!important;height:128px!important;max-width:100%;aspect-ratio:auto;font-size:0!important;flex:none;align-self:start}
+.lesson-6 #extra-dialogue-6 .ru,
+.lesson-6 #upgrade-sentences6-grid .ru{font-size:clamp(20px,2.4vw,27px);overflow-wrap:anywhere;word-break:normal;line-height:1.25}
+.lesson-6 #extra-dialogue-6 .latin,
+.lesson-6 #upgrade-sentences6-grid .latin,
+.lesson-6 #extra-dialogue-6 .zh,
+.lesson-6 #upgrade-sentences6-grid .zh{overflow-wrap:anywhere;line-height:1.4}
+.lesson-6 #extra-dialogue-6 button,
+.lesson-6 #upgrade-sentences6-grid button{max-width:100%}
+@media(max-width:760px){
+ .lesson-6 #upgrade-words6-grid.extra-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .lesson-6 #upgrade-words6-grid .extra-card{padding:10px 7px}
+ .lesson-6 #upgrade-words6-grid .extra-figure,.lesson-6 #upgrade-words6-grid .l6hq-frame{max-width:none}
+ .lesson-6 #extra-dialogue-6.extra-dialogue-grid,
+ .lesson-6 #upgrade-sentences6-grid.extra-dialogue-grid{grid-template-columns:1fr}
+ .lesson-6 #extra-dialogue-6 .extra-dialogue-line,
+ .lesson-6 #upgrade-sentences6-grid .extra-dialogue-line{grid-template-columns:112px minmax(0,1fr);gap:12px;padding:12px}
+ .lesson-6 #extra-dialogue-6 .ru,.lesson-6 #upgrade-sentences6-grid .ru{font-size:clamp(21px,5vw,26px)}
+}
+@media(max-width:390px){
+ .lesson-6 #extra-dialogue-6 .extra-dialogue-line,
+ .lesson-6 #upgrade-sentences6-grid .extra-dialogue-line{grid-template-columns:94px minmax(0,1fr);gap:9px;padding:9px}
+ .lesson-6 #extra-dialogue-6 img.extra-character{width:94px!important;height:104px!important}
+ .lesson-6 #upgrade-sentences6-grid .upgrade-phrase-symbol,
+ .lesson-6 #upgrade-sentences6-grid .l6hq-frame{width:94px!important;height:104px!important}
+ .lesson-6 #extra-dialogue-6 .ru,.lesson-6 #upgrade-sentences6-grid .ru{font-size:20px}
+}
 </style></head>
 <body class="new-lesson illustrated-lesson lesson-6"><main class="illustrated-page">
 <header class="lesson-hero"><img alt="第6课：我的家人 · Моя семья · 介绍自己的家人。" height="368" src="assets/illustrated/lesson-6-hero.jpg" width="1024"/><h1 class="sr-only">我的家人 · Моя семья</h1></header>
@@ -132,4 +176,4 @@ render();
 document.querySelectorAll('[data-family-audio]').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.familyAudio;if(window.CourseAudio?.play)window.CourseAudio.play([{text:t,role:'male'}]);else{status.textContent='音频尚未加载，请刷新页面。'}}));
 })();
 </script>
-<script src="assets/lesson67-photo-upgrade.js?v=20261025-approved-v3"></script></body></html>
+<script src="assets/lesson6-hq-photos.js?v=20261025-hq1"></script></body></html>
