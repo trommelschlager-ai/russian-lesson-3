@@ -230,7 +230,7 @@
   if(!document.getElementById("hotspots")||!document.getElementById("lessonList"))return;
   window.__lesson1SixColumnLoaderStarted=true;
   const script=document.createElement("script");
-  script.src="assets/lesson1-six-column-alphabet.js?v=cat-circus-photo-20261025";
+  script.src="assets/lesson1-six-column-alphabet.js?v=lesson1-local-photo-fit-20261025b";
   script.async=false;
   document.head.append(script);
 })();
