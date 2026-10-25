@@ -1,0 +1,11 @@
+LESSON 1 / Russian alphabet photo sources
+
+cat-cc0-pexels.jpg
+  Subject: Кот (orange / white domestic cat)
+  Origin: https://www.pexels.com/photo/close-up-photo-of-yellow-and-white-cat-57416/
+  Photographer/source: Pixabay
+  License: CC0 1.0, public-domain dedication (see upstream source repo)
+  GitHub donor: https://github.com/brandon-whitman-orlin/cats/blob/main/images/cat6.jpg
+  Change: copied without modification; fitted with object-fit:contain
+
+The 33-letter lesson's original images and audio have not been deleted.
