@@ -12,6 +12,7 @@ License: https://www.pexels.com/license/ (commercial educational website use all
 - tea.webp: https://www.pexels.com/photo/230477/
 - juice.webp: https://www.pexels.com/photo/33173889/
 - forest.webp: https://www.pexels.com/photo/32877447/
+- nose.webp: https://www.pexels.com/photo/7479592/
 - brush.webp: https://www.pexels.com/photo/7484885/
 
 ## Existing approved photographs copied locally — CC0
