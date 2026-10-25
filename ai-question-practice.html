@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6753b4">
+<title>俄语问句练习 · Тренажёр вопросов</title>
+<meta name="description" content="练习俄语提问：说对才进入下一题。Без платного AI.">
+<style>
+:root{--ink:#283653;--muted:#6c7794;--edge:#e5deef;--purple:#8162d8;--pink:#c45fa7;--good:#157c51;--bad:#aa5262}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;}body{background:radial-gradient(at 5% 0%,#eee8ff,#fff9f4 55%,#e9efff);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Microsoft Yahei","Segoe UI",sans-serif;}
+main{max-width:740px;margin:0 auto;padding:15px 11px 38px}.back{display:inline-block;margin:7px 5px 15px;color:#6f59af;text-decoration:none;font-weight:750}
+.hero,.card{background:#fffefd;border:1px solid var(--edge);border-radius:23px;box-shadow:0 8px 25px #24335412}.hero{padding:22px;background:linear-gradient(110deg,#fffcf9ef,#f0e9ffef),url("assets/illustrated/lesson-4-hero.jpg") center/cover}
+.eyebrow{font-size:11px;letter-spacing:1.6px;font-weight:800;color:#99679d}h1{font-family:Georgia,"Noto Serif SC",serif;line-height:1.15;font-size:clamp(27px,6vw,40px);margin:12px 0 6px}.hero p{color:#6c7791;margin:4px 0}.card{margin-top:14px;padding:17px}
+.teacher-row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.teacher{border:2px solid #e4dcea;background:#faf9fc;color:var(--ink);display:flex;align-items:center;text-align:left;gap:9px;border-radius:16px;padding:9px;cursor:pointer}.teacher.active{border-color:var(--purple);background:#f1ebff;box-shadow:0 0 0 3px #eae0ff}.teacher img{width:54px;height:54px;border-radius:50%;object-fit:cover;object-position:center 24%;flex-shrink:0}.teacher strong{display:block;font-size:13px}.teacher small{display:block;color:var(--muted);font-size:11px}
+.progressline{display:flex;justify-content:space-between;align-items:center;gap:9px;font-size:13px;font-weight:750}.bar{height:11px;border-radius:15px;background:#ede6f5;overflow:hidden;margin:11px 0 18px}.fill{width:0;height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));transition:width .3s}
+.prompt{padding:17px 13px;text-align:center;border-radius:18px;background:linear-gradient(145deg,#f8f2ff,#f4f8ff);border:1px solid #e9e1f3}.prompt .helper{font-size:14px;color:var(--muted);margin-bottom:7px}.prompt .ru{font-size:clamp(25px,6.5vw,36px);line-height:1.3;font-weight:820;color:#2d376b}.prompt .cn{font-size:17px;color:#72608b;margin-top:8px}.prompt .latin{font-size:13px;color:#9686a2;margin-top:4px}
+.action-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.primary,.secondary{font:inherit;border:0;border-radius:13px;padding:13px 16px;font-weight:790;cursor:pointer}.primary{background:linear-gradient(110deg,var(--purple),var(--pink));color:#fff;flex:1;min-width:180px}.primary.listening{background:#c34066;box-shadow:0 0 0 4px #f6dbe3}.secondary{background:#fff;color:#6a56ab;border:1px solid #dcd3e9}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #a46afa;outline-offset:2px}button:disabled{opacity:.55;cursor:not-allowed}
+audio{width:100%;margin-top:13px;display:block}.status{padding:12px 13px;background:#f7f5fb;border:1px solid #ebe6f0;border-radius:13px;min-height:75px;margin-top:15px;color:#5b6179}.status.good{background:#eafaf1;border-color:#bde8ce;color:var(--good)}.status.bad{background:#fff3f3;border-color:#f2d6d7;color:var(--bad)}.status strong{display:block}.status small{display:block;margin-top:5px;font-size:12px}
+.transcript{margin-top:9px;color:#646f89;font-size:13px;min-height:22px}.inputrow{display:flex;gap:8px;margin-top:15px}.inputrow input{flex:1;min-width:0;border-radius:12px;border:1px solid #dcd3e9;padding:12px;font:inherit}.inputrow button{border:0;background:#775dc4;color:#fff;font-weight:700;padding:10px 14px;border-radius:12px}
+.note{font-size:12px;color:var(--muted);margin:9px 0}.done{padding:22px;text-align:center}.done h2{font-size:26px;color:#5963a5}.done p{color:#65728c}.hide{display:none!important}
+@media(max-width:480px){main{padding:10px 8px 26px}.hero,.card{padding:13px}.teacher{padding:7px;gap:5px}.teacher img{width:44px;height:44px}.teacher strong{font-size:12px}.teacher small{font-size:10px}.prompt{padding:15px 8px}.primary,.secondary{padding:12px 10px;font-size:13px}}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="ai-voice-tutor-test.html">← Вернуться к голосовому тесту · 返回语音测试</a>
+<header class="hero">
+<div class="eyebrow">ЗНАКОМСТВО · УСТНЫЕ ВОПРОСЫ · 初级俄语</div>
+<h1>🎯 Задай вопрос по-русски</h1>
+<p>说出正确的俄语问句才能进入下一题。</p>
+<p>Произнеси подготовленный вопрос. Правильно распознано → следующий; иначе повторяй текущий.</p>
+</header>
+<section class="card">
+<div class="teacher-row">
+<button class="teacher active" id="margarita" data-teacher="margarita" type="button" aria-pressed="true"><img src="assets/teacher-margarita-approved-portrait.png" alt=""><span><strong>玛格丽塔 · Маргарита</strong><small>练习对话 · Практика</small></span></button>
+<button class="teacher" id="anton" data-teacher="anton" type="button" aria-pressed="false"><img src="assets/teacher-anton-approved-portrait.png" alt=""><span><strong>安东 · Антон</strong><small>练习对话 · Практика</small></span></button>
+</div>
+</section>
+<section class="card" id="exercise">
+<div class="progressline"><span id="step">Вопрос 1 из 7</span><span id="attempts">Попыток: 0</span></div>
+<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="progressbar" aria-label="Прогресс"><div class="fill" id="progressfill"></div></div>
+<div class="prompt">
+<div class="helper" id="promptlabel">Спроси Маргариту · 请提问</div>
+<div class="ru" id="phrase">Как тебя зовут?</div>
+<div class="cn" id="chinese">你叫什么名字？</div>
+<div class="latin" id="latin">Kak tebya zovut?</div>
+</div>
+<div class="action-row">
+<button class="primary" id="mic" type="button">🎤 Произнести вопрос · 开始说话</button>
+<button class="secondary" id="listen" type="button">🔊 Слушать образец</button>
+</div>
+<audio id="player" controls preload="none" aria-label="Эталонное произношение вопроса"></audio>
+<div id="status" class="status" role="status" aria-live="polite"><strong>Нажми микрофон и произнеси вопрос.</strong><small>如果识别不准确，请重试。</small></div>
+<div class="transcript" id="transcript"></div>
+<form class="inputrow" id="typedform">
+<input id="typed" maxlength="180" autocomplete="off" placeholder="Если микрофон недоступен — введи фразу" aria-label="Введи вопрос по-русски">
+<button type="submit">Проверить текст</button>
+</form>
+<p class="note">Проверка текста — запасной вариант без микрофона. Она не проверяет устное произношение.</p>
+</section>
+<section class="card hide done" id="finish">
+<h2>🎉 全部完成！Все вопросы пройдены!</h2>
+<p id="summary"></p>
+<button class="primary" id="restart" type="button">🔁 Начать заново · 再来一次</button>
+</section>
+<section class="card"><p class="note">⚠️ Это бесплатный тренажёр подготовленных вопросов, а не свободный разговор с AI. Программа сверяет текст, полученный из микрофона, с допустимыми русскими фразами. Она <strong>не измеряет точность звуков и ударения</strong>: распознавание речи может ошибаться даже при правильном произношении.</p><p class="note">📱 В Chrome на Android обычно доступны функции распознавания речи; встроенные браузеры мессенджеров могут их ограничивать. MP3 можно прослушать через отдельный проигрыватель.</p></section>
+</main>
+<script>
+(function(){
+"use strict";
+const $=(id)=>document.getElementById(id);
+const items=[
+{ru:"Как тебя зовут?",cn:"你叫什么名字？",lat:"Kak tebya zovut?",file:"audio/lesson4-final/female-462ae0c3f5e0.mp3",accepted:["Как тебя зовут?","А как тебя зовут?"]},
+{ru:"Откуда ты?",cn:"你来自哪里？",lat:"Otkuda ty?",file:"audio/lesson4-final/male-b1567cd1bfcd.mp3",accepted:["Откуда ты?","А откуда ты?"]},
+{ru:"Привет! Как дела?",cn:"你好！最近怎么样？",lat:"Privet! Kak dela?",file:"audio/lesson-3/female-d75879782123.mp3",accepted:["Привет! Как дела?","Привет, как у тебя дела?","А как у тебя дела?","Как у тебя дела?"]},
+{ru:"Ты говоришь по-русски?",cn:"你会说俄语吗？",lat:"Ty govorish po-russki?",file:"audio/lesson4-final/male-b55ec6542112.mp3",accepted:["Ты говоришь по-русски?","Ты говоришь на русском?"]},
+{ru:"Вы изучаете русский язык?",cn:"您在学习俄语吗？",lat:"Vy izuchayete russkiy yazyk?",file:"audio/lesson-3/male-84476d7f9f1b.mp3",accepted:["Вы изучаете русский язык?","Вы учите русский язык?"]},
+{ru:"Вы готовы к уроку?",cn:"您准备好上课了吗？",lat:"Vy gotovy k uroku?",file:"audio/lesson-3/male-0bd248224796.mp3",accepted:["Вы готовы к уроку?","Ты готов к уроку?","Ты готова к уроку?"]},
+{ru:"Какая сегодня погода?",cn:"今天天气怎么样？",lat:"Kakaya segodnya pogoda?",file:"audio/lesson4-final/male-753655db5552.mp3",accepted:["Какая сегодня погода?","Какая погода сегодня?"]}
+];
+const recognitionAPI=window.SpeechRecognition||window.webkitSpeechRecognition;
+let teacher="margarita",idx=0,attempts=0,totalAttempts=0,pending=null,rec=null,listenMode=false,finished=false;
+const answers={
+margarita:["Меня зовут Маргарита.","Я из России.","Всё хорошо, спасибо!","Да, я говорю по-русски.","Я преподаю русский язык.","Да, я готова!","Давай поговорим о погоде."],
+anton:["Меня зовут Антон.","Я из России.","Всё хорошо, спасибо!","Да, я говорю по-русски.","Я преподаю русский язык.","Да, я готов!","Давай поговорим о погоде."]
+};
+function normalize(text){return String(text||"").toLocaleLowerCase("ru-RU").replace(/ё/g,"е").replace(/[^а-я\s]/g," ").replace(/\s+/g," ").trim()}
+function stopListening(){
+ if(rec&&listenMode){try{rec.abort()}catch(e){}}
+ listenMode=false;$("mic").classList.remove("listening");$("mic").textContent="🎤 Произнести вопрос · 开始说话";
+}
+function stopAudio(){try{$("player").pause()}catch(e){}}
+function status(head,detail,kind){
+ const node=$("status");node.className="status"+(kind?" "+kind:"");
+ node.replaceChildren();
+ const strong=document.createElement("strong");strong.textContent=head;
+ const small=document.createElement("small");small.textContent=detail;
+ node.append(strong,small);
+}
+function loadAudio(){const p=$("player");stopAudio();p.src=new URL(items[idx].file,location.href).href;p.load()}
+function render(){
+ clearTimeout(pending);pending=null;finished=false;
+ if(idx>=items.length){
+  finished=true;stopListening();stopAudio();
+  $("exercise").classList.add("hide");$("finish").classList.remove("hide");
+  $("summary").textContent="Ты прошёл "+items.length+" вопросов за "+totalAttempts+" попыток. 你已经完成"+items.length+"个问题！";
+  return;
+ }
+ $("exercise").classList.remove("hide");$("finish").classList.add("hide");
+ const item=items[idx];
+ $("step").textContent="Вопрос "+(idx+1)+" из "+items.length+" · 第"+(idx+1)+"题";
+ $("progressbar").setAttribute("aria-valuenow",String(idx));
+ $("progressfill").style.width=(100*idx/items.length)+"%";
+ $("attempts").textContent="Попыток: "+attempts;
+ $("promptlabel").textContent="Спроси "+(teacher==="anton"?"Антона":"Маргариту")+" · 请提问";
+ $("phrase").textContent=item.ru;$("chinese").textContent=item.cn;$("latin").textContent=item.lat;
+ $("typed").value="";$("transcript").textContent="";
+ status("Произнеси фразу точно или используй правильный вариант.","只有识别正确才会进入下一题。");
+ $("mic").disabled=!recognitionAPI;
+ if(!recognitionAPI)status("Микрофон недоступен в этом браузере.","Попробуй Chrome на Android. Можно проверить текстовый ответ.");
+ loadAudio();
+}
+function check(text,kind){
+ if(finished||pending)return;
+ attempts++;totalAttempts++;$("attempts").textContent="Попыток: "+attempts;
+ $("transcript").textContent=(kind==="voice"?"🎤 Распознано: ":"⌨ Введено: ")+text;
+ const ok=items[idx].accepted.some(a=>normalize(a)===normalize(text));
+ if(!ok){
+  status("❌ Пока не совпало — повтори этот же вопрос.","Эталон: «"+items[idx].ru+"». Распознавание может ошибаться; послушай образец и повтори.", "bad");
+  return;
+ }
+ const saidTo=teacher==="anton"?"Антон":"Маргарита";
+ status("✅ Верно! Переходим к следующему вопросу.","Ответ — "+saidTo+": «"+answers[teacher][idx]+"» · 很好，下一题！","good");
+ $("mic").disabled=true;$("typed").disabled=true;$("typedform").querySelector("button").disabled=true;
+ pending=setTimeout(()=>{
+   pending=null;idx++;attempts=0;
+   $("typed").disabled=false;$("typedform").querySelector("button").disabled=false;
+   render();
+ },2100);
+}
+function choose(who){
+ if(pending){clearTimeout(pending);pending=null;$("typed").disabled=false;$("typedform").querySelector("button").disabled=false}
+ teacher=who;idx=0;attempts=0;totalAttempts=0;stopListening();
+ document.querySelectorAll("[data-teacher]").forEach(b=>{const active=b.dataset.teacher===who;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active))});
+ render();
+}
+document.querySelectorAll("[data-teacher]").forEach(b=>b.addEventListener("click",()=>choose(b.dataset.teacher)));
+$("listen").addEventListener("click",()=>{
+ if(finished)return;
+ const player=$("player");const play=player.play();
+ if(play&&typeof play.catch==="function")play.catch(e=>status("Не удалось автоматически включить запись.","Нажми ▶ в проигрывателе или открой страницу в Chrome. "+e.message,"bad"));
+});
+$("player").addEventListener("error",()=>{if(!finished)status("Не удалось загрузить MP3.","Проверь интернет и открой страницу снова.","bad")});
+$("mic").addEventListener("click",()=>{
+ if(finished||pending||!recognitionAPI)return;
+ if(listenMode){stopListening();return}
+ stopAudio();
+ rec=new recognitionAPI();const local=rec;
+ rec.lang="ru-RU";rec.continuous=false;rec.interimResults=false;rec.maxAlternatives=1;
+ rec.onstart=()=>{if(rec!==local)return;listenMode=true;$("mic").classList.add("listening");$("mic").textContent="🔴 Слушаю — остановить";status("Слушаю твой вопрос.","Говори по-русски — нажми кнопку ещё раз, чтобы остановить.")};
+ rec.onresult=e=>{if(rec!==local)return;const heard=e.results[0][0].transcript;check(heard,"voice")};
+ rec.onerror=e=>{if(rec!==local)return;const errors={"not-allowed":"Нет разрешения на микрофон.","network":"Сервис распознавания недоступен по сети.","no-speech":"Речь не распознана — повтори.","audio-capture":"Микрофон не найден."};status("⚠️ "+(errors[e.error]||"Ошибка распознавания: "+e.error),"Повтори попытку или открой в Chrome.","bad")};
+ rec.onend=()=>{if(rec!==local)return;listenMode=false;$("mic").classList.remove("listening");$("mic").textContent="🎤 Произнести вопрос · 开始说话"};
+ try{rec.start()}catch(e){status("Не удалось включить микрофон.",e.message,"bad")}
+});
+$("typedform").addEventListener("submit",e=>{e.preventDefault();if(finished||pending)return;const value=$("typed").value.trim();if(value)check(value,"text")});
+$("restart").addEventListener("click",()=>{idx=0;attempts=0;totalAttempts=0;render()});
+render();
+})();
+</script>
+</body>
+</html>
