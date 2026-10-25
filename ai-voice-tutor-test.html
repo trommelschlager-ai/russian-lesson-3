@@ -48,6 +48,8 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid
 <button class="button" id="sample" type="button">🔊 Проверить голос</button>
 <button class="button" id="stop" type="button">⏹ Остановить звук</button>
 </div>
+<audio id="audio-preview" controls preload="none" style="display:block;width:100%;margin-top:11px" aria-label="Русская аудиозапись"></audio>
+<p class="note">Если звук не запустился автоматически, нажми ▶ в проигрывателе выше. В Telegram: ⋯ → Открыть в браузере → Chrome.</p>
 <p id="notice" role="status">Нажми «Проверить голос» — это работает даже без AI-сервера.</p>
 <label class="note"><input type="checkbox" id="autospeak" checked> Автоматически читать ответ вслух · 自动朗读</label>
 <form class="inputrow" id="composer"><input id="message" maxlength="320" placeholder="Например: Меня зовут Ли" aria-label="Напишите по-русски" autocomplete="off" required><button class="send" id="send" type="submit">Отправить</button></form>
@@ -61,18 +63,20 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid
 <p id="configmessage" class="note">Сюда вводится только публичный URL Worker. Никогда не вставляй пароль или API-ключ.</p>
 <p class="note"><a href="https://github.com/trommelschlager-ai/russian-lesson-3/blob/main/ai-worker/README.md" rel="noopener noreferrer" target="_blank">Инструкция по бесплатному запуску сервера →</a></p>
 </details>
-<div class="info">📱 Для микрофона рекомендуем Chrome на Android. Внутри WeChat и некоторых других браузеров распознавание может не работать. Разреши доступ к микрофону. Браузер может передавать голос внешнему речевому сервису.</div>
-<div class="info">⚠️ Браузерная озвучка не гарантирует отдельный мужской и женский голос, а распознавание не является оценкой правильности произношения. Не отправляй личную или конфиденциальную информацию в тест.</div>
+<div class="info">📱 В Telegram и WeChat встроенная озвучка и микрофон могут быть недоступны. Записи MP3 для тестовых фраз проигрываются отдельно. Для проверки микрофона открой страницу в Chrome на Android: ⋯ → Открыть в браузере. Разреши микрофон; распознавание может передавать речь внешнему сервису.</div>
+<div class="info">⚠️ Предзаписанные фразы в демо озвучены разными нейросетевыми голосами. Для любых новых ответов настоящего AI нужен браузерный синтез или отдельный сервер голосовой генерации. Микрофон не оценивает правильность произношения. Не отправляй конфиденциальную информацию.</div>
 </section>
 <div class="footer">Только отдельный тестовый файл. Основная страница и все семь уроков остаются без изменений.</div>
 </main>
+<script src="assets/audio-manifest.js"></script>
+<script src="assets/lesson4-final-audio.js"></script>
 <script>
 (function(){
 "use strict";
 const $=id=>document.getElementById(id);
 const teachers={
-svetlana:{name:"Маргарита",img:"assets/teacher-margarita-approved-portrait.png",sample:"Привет! Я Маргарита. Как тебя зовут?"},
-dmitry:{name:"Антон",img:"assets/teacher-anton-approved-portrait.png",sample:"Привет! Я Антон. Давай познакомимся. Как тебя зовут?"}
+svetlana:{name:"Маргарита",img:"assets/teacher-margarita-approved-portrait.png",sample:"Привет! Как дела?",cn:"你好！你好吗？"},
+dmitry:{name:"Антон",img:"assets/teacher-anton-approved-portrait.png",sample:"Здравствуйте! Как Вас зовут?",cn:"您好！您叫什么名字？"}
 };
 const KEY="russian-tutor-worker-url-v1";
 let teacher="svetlana",base="",connected=false,busy=false,listening=false,used=0;
@@ -83,23 +87,57 @@ function notify(msg){$("notice").textContent=msg}
 function state(yes){connected=Boolean(yes);$("status").textContent=yes?"🟢 Настоящий AI":"🟠 Демо без AI";$("status").classList.toggle("ready",Boolean(yes))}
 function teacherChoose(value){teacher=value;document.querySelectorAll("[data-teacher]").forEach(el=>{const on=el.dataset.teacher===value;el.classList.toggle("active",on);el.setAttribute("aria-pressed",String(on))});notify(teachers[value].name+" выбран · 已选择老师")}
 document.querySelectorAll("[data-teacher]").forEach(b=>b.addEventListener("click",()=>teacherChoose(b.dataset.teacher)));
-function say(s){if(!window.speechSynthesis){notify("Озвучка не поддерживается браузером.");return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(s);u.lang="ru-RU";u.rate=.86;const voices=window.speechSynthesis.getVoices().filter(v=>/^ru([-_]|$)/i.test(v.lang));if(voices.length)u.voice=voices[0];u.onerror=()=>notify("Не удалось озвучить текст. Проверь настройки русского голоса.");window.speechSynthesis.speak(u)}
+const player=$("audio-preview");
+let playingToken=0;
+function say(s,selected=teacher){
+const text=String(s).split(/\r?\n/)[0].trim();
+const role=selected==="svetlana"?"female":"male";
+const src=window.COURSE_AUDIO&&window.COURSE_AUDIO[role+"|"+text];
+playingToken++;
+if(window.speechSynthesis)window.speechSynthesis.cancel();
+player.pause();
+if(src){
+player.src=new URL(src,location.href).href;
+player.load();
+const p=player.play();
+if(p&&typeof p.catch==="function")p.catch(e=>notify(e.name==="NotAllowedError"?"Нажми ▶ в проигрывателе: Telegram блокирует автозапуск аудио.":"Ошибка MP3: "+e.message));
+return;
+}
+player.removeAttribute("src");
+player.load();
+if(!window.speechSynthesis||!window.SpeechSynthesisUtterance){notify("Нет готовой MP3-записи этой фразы, а встроенная озвучка недоступна. Для нового AI-текста нужен серверный голос.");return}
+const utter=new window.SpeechSynthesisUtterance(text);
+utter.lang="ru-RU";
+utter.rate=.86;
+const voices=window.speechSynthesis.getVoices().filter(v=>/^ru([-_]|$)/i.test(v.lang));
+if(voices.length)utter.voice=voices[0];
+utter.onerror=()=>notify("Браузер не смог озвучить эту фразу. Для тестовых записанных фраз используется MP3.");
+window.speechSynthesis.speak(utter);
+}
 function rusText(s){const lines=String(s).split(/\r?\n/).filter(x=>/[А-Яа-яЁё]/.test(x)&&!(/[\u3400-\u9fff]/.test(x)));return lines.join(" ").replace(/[*#_]/g,"").replace(/^[\s✅❌•-]+/u,"").slice(0,450).trim()}
-function add(role,s,selected,read){const row=document.createElement("div");row.className="entry"+(role==="user"?" user":"");if(role!=="user"){const avatar=document.createElement("img");avatar.src=teachers[selected].img;avatar.alt="";avatar.className="avatar";row.append(avatar)}const b=document.createElement("div");b.className="bubble";const tag=document.createElement("div");tag.className="speaker";tag.textContent=role==="user"?"Вы · 你":teachers[selected].name+(connected?" · AI":" · Демо");const body=document.createElement("div");body.textContent=s;b.append(tag,body);if(role!=="user"){const play=document.createElement("button");play.type="button";play.className="button sm";play.textContent="🔊 Прослушать";play.addEventListener("click",()=>say(read||rusText(s)||teachers[selected].sample));b.append(play)}row.append(b);$("chat").append(row);$("chat").scrollTop=$("chat").scrollHeight}
-function demoReply(t){if(/зовут\s+(\S+)/i.test(t)){const name=t.match(/зовут\s+([^\s.,!?]+)/i)[1];return "Очень приятно, "+name+"! Откуда ты?\n很高兴认识你！你来自哪里？"}if(/китай|пекин|шанхай|москва/i.test(t)){return "Отлично! Ты изучаешь русский язык?\n很好！你在学习俄语吗？"}if(/привет|здравствуй/i.test(t)){return teachers[teacher].sample+"\n你好！你叫什么名字？"}return "Очень хорошо! Как тебя зовут?\n很好！你叫什么名字？"}
+function add(role,s,selected,read){const row=document.createElement("div");row.className="entry"+(role==="user"?" user":"");if(role!=="user"){const avatar=document.createElement("img");avatar.src=teachers[selected].img;avatar.alt="";avatar.className="avatar";row.append(avatar)}const b=document.createElement("div");b.className="bubble";const tag=document.createElement("div");tag.className="speaker";tag.textContent=role==="user"?"Вы · 你":teachers[selected].name+(connected?" · AI":" · Демо");const body=document.createElement("div");body.textContent=s;b.append(tag,body);if(role!=="user"){const play=document.createElement("button");play.type="button";play.className="button sm";play.textContent="🔊 Прослушать";play.addEventListener("click",()=>say(read||rusText(s)||teachers[selected].sample,selected));b.append(play)}row.append(b);$("chat").append(row);$("chat").scrollTop=$("chat").scrollHeight}
+function demoReply(t,selected){
+const female=selected==="svetlana";
+if(/как дела/i.test(t))return female?"Всё хорошо, спасибо.\n我很好，谢谢。":"Хорошо, а у тебя?\n我很好，你呢？";
+if(/зовут\s+\S+/i.test(t))return female?"Очень приятно!\n很高兴认识你！":"Откуда ты?\n你来自哪里？";
+if(/китай|пекин|шанхай|москва/i.test(t))return female?"Я немного говорю по-русски.\n我会说一点俄语。":"Ты говоришь по-русски?\n你会说俄语吗？";
+if(/привет|здравствуй/i.test(t))return teachers[selected].sample+"\n"+teachers[selected].cn;
+return female?"Как тебя зовут?\n你叫什么名字？":"Откуда ты?\n你来自哪里？"
+}
 function validUrl(raw){try{const u=new URL(raw.trim());if(u.protocol!=="https:"||u.username||u.password||u.search||u.hash||u.port||(u.pathname!=="/"&&u.pathname!=="")||!u.hostname.endsWith(".workers.dev"))return null;return u.origin}catch{return null}}
 async function verify(){const url=validUrl($("worker").value);if(!url){state(false);$("configmessage").textContent="Введите URL вида https://имя.поддомен.workers.dev";return}base=url;state(false);$("configmessage").textContent="Проверяем сервер…";try{const c=new AbortController();const tm=setTimeout(()=>c.abort(),10000);let r;try{r=await fetch(base+"/health",{cache:"no-store",signal:c.signal})}finally{clearTimeout(tm)}const d=await r.json();if(!r.ok||d.service!=="russian-ai-tutor"||!d.live)throw new Error("AI Worker ещё не настроен");localStorage.setItem(KEY,base);state(true);$("configmessage").textContent="✅ AI подключён";$("settings").open=false;notify("Настоящий AI подключён. Попробуй поговорить!") }catch(e){state(false);$("configmessage").textContent="❌ Нет соединения: "+e.message}}
 $("connectform").addEventListener("submit",e=>{e.preventDefault();verify()});
 function setBusy(v){busy=v;$("send").disabled=v;$("mic").disabled=v}
-async function sendMessage(text){text=String(text).trim();if(!text||busy)return;if(text.length>320){notify("Слишком длинное сообщение.");return}if(connected&&used>=10){notify("Лимит теста: 10 ответов AI за одну открытую сессию. Это не защита от массовых расходов.");return}setBusy(true);const selected=teacher;add("user",text,selected);$("message").value="";notify(connected?"AI отвечает…":"Работает локальный демонстрационный сценарий (не AI).");try{let answer;if(connected){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),30000);try{const r=await fetch(base+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},mode:"cors",cache:"no-store",signal:controller.signal,body:JSON.stringify({teacher:selected,message:text,history:history.slice(-6)})});const d=await r.json();if(!r.ok||!d.ok||typeof d.answer!=="string")throw Error(d.error||"Ошибка AI");answer=d.answer.trim();used++}finally{clearTimeout(timer)}}else{answer=demoReply(text)}add("assistant",answer,selected);if(connected){history.push({role:"user",content:text},{role:"assistant",content:answer.slice(0,320)});if(history.length>8)history.splice(0,history.length-8)}notify(connected?"✅ AI ответил.":"🟠 Это демонстрационный ответ, а не AI.");if($("autospeak").checked){const speakable=rusText(answer);if(speakable)say(speakable)}}catch(e){notify("⚠️ Ошибка ответа: "+(e.name==="AbortError"?"Превышено время ожидания":e.message))}finally{setBusy(false)}}
+async function sendMessage(text){text=String(text).trim();if(!text||busy)return;if(text.length>320){notify("Слишком длинное сообщение.");return}if(connected&&used>=10){notify("Лимит теста: 10 ответов AI за одну открытую сессию. Это не защита от массовых расходов.");return}setBusy(true);const selected=teacher;add("user",text,selected);$("message").value="";notify(connected?"AI отвечает…":"Работает локальный демонстрационный сценарий (не AI).");try{let answer;if(connected){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),30000);try{const r=await fetch(base+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},mode:"cors",cache:"no-store",signal:controller.signal,body:JSON.stringify({teacher:selected,message:text,history:history.slice(-6)})});const d=await r.json();if(!r.ok||!d.ok||typeof d.answer!=="string")throw Error(d.error||"Ошибка AI");answer=d.answer.trim();used++}finally{clearTimeout(timer)}}else{answer=demoReply(text,selected)}add("assistant",answer,selected);if(connected){history.push({role:"user",content:text},{role:"assistant",content:answer.slice(0,320)});if(history.length>8)history.splice(0,history.length-8)}notify(connected?"✅ AI ответил.":"🟠 Это демонстрационный ответ, а не AI.");if($("autospeak").checked){const speakable=rusText(answer);if(speakable)say(speakable,selected)}}catch(e){notify("⚠️ Ошибка ответа: "+(e.name==="AbortError"?"Превышено время ожидания":e.message))}finally{setBusy(false)}}
 $("composer").addEventListener("submit",e=>{e.preventDefault();sendMessage($("message").value)});
-$("sample").addEventListener("click",()=>say(teachers[teacher].sample));
-$("stop").addEventListener("click",()=>{if(window.speechSynthesis)window.speechSynthesis.cancel();if(rec&&listening)rec.stop();notify("Звук остановлен.")});
+$("sample").addEventListener("click",()=>say(teachers[teacher].sample,teacher));
+$("stop").addEventListener("click",()=>{player.pause();player.currentTime=0;if(window.speechSynthesis)window.speechSynthesis.cancel();if(rec&&listening)rec.stop();notify("Звук остановлен.")});
 if(!Recognition){$("mic").disabled=true;notify("В этом браузере нет распознавания речи. Открой Chrome на Android или используй текст.");}
 else{$("mic").addEventListener("click",()=>{if(busy)return;if(listening){rec.stop();return}if(window.speechSynthesis)window.speechSynthesis.cancel();rec=new Recognition();rec.lang="ru-RU";rec.continuous=false;rec.interimResults=false;rec.maxAlternatives=1;rec.onstart=()=>{listening=true;$("mic").classList.add("listening");$("mic").textContent="🔴 Слушаю… нажми, чтобы остановить";notify("Говори по-русски: «Меня зовут Ли».")};rec.onresult=e=>{const text=e.results[0][0].transcript.trim();$("message").value=text;notify("Распознано: "+text);sendMessage(text)};rec.onerror=e=>{const msgs={"not-allowed":"Нет разрешения на микрофон. Разреши доступ в настройках браузера.","network":"Сервис распознавания недоступен по сети.","no-speech":"Речь не распознана. Попробуй ещё раз.","audio-capture":"Микрофон не найден."};notify(msgs[e.error]||"Ошибка микрофона: "+e.error)};rec.onend=()=>{listening=false;$("mic").classList.remove("listening");$("mic").textContent="🎤 Сказать по-русски"};try{rec.start()}catch(e){notify("Не удалось включить микрофон: "+e.message)}})}
-add("assistant",teachers[teacher].sample+"\n你好！你叫什么名字？",teacher,teachers[teacher].sample);
+add("assistant",teachers[teacher].sample+"\n"+teachers[teacher].cn,teacher,teachers[teacher].sample);
 let saved="";try{saved=localStorage.getItem(KEY)||""}catch(e){}
 if(saved&&validUrl(saved)){$("worker").value=saved;verify()}else{$("settings").open=true}
+if(!window.speechSynthesis)notify("На этом устройстве для тестовых фраз используется готовая MP3-запись. Нажми «Проверить голос».")
 })();
 </script>
 </body>
