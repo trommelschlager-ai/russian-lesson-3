@@ -220,3 +220,17 @@
   }
   document.addEventListener('click',countLetter,true);
 })();
+
+
+/* Six-column alphabet layout adapter.
+ * Does not alter the existing speech recognition or MP3 handlers. */
+(()=>{
+  "use strict";
+  if(window.__lesson1SixColumnLoaderStarted)return;
+  if(!document.getElementById("hotspots")||!document.getElementById("lessonList"))return;
+  window.__lesson1SixColumnLoaderStarted=true;
+  const script=document.createElement("script");
+  script.src="assets/lesson1-six-column-alphabet.js?v=20261025-sixcol-1";
+  script.async=false;
+  document.head.append(script);
+})();
