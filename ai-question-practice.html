@@ -52,6 +52,7 @@ audio{width:100%;margin-top:13px;display:block}.status{padding:12px 13px;backgro
 <button class="secondary" id="listen" type="button">🔊 Слушать образец</button>
 </div>
 <audio id="player" controls preload="none" aria-label="Эталонное произношение вопроса"></audio>
+<p id="voice-note" class="note">👩 Маргарита — женский голос · 已选女声</p>
 <div id="status" class="status" role="status" aria-live="polite"><strong>Нажми микрофон и произнеси вопрос.</strong><small>如果识别不准确，请重试。</small></div>
 <div class="transcript" id="transcript"></div>
 <form class="inputrow" id="typedform">
@@ -65,26 +66,38 @@ audio{width:100%;margin-top:13px;display:block}.status{padding:12px 13px;backgro
 <p id="summary"></p>
 <button class="primary" id="restart" type="button">🔁 Начать заново · 再来一次</button>
 </section>
-<section class="card"><p class="note">⚠️ Это бесплатный тренажёр подготовленных вопросов, а не свободный разговор с AI. Программа сверяет текст, полученный из микрофона, с допустимыми русскими фразами. Она <strong>не измеряет точность звуков и ударения</strong>: распознавание речи может ошибаться даже при правильном произношении.</p><p class="note">📱 В Chrome на Android обычно доступны функции распознавания речи; встроенные браузеры мессенджеров могут их ограничивать. MP3 можно прослушать через отдельный проигрыватель.</p></section>
+<section class="card"><p class="note">🎤 При выборе Антона звучат мужские записи, при выборе Маргариты — женские. Это образцы вопросов; ответы преподавателя пока показываются текстом. </p><p class="note">⚠️ Это бесплатный тренажёр подготовленных вопросов, а не свободный разговор с AI. Программа сверяет текст, полученный из микрофона, с допустимыми русскими фразами. Она <strong>не измеряет точность звуков и ударения</strong>: распознавание речи может ошибаться даже при правильном произношении.</p><p class="note">📱 В Chrome на Android обычно доступны функции распознавания речи; встроенные браузеры мессенджеров могут их ограничивать. MP3 можно прослушать через отдельный проигрыватель.</p></section>
 </main>
 <script>
 (function(){
 "use strict";
 const $=(id)=>document.getElementById(id);
-const items=[
+const decks={
+margarita:[
 {ru:"Как тебя зовут?",cn:"你叫什么名字？",lat:"Kak tebya zovut?",file:"audio/lesson4-final/female-462ae0c3f5e0.mp3",accepted:["Как тебя зовут?","А как тебя зовут?"]},
+{ru:"Привет! Как дела?",cn:"你好！最近怎么样？",lat:"Privet! Kak dela?",file:"audio/lesson-3/female-d75879782123.mp3",accepted:["Привет! Как дела?","Привет, как у тебя дела?"]},
+{ru:"Здравствуйте! Как у Вас дела?",cn:"您好！您最近怎么样？",lat:"Zdravstvuyte! Kak u vas dela?",file:"audio/lesson-3/female-ce22f41a3da0.mp3",accepted:["Здравствуйте! Как у Вас дела?"]},
+{ru:"Ты меня понимаешь?",cn:"你能听懂我说的话吗？",lat:"Ty menya ponimayesh?",file:"audio/lesson4-comprehension/female-656ae94953dd.mp3",accepted:["Ты меня понимаешь?"]},
+{ru:"А у тебя?",cn:"你呢？",lat:"A u tebya?",file:"audio/lesson4-final/female-8624ecf29909.mp3",accepted:["А у тебя?","А у тебя как дела?"]},
+{ru:"Хорошо, спасибо. А Вы?",cn:"很好，谢谢。您呢？",lat:"Khorosho, spasibo. A vy?",file:"audio/lesson-3/female-c1646287eba1.mp3",accepted:["Хорошо, спасибо. А Вы?"]},
+{ru:"Отлично, спасибо. А как у Вас дела?",cn:"非常好，谢谢。您怎么样？",lat:"Otlichno, spasibo. A kak u vas dela?",file:"audio/lesson-3/female-f9668ca78a15.mp3",accepted:["Отлично, спасибо. А как у Вас дела?"]}
+],
+anton:[
+{ru:"Здравствуйте! Как Вас зовут?",cn:"您好！您叫什么名字？",lat:"Zdravstvuyte! Kak vas zovut?",file:"audio/lesson-3/male-585bdc1122eb.mp3",accepted:["Здравствуйте! Как Вас зовут?","Как Вас зовут?"]},
 {ru:"Откуда ты?",cn:"你来自哪里？",lat:"Otkuda ty?",file:"audio/lesson4-final/male-b1567cd1bfcd.mp3",accepted:["Откуда ты?","А откуда ты?"]},
-{ru:"Привет! Как дела?",cn:"你好！最近怎么样？",lat:"Privet! Kak dela?",file:"audio/lesson-3/female-d75879782123.mp3",accepted:["Привет! Как дела?","Привет, как у тебя дела?","А как у тебя дела?","Как у тебя дела?"]},
+{ru:"Привет! Как дела?",cn:"你好！最近怎么样？",lat:"Privet! Kak dela?",file:"audio/corrections/1b3c796ba17d24e1.mp3",accepted:["Привет! Как дела?","Привет, как у тебя дела?"]},
 {ru:"Ты говоришь по-русски?",cn:"你会说俄语吗？",lat:"Ty govorish po-russki?",file:"audio/lesson4-final/male-b55ec6542112.mp3",accepted:["Ты говоришь по-русски?","Ты говоришь на русском?"]},
 {ru:"Вы изучаете русский язык?",cn:"您在学习俄语吗？",lat:"Vy izuchayete russkiy yazyk?",file:"audio/lesson-3/male-84476d7f9f1b.mp3",accepted:["Вы изучаете русский язык?","Вы учите русский язык?"]},
-{ru:"Вы готовы к уроку?",cn:"您准备好上课了吗？",lat:"Vy gotovy k uroku?",file:"audio/lesson-3/male-0bd248224796.mp3",accepted:["Вы готовы к уроку?","Ты готов к уроку?","Ты готова к уроку?"]},
+{ru:"Вы готовы к уроку?",cn:"您准备好上课了吗？",lat:"Vy gotovy k uroku?",file:"audio/lesson-3/male-0bd248224796.mp3",accepted:["Вы готовы к уроку?"]},
 {ru:"Какая сегодня погода?",cn:"今天天气怎么样？",lat:"Kakaya segodnya pogoda?",file:"audio/lesson4-final/male-753655db5552.mp3",accepted:["Какая сегодня погода?","Какая погода сегодня?"]}
-];
+]
+};
+let items=decks.margarita;
 const recognitionAPI=window.SpeechRecognition||window.webkitSpeechRecognition;
 let teacher="margarita",idx=0,attempts=0,totalAttempts=0,pending=null,rec=null,listenMode=false,finished=false;
 const answers={
-margarita:["Меня зовут Маргарита.","Я из России.","Всё хорошо, спасибо!","Да, я говорю по-русски.","Я преподаю русский язык.","Да, я готова!","Давай поговорим о погоде."],
-anton:["Меня зовут Антон.","Я из России.","Всё хорошо, спасибо!","Да, я говорю по-русски.","Я преподаю русский язык.","Да, я готов!","Давай поговорим о погоде."]
+margarita:["Меня зовут Маргарита.","Всё хорошо, спасибо!","Спасибо, всё отлично!","Да, я тебя понимаю.","Всё отлично!","Спасибо, у меня тоже всё хорошо.","У меня всё хорошо, спасибо!"],
+anton:["Меня зовут Антон.","Я из России.","Всё хорошо, спасибо!","Да, говорю.","Да, преподаю русский язык.","Да, готов!","Сегодня хорошая погода."]
 };
 function normalize(text){return String(text||"").toLocaleLowerCase("ru-RU").replace(/ё/g,"е").replace(/[^а-я\s]/g," ").replace(/\s+/g," ").trim()}
 function stopListening(){
@@ -99,7 +112,20 @@ function status(head,detail,kind){
  const small=document.createElement("small");small.textContent=detail;
  node.append(strong,small);
 }
-function loadAudio(){const p=$("player");stopAudio();p.src=new URL(items[idx].file,location.href).href;p.load()}
+function loadAudio(){
+ const p=$("player");stopAudio();
+ p.src=new URL(items[idx].file,location.href).href;
+ p.load();
+ $("voice-note").textContent=teacher==="anton"?"👨 Антон — мужской голос · 已选男声":"👩 Маргарита — женский голос · 已选女声";
+}
+function playAudio(){
+ if(finished)return;
+ const p=$("player");const selected=teacher;
+ const result=p.play();
+ if(result&&typeof result.catch==="function")result.catch(error=>{
+  status("⚠️ Не удалось автоматически включить голос "+(selected==="anton"?"Антона":"Маргариты"),"Нажми ▶ на аудиоплеере. Ошибка: "+String(error.message||error),"bad");
+ });
+}
 function render(){
  clearTimeout(pending);pending=null;finished=false;
  if(idx>=items.length){
@@ -142,17 +168,15 @@ function check(text,kind){
 }
 function choose(who){
  if(pending){clearTimeout(pending);pending=null;$("typed").disabled=false;$("typedform").querySelector("button").disabled=false}
- teacher=who;idx=0;attempts=0;totalAttempts=0;stopListening();
+ teacher=who;items=decks[who];idx=0;attempts=0;totalAttempts=0;stopListening();
  document.querySelectorAll("[data-teacher]").forEach(b=>{const active=b.dataset.teacher===who;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active))});
  render();
+ playAudio();
 }
 document.querySelectorAll("[data-teacher]").forEach(b=>b.addEventListener("click",()=>choose(b.dataset.teacher)));
-$("listen").addEventListener("click",()=>{
- if(finished)return;
- const player=$("player");const play=player.play();
- if(play&&typeof play.catch==="function")play.catch(e=>status("Не удалось автоматически включить запись.","Нажми ▶ в проигрывателе или открой страницу в Chrome. "+e.message,"bad"));
-});
-$("player").addEventListener("error",()=>{if(!finished)status("Не удалось загрузить MP3.","Проверь интернет и открой страницу снова.","bad")});
+$("listen").addEventListener("click",playAudio);
+$("player").addEventListener("error",()=>{if(!finished)status("Не удалось загрузить MP3 "+(teacher==="anton"?"Антона":"Маргариты")+".","Проверь интернет и открой страницу снова.","bad")});
+$("player").addEventListener("playing",()=>{$("voice-note").textContent="▶️ Сейчас звучит: "+(teacher==="anton"?"Антон (мужской голос)":"Маргарита (женский голос)")});
 $("mic").addEventListener("click",()=>{
  if(finished||pending||!recognitionAPI)return;
  if(listenMode){stopListening();return}
