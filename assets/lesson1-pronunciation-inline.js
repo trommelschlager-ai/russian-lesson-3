@@ -234,7 +234,7 @@
   if(!document.getElementById("hotspots")||!document.getElementById("lessonList"))return;
   window.__lesson1SixColumnLoaderStarted=true;
   const script=document.createElement("script");
-  script.src="assets/lesson1-six-column-alphabet.js?v=lesson1-letter-names-vs-sounds-20261026e";
+  script.src="assets/lesson1-six-column-alphabet.js?v=lesson1-y-ch-comparison-20261026f";
   script.async=false;
   document.head.append(script);
 })();
