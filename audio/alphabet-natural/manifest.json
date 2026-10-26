@@ -843,8 +843,8 @@
     "field": "letterAudio",
     "display": "Чай",
     "spoken": "че",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-a0ef70cb8a795120.mp3"
+    "voice": "User recording",
+    "file": "audio/lesson1-user-voice/letter-che-20261026.mp3"
   },
   {
     "field": "wordAudio",
@@ -983,8 +983,8 @@
     "field": "letterAudio",
     "display": "Сыр",
     "spoken": "ы",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-a76cce651659f7d0.mp3"
+    "voice": "User recording",
+    "file": "audio/lesson1-user-voice/letter-y-20261026.mp3"
   },
   {
     "field": "wordAudio",
