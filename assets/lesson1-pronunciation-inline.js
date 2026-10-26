@@ -8,7 +8,10 @@
   window.__lesson1InlinePronunciationLoaded = true;
 
   const css=document.createElement('style');
-  css.textContent=".rl1-panel,.rl1-panel *{box-sizing:border-box}\n.rl1-panel{max-width:100%;min-width:0;width:100%;margin:7px auto 0;padding:5px 3px 6px;\nborder:1px solid #cad5e7;border-radius:11px;background:#f9fbff;\nfont-family:system-ui,'Microsoft YaHei',sans-serif;line-height:1.35}\n.rl1-label{color:#3c4771;font-size:10px;font-weight:800;overflow-wrap:anywhere;margin:0 0 5px}\n.rl1-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}\n.rl1-buttons button{min-width:0;min-height:52px;border:0;border-radius:8px;cursor:pointer;\ndisplay:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;\npadding:4px 0;font:800 10px/1.2 system-ui,'Microsoft YaHei',sans-serif;color:white;white-space:nowrap}\n.rl1-original{background:#124ca2}.rl1-slow{background:#ad6518}.rl1-repeat{background:#ba1857}\n.rl1-buttons button:focus-visible{outline:2px solid #14235f;outline-offset:2px}\n.rl1-feedback{color:#4c5470;font-size:10px;line-height:1.35;margin-top:4px;overflow-wrap:anywhere;white-space:normal}\n.rl1-feedback[data-state='success']{color:#146435}\n.rl1-feedback[data-state='failure']{color:#a11d38}\n.rl1-feedback[data-state='warning']{color:#805315}\n.rl1-replay{background:#e4edff;border:1px solid #b6c6ed;color:#173870;border-radius:6px;margin-top:5px;padding:4px;font-size:11px}\n.ex.rl1-has-panel{min-width:0}\n.ex.rl1-has-panel>.rl1-panel{width:100%}\n@media(max-width:620px){.rl1-panel{padding:4px 2px}.rl1-buttons{gap:2px}\n.rl1-buttons button{min-height:49px;font-size:9px}.rl1-feedback{font-size:9px}}";
+  css.textContent=".rl1-panel,.rl1-panel *{box-sizing:border-box}\n.rl1-panel{max-width:100%;min-width:0;width:100%;margin:7px auto 0;padding:5px 3px 6px;\nborder:1px solid #cad5e7;border-radius:11px;background:#f9fbff;\nfont-family:system-ui,'Microsoft YaHei',sans-serif;line-height:1.35}\n.rl1-label{color:#3c4771;font-size:10px;font-weight:800;overflow-wrap:anywhere;margin:0 0 5px}\n.rl1-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}\n.rl1-buttons button{min-width:0;min-height:52px;border:0;border-radius:8px;cursor:pointer;\ndisplay:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;\npadding:4px 0;font:800 10px/1.2 system-ui,'Microsoft YaHei',sans-serif;color:white;white-space:nowrap}\n.rl1-original{background:#124ca2}.rl1-slow{background:#ad6518}.rl1-repeat{background:#ba1857}\n.rl1-buttons button:focus-visible{outline:2px solid #14235f;outline-offset:2px}\n.rl1-feedback{color:#4c5470;font-size:10px;line-height:1.35;margin-top:4px;overflow-wrap:anywhere;white-space:normal}\n.rl1-feedback[data-state='success']{color:#146435}\n.rl1-feedback[data-state='failure']{color:#a11d38}\n.rl1-feedback[data-state='warning']{color:#805315}\n.rl1-replay{background:#e4edff;border:1px solid #b6c6ed;color:#173870;border-radius:6px;margin-top:5px;padding:4px;font-size:11px}\n.ex.rl1-has-panel{min-width:0}\n.ex.rl1-has-panel>.rl1-panel{width:100%}
+@media(min-width:621px){.rl1-disclosure>summary{display:none}}
+@media(max-width:620px){.rl1-disclosure:not([open])>.rl1-label,.rl1-disclosure:not([open])>.rl1-buttons,.rl1-disclosure:not([open])>.rl1-feedback{display:none}}
+\n@media(max-width:620px){.rl1-panel{padding:4px 2px}.rl1-buttons{gap:2px}\n.rl1-buttons button{min-height:49px;font-size:9px}.rl1-feedback{font-size:9px}}";
   document.head.append(css);
 
   const SpeechAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -153,9 +156,13 @@
   function addBar(target, text, role='male',label='') {
     if(!target||target.classList.contains('rl1-has-panel'))return;
     const bar=document.createElement('div');bar.className='rl1-panel';
+    const disclosure=document.createElement('details');disclosure.className='rl1-disclosure';
+    disclosure.open=window.matchMedia('(min-width:621px)').matches;
+    const summary=document.createElement('summary');summary.textContent='🎧 🎤 跟读练习';
+    disclosure.append(summary);bar.append(disclosure);
     const cap=document.createElement('div');cap.className='rl1-label';
     cap.textContent=label||('跟读练习 · '+text);
-    bar.append(cap);
+    disclosure.append(cap);
     const controls=document.createElement('div');controls.className='rl1-buttons';
     const buttons=[
       ['🔊','听原音','rl1-original',()=>listen(bar,text,role,false)],
@@ -169,11 +176,11 @@
       b.addEventListener('click',handler);controls.append(b);
       if(cls==='rl1-repeat')mic=b;
     });
-    bar.append(controls);
+    disclosure.append(controls);
     const fb=document.createElement('div');fb.className='rl1-feedback';
     fb.setAttribute('role','status');fb.setAttribute('aria-live','polite');
     fb.textContent='先听原音，再跟读。仅核对识别文字，不判断重音。';
-    bar.append(fb);
+    disclosure.append(fb);
     // Preserve original card and dialog click listeners: control clicks must not start parent audio.
     bar.addEventListener('click',event=>event.stopPropagation());
     bar.addEventListener('keydown',event=>event.stopPropagation());
@@ -230,7 +237,7 @@
   if(!document.getElementById("hotspots")||!document.getElementById("lessonList"))return;
   window.__lesson1SixColumnLoaderStarted=true;
   const script=document.createElement("script");
-  script.src="assets/lesson1-six-column-alphabet.js?v=lesson1-final-mobile-20261026b";
+  script.src="assets/lesson1-six-column-alphabet.js?v=lesson1-one-screen-overview-20261026c";
   script.async=false;
   document.head.append(script);
 })();
