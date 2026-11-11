@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#5a3caa">
+<title>Проверка голоса — Ч и Ы | Русский для китайцев</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f0eafa;color:#32264e;font:15px/1.5 system-ui,"Microsoft YaHei",sans-serif}
+main{max-width:650px;margin:auto;padding:21px 15px 50px}header{border-radius:24px;background:linear-gradient(110deg,#7050bd,#d16eb2);padding:22px;color:white;box-shadow:0 10px 20px #7e55a443}
+header h1{font-size:25px;line-height:1.2;margin:6px 0 10px}header p{margin:0;font-size:13px;color:#fbebff}.back{color:#fff;font-size:13px;font-weight:700}
+section{margin:18px 0;background:#fff;padding:17px;border:1px solid #e5d8fa;border-radius:22px;box-shadow:0 4px 18px #7050a512}
+h2{font-size:21px;margin:0 0 6px}.sub{font-size:12px;color:#7b7194;margin:0 0 12px}
+.group{display:grid;grid-template-columns:1fr;gap:8px}.play{border-radius:13px;border:1px solid #d9c8f2;background:#faf7ff;color:#593a90;min-height:49px;display:flex;align-items:center;gap:11px;text-align:left;padding:8px 12px;cursor:pointer}
+.play strong{flex:1;font-size:14px}.play small{color:#817698;font-size:11px}.play b{font-size:22px}
+.play:focus-visible{outline:3px solid #eea3d5;outline-offset:1px}.play.active{background:#e6dcff;border-color:#8c60d8}.ref{background:#e8f7f3;border-color:#c6e6d8;color:#35795d}
+h3{margin:14px 0 7px;font-size:13px;color:#7b589d}.hint{padding:11px;border-radius:12px;background:#fff5df;color:#775830;font-size:12px;margin-top:12px}
+.badge{display:inline-block;background:#fff3d0;padding:4px 10px;border-radius:30px;color:#885f26;font-size:11px;font-weight:800;margin-bottom:8px}
+.footer{color:#766b93;font-size:12px;text-align:center;padding:13px}code{font-size:12px}
+</style>
+</head>
+<body><main>
+<header>
+<a class="back" href="lesson-1-panda-style.html">‹ Вернуться к уроку 1</a>
+<h1>🎧 Проверка голоса: Ч и Ы</h1>
+<p>Сравните произношение и тембр. Здесь только прослушивание — основной урок не изменён.</p>
+</header>
+<section>
+<span class="badge">Эталон голоса</span>
+<h2>Дмитрий · соседние буквы</h2>
+<p class="sub">Сначала послушайте эти записи, затем сравнивайте варианты Ч и Ы.</p>
+<div class="group">
+<button class="play ref" data-src="audio/alphabet-natural/dmitry-77ebd2d9119d83e0.mp3"><b>▶</b><strong>Ц — «цэ»</strong></button>
+<button class="play ref" data-src="audio/alphabet-natural/dmitry-99b2a4171dbf383c.mp3"><b>▶</b><strong>Ш — «ша»</strong></button>
+<button class="play ref" data-src="audio/alphabet-natural/dmitry-cb77d260f5d0b3e3.mp3"><b>▶</b><strong>У — «у»</strong></button>
+</div>
+</section>
+<section>
+<h2>Ч · название «че»</h2>
+<p class="sub">Нужно одновременно: правильное «че» и тот же тембр, что у других букв.</p>
+<div class="group">
+<button class="play" data-src="audio/lesson1-user-voice/letter-che-20261026.mp3"><b>▶</b><strong>1 · Текущая исправленная запись</strong><small>другой голос</small></button>
+<button class="play" data-src="audio/alphabet-natural/dmitry-a0ef70cb8a795120.mp3"><b>▶</b><strong>2 · Архив Дмитрия</strong><small>ранее отклонена</small></button>
+<button class="play" data-src="audio/course/male-b3135046cfe90b.mp3"><b>▶</b><strong>3 · Мужской голос из курса</strong><small>не проверен</small></button>
+</div>
+</section>
+<section>
+<h2>Ы · звук [ɨ]</h2>
+<p class="sub">Проверяйте именно «ы», а не «и» и не английский звук.</p>
+<div class="group">
+<button class="play" data-src="audio/lesson1-user-voice/letter-y-20261026.mp3"><b>▶</b><strong>1 · Текущая исправленная запись</strong><small>другой голос</small></button>
+<button class="play" data-src="audio/alphabet-natural/dmitry-a76cce651659f7d0.mp3"><b>▶</b><strong>2 · Архив Дмитрия</strong><small>ранее отклонена</small></button>
+<button class="play" data-src="audio/course/male-74af3340afbb23.mp3"><b>▶</b><strong>3 · Мужской голос из курса</strong><small>не проверен</small></button>
+<button class="play" data-src="audio/course/male-446cdc8e3c0d7e.mp3"><b>▶</b><strong>4 · Ещё одна мужская запись</strong><small>не проверена</small></button>
+</div>
+<div class="hint">💡 Если ни один мужской вариант не произносит звук правильно, не заменяйте исправленную запись на ошибочную ради совпадения голосов. Понадобится новая запись.</div>
+</section>
+<div class="footer">🔊 Нажмите запись повторно, чтобы остановить её. Файлы воспроизводятся непосредственно из репозитория курса.</div>
+</main>
+<script>
+"use strict";
+let activeAudio=null,activeButton=null;
+document.querySelectorAll("button[data-src]").forEach(button=>button.addEventListener("click",async()=>{
+if(activeAudio){activeAudio.pause();activeAudio=null;if(activeButton)activeButton.classList.remove("active");}
+if(button===activeButton){activeButton=null;return;}
+const a=new Audio(button.dataset.src);activeAudio=a;activeButton=button;button.classList.add("active");
+a.onended=()=>{button.classList.remove("active");if(activeAudio===a){activeAudio=null;activeButton=null;}};
+try{await a.play();}catch(e){button.classList.remove("active");activeAudio=null;activeButton=null;alert("Не удалось открыть аудио. Попробуйте снова.");}
+}));
+</script>
+</body></html>
