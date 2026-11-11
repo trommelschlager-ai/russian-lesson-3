@@ -64,7 +64,7 @@ async def record(word, destination, gate):
 
 async def main():
     words = json.loads(LESSON_2.read_text(encoding="utf-8"))
-    if len(words) != 100 or any(x.get("legacyIndex") != i for i,x in enumerate(words)):
+    if len(words) != 100 or sorted(x.get("legacyIndex") for x in words) != list(range(100)):
         raise RuntimeError("Lesson 2 ordering or word count has changed")
     approved = first_lesson_recordings()
     existing, reuse, generate = [], [], []
