@@ -7,7 +7,8 @@ import hashlib
 import json
 import pathlib
 import re
-import subprocess
+import shutil
+from mutagen.mp3 import MP3
 import tempfile
 
 import edge_tts
@@ -25,9 +26,7 @@ ALTERNATES = {"О":"О.", "Ч":"ЧЕ"}
 def verify(path):
     if not path.is_file() or path.stat().st_size < 1000:
         raise RuntimeError(f"Missing/empty recording: {path}")
-    cmd=["ffprobe","-v","error","-show_entries","format=duration","-of","default=noprint_wrappers=1:nokey=1",str(path)]
-    result=subprocess.run(cmd,capture_output=True,text=True,check=True)
-    duration=float(result.stdout.strip())
+    duration=float(MP3(str(path)).info.length)
     if not .08 <= duration <= 6.0:
         raise RuntimeError(f"Unexpected duration for {path.name}: {duration}")
     return duration
@@ -45,10 +44,8 @@ async def produce(letter,text,target,limiter):
                 except Exception:
                     if attempt==3: raise
                     await asyncio.sleep(2*(attempt+1))
-            # Consistent perceived loudness; trim only digital silence, preserve tails.
-            subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-y","-i",str(raw),
-              "-af","loudnorm=I=-19:TP=-2.5:LRA=10", "-codec:a","libmp3lame","-b:a","64k",str(target)],
-              check=True)
+            # Keep the untouched audio encoded by one voice service at a fixed speaking rate.
+            shutil.copyfile(raw,target)
         duration=verify(target)
         print(f"{letter}: {text!r} -> {target.name} ({target.stat().st_size} bytes, {duration:.2f}s)",flush=True)
 
