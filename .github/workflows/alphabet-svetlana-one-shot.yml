@@ -1,0 +1,38 @@
+name: Generate single-voice Svetlana alphabet
+on:
+  push:
+    paths:
+      - .github/workflows/alphabet-svetlana-one-shot.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install voice tools
+        run: python -m pip install --disable-pip-version-check edge-tts
+      - name: Synthesize all 33 letters with Svetlana
+        run: python tools/rebuild-alphabet-svetlana.py
+      - name: Commit audio and lesson updates
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio/alphabet-svetlana-v1/ audio/alphabet-natural/manifest.json lesson-1-panda-style.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish full 33-letter Svetlana voice set and switch first lesson"
+            git pull --rebase
+            git push
+          fi
