@@ -843,8 +843,8 @@
     "field": "letterAudio",
     "display": "Чай",
     "spoken": "че",
-    "voice": "Male course (provisional)",
-    "file": "audio/course/male-b3135046cfe90b.mp3"
+    "voice": "User corrected recording 2026-10-26",
+    "file": "audio/lesson1-user-voice/letter-che-20261026.mp3"
   },
   {
     "field": "wordAudio",
