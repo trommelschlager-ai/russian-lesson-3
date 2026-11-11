@@ -528,8 +528,8 @@
     "field": "letterAudio",
     "display": "Окно",
     "spoken": "о",
-    "voice": "ru-RU-SvetlanaNeural",
-    "file": "audio/alphabet-svetlana-v1/16-о.mp3"
+    "voice": "ru-RU-SvetlanaNeural (stressed О from ох)",
+    "file": "audio/alphabet-phonetic-v1/letter-o-stressed.wav"
   },
   {
     "field": "wordAudio",
@@ -843,8 +843,8 @@
     "field": "letterAudio",
     "display": "Чай",
     "spoken": "че",
-    "voice": "ru-RU-SvetlanaNeural",
-    "file": "audio/alphabet-svetlana-v1/25-ч.mp3"
+    "voice": "ru-RU-SvetlanaNeural (stressed ЧЕ from чек)",
+    "file": "audio/alphabet-phonetic-v1/letter-che-stressed.wav"
   },
   {
     "field": "wordAudio",
