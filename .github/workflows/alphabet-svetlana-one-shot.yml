@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - .github/workflows/alphabet-svetlana-one-shot.yml
+      - tools/rebuild-alphabet-svetlana.py
   workflow_dispatch:
 
 permissions:
@@ -22,7 +23,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install voice tools
-        run: python -m pip install --disable-pip-version-check edge-tts
+        run: python -m pip install --disable-pip-version-check edge-tts mutagen
       - name: Synthesize all 33 letters with Svetlana
         run: python tools/rebuild-alphabet-svetlana.py
       - name: Commit audio and lesson updates
