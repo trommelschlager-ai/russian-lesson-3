@@ -528,8 +528,8 @@
     "field": "letterAudio",
     "display": "Окно",
     "spoken": "о",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-891a441c91aeedb5.mp3"
+    "voice": "Male course, O alternative (ear check needed)",
+    "file": "audio/course/male-4f87962e5428d8.mp3"
   },
   {
     "field": "wordAudio",
