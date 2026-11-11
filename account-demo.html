@@ -547,7 +547,7 @@ function safeSave(k,v){try{localStorage.setItem(k,v);return true}catch(e){return
 function parse(k){try{return JSON.parse(safeRead(k)||"{}")}catch(e){return {}}}
 function buildProgress(){
   var quiz=parse("russian-course-progress-v1"),words=parse("lesson2-reference-progress"),reading=parse("lesson2-syllables-progress-v1"),done=[];
-  for(var i=1;i<=7;i++){var q=quiz[String(i)];if(q&&Number(q.total)>0&&Number(q.score)>=0&&Number(q.score)/Number(q.total)>=.8)done.push(i-1)}
+  for(var i=1;i<=7;i++){var q=quiz[String(i)];if(i!==2&&q&&Number(q.total)>0&&Number(q.score)>=0&&Number(q.score)/Number(q.total)>=.8)done.push(i-1)}
   var wordCount=Array.isArray(words.seen)?new Set(words.seen).size:0;
   if(reading.passed===true&&Array.isArray(reading.heard)&&new Set(reading.heard).size>=10&&!done.includes(1))done.push(1);
   return {done:done.sort(function(a,b){return a-b}),quiz:quiz,wordCount:wordCount}
