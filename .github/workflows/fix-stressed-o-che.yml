@@ -1,0 +1,40 @@
+name: Fix Russian letters О and Ч using stressed phonetic context
+on:
+  push:
+    paths:
+      - .github/workflows/fix-stressed-o-che.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out existing lesson
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install audio synthesis and decoding libraries
+        run: python -m pip install --disable-pip-version-check edge-tts av numpy
+      - name: Validate script syntax and generate stressed phoneme clips
+        run: |
+          python -m py_compile tools/build-stressed-o-che-from-words.py
+          python tools/build-stressed-o-che-from-words.py
+      - name: Commit verified clips and update lesson
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio/alphabet-phonetic-v1/ audio/alphabet-natural/manifest.json lesson-1-panda-style.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Use stressed O from ох and Che from чек in Russian alphabet"
+            git pull --rebase
+            git push
+          fi
