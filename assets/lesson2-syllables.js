@@ -100,6 +100,7 @@ function renderWord(){
  $("wordFill").style.width=((progress.current+1)/WORDS.length*100)+"%";
  $("wordRussian").textContent=w.ru.toLocaleUpperCase("ru-RU");
  $("wordChinese").textContent=w.zh;
+ $("wordHint").textContent=["Вода","Окно"].includes(w.ru)?"注意：非重读的 О 在单词中常读得接近 А。这是正常发音，字母 О 单独读时仍是 О。":"粉色的音节有重音 · 点击听完整单词";
  $("wordIcon").textContent=w.emoji;
  $("wordIcon").hidden=!!w.image;
  $("wordPhoto").hidden=!w.image;
