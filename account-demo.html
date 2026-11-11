@@ -533,7 +533,7 @@ body.neon-moscow-theme{background:radial-gradient(ellipse at 7% 5%,#273d9d,trans
 "use strict";
 var lessons=[
   {cn:"俄语字母表",ru:"Русский алфавит",url:"lesson-1-panda-style.html?v=quiz-20261111-r2"},
-  {cn:"阅读与发音",ru:"Чтение и произношение",url:"russian_lesson_2_reading.html?v=lesson2-20261111"},
+  {cn:"拼读入门",ru:"Чтение по слогам",url:"lesson-2-syllables.html?v=20261112-1"},
   {cn:"人称代词",ru:"Личные местоимения",url:"lesson-3-pronouns-basic.html"},
   {cn:"日常问候",ru:"Приветствия",url:"lesson-4-presentation-READY.html"},
   {cn:"数字与时间",ru:"Числа и время",url:"lesson-5.html"},
@@ -546,10 +546,10 @@ function safeRead(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function safeSave(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
 function parse(k){try{return JSON.parse(safeRead(k)||"{}")}catch(e){return {}}}
 function buildProgress(){
-  var quiz=parse("russian-course-progress-v1"),words=parse("lesson2-reference-progress"),done=[];
+  var quiz=parse("russian-course-progress-v1"),words=parse("lesson2-reference-progress"),reading=parse("lesson2-syllables-progress-v1"),done=[];
   for(var i=1;i<=7;i++){var q=quiz[String(i)];if(q&&Number(q.total)>0&&Number(q.score)>=0&&Number(q.score)/Number(q.total)>=.8)done.push(i-1)}
   var wordCount=Array.isArray(words.seen)?new Set(words.seen).size:0;
-  if(wordCount>=100&&!done.includes(1))done.push(1);
+  if(reading.passed===true&&Array.isArray(reading.heard)&&new Set(reading.heard).size>=10&&!done.includes(1))done.push(1);
   return {done:done.sort(function(a,b){return a-b}),quiz:quiz,wordCount:wordCount}
 }
 function recommended(done){
