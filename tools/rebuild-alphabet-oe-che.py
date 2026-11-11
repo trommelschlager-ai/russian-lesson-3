@@ -14,8 +14,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 VOICE = "ru-RU-DmitryNeural"
 OUTPUT = ROOT / "audio" / "alphabet-corrected"
 TRACKS = {
-    "О": ("о́", "letter-o-dmitry-stressed.mp3"),
-    "Ч": ("че́", "letter-che-dmitry-stressed.mp3"),
+    "О": ("о", "letter-o-dmitry-stressed.mp3"),
+    "Ч": ("че", "letter-che-dmitry-stressed.mp3"),
 }
 
 async def main():
