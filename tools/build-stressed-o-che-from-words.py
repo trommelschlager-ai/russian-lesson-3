@@ -38,7 +38,7 @@ def read_pcm(filename):
             converted = resampler.resample(frame)
             for mono in converted:
                 samples.append(mono.to_ndarray().reshape(-1).astype(np.float32) / 32768.0)
-        for mono in resampler.resample(None):
+        for mono in (resampler.resample(None) or []):
             samples.append(mono.to_ndarray().reshape(-1).astype(np.float32) / 32768.0)
     if not samples:
         raise RuntimeError(f"No decoded audio in {filename}")
