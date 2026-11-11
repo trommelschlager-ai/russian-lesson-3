@@ -110,7 +110,7 @@
 
     <!-- Top row lessons -->
     <a class="tile" href="lesson-1-panda-style.html?v=quiz-20261111-r2" style="left:2.2%;top:43.6%;width:30.6%;height:20.35%" aria-label="Урок 1. Русский алфавит" title="Урок 1. Русский алфавит"><span class="sr-only">Урок 1. Русский алфавит</span></a>
-    <a class="tile" href="russian_lesson_2_reading.html?v=lesson2-20261111" style="left:34.65%;top:43.6%;width:31.15%;height:20.35%" aria-label="Урок 2. Чтение и произношение" title="Урок 2. Чтение и произношение"><span class="sr-only">Урок 2. Чтение и произношение</span></a>
+    <a class="tile" href="lesson-2-syllables.html?v=20261112-1" style="left:34.65%;top:43.6%;width:31.15%;height:20.35%" aria-label="Урок 2. Чтение по слогам" title="Урок 2. Чтение по слогам"><span class="sr-only">Урок 2. Чтение по слогам</span></a>
     <a class="tile" href="lesson-3-pronouns-basic.html" style="left:67.0%;top:43.6%;width:30.75%;height:20.35%" aria-label="Урок 3. Личные местоимения" title="Урок 3. Личные местоимения"><span class="sr-only">Урок 3. Личные местоимения</span></a>
 
     <!-- Bottom row lessons -->
@@ -181,7 +181,7 @@
     'use strict';
     var lessons=[
       {zh:'俄语字母表',ru:'Русский алфавит',href:'lesson-1-panda-style.html?v=quiz-20261111-r2'},
-      {zh:'阅读与发音',ru:'Чтение и произношение',href:'russian_lesson_2_reading.html?v=lesson2-20261111'},
+      {zh:'拼读入门',ru:'Чтение по слогам',href:'lesson-2-syllables.html?v=20261112-1'},
       {zh:'人称代词',ru:'Личные местоимения',href:'lesson-3-pronouns-basic.html'},
       {zh:'日常问候',ru:'Приветствия',href:'lesson-4-presentation-READY.html'},
       {zh:'数字与时间',ru:'Числа и время',href:'lesson-5.html'},
@@ -228,14 +228,14 @@
         }
       }catch(e){}
       try{
-        var words=JSON.parse(localStorage.getItem('lesson2-reference-progress')||'{}');
-        if(Array.isArray(words.seen)&&new Set(words.seen).size>=100&&done.indexOf(1)===-1)done.push(1);
+        var reading=JSON.parse(localStorage.getItem('lesson2-syllables-progress-v1')||'{}');
+        if(reading.passed===true&&Array.isArray(reading.heard)&&new Set(reading.heard).size>=10&&done.indexOf(1)===-1)done.push(1);
       }catch(e){}
       return done.sort(function(a,b){return a-b;});
     }
     function progressMarkup(){
       var completed=getCompleted();
-      return '<p>进度自动保存：第1课听完33个字母；第2课练习全部100个单词；第3–7课测验正确率至少80%。</p>'+
+      return '<p>进度自动保存：第1课听完33个字母；第2课听读10个简单词并通过测验；第3–7课测验正确率至少80%。</p>'+
         '<strong id="home-progress-label"></strong><div class="progress-meter"><div id="home-progress-fill"></div></div>'+
         lessons.map(function(l,i){return '<div class="progress-row"><span>'+(completed.indexOf(i)!==-1?'✅ ':'○ ')+(i+1)+'. '+l.zh+' — '+l.ru+'</span><a href="'+l.href+'" aria-label="打开第'+(i+1)+'课">↗</a></div>';}).join('')+
         '<p class="course-note">只记录真实学习进度，打开课程本身不算完成。记录仅保存在此设备的浏览器中。 / Прогресс засчитывается после выполнения заданий и хранится в этом браузере.</p>';
@@ -260,7 +260,7 @@
         body.innerHTML='<p>从字母、常用词到日常表达，所有内容都在现有课程中。</p>'+
           '<div class="course-list">'+
           card('🔤 俄语字母表','Алфавит','lesson-1-panda-style.html?v=quiz-20261111-r2')+
-          card('📚 100个简单俄语单词','100 простых слов','lesson-2-100-words.html')+
+          card('📚 我的第一本俄语词典','Мой первый словарь · 100 слов','my-first-russian-dictionary.html')+
           card('👥 人称代词','Местоимения','lesson-3-pronouns-basic.html')+
           card('💬 日常问候','Приветствия','lesson-4-presentation-READY.html')+
           card('🔢 数字与时间','Числа и время','lesson-5.html')+
@@ -278,7 +278,7 @@
         body.innerHTML='<h3>四步开始学习 · Четыре шага</h3>'+
           '<p>① 选择一课 — выбери урок.</p><p>② 点击 🔊 听发音 — прослушай запись.</p>'+
           '<p>③ 跟读并练习 — повтори вслух.</p><p>④ 复习生词并记录进度 — повтори и отметь изученное.</p>'+
-          '<div class="course-list">'+card('从第一课开始','Начать с алфавита','lesson-1-panda-style.html?v=quiz-20261111-r2')+card('学习 100 个单词','100 простых слов','lesson-2-100-words.html')+'</div>';
+          '<div class="course-list">'+card('从第一课开始','Начать с алфавита','lesson-1-panda-style.html?v=quiz-20261111-r2')+card('词典 · 100个单词','Словарь для самостоятельной практики','my-first-russian-dictionary.html')+'</div>';
       } else if(which==='dialogues'){
         body.innerHTML='<p>从短对话开始。点击对应课程，聆听已有的课内录音并跟读。</p>'+
           '<div class="sample-dialog"><p><strong>— Привет! — Привет!</strong></p><p class="translate">— 你好！— 你好！</p>'+
@@ -288,7 +288,7 @@
           card('描述我的一天','Мой день — урок 7','lesson-7.html')+'</div>';
       } else if(which==='pronunciation'){
         body.innerHTML='<p>听自然俄语录音，用普通速度或慢速练习，再尝试麦克风识别。</p>'+
-          '<div class="course-list">'+card('100个简单俄语单词','Слова: 🔊 1× / 0.7× / 🎤','lesson-2-100-words.html')+
+          '<div class="course-list">'+card('100个简单俄语单词','Слова: 🔊 1× / 0.7× / 🎤','my-first-russian-dictionary.html')+
           card('俄语字母表','Алфавит и аудио','lesson-1-panda-style.html?v=quiz-20261111-r2')+
           card('人称代词','Местоимения и произношение','lesson-3-pronouns-basic.html')+'</div>'+
           '<p class="course-note">麦克风取决于浏览器和网络。语音识别检查的是词语文本，不会可靠地评估口音或重音。 / На телефоне лучше использовать Chrome, разрешив доступ к микрофону.</p>';
@@ -343,7 +343,7 @@
         if(!needle || normalize((i+1)+' '+l.zh+' '+l.ru).includes(needle))entries.push({kind:'lesson',name:l.zh,sub:l.ru,href:l.href});
       });
       words.forEach(function(w){
-        if(!needle || normalize(w.word+' '+w.latin+' '+w.zh).includes(needle))entries.push({kind:'word',name:w.word,sub:(w.latin||'')+' · '+(w.zh||''),href:'lesson-2-100-words.html',audio:w.url});
+        if(!needle || normalize(w.word+' '+w.latin+' '+w.zh).includes(needle))entries.push({kind:'word',name:w.word,sub:(w.latin||'')+' · '+(w.zh||''),href:'my-first-russian-dictionary.html',audio:w.url});
       });
       if(!entries.length){var p=document.createElement('p');p.textContent='没有找到结果 / Ничего не найдено';results.append(p);return;}
       entries.slice(0,needle?35:13).forEach(function(item){
@@ -436,7 +436,7 @@
       if(!link||link.hasAttribute('data-panel'))return;
       var href=(link.getAttribute('href')||'').split(/[?#]/)[0].replace(/^\.\//,'');
       var i=lessons.findIndex(function(l){return l.href===href;});
-      if(i===-1&&href==='lesson-2-100-words.html')i=1;
+      /* Extra vocabulary is optional; do not mark lesson 2 as started. */
       if(i!==-1)recordOpenedLesson(i);
     });
     window.addEventListener('pageshow',refreshDashboard);
