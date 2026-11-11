@@ -105,11 +105,11 @@
   <main class="page">
     <img src="course_home_main_photo2.png" alt="俄语课程: Русский для китайцев. Семь уроков: алфавит, чтение и произношение, местоимения, приветствия, числа и время, семья и мой день." width="864" height="1536" fetchpriority="high">
 
-    <a id="hero-start" class="hero-button" href="russian_lesson_1_COMPLETE.html" data-panel="start" aria-label="开始学习 — выбрать урок для начала обучения"></a>
+    <a id="hero-start" class="hero-button" href="lesson-1-panda-style.html?v=quiz-20261111-r2" data-panel="start" aria-label="开始学习 — выбрать урок для начала обучения"></a>
     <span id="lessons" class="lesson-anchor" aria-hidden="true"></span>
 
     <!-- Top row lessons -->
-    <a class="tile" href="russian_lesson_1_COMPLETE.html" style="left:2.2%;top:43.6%;width:30.6%;height:20.35%" aria-label="Урок 1. Русский алфавит" title="Урок 1. Русский алфавит"><span class="sr-only">Урок 1. Русский алфавит</span></a>
+    <a class="tile" href="lesson-1-panda-style.html?v=quiz-20261111-r2" style="left:2.2%;top:43.6%;width:30.6%;height:20.35%" aria-label="Урок 1. Русский алфавит" title="Урок 1. Русский алфавит"><span class="sr-only">Урок 1. Русский алфавит</span></a>
     <a class="tile" href="russian_lesson_2_reading.html" style="left:34.65%;top:43.6%;width:31.15%;height:20.35%" aria-label="Урок 2. Чтение и произношение" title="Урок 2. Чтение и произношение"><span class="sr-only">Урок 2. Чтение и произношение</span></a>
     <a class="tile" href="lesson-3-pronouns-basic.html" style="left:67.0%;top:43.6%;width:30.75%;height:20.35%" aria-label="Урок 3. Личные местоимения" title="Урок 3. Личные местоимения"><span class="sr-only">Урок 3. Личные местоимения</span></a>
 
@@ -119,7 +119,7 @@
     <a class="tile" href="lesson-6.html" style="left:50.1%;top:64.8%;width:23.55%;height:20.55%" aria-label="Урок 6. Моя семья" title="Урок 6. Моя семья"><span class="sr-only">Урок 6. Моя семья</span></a>
     <a class="tile" href="lesson-7.html" style="left:74.4%;top:64.8%;width:23.45%;height:20.55%" aria-label="Урок 7. Мой день" title="Урок 7. Мой день"><span class="sr-only">Урок 7. Мой день</span></a>
 
-    <a id="footer-start" class="footer-button" href="russian_lesson_1_COMPLETE.html" data-panel="start" aria-label="开始学习 — выбрать урок для начала обучения"></a>
+    <a id="footer-start" class="footer-button" href="lesson-1-panda-style.html?v=quiz-20261111-r2" data-panel="start" aria-label="开始学习 — выбрать урок для начала обучения"></a>
   
     <!-- Accessible click targets over existing artwork; image itself is not altered. -->
     <a class="hotspot" href="#lessons" style="left:32.5%;top:0.6%;width:8.8%;height:4.2%" aria-label="课程 — перейти к урокам"><span class="sr-only">课程</span></a>
@@ -147,7 +147,7 @@
       <div class="dashboard-main">
         <h2 id="dashboard-heading" class="dashboard-heading"><strong>我的学习进度</strong><span>Мой прогресс</span></h2>
         <p id="dashboard-status" class="dashboard-status">已完成 0 / 7 课</p>
-        <a id="dashboard-continue" class="dashboard-continue" href="russian_lesson_1_COMPLETE.html">继续学习 <span aria-hidden="true">→</span></a>
+        <a id="dashboard-continue" class="dashboard-continue" href="lesson-1-panda-style.html?v=quiz-20261111-r2">继续学习 <span aria-hidden="true">→</span></a>
         <div id="dashboard-next" class="dashboard-next">下一课：俄语字母表</div>
       </div>
       <div class="dashboard-footer">
@@ -180,7 +180,7 @@
   (function () {
     'use strict';
     var lessons=[
-      {zh:'俄语字母表',ru:'Русский алфавит',href:'russian_lesson_1_COMPLETE.html'},
+      {zh:'俄语字母表',ru:'Русский алфавит',href:'lesson-1-panda-style.html?v=quiz-20261111-r2'},
       {zh:'阅读与发音',ru:'Чтение и произношение',href:'russian_lesson_2_reading.html'},
       {zh:'人称代词',ru:'Личные местоимения',href:'lesson-3-pronouns-basic.html'},
       {zh:'日常问候',ru:'Приветствия',href:'lesson-4-presentation-READY.html'},
@@ -255,11 +255,11 @@
       backdrop.hidden=false;document.body.classList.add('modal-open');
       if(which==='start'){
         body.innerHTML='<p>从第一课开始，或者选择想学习的主题。 / Выбери урок для начала обучения.</p>'+
-          '<a class="course-link start-first" href="russian_lesson_1_COMPLETE.html"><strong>▶ 开始第一课 — Русский алфавит</strong><small>Начать с первого урока / 从字母开始</small></a>'+lessonCards();
+          '<a class="course-link start-first" href="lesson-1-panda-style.html?v=quiz-20261111-r2"><strong>▶ 开始第一课 — Русский алфавит</strong><small>Начать с первого урока / 从字母开始</small></a>'+lessonCards();
       } else if(which==='resources'){
         body.innerHTML='<p>从字母、常用词到日常表达，所有内容都在现有课程中。</p>'+
           '<div class="course-list">'+
-          card('🔤 俄语字母表','Алфавит','russian_lesson_1_COMPLETE.html')+
+          card('🔤 俄语字母表','Алфавит','lesson-1-panda-style.html?v=quiz-20261111-r2')+
           card('📚 100个简单俄语单词','100 простых слов','lesson-2-100-words.html')+
           card('👥 人称代词','Местоимения','lesson-3-pronouns-basic.html')+
           card('💬 日常问候','Приветствия','lesson-4-presentation-READY.html')+
@@ -278,7 +278,7 @@
         body.innerHTML='<h3>四步开始学习 · Четыре шага</h3>'+
           '<p>① 选择一课 — выбери урок.</p><p>② 点击 🔊 听发音 — прослушай запись.</p>'+
           '<p>③ 跟读并练习 — повтори вслух.</p><p>④ 复习生词并记录进度 — повтори и отметь изученное.</p>'+
-          '<div class="course-list">'+card('从第一课开始','Начать с алфавита','russian_lesson_1_COMPLETE.html')+card('学习 100 个单词','100 простых слов','lesson-2-100-words.html')+'</div>';
+          '<div class="course-list">'+card('从第一课开始','Начать с алфавита','lesson-1-panda-style.html?v=quiz-20261111-r2')+card('学习 100 个单词','100 простых слов','lesson-2-100-words.html')+'</div>';
       } else if(which==='dialogues'){
         body.innerHTML='<p>从短对话开始。点击对应课程，聆听已有的课内录音并跟读。</p>'+
           '<div class="sample-dialog"><p><strong>— Привет! — Привет!</strong></p><p class="translate">— 你好！— 你好！</p>'+
@@ -289,7 +289,7 @@
       } else if(which==='pronunciation'){
         body.innerHTML='<p>听自然俄语录音，用普通速度或慢速练习，再尝试麦克风识别。</p>'+
           '<div class="course-list">'+card('100个简单俄语单词','Слова: 🔊 1× / 0.7× / 🎤','lesson-2-100-words.html')+
-          card('俄语字母表','Алфавит и аудио','russian_lesson_1_COMPLETE.html')+
+          card('俄语字母表','Алфавит и аудио','lesson-1-panda-style.html?v=quiz-20261111-r2')+
           card('人称代词','Местоимения и произношение','lesson-3-pronouns-basic.html')+'</div>'+
           '<p class="course-note">麦克风取决于浏览器和网络。语音识别检查的是词语文本，不会可靠地评估口音或重音。 / На телефоне лучше использовать Chrome, разрешив доступ к микрофону.</p>';
       } else if(which==='menu'){
