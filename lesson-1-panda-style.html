@@ -191,7 +191,7 @@ main{padding:7px 12px 3px;flex:1;min-height:0;display:flex;flex-direction:column
  <div class="bottomactions"><button id="backAlphabet" class="secondary">← 字母</button><button id="goQuiz" class="cta">听力测验 →</button></div>
 </section>
 <section id="quiz" class="view">
- <div class="rowhead"><div><h2>听力小测验</h2><small>听字母，选正确答案</small></div><span class="tinycount">6 题</span></div>
+ <div class="rowhead"><div><h2>听力挑战 · 新版</h2><small>听字母，选正确答案</small></div><span class="tinycount">6 题</span></div>
  <div class="quizcard" id="quizCard">
   <div class="quizbar"><strong id="questionNumber" class="quizcount">第 1 / 6 题</strong><span id="quizScore" class="quizscore">★ 0 / 6</span></div>
   <div class="quiztrack" aria-hidden="true"><div id="quizProgressFill" class="quizfill"></div></div>
@@ -393,6 +393,8 @@ $("returnHome").addEventListener("click",()=>location.assign("account-demo.html"
 document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>show(b.dataset.view)));
 window.addEventListener("pagehide",stopAudio);
 setup();
+// Direct link to the new quiz, without changing the default alphabet-first lesson.
+if(window.location.hash==="#quiz"){show("quiz");}
 </script>
 </body>
 </html>
