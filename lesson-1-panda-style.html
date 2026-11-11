@@ -100,6 +100,12 @@ main{padding:7px 12px 3px;flex:1;min-height:0;display:flex;flex-direction:column
 #alphabet .focus{min-height:79px}
 @media(max-height:620px){#alphabet .focus{min-height:62px}.hand-a-svg{width:90px;height:38px}.handwriting{font-size:29px!important}}
 
+
+/* Minimal word-review affordances; keep all four cards on one mobile screen. */
+#words .wordcard.heard-word{border-color:#9bd7c3;background:#effcf6}
+#words .wordcard.heard-word span{color:#32856e;background:#e1f7ed;border-color:#b2e2cf}
+#words .signTip{font-size:11px;color:#795f91;margin:0 2px 8px;line-height:1.45}
+#words .status{font-size:12px;min-height:20px}
 </style>
 </head>
 <body>
@@ -129,6 +135,7 @@ main{padding:7px 12px 3px;flex:1;min-height:0;display:flex;flex-direction:column
 <section id="words" class="view">
  <div class="rowhead"><div><h2>单词 · Слова</h2><small>每个字母 4 个例词，共 132 个</small></div><span id="wordCount" class="tinycount">1 / 33</span></div>
  <div class="wordsnav"><button class="navbutton" id="previousGroup" aria-label="上一个字母">‹</button><select class="pick" id="letterSelect" aria-label="选择字母"></select><button class="navbutton" id="nextGroup" aria-label="下一个字母">›</button></div>
+ <p class="signTip" id="specialWordTip" hidden>Ъ、Ь 和 Ы 一般不在词首；请注意它们在单词中的位置。</p>
  <div class="wordcards" id="wordCards"></div>
  <p id="wordsStatus" class="status" role="status" aria-live="polite">点击单词即可听录音。</p>
  <div class="bottomactions"><button id="backAlphabet" class="secondary">← 字母</button><button id="goQuiz" class="cta">听力测验 →</button></div>
@@ -169,8 +176,9 @@ const LATIN_NAMES={
 "Ы":"Y [ɨ]","Ь":"Myagkiy znak","Э":"E","Ю":"Yu","Я":"Ya"
 };
 const AUDIO_RELEASE="20261111-stressed-phonemes-o-che-v1";
-let saved={heard:[],quizPassed:false,lastScore:0,selected:0};
-try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x&&typeof x==="object"){saved.heard=Array.isArray(x.heard)?[...new Set(x.heard.filter(c=>DATA.some(d=>d.l===c)))]:[];saved.quizPassed=!!x.quizPassed;saved.lastScore=Number(x.lastScore)||0;saved.selected=Math.max(0,Math.min(32,Number(x.selected)||0));}}catch(e){}
+let saved={heard:[],wordHeard:[],quizPassed:false,lastScore:0,selected:0};
+try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x&&typeof x==="object"){saved.heard=Array.isArray(x.heard)?[...new Set(x.heard.filter(c=>DATA.some(d=>d.l===c)))]:[];
+saved.wordHeard=Array.isArray(x.wordHeard)?[...new Set(x.wordHeard.filter(c=>typeof c==="string"&&c.length<70))]:[];saved.quizPassed=!!x.quizPassed;saved.lastScore=Number(x.lastScore)||0;saved.selected=Math.max(0,Math.min(32,Number(x.selected)||0));}}catch(e){}
 let selected=saved.selected,group=0,nowPlaying=null;
 let test=[],q=0,score=0,answered=false;
 function persist(){saved.selected=selected;try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){} updateHeard();}
@@ -190,7 +198,38 @@ function renderHandwriting(letter){
 }
 function selectLetter(i,playIt=true){selected=Math.max(0,Math.min(32,i));const d=DATA[selected];$("selectedUpper").textContent=d.l;$("selectedLower").textContent=d.lo;$("selectedName").textContent="字母名称："+d.name;$("selectedLatin").textContent=LATIN_NAMES[d.l];renderHandwriting(d);$("selectedHint").textContent=SIGNS.has(d.l)?"不单独发音":"点击重听字母名称";document.querySelectorAll("#alphabetGrid button").forEach(b=>b.classList.toggle("selected",b.dataset.letter===d.l));persist();if(playIt)play(d.letterAudio,{heard:d.l,status:"alphabetStatus",label:d.name});}
 function setup(){const g=$("alphabetGrid"),sel=$("letterSelect");DATA.forEach((d,i)=>{const b=document.createElement("button");b.dataset.letter=d.l;b.setAttribute("aria-label","播放字母 "+d.l);if(SIGNS.has(d.l))b.classList.add("special");const strong=document.createElement("strong");strong.textContent=d.l;const small=document.createElement("small");small.textContent=d.lo;b.append(strong,small);b.addEventListener("click",()=>selectLetter(i));g.append(b);const o=document.createElement("option");o.value=String(i);o.textContent=d.l+" "+d.lo;sel.append(o);});updateHeard();selectLetter(selected,false);}
-function renderWords(){const d=DATA[group];$("letterSelect").value=String(group);$("wordCount").textContent=(group+1)+" / 33";$("previousGroup").disabled=group===0;$("nextGroup").disabled=group===32;const all=[{word:d.word,zh:d.zh,audio:d.wordAudio},...EXTRAS[group]];const c=$("wordCards");c.replaceChildren();all.forEach(x=>{const b=document.createElement("button");b.className="wordcard";b.setAttribute("aria-label","听单词 "+x.word);const w=document.createElement("b");w.textContent=x.word;const z=document.createElement("small");z.textContent=x.zh;const sound=document.createElement("span");sound.textContent="🔊 听发音";b.append(w,z,sound);b.addEventListener("click",()=>play(x.audio,{status:"wordsStatus",label:x.word}));c.append(b);});$("wordsStatus").textContent="点击单词即可听录音。";}
+function renderWords(){
+const d=DATA[group];
+$("letterSelect").value=String(group);
+$("wordCount").textContent=(group+1)+" / 33";
+$("previousGroup").disabled=group===0;
+$("nextGroup").disabled=group===32;
+$("specialWordTip").hidden=!["Ъ","Ы","Ь"].includes(d.l);
+const all=[{word:d.word,zh:d.zh,audio:d.wordAudio},...EXTRAS[group]];
+const cardRoot=$("wordCards");
+cardRoot.replaceChildren();
+const updateWordProgress=()=>{
+ let n=all.filter(x=>saved.wordHeard.includes(x.audio)).length;
+ $("wordsStatus").textContent="已听："+n+" / 4 · 点击单词可重复播放";
+ cardRoot.querySelectorAll("button").forEach(b=>b.classList.toggle("heard-word",saved.wordHeard.includes(b.dataset.audio)));
+};
+all.forEach((x,i)=>{
+ const b=document.createElement("button");b.className="wordcard";
+ b.dataset.audio=x.audio;
+ b.setAttribute("aria-label","听单词 "+x.word);
+ const w=document.createElement("b");w.textContent=x.word;
+ const z=document.createElement("small");z.textContent=x.zh;
+ const sound=document.createElement("span");sound.textContent="🔊 听发音";
+ b.append(w,z,sound);
+ b.addEventListener("click",()=>{
+   play(x.audio,{status:"wordsStatus",label:x.word});
+   if(!saved.wordHeard.includes(x.audio)){saved.wordHeard.push(x.audio);persist();}
+   updateWordProgress();
+ });
+ cardRoot.append(b);
+});
+updateWordProgress();
+}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function resetTest(){test=shuffle(DATA.filter(x=>!SIGNS.has(x.l)).slice()).slice(0,6);q=0;score=0;answered=false;$("quizCard").hidden=false;$("quizResult").hidden=true;showQuestion();}
 function showQuestion(){if(q>=6){endTest();return;}answered=false;$("questionNumber").textContent="第 "+(q+1)+" / 6 题";$("answer").textContent="";$("nextQuestion").disabled=true;$("nextQuestion").textContent=q===5?"查看成绩 →":"下一题 →";const actual=test[q];const others=shuffle(DATA.filter(x=>!SIGNS.has(x.l)&&x.l!==actual.l)).slice(0,2);const options=shuffle([actual,...others]);const el=$("options");el.replaceChildren();options.forEach(d=>{const b=document.createElement("button");b.textContent=d.l;b.setAttribute("aria-label","字母 "+d.l);b.addEventListener("click",()=>{if(answered)return;answered=true;const ok=d.l===actual.l;if(ok)score++;$("answer").textContent=ok?"✅ 正确！":"正确答案："+actual.l;el.querySelectorAll("button").forEach(btn=>{btn.disabled=true;if(btn.textContent===actual.l)btn.classList.add("correct");else if(btn===b)btn.classList.add("wrong");});$("nextQuestion").disabled=false;});el.append(b);});}
