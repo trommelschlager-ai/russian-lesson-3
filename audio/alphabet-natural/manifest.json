@@ -528,8 +528,8 @@
     "field": "letterAudio",
     "display": "Окно",
     "spoken": "о",
-    "voice": "Male course, O alternative (ear check needed)",
-    "file": "audio/course/male-4f87962e5428d8.mp3"
+    "voice": "ru-RU-DmitryNeural",
+    "file": "audio/alphabet-corrected/letter-o-dmitry-stressed.mp3"
   },
   {
     "field": "wordAudio",
@@ -843,8 +843,8 @@
     "field": "letterAudio",
     "display": "Чай",
     "spoken": "че",
-    "voice": "User corrected recording 2026-10-26",
-    "file": "audio/lesson1-user-voice/letter-che-20261026.mp3"
+    "voice": "ru-RU-DmitryNeural",
+    "file": "audio/alphabet-corrected/letter-che-dmitry-stressed.mp3"
   },
   {
     "field": "wordAudio",
