@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>我的第一本俄语词典 · Мой первый словарь · 100 слов</title><link rel="stylesheet" href="assets/lesson2-rebuild.css"><link rel="stylesheet" href="assets/lesson2-vertical.css"><link rel="stylesheet" href="assets/lesson2-approved-20261023.css"><link rel="stylesheet" href="assets/lesson2-exact-layout.css"><link rel="stylesheet" href="assets/lesson2-true-approved-art.css?v=20261023-verified"><link rel="stylesheet" href="assets/lesson2-header-clean-20261023.css?v=2"><style id="lesson2-birch-feed">
+/* The selected birch artwork supplies the header, photographs and button skins.
+   Keep the original vocabulary and MP3/speech handlers; show all 100 cards. */
+:root{--birch-art:url('assets/lesson2-birch/approved-reference.jpg');--forest:#155138;--paper:#fdfdf5}
+.l2-course-nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:9px;min-height:44px;padding:6px max(12px,3vw);background:#fdfaf0;border-bottom:1px solid #d8d8b8;color:#275637;font:800 12px/1.3 Arial,"Microsoft YaHei",sans-serif}
+.l2-course-nav>a{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:3px 9px;border:1px solid #bed4b5;border-radius:10px;text-decoration:none;background:white;color:#226042;white-space:nowrap;font-size:19px}
+.l2-course-nav>a span{font-size:11px}.l2-course-nav>strong{text-align:center;line-height:1.2;font-size:12px}
+.l2-nav-spacer{width:69px;flex:none}
+@media(max-width:380px){.l2-course-nav{padding:6px 9px}.l2-nav-spacer{display:none}.l2-course-nav>strong{font-size:11px}}
+
+html{scrollbar-width:none}
+html body{margin:0!important;background:#edf3dc!important;color:#193d2a;overflow-x:visible;font-family:Arial,'Microsoft Yahei',sans-serif;position:relative}
+body::before,body::after{content:'';position:fixed;top:0;bottom:0;width:2.83vw;pointer-events:none;background-image:var(--birch-art);background-size:100vw auto;background-repeat:repeat-y;z-index:0}
+body::before{left:0;background-position:left top}body::after{right:0;background-position:right top}
+body>header,body>.layout{position:relative;z-index:1}
+html body>header.banner.l2-final-hero{display:block!important;position:relative!important;width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:1024/332!important;padding:0!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important;overflow:hidden!important}
+html body>header.banner::before,html body>header.banner::after{content:none!important;display:none!important}
+.l2-final-hero>img{display:block!important;position:absolute;left:0;top:0;width:100%!important;height:auto!important;max-width:none!important}
+html body .layout{display:block!important;width:94.34%!important;max-width:1440px!important;padding:0 0 28px!important;margin:0 auto!important;background:none!important}
+html body #word-list{display:flex!important;flex-direction:column!important;gap:clamp(7px,1.56vw,22px)!important;width:100%!important}
+html body #word-list>.word-card{display:block!important;position:relative!important;width:100%!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;background:none!important;border:0!important;border-image:none!important;box-shadow:none!important;border-radius:0!important}
+html body #word-list>.word-card::before,html body #word-list>.word-card::after{content:none!important;display:none!important}
+.l2-main{position:relative;background:var(--paper);border:3px solid #426b47;border-radius:clamp(15px,3.12vw,44px);padding:clamp(8px,1.76vw,26px) clamp(8px,2.34vw,34px) clamp(9px,2.14vw,30px);box-shadow:0 4px 8px #28432135;overflow:hidden}
+html body #word-list>.word-card .topline{position:absolute!important;width:1px!important;height:1px!important;min-height:0!important;padding:0!important;overflow:hidden!important;clip-path:inset(50%);white-space:nowrap}
+html body #word-list>.word-card .learning{display:grid!important;grid-template-columns:minmax(0,55%) minmax(0,1fr)!important;gap:clamp(12px,4.1vw,59px)!important;align-items:stretch!important;min-height:0!important;height:auto!important}
+html body #word-list>.word-card .portrait{position:relative!important;width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:503/313!important;border-radius:clamp(7px,1.56vw,22px)!important;box-shadow:none!important;background:#f7f5e9!important;overflow:hidden}
+html body #word-list>.word-card:first-child .portrait{aspect-ratio:503/302!important}
+html body #word-list>.word-card .portrait>[data-role="photo"]{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border-radius:0!important}
+html body #word-list>.word-card .portrait>.frame,html body #word-list>.word-card [data-role="photo-caption"]{display:none!important}
+/* Use the exact supplied photos for the three visible reference words. */
+#word-list>.word-card:nth-child(-n+3) .portrait{background-image:var(--birch-art)!important;background-repeat:no-repeat!important}
+#word-list>.word-card:nth-child(-n+3) .portrait>[data-role="photo"]{opacity:0}
+#word-list>.word-card:nth-child(1) .portrait{background-size:203.5785% 508.6093%!important;background-position:10.7486% 28.6062%!important}
+#word-list>.word-card:nth-child(2) .portrait{background-size:203.5785% 490.7348%!important;background-position:10.7486% 67.2935%!important}
+#word-list>.word-card:nth-child(3) .portrait{aspect-ratio:503/229!important;background-size:203.5785% 670.7424%!important;background-position:10.7486% 100%!important}
+html body #word-list>.word-card .info{position:relative!important;container-type:inline-size;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;width:100%!important;min-width:0!important;padding:clamp(0px,1.3vw,19px) 0 clamp(9px,2.6vw,36px)!important;z-index:0}
+#word-list>.word-card .info::after{content:'';position:absolute;right:0;top:15%;width:26%;aspect-ratio:110/210;background:var(--birch-art) 94.6389% 30.0151%/930.9091% 731.4286% no-repeat;pointer-events:none;z-index:-1}
+#word-list>.word-card:nth-child(even) .info::after{aspect-ratio:110/232;background-position:94.6389% 66.7178%;background-size:930.9091% 662.069%}
+#word-list>.word-card .info::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:clamp(11px,3vw,43px);background:var(--birch-art) 90.673% 41.4618%/276.7568% 4954.8387% no-repeat;pointer-events:none}
+html body #word-list>.word-card .wordline{display:block!important;width:100%!important;min-height:0!important;gap:0!important}
+html body #word-list>.word-card .wordline h2{display:block!important;width:100%!important;max-width:100%!important;margin:0!important;white-space:nowrap!important;font:700 clamp(23px,min(10.6vw,calc(100cqi / var(--letters,4) * 1.08)),150px)/1.1 Georgia,'Times New Roman',serif!important;color:#b20a12!important;letter-spacing:0!important;text-align:left!important;text-shadow:none!important}
+html body #word-list>.word-card .translation{width:100%!important;text-align:left!important;margin:0!important;font-size:clamp(17px,4.0vw,57px)!important;font-weight:700;line-height:1.15!important;color:#4a301c}
+.l2-latin-line{display:flex;align-items:center;gap:clamp(6px,1.5vw,20px);margin:clamp(2px,.7vw,10px) 0 clamp(4px,.9vw,13px)}
+html body #word-list>.word-card .translation .round{display:inline-grid!important;place-items:center!important;flex:none!important;width:clamp(25px,4vw,57px)!important;height:clamp(25px,4vw,57px)!important;min-height:0!important;border:0!important;border-radius:50%!important;background:#7caa65!important;box-shadow:none!important;padding:clamp(5px,.8vw,11px)!important}
+html body #word-list>.word-card .translation .round img{display:block;width:100%!important;height:100%!important}
+html body #word-list>.word-card .translation strong{display:table!important;min-width:68%;max-width:100%;margin-left:-2%!important;padding:clamp(3px,.6vw,9px) clamp(11px,3vw,43px)!important;background:transparent url('assets/lesson2-birch/translation-brush.webp') center/120% 190% no-repeat!important;color:#073f2a!important;font-size:clamp(20px,4.8vw,68px)!important;line-height:1.1!important;overflow-wrap:anywhere}
+html body #word-list>.word-card .actions{display:grid!important;grid-template-columns:1.03fr .95fr 1fr!important;gap:clamp(5px,1vw,15px)!important;margin-top:clamp(7px,1.85vw,26px)!important}
+html body #word-list>.word-card .action{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:clamp(44px,8.89vw,128px)!important;min-height:44px!important;aspect-ratio:auto!important;padding:0!important;border:0!important;border-radius:clamp(12px,3vw,43px)!important;box-shadow:0 3px 5px #25493424!important;background-image:var(--birch-art)!important;background-repeat:no-repeat!important;background-color:transparent!important;overflow:hidden}
+html body #word-list>.word-card .action.blue{background-image:var(--birch-art)!important;background-size:333.5505% 1687.9121%!important;background-position:7.8103% 46.6436%!important}
+html body #word-list>.word-card .action.orange{background-image:var(--birch-art)!important;background-size:359.2982% 1687.9121%!important;background-position:50.7442% 46.6436%!important}
+html body #word-list>.word-card .action.pink{background-image:var(--birch-art)!important;background-size:341.3333% 1687.9121%!important;background-position:92.6796% 46.6436%!important}
+html body #word-list>.word-card .action>img,html body #word-list>.word-card .action>span{opacity:0!important;pointer-events:none}
+html body #word-list>.word-card .action:hover{filter:brightness(1.06)}
+html body #word-list>.word-card .action:active{transform:translateY(1px)}
+html body #word-list>.word-card button:focus-visible{outline:3px solid #17735a;outline-offset:3px}
+.l2-practice{margin:7px 6px 0;padding:0 12px;background:#fffff4;border:1px solid #93b290;border-radius:12px;color:#265b39}
+.l2-practice>summary{cursor:pointer;padding:9px 0;font-size:14px;font-weight:700;min-height:38px}
+.l2-practice:not([open]){display:none}
+.l2-practice[open]{display:block;padding-bottom:12px}
+html body #word-list>.word-card .hint{white-space:normal!important;font-size:14px!important;margin:4px 0 10px!important;background:#f1f6e8!important;border-color:#c6d9b8!important}
+html body #word-list>.word-card .feedback{font-size:14px!important;margin:10px 0 0!important;border-color:#c4d7b8!important;background:#f7f9ef!important}
+#word-list .voice-diagnostics{display:none!important}
+html body #word-list>.word-card [data-role="syllables"]{flex-wrap:wrap}
+html body #word-list>.word-card [data-role="syllables"] button{min-height:44px;font-size:clamp(20px,3vw,36px)}
+.guidance{margin-top:24px!important}
+.l2-next-lesson{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:8px 10px 22px}
+.l2-next-lesson a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 16px;border:1px solid #a0c09b;border-radius:12px;background:#fffdf4;color:#216044;font:bold 13px Arial,"Microsoft YaHei",sans-serif;text-decoration:none;box-shadow:0 3px 9px #21472920}
+.l2-next-lesson a:last-child{background:#22845b;border-color:#22845b;color:white}
+
+footer{display:none}
+@media(max-width:550px){
+ .l2-main{border-width:2px}
+ html body #word-list>.word-card .learning{gap:10px!important}
+ html body #word-list>.word-card .wordline h2{font-size:clamp(18px,min(10.6vw,calc(100cqi / var(--letters,4) * 1.08)),60px)!important}
+ html body #word-list>.word-card .translation{font-size:clamp(15px,4vw,22px)!important}
+ html body #word-list>.word-card .translation strong{font-size:clamp(19px,4.8vw,27px)!important}
+ html body #word-list>.word-card .action{aspect-ratio:auto!important;height:44px!important;min-height:44px!important;background-image:var(--birch-art)!important;border:0!important;box-shadow:inset 0 2px 3px #ffffff80,0 2px 3px #25493435!important;gap:4px!important;border-radius:15px!important;color:white;font-size:clamp(11px,3vw,15px)!important}
+ html body #word-list>.word-card .action.blue{background-image:var(--birch-art)!important;background-color:#087148!important}
+ html body #word-list>.word-card .action.orange{background-image:var(--birch-art)!important;background-color:#fa7462!important}
+ html body #word-list>.word-card .action.pink{background-image:var(--birch-art)!important;background-color:#00888e!important}
+ html body #word-list>.word-card .action>img,html body #word-list>.word-card .action>span{opacity:0!important}
+ html body #word-list>.word-card .action>img{width:20px!important;height:20px!important}
+ html body #word-list>.word-card .action small{display:none!important}
+ .l2-practice{margin-top:5px;padding:0 8px}
+ .l2-practice>summary{font-size:12px;padding:7px 0;min-height:32px}
+}
+
+.dict-hero{display:flex;align-items:center;gap:17px;position:relative;z-index:2;max-width:1100px;margin:10px auto;padding:17px clamp(16px,4vw,40px);background:linear-gradient(100deg,#f0f9e9,#fdf8ec 70%,#f8e6f6);border:2px solid #c1d3a3;border-radius:18px;box-shadow:0 7px 18px #295b3c22}
+.dict-hero-illustration{width:78px;height:78px;flex:none;display:grid;place-items:center;background:#ffffffb8;border:1px solid #cbdcbb;border-radius:18px;font-size:44px}
+.dict-hero span{display:block;color:#4a875f;font-weight:900;font-size:12px}
+.dict-hero h1{font-size:clamp(20px,4vw,31px);line-height:1.2;margin:4px 0;color:#18543a}
+.dict-hero p{font-size:clamp(13px,2.8vw,19px);color:#725394;margin:0 0 4px}
+.dict-hero small{font-size:11px;color:#6e7865}
+@media(max-width:600px){.dict-hero{margin:7px 7px 10px;padding:12px;gap:11px;border-radius:15px}.dict-hero-illustration{width:55px;height:60px;font-size:31px}.dict-hero small{font-size:10px}}
+
+</style></head><body>
+<nav class="l2-course-nav" aria-label="课程导航"><a href="account-demo.html" aria-label="返回学习中心">‹ <span>学习中心</span></a><strong>我的第一本俄语词典 · 100词</strong><span class="l2-nav-spacer" aria-hidden="true"></span></nav>
+<header class="dict-hero"><div class="dict-hero-illustration" aria-hidden="true">📚</div><div><span>课外选学 · Дополнительная практика</span><h1>我的第一本俄语词典</h1><p>Мой первый словарь · 100 русских слов</p><small>这些单词可以慢慢学习，不需要一次全部记住。</small></div></header>
+<template id="word-template"><article class="lesson word-card"><div class="l2-main"><div class="topline"><span>第 <b data-role="ordinal">01</b> 个单词 / 共 100 个</span><span data-role="voice" class="voice"></span></div><div class="learning"><div class="portrait"><img data-role="photo" alt=""><span data-role="photo-caption"></span><img class="frame" src="assets/lesson2-art/photo-frame-reference.webp" alt=""></div><section class="info"><div class="wordline"><h2 data-role="word" lang="ru"></h2></div><div class="translation"><span class="l2-latin-line"><span data-role="latin"></span><button data-role="small-play" class="round" aria-label="听原音"><img src="assets/lesson2-icons/speaker-high-white.svg" alt=""></button></span><strong data-role="zh"></strong></div></section></div>
+<div class="actions"><button class="action blue" data-role="play"><img src="assets/lesson2-icons/speaker-high-white.svg" alt=""><span>听原音<small>标准发音</small></span></button><button class="action orange" data-role="slow"><img src="assets/lesson2-icons/clock-white.svg" alt=""><span>慢速听<small>0.7倍速度</small></span></button><button class="action pink" data-role="record"><img src="assets/lesson2-icons/microphone-white.svg" alt=""><span>我来读<small>语音识别</small></span></button></div>
+</div><details class="l2-practice"><summary>音节练习与发音反馈</summary><p class="hint"><img src="assets/lesson2-icons/lightbulb.svg" alt="">按音节朗读 · <em>红色表示重音</em></p><div data-role="syllables" lang="ru"></div><div data-role="feedback" class="feedback" role="status"><img data-role="status-icon" src="assets/lesson2-icons/speaker-high.svg" alt=""><div><strong data-role="status-title">先听原音，再跟读</strong><span data-role="status-copy">语音识别检查文字，不能判断重音是否正确。</span></div><button data-role="retry"><img src="assets/lesson2-icons/arrow-clockwise.svg" alt=""><span>再试一次<small>请大声朗读</small></span></button></div>
+</details></article></template>
+<div class="layout"><div id="word-list" class="word-list" aria-label="100个俄语单词，向下滚动学习"></div><aside class="guidance"><section class="panel steps"><h2><img src="assets/lesson2-icons/graduation-cap.svg" alt="">怎样学习？</h2><div id="steps"></div></section><section class="panel progress"><h2><img src="assets/lesson2-icons/trophy-gold.svg" alt="">我的学习进度</h2><div class="progressbar"><div id="fill"></div><b id="progress-label">0 / 100</b><strong id="percent">0%</strong></div><div class="stats"><div><b id="seen">0</b>已学习</div><div><b id="good">0</b>文字一致</div><div><b id="review">0</b>需要复习</div></div></section><section class="panel tips"><h2><img src="assets/lesson2-icons/lightbulb.svg" alt="">今日小提示</h2><ul><li>注意红色的重音</li><li>先听几遍，再跟读</li><li>尽量大声，声音清晰</li><li>每天学习 10–20 个单词</li><li>文字一致不代表重音正确</li></ul></section></aside></div><nav class="l2-next-lesson" aria-label="继续学习"><a href="lesson-2-syllables.html">↩ 返回第2课：拼读入门</a><a href="account-demo.html">返回学习中心 →</a></nav><footer></footer><audio id="audio" preload="none"></audio><script src="assets/lesson2-vertical.js"></script><script>
+/* All cards are visible in original order. No carousel or hidden word index. */
+(()=>{
+ const list=document.getElementById('word-list');
+ const stepCopy=['点击绿色按钮，听标准发音','点击珊瑚色按钮，听慢速发音','点击青色麦克风按钮，大声朗读'];
+ document.querySelectorAll('#steps .step small').forEach((item,i)=>{if(stepCopy[i])item.textContent=stepCopy[i]});
+ list.addEventListener('click',event=>{
+  const button=event.target.closest('button');
+  if(button&&['record','retry'].includes(button.dataset.role)){
+   const practice=button.closest('.word-card')?.querySelector('.l2-practice');
+   if(practice)practice.open=true;
+  }
+ });
+})();
+</script></body></html>
