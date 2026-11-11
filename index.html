@@ -224,7 +224,7 @@
         var quiz=JSON.parse(localStorage.getItem('russian-course-progress-v1')||'{}');
         for(var lesson=1;lesson<=lessons.length;lesson++){
           var result=quiz[String(lesson)];
-          if(result&&Number(result.total)>0&&Number(result.score)>=0&&Number(result.score)/Number(result.total)>=.8)done.push(lesson-1);
+          if(lesson!==2&&result&&Number(result.total)>0&&Number(result.score)>=0&&Number(result.score)/Number(result.total)>=.8)done.push(lesson-1);
         }
       }catch(e){}
       try{
