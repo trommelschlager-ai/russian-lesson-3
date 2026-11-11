@@ -1,0 +1,36 @@
+name: Unify lesson 2 vocabulary to Svetlana
+on:
+  push:
+    paths:
+      - .github/workflows/lesson2-voice-unification.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  synthesize-22:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout approved 100-word course
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install mp3 synthesis and validation tools
+        run: python -m pip install --disable-pip-version-check edge-tts mutagen
+      - name: Reuse 19 approved female tracks and create 22 missing word tracks
+        run: python tools/rebuild-lesson2-svetlana.py
+      - name: Commit only lesson 2 word sources
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/lesson2-words.json audio/lesson2-word-svetlana-v1/
+          if ! git diff --cached --quiet; then
+            git commit -m "Unify all 100 lesson 2 vocabulary recordings to Svetlana voice"
+            git pull --rebase
+            git push
+          fi
