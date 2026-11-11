@@ -106,6 +106,56 @@ main{padding:7px 12px 3px;flex:1;min-height:0;display:flex;flex-direction:column
 #words .wordcard.heard-word span{color:#32856e;background:#e1f7ed;border-color:#b2e2cf}
 #words .signTip{font-size:11px;color:#795f91;margin:0 2px 8px;line-height:1.45}
 #words .status{font-size:12px;min-height:20px}
+
+/* Lesson 1 listening test: one-screen violet/pink practice panel. */
+#quiz.view.show{min-height:0;overflow-y:auto;gap:0}
+#quiz .rowhead{margin:10px 2px 9px;flex:0 0 auto}
+#quiz .rowhead h2{font-size:18px}
+#quiz .rowhead small{font-size:11px}
+#quiz .quizcard{display:flex;flex-direction:column;flex:1;min-height:0;padding:18px 15px 14px;border-radius:20px;border:1px solid #e8d9fa;box-shadow:0 10px 24px #7b4dba18;background:linear-gradient(157deg,#fff 2%,#fffbff 66%,#f9f2ff 100%)}
+#quiz .quizbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:11px}
+#quiz .quizcount{font-size:13px;color:#74529c;font-weight:900}
+#quiz .quizscore{font-size:13px;background:#f5eafd;color:#8a4fc5;font-weight:900;border-radius:18px;padding:5px 10px}
+#quiz .quiztrack{height:7px;background:#eee3fa;border-radius:50px;overflow:hidden}
+#quiz .quizfill{height:100%;width:0;border-radius:50px;background:linear-gradient(90deg,#f18dbd,#aa70dd,#7655d5);transition:width .2s ease}
+#quiz .quizprompt{font-size:18px;line-height:1.3;color:#59417e;padding:20px 5px 13px;text-align:center;font-weight:900}
+#quiz .quizlisten{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;margin:0 auto 0;border:1px solid #ffffffad;border-radius:23px;width:120px;height:91px;font-size:35px;background:linear-gradient(140deg,#f57dbb 0%,#b65ddd 55%,#8250d9 100%);box-shadow:0 7px 20px #a65cca51;color:white}
+#quiz .quizlisten small{font-size:12px;font-weight:900;letter-spacing:.3px}
+#quiz .quizlisten.has-played{box-shadow:0 0 0 4px #f7ddf7,0 7px 20px #a65cca42}
+#quiz .quizhint{text-align:center;color:#877399;font-size:12px;margin:9px 0 14px;min-height:18px}
+#quiz .options{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+#quiz .options button{font-size:32px;min-height:78px;border-radius:16px;border:2px solid #e4d5f5;background:#fff;color:#7e51c3;box-shadow:0 4px 10px #895fb40c;transition:background .12s,border-color .12s}
+#quiz .options button:disabled{opacity:.5}
+#quiz .options button.correct:disabled,#quiz .options button.wrong:disabled{opacity:1}
+#quiz .options button.correct{border-color:#4dbd8a;color:#238653;background:#edfff5}
+#quiz .options button.wrong{border-color:#e67c96;color:#ca466c;background:#fff1f6}
+#quiz .answer{flex:1;display:flex;align-items:center;justify-content:center;font-size:13px;color:#72499f;line-height:1.4;padding:6px 0;min-height:34px}
+#quiz .quizcard .cta{min-height:48px;margin-top:0;flex:0 0 auto}
+#quiz .bottomactions{flex:0 0 auto;margin-top:9px}
+#quiz .bottomactions .secondary{min-height:43px}
+#quizResult{justify-content:center}
+#quizResult .summary{padding:15px 3px 9px}
+#quizResult .summaryicon{font-size:53px}
+#quizResult .summary h2{font-size:21px;margin:6px 0}
+#quizResult .summaryscore{font-size:41px}
+#quizResult .summary p{font-size:12px;line-height:1.6;margin:9px 0 13px}
+#quizResult .mistake-review{background:#f7f0ff;border:1px solid #ead7fa;border-radius:14px;padding:9px 10px;margin:5px 0 14px}
+#quizResult .mistake-title{font-size:12px;color:#80609f;font-weight:800;display:block;margin-bottom:6px}
+#quizResult .review-letters{display:flex;flex-wrap:wrap;justify-content:center;gap:7px}
+#quizResult .review-letters button{background:white;color:#7c4bb9;border-radius:11px;border:1px solid #dfc9f3;min-height:35px;padding:5px 10px;font-size:16px;font-weight:900}
+@media(max-height:660px){
+ #quiz .rowhead{margin:7px 2px 6px}
+ #quiz .quizcard{padding:11px 12px 10px}
+ #quiz .quizbar{margin-bottom:6px}
+ #quiz .quizprompt{padding:10px 4px;font-size:16px}
+ #quiz .quizlisten{height:73px;width:105px;font-size:29px;border-radius:19px}
+ #quiz .quizlisten small{font-size:11px}
+ #quiz .quizhint{margin:5px 0 8px}
+ #quiz .options button{min-height:62px;font-size:27px}
+ #quiz .bottomactions{margin-top:5px}
+ #quiz .bottomactions .secondary{min-height:38px}
+}
+
 </style>
 </head>
 <body>
@@ -143,17 +193,20 @@ main{padding:7px 12px 3px;flex:1;min-height:0;display:flex;flex-direction:column
 <section id="quiz" class="view">
  <div class="rowhead"><div><h2>听力小测验</h2><small>听字母，选正确答案</small></div><span class="tinycount">6 题</span></div>
  <div class="quizcard" id="quizCard">
-  <div id="questionNumber" class="quizcount">第 1 / 6 题</div>
-  <div class="quizprompt">听一听，选一选</div>
-  <button id="playQuestion" class="quizlisten" aria-label="播放字母读音">🔊</button>
-  <div class="options" id="options"></div>
+  <div class="quizbar"><strong id="questionNumber" class="quizcount">第 1 / 6 题</strong><span id="quizScore" class="quizscore">★ 0 / 6</span></div>
+  <div class="quiztrack" aria-hidden="true"><div id="quizProgressFill" class="quizfill"></div></div>
+  <div class="quizprompt">听一听，选正确的字母</div>
+  <button id="playQuestion" class="quizlisten" aria-label="听字母发音"><span aria-hidden="true">🔊</span><small>点击播放</small></button>
+  <p id="quizHint" class="quizhint" role="status" aria-live="polite">先听发音，再选字母</p>
+  <div class="options" id="options" role="group" aria-label="选择你听到的俄语字母"></div>
   <div class="answer" id="answer" role="status" aria-live="polite"></div>
   <button id="nextQuestion" class="cta" disabled>下一题 →</button>
  </div>
  <div class="quizcard" id="quizResult" hidden>
   <div class="summary"><div class="summaryicon" id="resultIcon">🏆</div><h2 id="resultTitle">本次成绩</h2><div id="resultScore" class="summaryscore">0 / 6</div><p id="resultDesc"></p></div>
-  <button id="retry" class="cta">再试一次</button>
-  <button id="returnHome" class="secondary" style="width:100%;margin-top:10px">返回学习中心</button>
+  <div id="mistakeReview" class="mistake-review" hidden><span class="mistake-title">再听听这些字母</span><div class="review-letters" id="reviewLetters"></div></div>
+  <button id="retry" class="cta">再试一次 ↻</button>
+  <button id="returnHome" class="secondary" style="width:100%;margin-top:9px">返回学习中心</button>
  </div>
  <div class="bottomactions"><button class="secondary" id="backWords">← 单词</button></div>
 </section>
@@ -180,12 +233,14 @@ let saved={heard:[],wordHeard:[],quizPassed:false,lastScore:0,selected:0};
 try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x&&typeof x==="object"){saved.heard=Array.isArray(x.heard)?[...new Set(x.heard.filter(c=>DATA.some(d=>d.l===c)))]:[];
 saved.wordHeard=Array.isArray(x.wordHeard)?[...new Set(x.wordHeard.filter(c=>typeof c==="string"&&c.length<70))]:[];saved.quizPassed=!!x.quizPassed;saved.lastScore=Number(x.lastScore)||0;saved.selected=Math.max(0,Math.min(32,Number(x.selected)||0));}}catch(e){}
 let selected=saved.selected,group=0,nowPlaying=null;
-let test=[],q=0,score=0,answered=false;
+let test=[],q=0,score=0,answered=false,quizHeard=false,mistakes=[];
+const QUIZ_TOTAL=6;
+const QUIZ_CONFUSABLE={"О":["А","У"],"Ч":["Ш","Щ"],"Е":["Э","Ё"],"Э":["Е","Ё"],"Ы":["И","Й"],"И":["Ы","Й"],"Ш":["Ч","Щ"],"Щ":["Ч","Ш"],"Ц":["С","Ч"],"Б":["В","П"],"В":["Б","Ф"],"Р":["Л","П"],"Ж":["Ш","З"],"Ю":["У","Я"],"Я":["А","Ю"]};
 function persist(){saved.selected=selected;try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){} updateHeard();}
 function updateHeard(){$("heardCount").textContent=saved.heard.length+" / 33";document.querySelectorAll("#alphabetGrid button").forEach(b=>b.classList.toggle("played",saved.heard.includes(b.dataset.letter)));if(saved.heard.length===33&&saved.quizPassed)markCourseComplete();}
 function markCourseComplete(){try{const course=JSON.parse(localStorage.getItem(COURSE_KEY)||"{}");if(!course["1"]||Number(course["1"].score)<33){course["1"]={score:33,total:33,date:new Date().toISOString()};localStorage.setItem(COURSE_KEY,JSON.stringify(course));}}catch(e){}}
 function stopAudio(){if(nowPlaying){try{nowPlaying.pause();nowPlaying.currentTime=0;}catch(e){}nowPlaying=null;}}
-function play(path,opts={}){stopAudio();const source=path+(path.includes("?")?"&":"?")+"audio="+encodeURIComponent(AUDIO_RELEASE);const audio=new Audio(source);nowPlaying=audio;audio.playbackRate=opts.speed||1;if("preservesPitch" in audio)audio.preservesPitch=true;audio.addEventListener("ended",()=>{if(nowPlaying===audio)nowPlaying=null;},{once:true});const status=opts.status?$(opts.status):null;if(status)status.textContent="🔊 "+(opts.label||"正在播放");audio.play().then(()=>{if(opts.heard){if(!saved.heard.includes(opts.heard)){saved.heard.push(opts.heard);persist();}}}).catch(()=>{if(status)status.textContent="音频播放失败，请检查网络连接。";});}
+function play(path,opts={}){stopAudio();const source=path+(path.includes("?")?"&":"?")+"audio="+encodeURIComponent(AUDIO_RELEASE);const audio=new Audio(source);nowPlaying=audio;audio.playbackRate=opts.speed||1;if("preservesPitch" in audio)audio.preservesPitch=true;audio.addEventListener("ended",()=>{if(nowPlaying===audio)nowPlaying=null;},{once:true});const status=opts.status?$(opts.status):null;if(status)status.textContent="🔊 "+(opts.label||"正在播放");return audio.play().then(()=>{if(opts.heard){if(!saved.heard.includes(opts.heard)){saved.heard.push(opts.heard);persist();}}return true;}).catch(()=>{if(status)status.textContent="音频播放失败，请检查网络连接。";return false;});}
 function show(view){stopAudio();document.querySelectorAll(".view").forEach(n=>n.classList.toggle("show",n.id===view));document.querySelectorAll(".tab").forEach(n=>{const active=n.dataset.view===view;n.classList.toggle("active",active);n.setAttribute("aria-current",active?"step":"false");});if(view==="words")renderWords();if(view==="quiz"&&!test.length)resetTest();window.scrollTo({top:0,behavior:"smooth"});}
 const SCHOOL_HANDWRITTEN_A="<svg class=\"hand-a-svg\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 180 80\" role=\"img\" aria-label=\"Прописная большая А и строчная а\">\n<g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.35\">\n<path d=\"M 13 67 C 7 75 3 77 4 72 C 5 69 9 68 13 67 C 24 64 36 43 48 23 C 56 10 60 7 64 8 C 69 10 69 24 70 38 C 71 49 72 61 77 66 C 81 70 86 66 89 60\"/>\n<path d=\"M 28 56 C 40 57 53 53 70 51\"/>\n<path d=\"M 117 35 C 103 30 98 43 101 54 C 104 69 122 67 125 51 C 127 42 125 36 117 35 Z\"/>\n<path d=\"M 128 35 C 123 50 124 65 130 69 C 137 73 146 65 151 59\"/>\n</g></svg>";
 function renderHandwriting(letter){
@@ -231,9 +286,87 @@ all.forEach((x,i)=>{
 updateWordProgress();
 }
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function resetTest(){test=shuffle(DATA.filter(x=>!SIGNS.has(x.l)).slice()).slice(0,6);q=0;score=0;answered=false;$("quizCard").hidden=false;$("quizResult").hidden=true;showQuestion();}
-function showQuestion(){if(q>=6){endTest();return;}answered=false;$("questionNumber").textContent="第 "+(q+1)+" / 6 题";$("answer").textContent="";$("nextQuestion").disabled=true;$("nextQuestion").textContent=q===5?"查看成绩 →":"下一题 →";const actual=test[q];const others=shuffle(DATA.filter(x=>!SIGNS.has(x.l)&&x.l!==actual.l)).slice(0,2);const options=shuffle([actual,...others]);const el=$("options");el.replaceChildren();options.forEach(d=>{const b=document.createElement("button");b.textContent=d.l;b.setAttribute("aria-label","字母 "+d.l);b.addEventListener("click",()=>{if(answered)return;answered=true;const ok=d.l===actual.l;if(ok)score++;$("answer").textContent=ok?"✅ 正确！":"正确答案："+actual.l;el.querySelectorAll("button").forEach(btn=>{btn.disabled=true;if(btn.textContent===actual.l)btn.classList.add("correct");else if(btn===b)btn.classList.add("wrong");});$("nextQuestion").disabled=false;});el.append(b);});}
-function endTest(){saved.lastScore=score;if(score>=5)saved.quizPassed=true;persist();$("quizCard").hidden=true;$("quizResult").hidden=false;const pass=score>=5;$("resultIcon").textContent=pass?"🏆":"📖";$("resultTitle").textContent=pass?"做得好！":"再练习一下";$("resultScore").textContent=score+" / 6";$("resultDesc").textContent=(pass?"通过测验。":"再听几遍字母，争取答对至少5题。")+" 已听字母："+saved.heard.length+"/33。"+(saved.heard.length===33&&saved.quizPassed?"第1课已完成！":"听完全部33个字母并通过测验后，第1课会标记为完成。");}
+function resetTest(){
+  // Always practise approved O/Ч audio, then draw four other unique letter names.
+  const eligible=DATA.filter(x=>!SIGNS.has(x.l));
+  const critical=["О","Ч"].map(l=>eligible.find(x=>x.l===l));
+  if(critical.some(x=>!x))throw new Error("Quiz audio for О/Ч missing");
+  test=shuffle([...critical,...shuffle(eligible.filter(x=>!critical.includes(x))).slice(0,QUIZ_TOTAL-critical.length)]);
+  q=0;score=0;answered=false;quizHeard=false;mistakes=[];
+  $("quizCard").hidden=false;$("quizResult").hidden=true;
+  showQuestion();
+}
+function showQuestion(){
+  if(q>=QUIZ_TOTAL){endTest();return;}
+  answered=false;quizHeard=false;
+  $("questionNumber").textContent="第 "+(q+1)+" / "+QUIZ_TOTAL+" 题";
+  $("quizScore").textContent="★ "+score+" / "+QUIZ_TOTAL;
+  $("quizProgressFill").style.width=((q+1)/QUIZ_TOTAL*100)+"%";
+  $("answer").textContent="";
+  $("quizHint").textContent="先听发音，再选字母";
+  $("playQuestion").classList.remove("has-played");
+  $("nextQuestion").disabled=true;
+  $("nextQuestion").textContent=q===QUIZ_TOTAL-1?"查看成绩 →":"下一题 →";
+  const actual=test[q];
+  const byLetter=new Map(DATA.filter(x=>!SIGNS.has(x.l)).map(x=>[x.l,x]));
+  const choices=[actual];
+  for(const letter of QUIZ_CONFUSABLE[actual.l]||[]){
+    const candidate=byLetter.get(letter);
+    if(candidate && candidate.l!==actual.l && !choices.includes(candidate))choices.push(candidate);
+    if(choices.length===3)break;
+  }
+  for(const candidate of shuffle([...byLetter.values()])){
+    if(choices.length===3)break;
+    if(!choices.includes(candidate))choices.push(candidate);
+  }
+  const el=$("options");
+  el.replaceChildren();
+  shuffle(choices).forEach(d=>{
+    const b=document.createElement("button");
+    b.textContent=d.l;
+    b.disabled=true;
+    b.setAttribute("aria-label","选择字母 "+d.l);
+    b.addEventListener("click",()=>{
+      if(answered||!quizHeard)return;
+      answered=true;stopAudio();
+      const correct=d.l===actual.l;
+      if(correct)score++;else mistakes.push(actual);
+      $("quizScore").textContent="★ "+score+" / "+QUIZ_TOTAL;
+      $("answer").textContent=correct?"✅ 正确！"+actual.l+" · "+LATIN_NAMES[actual.l]:"正确答案："+actual.l+" · "+LATIN_NAMES[actual.l];
+      $("quizHint").textContent=correct?"很好，继续！":"听一听正确读音，再继续";
+      el.querySelectorAll("button").forEach(btn=>{
+        btn.disabled=true;
+        if(btn.textContent===actual.l)btn.classList.add("correct");
+        else if(btn===b)btn.classList.add("wrong");
+      });
+      $("nextQuestion").disabled=false;
+    });
+    el.append(b);
+  });
+}
+function endTest(){
+  stopAudio();
+  saved.lastScore=score;
+  const passed=score>=5;
+  if(passed)saved.quizPassed=true; // Persist past passes even if later practice scores lower.
+  persist();
+  $("quizCard").hidden=true;
+  $("quizResult").hidden=false;
+  $("resultIcon").textContent=passed?"🏆":"📖";
+  $("resultTitle").textContent=passed?"做得好！":"再练习一下";
+  $("resultScore").textContent=score+" / "+QUIZ_TOTAL;
+  const lessonFinished=saved.heard.length===33 && saved.quizPassed;
+  $("resultDesc").textContent=lessonFinished?"第1课已完成！":(passed?"通过测验！":"答对至少5题即可通过。")+" 已听字母："+saved.heard.length+"/33。"+(saved.heard.length<33?"听完33个字母并通过测验后完成本课。":"");
+  $("mistakeReview").hidden=mistakes.length===0;
+  const review=$("reviewLetters");review.replaceChildren();
+  for(const d of mistakes){
+    const b=document.createElement("button");
+    b.textContent=d.l+" 🔊";
+    b.setAttribute("aria-label","再听字母 "+d.l);
+    b.addEventListener("click",()=>play(d.letterAudio));
+    review.append(b);
+  }
+}
 $("replayLetter").addEventListener("click",()=>selectLetter(selected));
 $("goWords").addEventListener("click",()=>show("words"));
 $("backAlphabet").addEventListener("click",()=>show("alphabet"));
@@ -242,7 +375,18 @@ $("backWords").addEventListener("click",()=>show("words"));
 $("previousGroup").addEventListener("click",()=>{group=Math.max(0,group-1);renderWords();});
 $("nextGroup").addEventListener("click",()=>{group=Math.min(32,group+1);renderWords();});
 $("letterSelect").addEventListener("change",e=>{group=Number(e.target.value)||0;renderWords();});
-$("playQuestion").addEventListener("click",()=>{if(!test.length)resetTest();play(test[q].letterAudio);});
+$("playQuestion").addEventListener("click",()=>{
+ if(!test.length)resetTest();
+ if(q>=test.length)return;
+ const current=q;
+ play(test[q].letterAudio,{status:"quizHint",label:"正在播放发音"}).then(ok=>{
+  if(!ok||q!==current||answered)return;
+  quizHeard=true;
+  $("quizHint").textContent="请选择你听到的字母";
+  $("playQuestion").classList.add("has-played");
+  $("options").querySelectorAll("button").forEach(btn=>btn.disabled=false);
+ });
+});
 $("nextQuestion").addEventListener("click",()=>{if(answered){q++;showQuestion();}});
 $("retry").addEventListener("click",()=>{resetTest();show("quiz");});
 $("returnHome").addEventListener("click",()=>location.assign("account-demo.html"));
