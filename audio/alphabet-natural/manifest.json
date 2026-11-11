@@ -3,8 +3,8 @@
     "field": "letterAudio",
     "display": "Арбуз",
     "spoken": "а",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-b425155a992da599.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/01-а.mp3"
   },
   {
     "field": "wordAudio",
@@ -38,8 +38,8 @@
     "field": "letterAudio",
     "display": "Банк",
     "spoken": "бэ",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-9cd4da40b3d9778a.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/02-б.mp3"
   },
   {
     "field": "wordAudio",
@@ -73,8 +73,8 @@
     "field": "letterAudio",
     "display": "Вода",
     "spoken": "вэ",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-7c60f88249e13c6f.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/03-в.mp3"
   },
   {
     "field": "wordAudio",
@@ -108,8 +108,8 @@
     "field": "letterAudio",
     "display": "Гора",
     "spoken": "гэ",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-be13772df0fe5a99.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/04-г.mp3"
   },
   {
     "field": "wordAudio",
@@ -143,8 +143,8 @@
     "field": "letterAudio",
     "display": "Дом",
     "spoken": "дэ",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-92da7554c28b2431.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/05-д.mp3"
   },
   {
     "field": "wordAudio",
@@ -178,8 +178,8 @@
     "field": "letterAudio",
     "display": "Ель",
     "spoken": "е",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-bc8917f945f10a78.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/06-е.mp3"
   },
   {
     "field": "wordAudio",
@@ -213,8 +213,8 @@
     "field": "letterAudio",
     "display": "Ёлка",
     "spoken": "ё",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-97376e96b704cd3f.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/07-ё.mp3"
   },
   {
     "field": "wordAudio",
@@ -248,8 +248,8 @@
     "field": "letterAudio",
     "display": "Жук",
     "spoken": "жэ",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-271916adabac5c53.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/08-ж.mp3"
   },
   {
     "field": "wordAudio",
@@ -283,8 +283,8 @@
     "field": "letterAudio",
     "display": "Зима",
     "spoken": "зэ",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-5983064f1da9400b.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/09-з.mp3"
   },
   {
     "field": "wordAudio",
@@ -318,8 +318,8 @@
     "field": "letterAudio",
     "display": "Имя",
     "spoken": "и",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-cb5f2e9e3daff73d.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/10-и.mp3"
   },
   {
     "field": "wordAudio",
@@ -353,8 +353,8 @@
     "field": "letterAudio",
     "display": "Йогурт",
     "spoken": "и краткое",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-c0d034df97dc07fa.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/11-й.mp3"
   },
   {
     "field": "wordAudio",
@@ -388,8 +388,8 @@
     "field": "letterAudio",
     "display": "Кот",
     "spoken": "ка",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-3d7ba28270b03958.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/12-к.mp3"
   },
   {
     "field": "wordAudio",
@@ -423,8 +423,8 @@
     "field": "letterAudio",
     "display": "Лимон",
     "spoken": "эль",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-b173a3e24d3aa011.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/13-л.mp3"
   },
   {
     "field": "wordAudio",
@@ -458,8 +458,8 @@
     "field": "letterAudio",
     "display": "Мама",
     "spoken": "эм",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-e2c6ff5736e05741.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/14-м.mp3"
   },
   {
     "field": "wordAudio",
@@ -493,8 +493,8 @@
     "field": "letterAudio",
     "display": "Нос",
     "spoken": "эн",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-5a174bad8fe4bdd9.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/15-н.mp3"
   },
   {
     "field": "wordAudio",
@@ -528,8 +528,8 @@
     "field": "letterAudio",
     "display": "Окно",
     "spoken": "о",
-    "voice": "ru-RU-DmitryNeural",
-    "file": "audio/alphabet-corrected/letter-o-dmitry-stressed.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/16-о.mp3"
   },
   {
     "field": "wordAudio",
@@ -563,8 +563,8 @@
     "field": "letterAudio",
     "display": "Папа",
     "spoken": "пэ",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-25d3d6ec66b2f1c0.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/17-п.mp3"
   },
   {
     "field": "wordAudio",
@@ -598,8 +598,8 @@
     "field": "letterAudio",
     "display": "Рука",
     "spoken": "эр",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-be1d81fa82b97b0c.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/18-р.mp3"
   },
   {
     "field": "wordAudio",
@@ -633,8 +633,8 @@
     "field": "letterAudio",
     "display": "Сок",
     "spoken": "эс",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-a0c06eb90bca6eb4.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/19-с.mp3"
   },
   {
     "field": "wordAudio",
@@ -668,8 +668,8 @@
     "field": "letterAudio",
     "display": "Такси",
     "spoken": "тэ",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-bf1b7d33cf0fae11.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/20-т.mp3"
   },
   {
     "field": "wordAudio",
@@ -703,8 +703,8 @@
     "field": "letterAudio",
     "display": "Утро",
     "spoken": "у",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-cb77d260f5d0b3e3.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/21-у.mp3"
   },
   {
     "field": "wordAudio",
@@ -738,8 +738,8 @@
     "field": "letterAudio",
     "display": "Фото",
     "spoken": "эф",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-24f08148eedde71e.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/22-ф.mp3"
   },
   {
     "field": "wordAudio",
@@ -773,8 +773,8 @@
     "field": "letterAudio",
     "display": "Хлеб",
     "spoken": "ха",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-a2ad2eef5200ff1f.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/23-х.mp3"
   },
   {
     "field": "wordAudio",
@@ -808,8 +808,8 @@
     "field": "letterAudio",
     "display": "Цирк",
     "spoken": "цэ",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-77ebd2d9119d83e0.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/24-ц.mp3"
   },
   {
     "field": "wordAudio",
@@ -843,8 +843,8 @@
     "field": "letterAudio",
     "display": "Чай",
     "spoken": "че",
-    "voice": "ru-RU-DmitryNeural",
-    "file": "audio/alphabet-corrected/letter-che-dmitry-stressed.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/25-ч.mp3"
   },
   {
     "field": "wordAudio",
@@ -878,8 +878,8 @@
     "field": "letterAudio",
     "display": "Шар",
     "spoken": "ша",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-99b2a4171dbf383c.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/26-ш.mp3"
   },
   {
     "field": "wordAudio",
@@ -913,8 +913,8 @@
     "field": "letterAudio",
     "display": "Щётка",
     "spoken": "ща",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-8e458405139d32a9.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/27-щ.mp3"
   },
   {
     "field": "wordAudio",
@@ -948,8 +948,8 @@
     "field": "letterAudio",
     "display": "Твёрдый знак",
     "spoken": "твёрдый знак",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-c3cbe9e38a9fcc04.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/28-ъ.mp3"
   },
   {
     "field": "wordAudio",
@@ -983,8 +983,8 @@
     "field": "letterAudio",
     "display": "Сыр",
     "spoken": "ы",
-    "voice": "Male course (provisional)",
-    "file": "audio/course/male-74af3340afbb23.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/29-ы.mp3"
   },
   {
     "field": "wordAudio",
@@ -1018,8 +1018,8 @@
     "field": "letterAudio",
     "display": "Мягкий знак",
     "spoken": "мягкий знак",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-97b610a507fcbea7.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/30-ь.mp3"
   },
   {
     "field": "wordAudio",
@@ -1053,8 +1053,8 @@
     "field": "letterAudio",
     "display": "Это",
     "spoken": "э",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-4c63a9215dffb079.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/31-э.mp3"
   },
   {
     "field": "wordAudio",
@@ -1088,8 +1088,8 @@
     "field": "letterAudio",
     "display": "Юг",
     "spoken": "ю",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-e0060c5df797e5c2.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/32-ю.mp3"
   },
   {
     "field": "wordAudio",
@@ -1123,8 +1123,8 @@
     "field": "letterAudio",
     "display": "Яблоко",
     "spoken": "я",
-    "voice": "Dmitry",
-    "file": "audio/alphabet-natural/dmitry-21764402be1c1fe2.mp3"
+    "voice": "ru-RU-SvetlanaNeural",
+    "file": "audio/alphabet-svetlana-v1/33-я.mp3"
   },
   {
     "field": "wordAudio",
