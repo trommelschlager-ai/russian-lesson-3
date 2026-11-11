@@ -31,8 +31,9 @@ function save(){
  if(new Set(progress.heard).size===10&&progress.passed){
   try{
    const course=JSON.parse(localStorage.getItem(COURSE_KEY)||"{}");
-   if(!course["2"]||Number(course["2"].score)<5){
-    course["2"]={score:5,total:5,date:new Date().toISOString()};
+   const passedScore=Math.max(4,Math.min(5,Number(progress.best)||4));
+   if(!course["2"]||Number(course["2"].score)<passedScore){
+    course["2"]={score:passedScore,total:5,date:new Date().toISOString()};
     localStorage.setItem(COURSE_KEY,JSON.stringify(course));
    }
   }catch(e){}
