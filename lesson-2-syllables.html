@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#8650c9">
+<meta name="description" content="第2课：俄语拼读入门。学习12组音节、10个简单俄语单词，完成5道听力题。">
+<title>第2课 · 拼读入门 · Учимся читать</title>
+<link rel="stylesheet" href="assets/lesson2-syllables.css?v=20261112-1">
+</head>
+<body>
+<div class="app">
+<header class="head">
+ <div class="headtop">
+ <a class="back" href="account-demo.html" aria-label="返回学习中心">‹</a>
+ <div class="brand">俄语学习中心<small>Русский для китайцев</small></div>
+ <span class="tag">第 2 / 7 课</span>
+ </div>
+ <h1>拼读入门 · Учимся читать</h1>
+ <p>把字母连起来，读出你的第一个俄语单词！</p>
+</header>
+<main class="main">
+<nav class="tabs" role="tablist" aria-label="学习步骤">
+ <button class="tab" data-stage="syllables" role="tab" aria-selected="true" aria-controls="syllables">① 拼音节</button>
+ <button class="tab" data-stage="words" role="tab" aria-selected="false" aria-controls="words">② 读单词</button>
+ <button class="tab" data-stage="quiz" role="tab" aria-selected="false" aria-controls="quiz">③ 小测验</button>
+</nav>
+<section id="syllables" class="view active" role="tabpanel">
+ <h2 class="section-title">从字母到音节</h2>
+ <p class="section-sub">先看组合，再点音节练习发音。</p>
+ <div class="surface">
+  <div class="mixrow">
+   <span class="tile">М</span><span class="plus">+</span><span class="tile vowel">А</span>
+   <span class="equal">=</span><span class="combined">МА</span>
+  </div>
+  <p class="mix-explain">М + А → МА（连起来读）</p>
+  <div class="note"><b>重要：</b>字母 М 的名称是 «эм»，但拼读时使用辅音 <b>[м]</b>，不要读成 «эм-а»。</div>
+ </div>
+ <div id="soundGrid" class="soundgrid" aria-label="12组简单俄语音节"></div>
+ <p id="syllableStatus" class="status" role="status" aria-live="polite">点击音节听发音。设备需有俄语语音包。</p>
+ <div class="actions"><button id="startWords" class="cta">下一步：读10个词 →</button></div>
+</section>
+<section id="words" class="view" role="tabpanel">
+ <div class="smallbar"><span>把音节连成单词</span><span id="wordCount">1 / 10</span></div>
+ <div class="progress"><div id="wordFill"></div></div>
+ <div class="surface wordcard">
+  <img class="wordphoto" id="wordPhoto" alt="" hidden>
+  <div class="wordicon" id="wordIcon" aria-hidden="true">👩</div>
+  <h2 id="wordRussian" class="wordru" lang="ru">МАМА</h2>
+  <p id="wordChinese" class="wordzh">妈妈</p>
+  <div id="wordBreakdown" class="breakdown" lang="ru"></div>
+  <p class="wordhint">粉色的音节有重音 · 点击听完整单词</p>
+  <button id="wordPlay" class="wordaudio">🔊 听标准发音</button>
+ </div>
+ <p id="wordStatus" class="status" role="status" aria-live="polite">先听发音，再跟读一遍。</p>
+ <div class="actions">
+  <button class="secondary" id="previousWord" aria-label="上一个单词">‹ 上一个</button>
+  <button class="cta" id="nextWord">下一个 →</button>
+ </div>
+ <a href="my-first-russian-dictionary.html" class="extra">📚 想学更多？我的第一本俄语词典（100词）</a>
+</section>
+<section id="quiz" class="view" role="tabpanel">
+ <div id="quizCard" class="surface quizcard">
+  <div class="quizline"><span id="questionCount">第 1 / 5 题</span><span id="quizPoints">★ 0 / 5</span></div>
+  <div class="progress"><div id="quizFill"></div></div>
+  <div class="qprompt">听一听，选出正确的单词</div>
+  <button id="quizAudio" class="qlisten" aria-label="听单词读音">🔊<small>点击听发音</small></button>
+  <p id="quizHint" class="status" role="status" aria-live="polite">先听音，再选答案</p>
+  <div id="quizOptions" class="options"></div>
+  <div id="quizFeedback" class="answer" role="status" aria-live="polite"></div>
+  <div class="actions"><button id="quizNext" class="cta" disabled>下一题 →</button></div>
+ </div>
+ <div id="quizResult" class="surface final" hidden>
+  <div id="resultIcon" class="medal">🏆</div>
+  <h2 id="resultTitle">本次成绩</h2>
+  <div class="score" id="resultScore">0 / 5</div>
+  <p id="resultMessage"></p>
+  <div id="review" class="review"></div>
+  <button class="cta" id="repeatQuiz">再试一次 ↻</button>
+  <a href="my-first-russian-dictionary.html" class="extra">📚 我的第一本俄语词典（选学）</a>
+ </div>
+ <div class="actions">
+  <button class="secondary" id="backToWords">← 返回单词</button>
+  <a class="cta" style="text-decoration:none;text-align:center;flex:1" href="lesson-3-pronouns-basic.html">第3课 →</a>
+ </div>
+</section>
+</main>
+<footer class="footer">学习建议：每天10–15分钟。先读懂，再增加词汇。</footer>
+</div>
+<script src="assets/lesson2-syllables.js?v=20261112-1"></script>
+</body>
+</html>
