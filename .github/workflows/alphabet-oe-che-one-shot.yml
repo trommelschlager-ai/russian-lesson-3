@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - .github/workflows/alphabet-oe-che-one-shot.yml
+      - tools/rebuild-alphabet-oe-che.py
   workflow_dispatch:
 
 permissions:
