@@ -32,6 +32,62 @@ main{padding:14px 14px 0}.tabs{display:grid;grid-template-columns:repeat(3,1fr);
 @media(max-width:360px){.alpha{gap:4px}.alpha button{min-height:51px}.alpha button strong{font-size:21px}.head{padding-left:12px;padding-right:12px}main{padding-left:10px;padding-right:10px}}
 @media(min-width:600px){.app{margin:20px auto 0;border-radius:25px 25px 0 0;min-height:calc(100dvh - 20px)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Compact mobile alphabet: one viewport, with romanization + Russian handwriting. */
+@font-face{font-family:"NeuchaLesson";src:url("assets/fonts/Neucha-Regular.ttf") format("truetype");font-display:swap;font-style:normal;font-weight:400}
+.app{height:100dvh;min-height:0;display:flex;flex-direction:column;padding-bottom:max(env(safe-area-inset-bottom),4px)}
+.head{flex:0 0 auto;padding:calc(7px + env(safe-area-inset-top)) 13px 9px;border-radius:0 0 18px 18px}
+.headtop .back{height:31px;width:31px;font-size:21px}.headtop .brand{font-size:13px}.headtop .brand small{font-size:10px}.headtop .tag{padding:5px 8px;font-size:10px}
+.introline{margin-top:5px;line-height:1.18;font-size:11px}.introline strong{display:inline;font-size:16px;margin:0 0 0 5px}
+main{padding:7px 12px 3px;flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.tabs{flex:0 0 auto;border-radius:14px;padding:4px}.tab{min-height:38px;padding:7px 1px;border-radius:10px}
+.view.show{flex:1;min-height:0;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain}
+#alphabet.view.show{overflow:hidden}
+#alphabet .rowhead{flex:0 0 auto;margin:9px 1px 6px}#alphabet .rowhead h2{font-size:17px}
+#alphabet .rowhead small{font-size:11px}
+#alphabet .alpha{flex:1;min-height:0;grid-template-rows:repeat(6,minmax(0,1fr));gap:4px}
+#alphabet .alpha button{min-height:0;padding:1px 1px;border-radius:10px;gap:1px}
+#alphabet .alpha button strong{font-size:clamp(19px,5vw,24px);line-height:1}
+#alphabet .alpha button small{font-size:11px;line-height:1}
+#alphabet .focus{flex:0 0 auto;margin-top:7px;min-height:70px;padding:7px 9px;border-radius:15px;gap:8px}
+#alphabet .focusglyph{font-size:29px;min-width:53px;line-height:1}
+#alphabet .focusglyph small{font-size:19px}
+.focusread{display:flex;align-items:center;gap:5px;flex-wrap:wrap;min-height:18px}
+.focusread b{font-size:11px!important}
+.focusread .latin{background:#f4eafe;color:#7748bd;border-radius:7px;padding:1px 6px;font-weight:900;font-size:12px;letter-spacing:.1px}
+.focushand{display:flex;align-items:center;gap:8px;margin-top:1px}
+.focushand>span{color:#8a789c;font-size:10px;white-space:nowrap}
+.handwriting{font:italic 26px/1 "NeuchaLesson","Segoe Script","Segoe Print",cursive;color:#9157bc;white-space:nowrap}
+#alphabet .focuscopy small{display:none}
+#alphabet .roundplay{height:40px;width:40px;font-size:21px}
+#alphabet .note{flex:0 0 auto;margin:5px 2px 0;font-size:10px;line-height:1.2}
+#alphabet .status{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+#alphabet .cta{flex:0 0 auto;margin-top:8px;min-height:43px;padding:8px 11px;border-radius:13px;font-size:14px}
+#words .rowhead,#quiz .rowhead{flex:0 0 auto;margin:13px 2px 10px}
+#words .wordcard{min-height:109px;padding:11px 5px}
+#words .wordcards{flex:1;min-height:0;grid-template-rows:repeat(2,minmax(0,1fr))}
+#words .wordcard b{font-size:18px}
+#words .bottomactions{flex:0 0 auto}
+#words .status{min-height:18px}
+#words .wordcards{max-height:330px}
+#words .rowhead small{font-size:11px}
+#words .cta,#quiz .cta{min-height:44px;padding:8px 10px;margin-top:8px}
+#quiz .quizcard{max-width:100%}
+@media(max-height:620px){
+ .head{padding-top:5px;padding-bottom:6px}.introline{margin-top:3px}
+ main{padding-top:4px}.tab{min-height:33px}
+ #alphabet .rowhead{margin:6px 1px 4px}#alphabet .rowhead h2{font-size:15px}
+ #alphabet .alpha{gap:3px}#alphabet .alpha button strong{font-size:19px}
+ #alphabet .focus{min-height:58px;padding:4px 7px;margin-top:5px}
+ #alphabet .focusglyph{font-size:25px}
+ .handwriting{font-size:22px}
+ #alphabet .roundplay{width:36px;height:36px}
+ #alphabet .note{margin-top:3px}
+ #alphabet .cta{margin-top:5px;min-height:39px}
+}
+@media(min-width:600px){.app{margin:12px auto 0;height:calc(100dvh - 12px);min-height:0}}
+@media(orientation:landscape) and (max-height:430px){#alphabet.view.show{overflow-y:auto}#alphabet .alpha{flex:none;grid-template-rows:repeat(6,39px)}}
+
 </style>
 </head>
 <body>
@@ -47,10 +103,14 @@ main{padding:14px 14px 0}.tabs{display:grid;grid-template-columns:repeat(3,1fr);
  <div class="alpha" id="alphabetGrid"></div>
  <div class="focus">
   <div class="focusglyph"><span id="selectedUpper">А</span><small id="selectedLower">а</small></div>
-  <div class="focuscopy"><b id="selectedName">字母名称：а</b><small id="selectedHint">点击右侧按钮重听</small></div>
+  <div class="focuscopy">
+  <div class="focusread"><b id="selectedName">字母名称：а</b><span class="latin" id="selectedLatin" aria-label="拉丁读音提示">A</span></div>
+  <div class="focushand"><span>手写示例</span><strong class="handwriting" id="selectedHandwriting" lang="ru">Аа</strong></div>
+  <small id="selectedHint">点击右侧按钮重听</small>
+ </div>
   <button id="replayLetter" class="roundplay" aria-label="重听字母">🔊</button>
  </div>
- <p class="note">注：Ъ、Ь 不单独发音。点击字母可听名称。</p>
+ <p class="note">Ъ / Ь 不单独发音 · 拉丁拼写为近似读音提示</p>
  <p id="alphabetStatus" class="status" role="status" aria-live="polite"></p>
  <button class="cta" id="goWords">下一步：学习单词 →</button>
 </section>
@@ -78,7 +138,7 @@ main{padding:14px 14px 0}.tabs{display:grid;grid-template-columns:repeat(3,1fr);
  </div>
  <div class="bottomactions"><button class="secondary" id="backWords">← 单词</button></div>
 </section>
-<p class="foot">俄语学习中心 · Русский язык</p>
+
 </main>
 </div>
 <script>
@@ -89,6 +149,14 @@ const $=id=>document.getElementById(id);
 const KEY="russian-lesson1-panda-style-v1";
 const COURSE_KEY="russian-course-progress-v1";
 const SIGNS=new Set(["Ъ","Ь"]);
+const LATIN_NAMES={
+"А":"A","Б":"Be","В":"Ve","Г":"Ge","Д":"De","Е":"Ye","Ё":"Yo",
+"Ж":"Zhe","З":"Ze","И":"I","Й":"I kratkoye","К":"Ka","Л":"El","М":"Em",
+"Н":"En","О":"O","П":"Pe","Р":"Er","С":"Es","Т":"Te","У":"U","Ф":"Ef",
+"Х":"Kha","Ц":"Tse","Ч":"Che","Ш":"Sha","Щ":"Shcha","Ъ":"Tvyordyy znak",
+"Ы":"Y [ɨ]","Ь":"Myagkiy znak","Э":"E","Ю":"Yu","Я":"Ya"
+};
+const AUDIO_RELEASE="20261111-ch-pronunciation-3";
 let saved={heard:[],quizPassed:false,lastScore:0,selected:0};
 try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x&&typeof x==="object"){saved.heard=Array.isArray(x.heard)?[...new Set(x.heard.filter(c=>DATA.some(d=>d.l===c)))]:[];saved.quizPassed=!!x.quizPassed;saved.lastScore=Number(x.lastScore)||0;saved.selected=Math.max(0,Math.min(32,Number(x.selected)||0));}}catch(e){}
 let selected=saved.selected,group=0,nowPlaying=null;
@@ -97,9 +165,9 @@ function persist(){saved.selected=selected;try{localStorage.setItem(KEY,JSON.str
 function updateHeard(){$("heardCount").textContent=saved.heard.length+" / 33";document.querySelectorAll("#alphabetGrid button").forEach(b=>b.classList.toggle("played",saved.heard.includes(b.dataset.letter)));if(saved.heard.length===33&&saved.quizPassed)markCourseComplete();}
 function markCourseComplete(){try{const course=JSON.parse(localStorage.getItem(COURSE_KEY)||"{}");if(!course["1"]||Number(course["1"].score)<33){course["1"]={score:33,total:33,date:new Date().toISOString()};localStorage.setItem(COURSE_KEY,JSON.stringify(course));}}catch(e){}}
 function stopAudio(){if(nowPlaying){try{nowPlaying.pause();nowPlaying.currentTime=0;}catch(e){}nowPlaying=null;}}
-function play(path,opts={}){stopAudio();const audio=new Audio(path);nowPlaying=audio;audio.playbackRate=opts.speed||1;if("preservesPitch" in audio)audio.preservesPitch=true;audio.addEventListener("ended",()=>{if(nowPlaying===audio)nowPlaying=null;},{once:true});const status=opts.status?$(opts.status):null;if(status)status.textContent="🔊 "+(opts.label||"正在播放");audio.play().then(()=>{if(opts.heard){if(!saved.heard.includes(opts.heard)){saved.heard.push(opts.heard);persist();}}}).catch(()=>{if(status)status.textContent="音频播放失败，请检查网络连接。";});}
+function play(path,opts={}){stopAudio();const source=path+(path.includes("?")?"&":"?")+"audio="+encodeURIComponent(AUDIO_RELEASE);const audio=new Audio(source);nowPlaying=audio;audio.playbackRate=opts.speed||1;if("preservesPitch" in audio)audio.preservesPitch=true;audio.addEventListener("ended",()=>{if(nowPlaying===audio)nowPlaying=null;},{once:true});const status=opts.status?$(opts.status):null;if(status)status.textContent="🔊 "+(opts.label||"正在播放");audio.play().then(()=>{if(opts.heard){if(!saved.heard.includes(opts.heard)){saved.heard.push(opts.heard);persist();}}}).catch(()=>{if(status)status.textContent="音频播放失败，请检查网络连接。";});}
 function show(view){stopAudio();document.querySelectorAll(".view").forEach(n=>n.classList.toggle("show",n.id===view));document.querySelectorAll(".tab").forEach(n=>{const active=n.dataset.view===view;n.classList.toggle("active",active);n.setAttribute("aria-current",active?"step":"false");});if(view==="words")renderWords();if(view==="quiz"&&!test.length)resetTest();window.scrollTo({top:0,behavior:"smooth"});}
-function selectLetter(i,playIt=true){selected=Math.max(0,Math.min(32,i));const d=DATA[selected];$("selectedUpper").textContent=d.l;$("selectedLower").textContent=d.lo;$("selectedName").textContent="字母名称："+d.name;$("selectedHint").textContent=SIGNS.has(d.l)?"不单独发音":"点击重听字母名称";document.querySelectorAll("#alphabetGrid button").forEach(b=>b.classList.toggle("selected",b.dataset.letter===d.l));persist();if(playIt)play(d.letterAudio,{heard:d.l,status:"alphabetStatus",label:d.name});}
+function selectLetter(i,playIt=true){selected=Math.max(0,Math.min(32,i));const d=DATA[selected];$("selectedUpper").textContent=d.l;$("selectedLower").textContent=d.lo;$("selectedName").textContent="字母名称："+d.name;$("selectedLatin").textContent=LATIN_NAMES[d.l];$("selectedHandwriting").textContent=d.l+d.lo;$("selectedHint").textContent=SIGNS.has(d.l)?"不单独发音":"点击重听字母名称";document.querySelectorAll("#alphabetGrid button").forEach(b=>b.classList.toggle("selected",b.dataset.letter===d.l));persist();if(playIt)play(d.letterAudio,{heard:d.l,status:"alphabetStatus",label:d.name});}
 function setup(){const g=$("alphabetGrid"),sel=$("letterSelect");DATA.forEach((d,i)=>{const b=document.createElement("button");b.dataset.letter=d.l;b.setAttribute("aria-label","播放字母 "+d.l);if(SIGNS.has(d.l))b.classList.add("special");const strong=document.createElement("strong");strong.textContent=d.l;const small=document.createElement("small");small.textContent=d.lo;b.append(strong,small);b.addEventListener("click",()=>selectLetter(i));g.append(b);const o=document.createElement("option");o.value=String(i);o.textContent=d.l+" "+d.lo;sel.append(o);});updateHeard();selectLetter(selected,false);}
 function renderWords(){const d=DATA[group];$("letterSelect").value=String(group);$("wordCount").textContent=(group+1)+" / 33";$("previousGroup").disabled=group===0;$("nextGroup").disabled=group===32;const all=[{word:d.word,zh:d.zh,audio:d.wordAudio},...EXTRAS[group]];const c=$("wordCards");c.replaceChildren();all.forEach(x=>{const b=document.createElement("button");b.className="wordcard";b.setAttribute("aria-label","听单词 "+x.word);const w=document.createElement("b");w.textContent=x.word;const z=document.createElement("small");z.textContent=x.zh;const sound=document.createElement("span");sound.textContent="🔊 听发音";b.append(w,z,sound);b.addEventListener("click",()=>play(x.audio,{status:"wordsStatus",label:x.word}));c.append(b);});$("wordsStatus").textContent="点击单词即可听录音。";}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
